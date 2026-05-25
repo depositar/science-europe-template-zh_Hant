@@ -19,10 +19,10 @@ tree, generated output, and GitHub Actions workflow needed to consume
 
 ## CI Behavior
 
-The workflow is intentionally not triggered by every branch push. It runs on:
+The workflow is intentionally not triggered by every branch push or manual
+dispatch. It runs only on:
 
 - pull requests targeting `master`
-- manual `workflow_dispatch`
 - the daily scheduled check
 
 This keeps feature branches quiet while still letting PRs and scheduled checks
