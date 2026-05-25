@@ -21,7 +21,7 @@ tree, generated output, and GitHub Actions workflow needed to consume
 
 The workflow is intentionally not triggered by every branch push. It runs on:
 
-- pull requests targeting `main`
+- pull requests targeting `master`
 - manual `workflow_dispatch`
 - the daily scheduled check
 
