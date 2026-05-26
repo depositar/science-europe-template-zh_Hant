@@ -198,9 +198,9 @@
       {# Databases #}
       {# __tr_block_0018:start #}<p>
       {%- if storageConvRelDbAUuid == uuids.storageConvRelDbNoAUuid -%}
-        我們不會使用資料庫系統來儲存項目資料。
+        我們不會使用資料庫系統來儲存專案資料。
       {%- elif storageConvRelDbAUuid == uuids.storageConvRelDbYesAUuid -%}
-        我們將使用資料庫系統來儲存項目資料。
+        我們將使用資料庫系統來儲存專案資料。
         {%- set scRelDbHandleChangesPath = [storageConvRelDbPath, uuids.storageConvRelDbYesAUuid, uuids.scRelDbHandleChangesQUuid]|reply_path -%}
         {%- set scRelDbHandleChangesAUuid = repliesMap[scRelDbHandleChangesPath]|reply_str_value -%}
         {%- if scRelDbHandleChangesAUuid == uuids.scRelDbReadOnlyAnswerUuid %}

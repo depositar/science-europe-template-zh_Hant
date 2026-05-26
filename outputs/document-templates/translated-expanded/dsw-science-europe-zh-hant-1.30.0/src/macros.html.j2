@@ -15,7 +15,7 @@
       {%- if orcid and orcid|length >= 15 -%}
         <span class="contact-orcid">{# __tr_block_0001:start #}ORCID：{{ orcid }}{# __tr_block_0001:end #}</span>
       {%- else -%}
-        <span class="contact-orcid">{# __tr_block_0002:start #}ORCID：未找到{# __tr_block_0002:end #}</span>
+        <span class="contact-orcid">{# __tr_block_0002:start #}ORCID：找不到{# __tr_block_0002:end #}</span>
       {%- endif -%}
     {%- endif -%}
   {%- elif reply and reply.value.value.type == "PlainType" -%}

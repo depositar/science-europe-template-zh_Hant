@@ -3,7 +3,7 @@
 <div id="dmp-projects">
   {# __tr_block_0000:start #}<h2>專案</h2>{# __tr_block_0000:end #}
 
-  {# __tr_block_0001:start #}<p>我們將致力於以下項目，這些項目的資料和工作在本資料管理方案中描述。</p>{# __tr_block_0001:end #}
+  {# __tr_block_0001:start #}<p>我們將致力於以下專案；這些專案的資料與工作將在本資料管理方案中描述。</p>{# __tr_block_0001:end #}
 
   {% for projectsItem in projectsItems %}
     <div class="project">
@@ -62,6 +62,6 @@
     {%- endif -%}
     </div>
   {% else %}
-    <div style="font-style:italic;">{# __tr_block_0011:start #}沒有針對此資料管理方案所描述的項目。{# __tr_block_0011:end #}</div>
+    <div style="font-style:italic;">{# __tr_block_0011:start #}此資料管理方案沒有描述任何專案。{# __tr_block_0011:end #}</div>
   {% endfor %}
 </div>

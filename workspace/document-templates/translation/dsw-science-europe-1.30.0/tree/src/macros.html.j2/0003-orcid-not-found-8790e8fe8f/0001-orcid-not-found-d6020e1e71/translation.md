@@ -17,5 +17,5 @@ ORCID: Not found
 ### Translation (zh_Hant)
 
 ~~~jinja
-ORCID：未找到
+ORCID：找不到
 ~~~

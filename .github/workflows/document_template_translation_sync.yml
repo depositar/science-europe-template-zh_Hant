@@ -205,8 +205,18 @@ jobs:
               "可重複性": "可重現性",
               "信息": "資訊",
               "主要研究者": "計畫主持人",
+              "資料公平": "資料符合 FAIR 原則",
+              "項目資料": "專案資料",
+              "以下項目": "以下專案",
+              "該項目": "該專案",
+              "這些項目": "這些專案",
+              "所描述的項目": "所描述的專案",
+              "創建者": "創作者",
+              "未找到": "找不到",
+              "購買": "取得",
           }
           forbidden_english = [
+              "content: 'Data Management Plan'",
               "This dataset will be collected by an external party",
               "The ownership of the resulting data",
               "The project partners acquire full ownership",
@@ -215,7 +225,12 @@ jobs:
           ]
 
           issues: list[str] = []
-          for path in sorted((translated_root / "src").rglob("*.j2")):
+          generated_source_files = [
+              path
+              for path in (translated_root / "src").rglob("*")
+              if path.suffix in {".css", ".j2"}
+          ]
+          for path in sorted(generated_source_files):
               text = path.read_text(encoding="utf-8")
               relative = path.relative_to(translated_root).as_posix()
               for bad, expected in forbidden_terms.items():
@@ -256,6 +271,38 @@ jobs:
             --output "$HOST_ROOT/$PROJECT_RENDER_OUTPUT" \
             --tdk-executable "$TOOL_ROOT/.venv/bin/dsw-tdk"
 
+      - name: Annotate sample render metadata
+        if: ${{ env.PROJECT_REF != '' }}
+        working-directory: template-repo
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import json
+          import os
+
+          root = Path.cwd()
+          template_dir = root / os.environ["TRANSLATED_TEMPLATE_DIR"]
+          metadata_path = root / f"{os.environ['PROJECT_RENDER_OUTPUT']}.json"
+
+          digest = hashlib.sha256()
+          for path in sorted(p for p in template_dir.rglob("*") if p.is_file()):
+              relative = path.relative_to(template_dir).as_posix()
+              digest.update(relative.encode("utf-8"))
+              digest.update(b"\0")
+              digest.update(path.read_bytes())
+              digest.update(b"\0")
+
+          metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+          metadata["output"] = os.environ["PROJECT_RENDER_OUTPUT"]
+          metadata["translated_template_sha256"] = digest.hexdigest()
+          metadata_path.write_text(
+              json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
       - name: Collect local DSW logs
         if: ${{ always() && env.PROJECT_REF != '' }}
         working-directory: tooling-repo
@@ -293,15 +340,28 @@ jobs:
 
             EXPECTED_SOURCE_TEMPLATE_ID="${TRANSLATED_TEMPLATE_ORGANIZATION_ID}:${TRANSLATED_TEMPLATE_ID}:${TRANSLATED_TEMPLATE_VERSION}" \
             EXPECTED_STAGED_TEMPLATE_ID="${TRANSLATED_TEMPLATE_ORGANIZATION_ID}:${TRANSLATED_TEMPLATE_ID}-project-render:${TRANSLATED_TEMPLATE_VERSION}" \
+            TRANSLATED_TEMPLATE_DIR="$TRANSLATED_TEMPLATE_DIR" \
             PROJECT_RENDER_OUTPUT="$PROJECT_RENDER_OUTPUT" python3 - <<'PY'
           import json
+          import hashlib
           import os
+          from pathlib import Path
           import subprocess
           import sys
 
           render_output = os.environ["PROJECT_RENDER_OUTPUT"]
+          template_dir = Path(os.environ["TRANSLATED_TEMPLATE_DIR"])
           expected_source = os.environ["EXPECTED_SOURCE_TEMPLATE_ID"]
           expected_staged = os.environ["EXPECTED_STAGED_TEMPLATE_ID"]
+
+          digest = hashlib.sha256()
+          for path in sorted(p for p in template_dir.rglob("*") if p.is_file()):
+              relative = path.relative_to(template_dir).as_posix()
+              digest.update(relative.encode("utf-8"))
+              digest.update(b"\0")
+              digest.update(path.read_bytes())
+              digest.update(b"\0")
+          expected_template_hash = digest.hexdigest()
 
           result = subprocess.run(
               ["git", "show", f"HEAD:{render_output}.json"],
@@ -321,6 +381,8 @@ jobs:
           if metadata.get("source_template_id") != expected_source:
               sys.exit(1)
           if metadata.get("staged_template_id") != expected_staged:
+              sys.exit(1)
+          if metadata.get("translated_template_sha256") != expected_template_hash:
               sys.exit(1)
 
           pdf_exists = subprocess.run(

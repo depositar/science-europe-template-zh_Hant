@@ -17,5 +17,5 @@ Following resources will be dedicated to data management and ensuring that data 
 ### Translation (zh_Hant)
 
 ~~~jinja
-以下資源將專門用於資料管理並確保資料公平：
+以下資源將專門用於資料管理，並確保資料符合 FAIR 原則：
 ~~~

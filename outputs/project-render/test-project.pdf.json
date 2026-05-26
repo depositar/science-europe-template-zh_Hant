@@ -1,11 +1,12 @@
 {
   "api_url": "http://localhost:3000/wizard-api",
-  "project_uuid": "500d95ca-465c-4bb0-8bb3-dbee706c6bff",
+  "project_uuid": "e1556b43-71ab-4bda-b3ab-ed062071cb17",
   "project_created_by_tool": true,
   "source_template_id": "dsw:science-europe-zh-hant:1.30.0",
   "staged_template_id": "dsw:science-europe-zh-hant-project-render:1.30.0",
-  "draft_uuid": "18ee7a85-cb83-426d-b8a9-47b0f1b5ac0f",
+  "draft_uuid": "06bc0299-6882-4e14-a093-3284eef2ca47",
   "format_uuid": "68c26e34-5e77-4e15-9bf7-06ff92582257",
-  "output": "/home/runner/work/DSW-document-template-translation/DSW-document-template-translation/template-repo/outputs/project-render/test-project.pdf",
-  "bytes": 211145
+  "output": "outputs/project-render/test-project.pdf",
+  "bytes": 210957,
+  "translated_template_sha256": "cd2b0a3cbf373402c314e8a60fa9dbeea06ebf121da223617299da528e5c8c29"
 }

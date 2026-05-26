@@ -17,5 +17,5 @@ We will be working on the following projects and for those are the data and work
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將致力於以下項目，這些項目的資料和工作在本資料管理方案中描述。
+我們將致力於以下專案；這些專案的資料與工作將在本資料管理方案中描述。
 ~~~

@@ -17,5 +17,5 @@ There are no projects described for this DMP.
 ### Translation (zh_Hant)
 
 ~~~jinja
-沒有針對此資料管理方案所描述的項目。
+此資料管理方案沒有描述任何專案。
 ~~~

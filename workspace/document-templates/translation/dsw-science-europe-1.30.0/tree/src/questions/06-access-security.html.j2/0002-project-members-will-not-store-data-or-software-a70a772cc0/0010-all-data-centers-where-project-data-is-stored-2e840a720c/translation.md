@@ -17,5 +17,5 @@ All data centers where project data is stored hold appropriate certifications.
 ### Translation (zh_Hant)
 
 ~~~jinja
-儲存項目資料的所有資料中心都持有適當的認證。
+儲存專案資料的所有資料中心都持有適當的認證。
 ~~~

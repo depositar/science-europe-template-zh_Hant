@@ -17,5 +17,5 @@
 ### Translation (zh_Hant)
 
 ~~~jinja
-{swDisplayName}，可在{swPIDReply}購買。
+{swDisplayName} 可透過 {swPIDReply} 取得。
 ~~~

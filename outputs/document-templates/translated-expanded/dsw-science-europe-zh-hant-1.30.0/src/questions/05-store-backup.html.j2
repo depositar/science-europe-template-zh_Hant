@@ -44,11 +44,11 @@
             所有重要資料也儲存在其他地方，以防止資料完全遺失。
           {%- endif -%}
           {%- if sharedReliableBackupAUuid == uuids.sharedReliableBackupCopyLeftAUuid %}
-            不在工作空間中的項目資料的備份由專案參與者負責。
+            不在工作空間中的專案資料，其備份由專案參與者負責。
           {%- elif sharedReliableBackupAUuid == uuids.sharedReliableBackupCopyNoDataAUuid %}
             資料僅儲存在工作空間中，因此需要在工作空間之外對檔案進行額外的備份副本。
           {%- elif sharedReliableBackupAUuid == uuids.sharedReliableBackupCopyAllSomewhereAUuid %}
-            儲存在工作區域之外的所有項目資料都將充分備份。
+            儲存在工作區域之外的所有專案資料都將充分備份。
           {%- elif sharedReliableBackupAUuid == uuids.sharedReliableBackupCopyBackupsAUuid %}
             我們將對工作區域之外儲存的所有資料進行（自動）備份。
           {%- endif -%}{# __tr_block_0008:end #}

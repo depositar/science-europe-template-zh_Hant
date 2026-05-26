@@ -17,5 +17,5 @@ All project data stored outside of the working area will be adequately backed up
 ### Translation (zh_Hant)
 
 ~~~jinja
-儲存在工作區域之外的所有項目資料都將充分備份。
+儲存在工作區域之外的所有專案資料都將充分備份。
 ~~~

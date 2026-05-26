@@ -42,7 +42,7 @@
     {%- set projectPath = [uuids.adminDetailsCUuid, uuids.projectsQUuid]|reply_path -%}
     {%- set projectItems = repliesMap[projectPath]|reply_items -%}
     {%- if projectItems|length > 0 -%}
-    {# __tr_block_0011:start #}<p>以下資源將專門用於資料管理並確保資料公平：</p>{# __tr_block_0011:end #}
+    {# __tr_block_0011:start #}<p>以下資源將專門用於資料管理，並確保資料符合 FAIR 原則：</p>{# __tr_block_0011:end #}
     <ul>
         {%- for i in projectItems -%}
             {%- set projectItem = [projectPath, i]|reply_path -%}
