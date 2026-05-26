@@ -8,7 +8,13 @@ on:
     - cron: "0 20 * * *"
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: >-
+    document-template-translation-sync-${{ github.event_name == 'pull_request' &&
+    github.event.pull_request.head.ref || 'master' }}
+  cancel-in-progress: false
 
 env:
   # Pin this to a released branch/tag in production.
@@ -19,21 +25,36 @@ env:
   COMPACT_TEMPLATE_DIR: workspace/document-templates/compact/dsw-science-europe-1.30.0
   EXPANDED_TEMPLATE_DIR: workspace/document-templates/expanded/dsw-science-europe-1.30.0
   TRANSLATION_TREE_DIR: workspace/document-templates/translation/dsw-science-europe-1.30.0
-  TRANSLATED_TEMPLATE_DIR: outputs/document-templates/translated-expanded/dsw-science-europe-1.30.0
-  TRANSLATED_TEMPLATE_PACKAGE: outputs/document-templates/translated-expanded/dsw-science-europe-1.30.0.zip
+  TRANSLATED_TEMPLATE_ORGANIZATION_ID: dsw
+  TRANSLATED_TEMPLATE_ID: science-europe-zh-hant
+  TRANSLATED_TEMPLATE_VERSION: 1.30.0
+  TRANSLATED_TEMPLATE_NAME: Science Europe DMP Template (zh-Hant)
+  TRANSLATED_TEMPLATE_DIR: outputs/document-templates/translated-expanded/dsw-science-europe-zh-hant-1.30.0
+  TRANSLATED_TEMPLATE_PACKAGE: outputs/document-templates/translated-expanded/dsw-science-europe-zh-hant-1.30.0.zip
   PROJECT_REF: workspace/projects/test-project.json
   PROJECT_RENDER_OUTPUT: outputs/project-render/test-project.pdf
   PROJECT_RENDER_FORMAT_UUID: 68c26e34-5e77-4e15-9bf7-06ff92582257
 
 jobs:
   translation-sync:
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name == 'schedule' ||
+      github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout template repository
         uses: actions/checkout@v4
         with:
+          repository: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.ref || 'master' }}
           path: template-repo
+          fetch-depth: 0
 
       - name: Checkout DSW document-template tooling
         uses: actions/checkout@v4
@@ -68,6 +89,32 @@ jobs:
             --source "$HOST_ROOT/$EXPANDED_TEMPLATE_DIR" \
             --output "$HOST_ROOT/$TRANSLATION_TREE_DIR"
 
+      - name: Auto-commit repaired translation inputs
+        working-directory: template-repo
+        env:
+          TARGET_REF: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.ref || 'master' }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --short -- "$EXPANDED_TEMPLATE_DIR" "$TRANSLATION_TREE_DIR")" ]; then
+            echo "No generated translation input repairs to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$EXPANDED_TEMPLATE_DIR" "$TRANSLATION_TREE_DIR"
+          git commit -m "chore(sync): refresh document template translations"
+          git push origin "HEAD:$TARGET_REF"
+
+          {
+            echo "## Auto-committed translation repairs"
+            echo
+            echo "The workflow refreshed generated template/translation inputs and pushed"
+            echo "the repair commit back to \`$TARGET_REF\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Check generated translation inputs are committed
         working-directory: template-repo
         run: |
@@ -93,7 +140,11 @@ jobs:
           if ! "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/translation_tree.py" sync \
             --tree "$HOST_ROOT/$TRANSLATION_TREE_DIR" \
             --source "$HOST_ROOT/$EXPANDED_TEMPLATE_DIR" \
-            --output "$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR" 2>&1 | tee "$SYNC_LOG"; then
+            --output "$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR" \
+            --template-organization-id "$TRANSLATED_TEMPLATE_ORGANIZATION_ID" \
+            --template-id "$TRANSLATED_TEMPLATE_ID" \
+            --template-name "$TRANSLATED_TEMPLATE_NAME" \
+            --template-version "$TRANSLATED_TEMPLATE_VERSION" 2>&1 | tee "$SYNC_LOG"; then
             {
               echo "## Translation sync failed"
               echo
@@ -155,13 +206,55 @@ jobs:
         working-directory: tooling-repo
         run: make stop-ci-dsw
 
-      # `dsw-tdk package` generates UUID/timestamp metadata inside the zip, so
-      # do not use `git diff` on the zip unless your repo normalizes packages.
-      # If your repo commits the translated-expanded directory, uncomment this:
-      #
-      # - name: Check translated output directory is committed
-      #   working-directory: template-repo
-      #   run: git diff --exit-code -- "$TRANSLATED_TEMPLATE_DIR"
+      - name: Auto-commit generated outputs
+        working-directory: template-repo
+        env:
+          TARGET_REF: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.ref || 'master' }}
+        run: |
+          set -euo pipefail
+          content_paths=("$TRANSLATED_TEMPLATE_DIR")
+          output_paths=("$TRANSLATED_TEMPLATE_DIR" "$TRANSLATED_TEMPLATE_PACKAGE")
+          if [ -n "$PROJECT_RENDER_OUTPUT" ]; then
+            output_paths+=("$PROJECT_RENDER_OUTPUT")
+          fi
+
+          # `dsw-tdk package` embeds UUID/timestamp metadata in the zip. Avoid
+          # committing zip/PDF-only churn when the translated template directory
+          # did not actually change.
+          restore_generated_path() {
+            if git ls-files --error-unmatch "$1" >/dev/null 2>&1; then
+              git checkout -- "$1"
+            else
+              rm -rf "$1"
+            fi
+          }
+
+          if [ -z "$(git status --short -- "${content_paths[@]}")" ]; then
+            if [ -n "$(git status --short -- "$TRANSLATED_TEMPLATE_PACKAGE")" ]; then
+              restore_generated_path "$TRANSLATED_TEMPLATE_PACKAGE"
+            fi
+            if [ -n "$PROJECT_RENDER_OUTPUT" ] &&
+              [ -n "$(git status --short -- "$PROJECT_RENDER_OUTPUT")" ]; then
+              restore_generated_path "$PROJECT_RENDER_OUTPUT"
+            fi
+            echo "No generated output changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${output_paths[@]}"
+          git commit -m "chore(sync): refresh generated document outputs"
+          git push origin "HEAD:$TARGET_REF"
+
+          {
+            echo "## Auto-committed generated outputs"
+            echo
+            echo "The workflow refreshed the translated document template and demo"
+            echo "project render, then pushed the output commit back to \`$TARGET_REF\`."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload translated template package
         uses: actions/upload-artifact@v4
@@ -173,3 +266,13 @@ jobs:
             template-repo/${{ env.PROJECT_RENDER_OUTPUT }}
             template-repo/${{ env.PROJECT_RENDER_OUTPUT }}.json
             tooling-repo/outputs/ci-dsw/
+
+  skip-fork-pr:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Explain fork PR skip policy
+        run: echo "Skipping auto-sync commit for fork pull requests."
