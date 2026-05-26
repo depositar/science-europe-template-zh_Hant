@@ -17,5 +17,16 @@ Science Europe. Data Management Plan. {version.name}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+<h1>
+<strong>Science Europe</strong>
+<br/>
+<strong>資料管理計畫</strong>
+<br/>
+<br/>
+{% if dc.project.version %}
+{% for version in dc.project.versions if version.uuid == dc.project.version.uuid %}
+{version.name}
+<br/>
+{% endfor %}
+{% endif %}
 ~~~

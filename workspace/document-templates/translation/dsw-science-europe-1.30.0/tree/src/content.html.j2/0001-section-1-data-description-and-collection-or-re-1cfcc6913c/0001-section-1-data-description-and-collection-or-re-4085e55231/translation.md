@@ -17,5 +17,5 @@ Section 1: Data description and collection or re-use of existing data
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+第 1 節：資料描述，以及既有資料的收集或再利用
 ~~~

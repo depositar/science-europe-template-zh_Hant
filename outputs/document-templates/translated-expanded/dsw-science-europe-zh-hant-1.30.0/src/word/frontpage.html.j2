@@ -1,12 +1,12 @@
 {# __tr_block_0000:start #}<h1>
 <strong>Science Europe</strong>
 <br/>
-<strong>Data Management Plan</strong>
+<strong>資料管理計畫</strong>
 <br/>
 <br/>
 {% if dc.project.version %}
 {% for version in dc.project.versions if version.uuid == dc.project.version.uuid %}
-{{version.name}}
+{{ version.name }}
 <br/>
 {% endfor %}
 {% endif %}{# __tr_block_0000:end #}

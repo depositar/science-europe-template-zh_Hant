@@ -1,30 +1,30 @@
 ### DSW Document Template Translation
 
-- [ ] [file] src/content.html.j2 (0/6)
+- [ ] [file] src/content.html.j2 (3/6)
 
   [J2] `src/content.html.j2`
 
-    - [ ] [wrapper] 0001-section-1-data-description-and-collection-or-re-1cfcc6913c (0/1)
+    - [x] [wrapper] 0001-section-1-data-description-and-collection-or-re-1cfcc6913c (1/1)
 
       [W] `0001-section-1-data-description-and-collection-or-re-1cfcc6913c`
 
-        - [ ] [unit] 0001-section-1-data-description-and-collection-or-re-4085e55231: Section 1: Data description and collection or re-use of existing data
+        - [x] [unit] 0001-section-1-data-description-and-collection-or-re-4085e55231: Section 1: Data description and collection or re-use of existing data
 
           [T] [translation](<tree/src/content.html.j2/0001-section-1-data-description-and-collection-or-re-1cfcc6913c/0001-section-1-data-description-and-collection-or-re-4085e55231/translation.md>)
 
-    - [ ] [wrapper] 0002-section-2-documentation-and-data-quality-74520a42cd (0/1)
+    - [x] [wrapper] 0002-section-2-documentation-and-data-quality-74520a42cd (1/1)
 
       [W] `0002-section-2-documentation-and-data-quality-74520a42cd`
 
-        - [ ] [unit] 0001-section-2-documentation-and-data-quality-a63b23603c: Section 2: Documentation and data quality
+        - [x] [unit] 0001-section-2-documentation-and-data-quality-a63b23603c: Section 2: Documentation and data quality
 
           [T] [translation](<tree/src/content.html.j2/0002-section-2-documentation-and-data-quality-74520a42cd/0001-section-2-documentation-and-data-quality-a63b23603c/translation.md>)
 
-    - [ ] [wrapper] 0003-section-3-storage-and-backup-during-research-process-46c5abc433 (0/1)
+    - [x] [wrapper] 0003-section-3-storage-and-backup-during-research-process-46c5abc433 (1/1)
 
       [W] `0003-section-3-storage-and-backup-during-research-process-46c5abc433`
 
-        - [ ] [unit] 0001-section-3-storage-and-backup-during-research-process-27eaae6fbd: Section 3: Storage and backup during research process
+        - [x] [unit] 0001-section-3-storage-and-backup-during-research-process-27eaae6fbd: Section 3: Storage and backup during research process
 
           [T] [translation](<tree/src/content.html.j2/0003-section-3-storage-and-backup-during-research-process-46c5abc433/0001-section-3-storage-and-backup-during-research-process-27eaae6fbd/translation.md>)
 
@@ -364,15 +364,15 @@
 
           [T] [translation](<tree/src/projects.html.j2/0012-there-are-no-projects-described-for-this-dmp-60c01c963f/0001-there-are-no-projects-described-for-this-dmp-7282aecc5c/translation.md>)
 
-- [ ] [file] src/questions/01-how-data.html.j2 (0/108)
+- [ ] [file] src/questions/01-how-data.html.j2 (1/108)
 
   [J2] `src/questions/01-how-data.html.j2`
 
-    - [ ] [wrapper] 0001-1-how-will-new-data-be-collected-or-a83817b401 (0/1)
+    - [x] [wrapper] 0001-1-how-will-new-data-be-collected-or-a83817b401 (1/1)
 
       [W] `0001-1-how-will-new-data-be-collected-or-a83817b401`
 
-        - [ ] [unit] 0001-1-how-will-new-data-be-collected-or-6647cf9c92: 1. How will new data be collected or produced and/or how will existing data be re-used?
+        - [x] [unit] 0001-1-how-will-new-data-be-collected-or-6647cf9c92: 1. How will new data be collected or produced and/or how will existing data be re-used?
 
           [T] [translation](<tree/src/questions/01-how-data.html.j2/0001-1-how-will-new-data-be-collected-or-a83817b401/0001-1-how-will-new-data-be-collected-or-6647cf9c92/translation.md>)
 
@@ -920,15 +920,15 @@
 
           [T] [translation](<tree/src/questions/01-how-data.html.j2/0030-we-will-use-other-solution-than-electronic-lab-40df8f155d/0001-we-will-use-other-solution-than-electronic-lab-904e47f57f/translation.md>)
 
-- [ ] [file] src/questions/02-what-data.html.j2 (0/33)
+- [ ] [file] src/questions/02-what-data.html.j2 (1/33)
 
   [J2] `src/questions/02-what-data.html.j2`
 
-    - [ ] [wrapper] 0001-2-what-data-kind-format-volume-will-be-878d6604d1 (0/1)
+    - [x] [wrapper] 0001-2-what-data-kind-format-volume-will-be-878d6604d1 (1/1)
 
       [W] `0001-2-what-data-kind-format-volume-will-be-878d6604d1`
 
-        - [ ] [unit] 0001-2-what-data-kind-format-volume-will-be-58db203215: 2. What data (kind, format, volume) will be collected or produced?
+        - [x] [unit] 0001-2-what-data-kind-format-volume-will-be-58db203215: 2. What data (kind, format, volume) will be collected or produced?
 
           [T] [translation](<tree/src/questions/02-what-data.html.j2/0001-2-what-data-kind-format-volume-will-be-878d6604d1/0001-2-what-data-kind-format-volume-will-be-58db203215/translation.md>)
 
@@ -1368,15 +1368,15 @@
 
           [T] [translation](<tree/src/questions/03-docs-metadata.html.j2/0019-we-will-not-use-a-database-system-to-46dded79c8/0005-modifications-will-be-made-by-expiring-the-existing-5c14972bff/translation.md>)
 
-- [ ] [file] src/questions/04-quality-control.html.j2 (0/22)
+- [ ] [file] src/questions/04-quality-control.html.j2 (1/22)
 
   [J2] `src/questions/04-quality-control.html.j2`
 
-    - [ ] [wrapper] 0001-4-what-data-quality-control-measures-will-be-3e24a19be7 (0/1)
+    - [x] [wrapper] 0001-4-what-data-quality-control-measures-will-be-3e24a19be7 (1/1)
 
       [W] `0001-4-what-data-quality-control-measures-will-be-3e24a19be7`
 
-        - [ ] [unit] 0001-4-what-data-quality-control-measures-will-be-efde1c7273: 4. What data quality control measures will be used?
+        - [x] [unit] 0001-4-what-data-quality-control-measures-will-be-efde1c7273: 4. What data quality control measures will be used?
 
           [T] [translation](<tree/src/questions/04-quality-control.html.j2/0001-4-what-data-quality-control-measures-will-be-3e24a19be7/0001-4-what-data-quality-control-measures-will-be-efde1c7273/translation.md>)
 
@@ -3544,15 +3544,15 @@
 
           [T] [translation](<tree/src/versions.html.j2/0005-there-are-no-named-versions-25088e2d0c/0001-there-are-no-named-versions-c540c037c2/translation.md>)
 
-- [ ] [file] src/word/frontpage.html.j2 (0/2)
+- [ ] [file] src/word/frontpage.html.j2 (1/2)
 
   [J2] `src/word/frontpage.html.j2`
 
-    - [ ] [wrapper] 0001-science-europe-data-management-plan-3bdd505e7c (0/1)
+    - [x] [wrapper] 0001-science-europe-data-management-plan-3bdd505e7c (1/1)
 
       [W] `0001-science-europe-data-management-plan-3bdd505e7c`
 
-        - [ ] [unit] 0001-science-europe-data-management-plan-d12bd215ea: Science Europe. Data Management Plan. {version.name}.
+        - [x] [unit] 0001-science-europe-data-management-plan-d12bd215ea: Science Europe. Data Management Plan. {version.name}.
 
           [T] [translation](<tree/src/word/frontpage.html.j2/0001-science-europe-data-management-plan-3bdd505e7c/0001-science-europe-data-management-plan-d12bd215ea/translation.md>)
 
