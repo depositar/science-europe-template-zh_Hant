@@ -3,7 +3,7 @@
   "organizationId": "dsw",
   "version": "1.30.0",
   "name": "Science Europe DMP Template (zh-Hant)",
-  "description": "Default DCC DMP Template recommended by Science Europe",
+  "description": "Science Europe 建議使用的預設資料管理方案模板",
   "license": "Apache-2.0",
   "metamodelVersion": "18.0",
   "allowedPackages": [

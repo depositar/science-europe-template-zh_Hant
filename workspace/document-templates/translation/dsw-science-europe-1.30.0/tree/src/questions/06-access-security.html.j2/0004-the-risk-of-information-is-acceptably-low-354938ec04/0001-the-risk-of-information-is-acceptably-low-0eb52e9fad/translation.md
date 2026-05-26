@@ -17,5 +17,5 @@ The risk of information {risks} is acceptably low
 ### Translation (zh_Hant)
 
 ~~~jinja
-資訊 {risks} 的風險低到可接受
+資訊{risks}的風險低到可接受
 ~~~

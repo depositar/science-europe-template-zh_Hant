@@ -216,7 +216,14 @@ jobs:
               "購買": "取得",
           }
           forbidden_english = [
+              "<html lang=\"en\">",
+              "(no name given)",
+              "alt=\"Logo\"",
+              "Default DCC DMP Template recommended by Science Europe",
               "content: 'Data Management Plan'",
+              "'loss':",
+              "'leak':",
+              "'vandalism':",
               "This dataset will be collected by an external party",
               "The ownership of the resulting data",
               "The project partners acquire full ownership",
@@ -230,6 +237,7 @@ jobs:
               for path in (translated_root / "src").rglob("*")
               if path.suffix in {".css", ".j2"}
           ]
+          generated_source_files.append(translated_root / "template.json")
           for path in sorted(generated_source_files):
               text = path.read_text(encoding="utf-8")
               relative = path.relative_to(translated_root).as_posix()
