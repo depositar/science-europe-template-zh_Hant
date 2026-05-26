@@ -63,7 +63,7 @@
           {% if project.authorities|length > 0 %}
           <ul>
             {% for authority in project.authorities %}
-              <li>案號：{{ authority.case }}，狀態：{{ authority.status }}。</li>
+              <li>案號：<em>{{ authority.case }}</em>，狀態：<em>{{ authority.status }}</em>。</li>
             {% endfor %}
           </ul>
           {% endif %}

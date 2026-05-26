@@ -169,6 +169,60 @@ jobs:
             --output "$HOST_ROOT/$TRANSLATED_TEMPLATE_PACKAGE" \
             --force
 
+      - name: Audit generated translated output
+        run: |
+          set -euo pipefail
+          HOST_ROOT="$GITHUB_WORKSPACE/template-repo"
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+
+          host_root = Path(os.environ["GITHUB_WORKSPACE"]) / "template-repo"
+          expanded_root = host_root / os.environ["EXPANDED_TEMPLATE_DIR"]
+          translated_root = host_root / os.environ["TRANSLATED_TEMPLATE_DIR"]
+
+          def count_href(root: Path) -> int:
+              return sum(path.read_text(encoding="utf-8").count("href=") for path in root.rglob("*.j2"))
+
+          expanded_href_count = count_href(expanded_root)
+          translated_href_count = count_href(translated_root)
+          if expanded_href_count != translated_href_count:
+              raise SystemExit(
+                  "Translated output lost or gained links: "
+                  f"expanded href={expanded_href_count}, translated href={translated_href_count}"
+              )
+
+          forbidden_terms = {
+              "標識符": "識別碼",
+              "持久性標識符": "持續識別碼",
+              "數字物件": "數位物件",
+              "可重複性": "可重現性",
+              "信息": "資訊",
+              "主要研究者": "計畫主持人",
+          }
+          forbidden_english = [
+              "This dataset will be collected by an external party",
+              "The ownership of the resulting data",
+              "The project partners acquire full ownership",
+              "For the ownership of the data",
+              "We are not using a standardized format",
+          ]
+
+          issues: list[str] = []
+          for path in sorted((translated_root / "src").rglob("*.j2")):
+              text = path.read_text(encoding="utf-8")
+              relative = path.relative_to(translated_root).as_posix()
+              for bad, expected in forbidden_terms.items():
+                  if bad in text:
+                      issues.append(f"{relative}: uses {bad!r}; prefer {expected!r}")
+              for phrase in forbidden_english:
+                  if phrase in text:
+                      issues.append(f"{relative}: untranslated source phrase {phrase!r}")
+
+          if issues:
+              raise SystemExit("\n".join(issues))
+          PY
+
       # This boots an ephemeral DSW and copies PROJECT_REF into it. PROJECT_REF
       # can either point at an existing project UUID for a persistent DSW, or at
       # a JSON recipe with `knowledge_model_package_id` and `events_file`.

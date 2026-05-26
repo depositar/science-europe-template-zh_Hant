@@ -30,27 +30,28 @@
               {# __tr_block_0005:start #}<p>該資料集將由專案專家在專門的基礎設施上蒐集。</p>{# __tr_block_0005:end #}
             {%- elif measuredDataWhoAUuid == uuids.measuredDataWhoExternalAUuid -%}
               {%- set mdExternalOwnershipPath = [measuredDataWhoPath, uuids.measuredDataWhoExternalAUuid, uuids.mdExternalOwnershipQUuid]|reply_path -%}
-              {%- set mdExternalOwnershipAUuid = repliesMap[mdExternalOwnershipPath]|reply_str_value -%}
-              {# __tr_block_0006:start #}<p>
-                此資料集將由外部方蒐集。
-                {% if mdExternalOwnershipAUuid == uuids.mdExternalOwnershipPartyAUuid -%}
-                  結果資料的所有權仍屬於外部方。
-                {%- elif mdExternalOwnershipAUuid == uuids.mdExternalOwnershipPartnersAUuid -%}
-                  專案合作夥伴獲得資料的完全所有權。
-                {%- elif mdExternalOwnershipAUuid == uuids.mdExternalOwnershipOtherAUuid -%}
-                  {%- set mdExternalOwnershipOtherPath = [mdExternalOwnershipPath, uuids.mdExternalOwnershipOtherAUuid, uuids.mdExternalOwnershipOtherQUuid]|reply_path -%}
-                  {%- set mdExternalOwnershipOther = repliesMap[mdExternalOwnershipOtherPath]|reply_str_value -%}
-                  {%- if mdExternalOwnershipOther -%}
-                    For the ownership of the data we have made the following arrangements: {{ mdExternalOwnershipOther|dot }}
-                  {%- endif -%}
+              {%- set mdExternalOwnershipAUuid = repliesMap[mdExternalOwnershipPath]|reply_str_value -%}{# __tr_branch_sentence_original:CiAgICAgICAgICAgICAgPHA-CiAgICAgICAgICAgICAgICBUaGlzIGRhdGFzZXQgd2lsbCBiZSBjb2xsZWN0ZWQgYnkgYW4gZXh0ZXJuYWwgcGFydHkuCiAgICAgICAgICAgICAgICB7JSBpZiBtZEV4dGVybmFsT3duZXJzaGlwQVV1aWQgPT0gdXVpZHMubWRFeHRlcm5hbE93bmVyc2hpcFBhcnR5QVV1aWQgLSV9CiAgICAgICAgICAgICAgICAgIFRoZSBvd25lcnNoaXAgb2YgdGhlIHJlc3VsdGluZyBkYXRhIHdpbGwgcmVtYWluIHdpdGggdGhlIGV4dGVybmFsIHBhcnR5LgogICAgICAgICAgICAgICAgeyUtIGVsaWYgbWRFeHRlcm5hbE93bmVyc2hpcEFVdWlkID09IHV1aWRzLm1kRXh0ZXJuYWxPd25lcnNoaXBQYXJ0bmVyc0FVdWlkIC0lfQogICAgICAgICAgICAgICAgICBUaGUgcHJvamVjdCBwYXJ0bmVycyBhY3F1aXJlIGZ1bGwgb3duZXJzaGlwIG9mIHRoZSBkYXRhLgogICAgICAgICAgICAgICAgeyUtIGVsaWYgbWRFeHRlcm5hbE93bmVyc2hpcEFVdWlkID09IHV1aWRzLm1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlckFVdWlkIC0lfQogICAgICAgICAgICAgICAgICB7JS0gc2V0IG1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlclBhdGggPSBbbWRFeHRlcm5hbE93bmVyc2hpcFBhdGgsIHV1aWRzLm1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlckFVdWlkLCB1dWlkcy5tZEV4dGVybmFsT3duZXJzaGlwT3RoZXJRVXVpZF18cmVwbHlfcGF0aCAtJX0KICAgICAgICAgICAgICAgICAgeyUtIHNldCBtZEV4dGVybmFsT3duZXJzaGlwT3RoZXIgPSByZXBsaWVzTWFwW21kRXh0ZXJuYWxPd25lcnNoaXBPdGhlclBhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICAgICAgICAgICAgeyUtIGlmIG1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlciAtJX0KICAgICAgICAgICAgICAgICAgICBGb3IgdGhlIG93bmVyc2hpcCBvZiB0aGUgZGF0YSB3ZSBoYXZlIG1hZGUgdGhlIGZvbGxvd2luZyBhcnJhbmdlbWVudHM6IHt7IG1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlcnxkb3QgfX0KICAgICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgIDwvcD4K #}
+              {%- if mdExternalOwnershipAUuid == uuids.mdExternalOwnershipPartyAUuid -%}
+                {# __tr_block_0006:start #}<p>此資料集將由外部單位蒐集。產生資料的所有權將保留給該外部單位。</p>{# __tr_block_0006:end #}
+              {%- elif mdExternalOwnershipAUuid == uuids.mdExternalOwnershipPartnersAUuid -%}
+                {# __tr_block_0007:start #}<p>此資料集將由外部單位蒐集。計畫合作夥伴將取得資料的完整所有權。</p>{# __tr_block_0007:end #}
+              {%- elif mdExternalOwnershipAUuid == uuids.mdExternalOwnershipOtherAUuid -%}
+                {%- set mdExternalOwnershipOtherPath = [mdExternalOwnershipPath, uuids.mdExternalOwnershipOtherAUuid, uuids.mdExternalOwnershipOtherQUuid]|reply_path -%}
+                {%- set mdExternalOwnershipOther = repliesMap[mdExternalOwnershipOtherPath]|reply_str_value -%}
+                {%- if mdExternalOwnershipOther -%}
+                  {# __tr_block_0008:start #}<p>此資料集將由外部單位蒐集。關於資料所有權，我們已作出以下安排：{{ mdExternalOwnershipOther|dot }}</p>{# __tr_block_0008:end #}
+                {%- else -%}
+                  {# __tr_block_0009:start #}<p>此資料集將由外部單位蒐集。</p>{# __tr_block_0009:end #}
                 {%- endif -%}
-              </p>{# __tr_block_0006:end #}
-            {%- endif -%}
+              {%- else -%}
+                {# __tr_block_0010:start #}<p>此資料集將由外部單位蒐集。</p>{# __tr_block_0010:end #}
+              {%- endif -%}
+{# __tr_branch_sentence_original:end #}            {%- endif -%}
             {# Equipment standard? #}
             {% if measuredDataEquipAUuid == uuids.measuredDataEquipDescribedAUuid -%}
-              {# __tr_block_0007:start #}<p>該設備的描述非常清楚且眾所周知。</p>{# __tr_block_0007:end #}
+              {# __tr_block_0011:start #}<p>該設備的描述非常清楚且眾所周知。</p>{# __tr_block_0011:end #}
             {%- elif measuredDataEquipAUuid == uuids.measuredDataEquipCareAUuid -%}
-              {# __tr_block_0008:start #}<p>該設備的描述不太清楚或不完全標準，因此我們需要格外小心地記錄該過程。</p>{# __tr_block_0008:end #}
+              {# __tr_block_0012:start #}<p>該設備的描述不太清楚或不完全標準，因此我們需要格外小心地記錄該過程。</p>{# __tr_block_0012:end #}
             {%- endif -%}
           </li>
         {%- endfor -%}
@@ -78,14 +79,14 @@
     {%- set eRecords = neqDataERecordsAUuid == uuids.neqDataERecordsYesAUuid -%}
     {%- if questionnaires or caseReport or eRecords or neqDataSetsItems|length > 0 -%}
       <div>
-      {# __tr_block_0009:start #}<h4>非設備資料集</h4>{# __tr_block_0009:end #}
+      {# __tr_block_0013:start #}<h4>非設備資料集</h4>{# __tr_block_0013:end #}
       {# Types #}
       {%- set typesNames = [] -%}
-      {%- if questionnaires -%}{# __tr_block_0010:start #}{%- do typesNames.append("問卷") -%}{# __tr_block_0010:end #}{%- endif -%}
-      {%- if caseReport -%}{# __tr_block_0011:start #}{%- do typesNames.append("病例報告表") -%}{# __tr_block_0011:end #}{%- endif -%}
-      {%- if eRecords -%}{# __tr_block_0012:start #}{%- do typesNames.append("電子病歷") -%}{# __tr_block_0012:end #}{%- endif -%}
+      {%- if questionnaires -%}{# __tr_block_0014:start #}{%- do typesNames.append("問卷") -%}{# __tr_block_0014:end #}{%- endif -%}
+      {%- if caseReport -%}{# __tr_block_0015:start #}{%- do typesNames.append("病例報告表") -%}{# __tr_block_0015:end #}{%- endif -%}
+      {%- if eRecords -%}{# __tr_block_0016:start #}{%- do typesNames.append("電子病歷") -%}{# __tr_block_0016:end #}{%- endif -%}
       {%- set typesCount = typesNames|length -%}
-      {# __tr_branch_sentence_original:PHA-CiAgICAgICAgeyUtIGlmIHR5cGVzQ291bnQgPiAwIC0lfQogICAgICAgICAgV2UgY29sbGVjdCBkYXRhIGZyb20KICAgICAgICAgIHslIGlmIHR5cGVzQ291bnQgPT0gMSAtJX0KICAgICAgICAgICAgICB7eyB0eXBlc05hbWVzWzBdIH19LgogICAgICAgICAgeyUtIGVsaWYgdHlwZXNDb3VudCA9PSAyIC0lfQogICAgICAgICAgICAgIHt7IHR5cGVzTmFtZXNbMF0gfX0gYW5kIHt7IHR5cGVzTmFtZXNbMV0gfX0uCiAgICAgICAgICB7JS0gZWxzZSAtJX0KICAgICAgICAgICAgICB7eyB0eXBlc05hbWVzWzBdIH19LCB7eyB0eXBlc05hbWVzWzFdIH19LCBhbmQge3sgdHlwZXNOYW1lc1syXSB9fS4KICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICB7JSBlbmRpZiAlfQogICAgICAgIHsjIERhdGFzZXRzICN9CiAgICAgICAgeyUtIGlmIG5lcURhdGFTZXRzSXRlbXN8bGVuZ3RoID4gMCAtJX0KICAgICAgICAgIFRoZSBub24tZXF1aXBtZW50IGRhdGFzZXRzIGFyZToKICAgICAgICAgIDx1bD4KICAgICAgICAgIHslLSBmb3IgbmVxRGF0YVNldEl0ZW0gaW4gbmVxRGF0YVNldHNJdGVtcyAtJX0KICAgICAgICAgICAgeyUtIHNldCBwYXRoUHJlZml4ID0gW25lcURhdGFTZXRzUGF0aCwgbmVxRGF0YVNldEl0ZW1dfHJlcGx5X3BhdGggLSV9CiAgICAgICAgICAgIHslLSBzZXQgbmVxRGF0YVNldHNOYW1lID0gcmVwbGllc01hcFtbcGF0aFByZWZpeCwgdXVpZHMubmVxRGF0YVNldHNOYW1lUVV1aWRdfHJlcGx5X3BhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICAgICAgeyUtIHNldCBuZXFEYXRhU2V0c0Rlc2MgPSByZXBsaWVzTWFwW1twYXRoUHJlZml4LCB1dWlkcy5uZXFEYXRhU2V0c0Rlc2NRVXVpZF18cmVwbHlfcGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgICAgICA8bGk-CiAgICAgICAgICAgICAgPHN0cm9uZz57IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplM3NnYm1WeFJHRjBZVk5sZEhOT1lXMWxJR2xtSUc1bGNVUmhkR0ZUWlhSelRtRnRaU0JsYkhObElDSW9ibThnYm1GdFpTQm5hWFpsYmlraUlIMTkgI317JSBpZiBuZXFEYXRhU2V0c05hbWUgJX17eyBuZXFEYXRhU2V0c05hbWUgfX17JSBlbHNlICV9e3sgIihubyBuYW1lIGdpdmVuKSIgfX17JSBlbmRpZiAlfXsjIF9fdHJfaW5saW5lX2lmX29yaWdpbmFsOmVuZCAjfTwvc3Ryb25nPgogICAgICAgICAgICAgIHslIGlmIG5lcURhdGFTZXRzRGVzYyAtJX08c3BhbiBjbGFzcz0ic2VwYXJhdG9yIj4mbmRhc2g7PC9zcGFuPiB7eyBuZXFEYXRhU2V0c0Rlc2MgfX17JS0gZW5kaWYgLSV9CiAgICAgICAgICAgIDwvbGk-CiAgICAgICAgICB7JS0gZW5kZm9yIC0lfQogICAgICAgICAgPC91bD4KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgIDwvcD4= #}{# __tr_block_0013:start #}<p>
+      {# __tr_branch_sentence_original:PHA-CiAgICAgICAgeyUtIGlmIHR5cGVzQ291bnQgPiAwIC0lfQogICAgICAgICAgV2UgY29sbGVjdCBkYXRhIGZyb20KICAgICAgICAgIHslIGlmIHR5cGVzQ291bnQgPT0gMSAtJX0KICAgICAgICAgICAgICB7eyB0eXBlc05hbWVzWzBdIH19LgogICAgICAgICAgeyUtIGVsaWYgdHlwZXNDb3VudCA9PSAyIC0lfQogICAgICAgICAgICAgIHt7IHR5cGVzTmFtZXNbMF0gfX0gYW5kIHt7IHR5cGVzTmFtZXNbMV0gfX0uCiAgICAgICAgICB7JS0gZWxzZSAtJX0KICAgICAgICAgICAgICB7eyB0eXBlc05hbWVzWzBdIH19LCB7eyB0eXBlc05hbWVzWzFdIH19LCBhbmQge3sgdHlwZXNOYW1lc1syXSB9fS4KICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICB7JSBlbmRpZiAlfQogICAgICAgIHsjIERhdGFzZXRzICN9CiAgICAgICAgeyUtIGlmIG5lcURhdGFTZXRzSXRlbXN8bGVuZ3RoID4gMCAtJX0KICAgICAgICAgIFRoZSBub24tZXF1aXBtZW50IGRhdGFzZXRzIGFyZToKICAgICAgICAgIDx1bD4KICAgICAgICAgIHslLSBmb3IgbmVxRGF0YVNldEl0ZW0gaW4gbmVxRGF0YVNldHNJdGVtcyAtJX0KICAgICAgICAgICAgeyUtIHNldCBwYXRoUHJlZml4ID0gW25lcURhdGFTZXRzUGF0aCwgbmVxRGF0YVNldEl0ZW1dfHJlcGx5X3BhdGggLSV9CiAgICAgICAgICAgIHslLSBzZXQgbmVxRGF0YVNldHNOYW1lID0gcmVwbGllc01hcFtbcGF0aFByZWZpeCwgdXVpZHMubmVxRGF0YVNldHNOYW1lUVV1aWRdfHJlcGx5X3BhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICAgICAgeyUtIHNldCBuZXFEYXRhU2V0c0Rlc2MgPSByZXBsaWVzTWFwW1twYXRoUHJlZml4LCB1dWlkcy5uZXFEYXRhU2V0c0Rlc2NRVXVpZF18cmVwbHlfcGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgICAgICA8bGk-CiAgICAgICAgICAgICAgPHN0cm9uZz57IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplM3NnYm1WeFJHRjBZVk5sZEhOT1lXMWxJR2xtSUc1bGNVUmhkR0ZUWlhSelRtRnRaU0JsYkhObElDSW9ibThnYm1GdFpTQm5hWFpsYmlraUlIMTkgI317JSBpZiBuZXFEYXRhU2V0c05hbWUgJX17eyBuZXFEYXRhU2V0c05hbWUgfX17JSBlbHNlICV9e3sgIihubyBuYW1lIGdpdmVuKSIgfX17JSBlbmRpZiAlfXsjIF9fdHJfaW5saW5lX2lmX29yaWdpbmFsOmVuZCAjfTwvc3Ryb25nPgogICAgICAgICAgICAgIHslIGlmIG5lcURhdGFTZXRzRGVzYyAtJX08c3BhbiBjbGFzcz0ic2VwYXJhdG9yIj4mbmRhc2g7PC9zcGFuPiB7eyBuZXFEYXRhU2V0c0Rlc2MgfX17JS0gZW5kaWYgLSV9CiAgICAgICAgICAgIDwvbGk-CiAgICAgICAgICB7JS0gZW5kZm9yIC0lfQogICAgICAgICAgPC91bD4KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgIDwvcD4= #}{# __tr_block_0017:start #}<p>
         {%- if typesCount > 0 -%}{% if typesCount == 1 -%}
           我們從 {{ typesNames[0] }} 蒐集資料。{%- elif typesCount == 2 -%}
           我們從 {{ typesNames[0] }} 和 {{ typesNames[1] }} 蒐集資料。{%- else -%}
@@ -105,7 +106,7 @@
           {%- endfor -%}
           </ul>
         {%- endif -%}
-      </p>{# __tr_block_0013:end #}{# __tr_branch_sentence_original:end #}
+      </p>{# __tr_block_0017:end #}{# __tr_branch_sentence_original:end #}
       </div>
     {%- endif -%}
   {%- endif -%}
@@ -119,8 +120,8 @@
     {%- set nrefDataItems = repliesMap[nrefDataPath]|reply_items -%}
     {%- if (refDataItems|length + nrefDataItems|length) > 0 -%}
       <div>
-        {# __tr_block_0014:start #}<h4>再次使用的資料集</h4>{# __tr_block_0014:end #}
-        {# __tr_block_0015:start #}<p>問題 1 中描述了考慮再次使用和實際再次使用的資料集。</p>{# __tr_block_0015:end #}
+        {# __tr_block_0018:start #}<h4>再次使用的資料集</h4>{# __tr_block_0018:end #}
+        {# __tr_block_0019:start #}<p>問題 1 中描述了考慮再次使用和實際再次使用的資料集。</p>{# __tr_block_0019:end #}
       </div>
     {%- endif -%}
   {%- endif -%}
@@ -129,9 +130,9 @@
   {%- set formatsPath = [uuids.creatingCUuid, uuids.formatsQUuid]|reply_path -%}
   {%- set formatsItems = repliesMap[formatsPath]|reply_items -%}
   {%- if formatsItems|length > 0 -%}
-    {# __tr_block_0016:start #}<h4>資料格式與類型</h4>{# __tr_block_0016:end #}
-    <div>{# __tr_block_0017:start #}我們將使用以下資料格式和類型：
-    {# __tr_block_0017:end #}<ul>
+    {# __tr_block_0020:start #}<h4>資料格式與類型</h4>{# __tr_block_0020:end #}
+    <div>{# __tr_block_0021:start #}我們將使用以下資料格式和類型：
+    {# __tr_block_0021:end #}<ul>
       {%- for formatItem in formatsItems -%}
         {%- set formatPrefix = [formatsPath, formatItem]|reply_path -%}
         {%- set formatNameReply = repliesMap[[formatPrefix, uuids.formatsNameQUuid]|reply_path] -%}
@@ -141,7 +142,7 @@
         {%- set formatsIsLTSuitableAUuid = repliesMap[formatsIsLTSuitablePath]|reply_str_value -%}
         {%- set formatsVolumePath = [formatPrefix, uuids.formatsVolumeQUuid]|reply_path -%}
         {%- set formatsVolumeAUuid = repliesMap[formatsVolumePath]|reply_str_value -%}
-        {# __tr_block_0018:start #}<li>
+        {# __tr_block_0022:start #}<li>
           {# identification #}
           <div>{{ macros.integrationFairSharing(formatNameReply) }}</div>
           {%- if formatsIsStandardAUuid or formatsIsLTSuitableAUuid or formatsVolumeAUuid -%}
@@ -158,13 +159,13 @@
                 我們沒有使用標準化格式，但它針對處理速度和/或容量進行了最佳化。
               {%- elif formatsWhyNonStandardAUuid == uuids.formatsWhyNSAnotherReasonAUuid -%}
                 {%- set formatsWhyNSAnotherReasonPath = [formatsWhyNonStandardPath, uuids.formatsWhyNSAnotherReasonAUuid, uuids.formatsWhyNSAnotherReasonQUuid]|reply_path -%}
-                {%- set formatsWhyNSAnotherReason = repliesMap[formatsWhyNSAnotherReasonPath]|reply_str_value -%}
-                We are not using a standardized format
+                {%- set formatsWhyNSAnotherReason = repliesMap[formatsWhyNSAnotherReasonPath]|reply_str_value -%}{# __tr_branch_sentence_original:CiAgICAgICAgICAgICAgICBXZSBhcmUgbm90IHVzaW5nIGEgc3RhbmRhcmRpemVkIGZvcm1hdAogICAgICAgICAgICAgICAgeyUtIGlmIGZvcm1hdHNXaHlOU0Fub3RoZXJSZWFzb24gLSV9CiAgICAgICAgICAgICAgICAgICwgYmVjYXVzZToge3sgZm9ybWF0c1doeU5TQW5vdGhlclJlYXNvbnxjYXBpdGFsaXplIH19CiAgICAgICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAgICAgICAuCg== #}
                 {%- if formatsWhyNSAnotherReason -%}
-                  , because: {{ formatsWhyNSAnotherReason|capitalize }}
+                  我們未使用標準化格式，原因是：{{ formatsWhyNSAnotherReason|capitalize }}。
+                {%- else -%}
+                  我們未使用標準化格式。
                 {%- endif -%}
-                .
-              {%- endif -%}
+{# __tr_branch_sentence_original:end #}              {%- endif -%}
             {%- endif -%}
             {# long-term suitable? #}
             {%- if formatsIsLTSuitableAUuid == uuids.formatsIsLTSuitableYesAUuid %}
@@ -196,7 +197,7 @@
             {%- endif -%}
 {# __tr_branch_sentence_original:end #}            </p>
           {%- endif -%}
-        </li>{# __tr_block_0018:end #}
+        </li>{# __tr_block_0022:end #}
       {%- endfor -%}
     </ul>
     </div>

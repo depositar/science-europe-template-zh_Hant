@@ -171,9 +171,9 @@
             {%- if refDataWhere -%}
               {%- if refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://") -%}
                 {%- if refDataUsageReply -%}
-                  <p>我們將再次使用透過以下方式提供的標準參考資料：{{ refDataWhere }} 以便「{{ refDataUsageReply }}」。</p>
+                  <p>我們將再次使用透過以下方式提供的標準參考資料：<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 以便「{{ refDataUsageReply }}」。</p>
                 {%- else -%}
-                  <p>我們將再次使用可透過以下方式取得的標準參考資料：{{ refDataWhere }}。</p>
+                  <p>我們將再次使用可透過以下方式取得的標準參考資料：<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>。</p>
                 {%- endif -%}
               {%- else -%}
                 {%- if refDataUsageReply -%}
@@ -266,19 +266,19 @@
             <p>
             {# no usage reason #}
             {%- if refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}
-              我們考慮再次使用可透過 {{ refDataWhere }} 獲得的標準參考資料，但決定不再再次使用它，因為它失去了我們需要的資料。
+              我們考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 獲得的標準參考資料，但決定不再再次使用它，因為它失去了我們需要的資料。
             {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}
-              我們考慮再次使用可透過 {{ refDataWhere }} 獲得的標準參考資料，但決定不再再次使用它，因為它缺少必要的方面。
+              我們考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 獲得的標準參考資料，但決定不再再次使用它，因為它缺少必要的方面。
             {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoQualityAUuid -%}
-              我們考慮再次使用可透過 {{ refDataWhere }} 獲得的標準參考資料，但決定不再再次使用它，因為它的品質不夠。
+              我們考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 獲得的標準參考資料，但決定不再再次使用它，因為它的品質不夠。
             {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoCondAUuid -%}
-              我們考慮再次使用可透過 {{ refDataWhere }} 獲得的標準參考資料，但決定不再再次使用它，因為它的使用條件不允許我們使用它。
+              我們考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 獲得的標準參考資料，但決定不再再次使用它，因為它的使用條件不允許我們使用它。
             {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoReasonAUuid and refDataUseNoOtherReasonReply -%}
-              我們考慮再次使用可透過以下方式獲得的標準參考資料：{{ refDataWhere }}，但決定不再次使用它，因為：「{{ refDataUseNoOtherReasonReply }}」。
+              我們考慮再次使用可透過以下方式獲得的標準參考資料：<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>，但決定不再次使用它，因為：「{{ refDataUseNoOtherReasonReply }}」。
             {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply -%}
-              我們考慮再次使用可透過 {{ refDataWhere }} 獲得的標準參考資料，但決定不再再次使用它。
+              我們考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 獲得的標準參考資料，但決定不再再次使用它。
             {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) -%}
-              我們考慮再次使用可透過以下方式取得的標準參考資料：{{ refDataWhere }}。
+              我們考慮再次使用可透過以下方式取得的標準參考資料：<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>。
             {%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}
               我們考慮再次使用可透過 {{ refDataWhere }} 獲得的標準參考資料，但決定不再再次使用它，因為它失去了我們需要的資料。
             {%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}
@@ -342,9 +342,9 @@
           {%- if nrefDataWhere -%}
             {%- if nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://") -%}
               {%- if nrefDataUsageReply -%}
-                <p>我們將再次使用透過 {{ nrefDataWhere }} 提供的非參考資料，以便「{{ nrefDataUsageReply }}」。</p>
+                <p>我們將再次使用透過 <a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 提供的非參考資料，以便「{{ nrefDataUsageReply }}」。</p>
               {%- else -%}
-                <p>我們將再次使用透過以下方式提供的非參考資料：{{ nrefDataWhere }}。</p>
+                <p>我們將再次使用透過以下方式提供的非參考資料：<a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>。</p>
               {%- endif -%}
             {%- else -%}
               {%- if nrefDataUsageReply -%}
@@ -377,7 +377,7 @@
           {%- set nrefDataFixed = [nrefDataUsedPrefix, uuids.nrefDataFixedQUuid]|reply_path -%}
           {%- set nrefDataFixedReply = repliesMap[nrefDataFixed]|reply_str_value -%}
           {%- if nrefDataFixedReply %}
-            {# __tr_branch_sentence_original:PHA-VGhpcyBkYXRhe3srIiAifX0KICAgICAgICAgICAgeyUtIGlmIG5yZWZEYXRhRml4ZWRSZXBseSA9PSB1dWlkcy5ucmVmRGF0YUZpeGVkRml4ZWRBVXVpZCAtJX0KICAgICAgICAgICAgICBhcmUgZml4ZWQsIHRoZXJlZm9yZSB3aWxsIG5vdCBpbmZsdWVuY2UgcmVwcm9kdWNpYmlsaXR5IG9mIG91ciByZXN1bHRzLgogICAgICAgICAgICB7JS0gZWxpZiBucmVmRGF0YUZpeGVkUmVwbHkgPT0gdXVpZHMubnJlZkRhdGFGaXhlZENoYW5nZUFVdWlkIC0lfQogICAgICAgICAgICAgIG1heSBjaGFuZ2UgaW4gdGhlIGZ1dHVyZSwgd2hpY2ggbWlnaHQgaW5mbHVlbmNlIHJlcHJvZHVjaWJpbGl0eSBvZiBvdXIgcmVzdWx0cy4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICA8L3A- #}{%- if nrefDataFixedReply == uuids.nrefDataFixedFixedAUuid -%}<p>該資料是固定的，因此不會影響我們結果的可重現性。</p>{%- elif nrefDataFixedReply == uuids.nrefDataFixedChangeAUuid -%}<p>這些資料將來可能會發生變化，這可能會影響我們結果的可重複性。</p>{%- endif -%}{# __tr_branch_sentence_original:end #}
+            {# __tr_branch_sentence_original:PHA-VGhpcyBkYXRhe3srIiAifX0KICAgICAgICAgICAgeyUtIGlmIG5yZWZEYXRhRml4ZWRSZXBseSA9PSB1dWlkcy5ucmVmRGF0YUZpeGVkRml4ZWRBVXVpZCAtJX0KICAgICAgICAgICAgICBhcmUgZml4ZWQsIHRoZXJlZm9yZSB3aWxsIG5vdCBpbmZsdWVuY2UgcmVwcm9kdWNpYmlsaXR5IG9mIG91ciByZXN1bHRzLgogICAgICAgICAgICB7JS0gZWxpZiBucmVmRGF0YUZpeGVkUmVwbHkgPT0gdXVpZHMubnJlZkRhdGFGaXhlZENoYW5nZUFVdWlkIC0lfQogICAgICAgICAgICAgIG1heSBjaGFuZ2UgaW4gdGhlIGZ1dHVyZSwgd2hpY2ggbWlnaHQgaW5mbHVlbmNlIHJlcHJvZHVjaWJpbGl0eSBvZiBvdXIgcmVzdWx0cy4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICA8L3A- #}{%- if nrefDataFixedReply == uuids.nrefDataFixedFixedAUuid -%}<p>該資料是固定的，因此不會影響我們結果的可重現性。</p>{%- elif nrefDataFixedReply == uuids.nrefDataFixedChangeAUuid -%}<p>這些資料將來可能會發生變化，這可能會影響我們結果的可重現性。</p>{%- endif -%}{# __tr_branch_sentence_original:end #}
           {%- endif -%}
 
           {# Licence #}
@@ -458,19 +458,19 @@
           <p>
           {# no usage reason #}
           {%- if nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}
-            我們考慮再次使用可透過 {{ nrefDataWhere }} 獲得的非參考資料，但決定不再次使用它，因為它失去了我們需要的資料。
+            我們考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 獲得的非參考資料，但決定不再次使用它，因為它失去了我們需要的資料。
           {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}
-            我們考慮再次使用可透過以下方式獲得的非參考資料：{{ nrefDataWhere }}，但決定不再次使用它，因為它錯過了所需的方面。
+            我們考慮再次使用可透過以下方式獲得的非參考資料：<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>，但決定不再次使用它，因為它錯過了所需的方面。
           {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoQualityAUuid -%}
-            我們考慮再次使用可透過 {{ nrefDataWhere }} 獲得的非參考資料，但決定不再次使用它，因為它的品質不夠。
+            我們考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 獲得的非參考資料，但決定不再次使用它，因為它的品質不夠。
           {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoCondAUuid -%}
-            我們考慮再次使用可透過 {{ nrefDataWhere }} 獲得的非參考資料，但決定不再次使用它，因為它的使用條件不允許我們使用它。
+            我們考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 獲得的非參考資料，但決定不再次使用它，因為它的使用條件不允許我們使用它。
           {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoReasonAUuid and nrefDataUseNoOtherReasonReply -%}
-            我們考慮再次使用可透過以下方式獲得的非參考資料：{{ nrefDataWhere }}，但決定不再次使用它，因為：「{{ nrefDataUseNoOtherReasonReply }}」。
+            我們考慮再次使用可透過以下方式獲得的非參考資料：<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>，但決定不再次使用它，因為：「{{ nrefDataUseNoOtherReasonReply }}」。
           {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply -%}
-            我們考慮再次使用可透過以下方式獲得的非參考資料：{{ nrefDataWhere }}，但決定不再次使用它。
+            我們考慮再次使用可透過以下方式獲得的非參考資料：<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>，但決定不再次使用它。
           {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) -%}
-            我們考慮再次使用可透過以下方式取得的非參考資料：{{ nrefDataWhere }}。
+            我們考慮再次使用可透過以下方式取得的非參考資料：<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>。
           {%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}
             我們考慮再次使用可透過 {{ nrefDataWhere }} 獲得的非參考資料，但決定不再次使用它，因為它失去了我們需要的資料。
           {%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}

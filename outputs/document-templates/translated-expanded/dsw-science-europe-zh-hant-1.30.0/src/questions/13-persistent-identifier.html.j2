@@ -52,13 +52,13 @@
                                 {%- set publishedDataIdentifierAssignsAUuid = repliesMap[publishedDataIdentifierAssignsQUuid]|reply_str_value -%}
 
                                 {%- if publishedDataIdentifierAssignsAUuid == uuids.publishedDataIdentifierAssignsProjectDataStewardAUuid -%}
-                                    <p>專案資料管理專員或主要研究者將分配持續識別碼。</p>
+                                    <p>專案資料管理專員或計畫主持人將分配持續識別碼。</p>
 
                                 {%- elif publishedDataIdentifierAssignsAUuid == uuids.publishedDataIdentifierAssignsInstitDataStewardAUui -%}
                                     <p>機構資料管理專員將分配持續識別碼。</p>
 
                                 {%- elif publishedDataIdentifierAssignsAUuid == uuids.publishedDataIdentifierAssignsRepositoryAUuid -%}
-                                    <p>儲存庫將分配持久性標識符。</p>
+                                    <p>儲存庫將分配持續識別碼。</p>
                                 {%- endif -%}
 
                                 {# Resolvable #}
@@ -66,10 +66,10 @@
                                 {%- set publishedDataIdentifierResolvableAUuid = repliesMap[publishedDataIdentifierResolvableQUuid]|reply_str_value -%}
 
                                 {%- if publishedDataIdentifierResolvableAUuid == uuids.publishedDataIdentifierResolvableYesAUuid -%}
-                                    <p>儲存庫將確保持續識別碼可以解析為數字物件。</p>
+                                    <p>儲存庫將確保持續識別碼可以解析為數位物件。</p>
 
                                 {%- elif publishedDataIdentifierResolvableAUuid == uuids.publishedDataIdentifierResolvableNoAUuid -%}
-                                    <p>儲存庫不會確保持續識別碼可以解析為數字物件。</p>
+                                    <p>儲存庫不會確保持續識別碼可以解析為數位物件。</p>
                                 {%- endif -%}
 
                                 {# Specification #}

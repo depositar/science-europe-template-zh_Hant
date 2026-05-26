@@ -46,7 +46,7 @@
         <br>{% if contributor.roles|length == 0 %}角色{% else %}角色{% endif %}: {% for role in contributor.roles %}<span class="role">{{ role }}</span>{% if not loop.last %}, {% endif %}{% endfor %}
       {%- endif %}
       {%- if contributor.affiliation %}
-        <br>所屬機構：{{ macros.integrationROR(contributor.affiliation) }}
+        <br>所屬機構：<span class="affiliation">{{ macros.integrationROR(contributor.affiliation) }}</span>
       {%- endif %}
     </li>{# __tr_block_0002:end #}
   {% endfor %}
@@ -57,7 +57,7 @@
       <span class="name">{{ dc.project.created_by.first_name }} {{ dc.project.created_by.last_name }}</span>
       <br>{{ macros.formatEmail(dc.project.created_by.email) }}
       {%- if dc.project.created_by.affiliation %}
-      <br>所屬機構：{{ dc.project.created_by.affiliation }}
+      <br>所屬機構：<span class="affiliation">{{ dc.project.created_by.affiliation }}</span>
       {%- endif %}
     </li>{# __tr_block_0003:end #}
   </ul>

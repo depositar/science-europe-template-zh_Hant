@@ -109,7 +109,7 @@
       <dd>{{ dc.document.created_at|datetime_format("%d %b %Y") }}</dd>
     </dl>
     {# __tr_block_0009:start #}<p class="note">
-      在 {{ dc.config.service_name }} « {{ dc.config.service_domain_name }} » 建立的資料管理方案
+      在 {{ dc.config.service_name }} « <a href="{{ dc.config.service_url }}" target="_blank">{{ dc.config.service_domain_name }}</a> » 建立的資料管理方案
     </p>{# __tr_block_0009:end #}
   </div>
 </header>

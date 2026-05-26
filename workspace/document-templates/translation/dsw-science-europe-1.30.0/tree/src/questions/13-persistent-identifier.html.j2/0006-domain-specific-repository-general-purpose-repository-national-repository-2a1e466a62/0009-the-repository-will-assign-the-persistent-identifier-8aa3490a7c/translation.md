@@ -17,5 +17,5 @@ The repository will assign the persistent identifier.
 ### Translation (zh_Hant)
 
 ~~~jinja
-儲存庫將分配持久性標識符。
+儲存庫將分配持續識別碼。
 ~~~

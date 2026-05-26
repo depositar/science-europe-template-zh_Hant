@@ -25,7 +25,7 @@
                 {% set identifiersPath = [pathPrefix, uuids.producedDataIdentifiersQUuid]|reply_path -%}
                 {%- set identifiersItems = repliesMap[identifiersPath]|reply_items -%}
                 {%- if identifiersItems|length > 0 -%}
-                    <br>{# __tr_block_0005:start #}資料集具有以下標識符：
+                    <br>{# __tr_block_0005:start #}資料集具有以下識別碼：
                     {# __tr_block_0005:end #}<ul>
                     {%- for j in identifiersItems -%}
                         {%- set identifierPrefix = [identifiersPath, j]|reply_path -%}
@@ -34,13 +34,13 @@
                         {%- set identifierValuePath = [identifierPrefix, uuids.dataIdentifierIdentifierQUuid]|reply_path -%}
                         {%- set identifierValue = repliesMap[identifierValuePath]|reply_str_value -%}
                         {%- if identifierTypeAUuid == uuids.dataIdentifierTypeHandleAUuid -%}
-                            {# __tr_block_0006:start #}<li>Handle：{{ identifierValue }}</li>{# __tr_block_0006:end #}
+                            {# __tr_block_0006:start #}<li>Handle：<strong>{{ identifierValue }}</strong></li>{# __tr_block_0006:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeDoiAUuid -%}
-                            {# __tr_block_0007:start #}<li>DOI：{{ identifierValue }}</li>{# __tr_block_0007:end #}
+                            {# __tr_block_0007:start #}<li>DOI：<strong><a href="https://doi.org/{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0007:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeArkAUuid -%}
-                            {# __tr_block_0008:start #}<li>ARK：{{ identifierValue }}</li>{# __tr_block_0008:end #}
+                            {# __tr_block_0008:start #}<li>ARK：<strong>{{ identifierValue }}</strong></li>{# __tr_block_0008:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeUrlAUuid -%}
-                            {# __tr_block_0009:start #}<li>URL：{{ identifierValue }}</li>{# __tr_block_0009:end #}
+                            {# __tr_block_0009:start #}<li>URL：<strong><a href="{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0009:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeOtherAUuid -%}
                             {%- set identifierType = repliesMap[[identifierTypePath, uuids.dataIdentifierTypeOtherAUuid, uuids.dataIdentifierTypeOtherTypeQUuid]|reply_path]|reply_str_value -%}
                             <li>{{ identifierType }}: <strong>{{ identifierValue }}</strong></li>
@@ -156,7 +156,7 @@
                                     這些條件將作為開放後設資料的一部分發布。
                                     {%- endif -%}
                                     {% if licenseRestrictLink %}
-                                    限制的更多資訊可見於：{{ licenseRestrictLink }}。
+                                    限制的更多資訊可見於：<a href="{{ licenseRestrictLink }}" target="_blank">{{ licenseRestrictLink }}</a>。
                                     {% endif %}
                                 {%- endif -%}
                                 </li>{# __tr_block_0014:end #}
@@ -258,7 +258,7 @@
             {%- set legalReasonsAuthorizeOldCommitteePath = [legalReasonsAuthorizePath, uuids.legalReasonsAuthorizeOldCommitteeAUuid, uuids.legalReasonsAuthorizeOldCommitteeQUuid]|reply_path -%}
             {%- set legalReasonsAuthorizeOldCommittee = repliesMap[legalReasonsAuthorizeOldCommitteePath]|reply_str_value -%}
             {%- if legalReasonsAuthorizeOldCommittee %}
-              人們可以向 {{ legalReasonsAuthorizeOldCommittee }} 資料取用委員會提出申請。
+              人們可以向 <em>{{ legalReasonsAuthorizeOldCommittee }}</em> 資料取用委員會提出申請。
             {%- else -%}
               人們可以向現有的資料取用委員會提出申請。
             {%- endif -%}

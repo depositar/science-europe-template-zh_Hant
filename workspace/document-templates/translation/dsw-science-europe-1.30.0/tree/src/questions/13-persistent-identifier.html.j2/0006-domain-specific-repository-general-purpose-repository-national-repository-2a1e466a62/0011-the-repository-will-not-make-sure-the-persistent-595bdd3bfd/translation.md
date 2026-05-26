@@ -17,5 +17,5 @@ The repository will not make sure the persistent identifier can be resolved to a
 ### Translation (zh_Hant)
 
 ~~~jinja
-儲存庫不會確保持續識別碼可以解析為數字物件。
+儲存庫不會確保持續識別碼可以解析為數位物件。
 ~~~

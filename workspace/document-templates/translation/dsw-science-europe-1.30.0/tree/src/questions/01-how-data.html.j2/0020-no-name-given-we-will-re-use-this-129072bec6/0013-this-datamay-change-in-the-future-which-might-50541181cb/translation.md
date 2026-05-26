@@ -17,5 +17,5 @@ This data may change in the future, which might influence reproducibility of our
 ### Translation (zh_Hant)
 
 ~~~jinja
-這些資料將來可能會發生變化，這可能會影響我們結果的可重複性。
+這些資料將來可能會發生變化，這可能會影響我們結果的可重現性。
 ~~~
