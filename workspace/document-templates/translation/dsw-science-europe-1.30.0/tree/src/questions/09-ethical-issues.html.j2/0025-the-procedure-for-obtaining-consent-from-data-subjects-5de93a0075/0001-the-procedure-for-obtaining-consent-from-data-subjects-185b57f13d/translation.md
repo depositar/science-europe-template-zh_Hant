@@ -17,5 +17,5 @@ The procedure for obtaining consent from data subjects is set as follows:
 ### Translation (zh_Hant)
 
 ~~~jinja
-取得資料資料主體同意的程序如下：
+取得資料主體同意的程序如下：
 ~~~

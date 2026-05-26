@@ -125,7 +125,11 @@
         {%- elif risksPseudonymizationAUuid == uuids.risksPseudonymizationAnotherAUuid -%}
           {%- set risksPseudonymizationAnotherQUuid = [risksPseudonymizationPath, uuids.risksPseudonymizationAnotherAUuid, uuids.risksPseudonymizationAnotherQUuid]|reply_path -%}
           {%- set risksPseudonymizationAnother = repliesMap[risksPseudonymizationAnotherQUuid]|reply_str_value %}
-          我們有一個特定的假名方式{{ ": " ~ risksPseudonymizationAnother|dot if risksPseudonymizationAnother else "." }}
+          {%- if risksPseudonymizationAnother %}
+            我們有特定的假名化方式：{{ risksPseudonymizationAnother }}。
+          {%- else %}
+            我們有特定的假名化方式。
+          {%- endif %}
         {%- endif -%}
       </p>{# __tr_block_0006:end #}
     {%- elif risksPersonalDataAUuid == uuids.risksPersonalDataAnonymousAUuid -%}

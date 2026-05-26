@@ -30,7 +30,7 @@
                                 {%- set swNameReply = repliesMap[swNameUuid]|reply_str_value -%}
                                 {%- set swPIDUuid = [isPublishedSWPath, swItem, uuids.publishedSpecSwUseWhatPIDQUuid]|reply_path -%}
                                 {%- set swPIDReply = repliesMap[swPIDUuid]|reply_str_value -%}
-                                <p><strong>{{ swNameReply if swNameReply else "（未提供名稱）" }}</strong>{%- if swPIDReply -%} 可透過 {{ swPIDReply }} 取得{%- endif -%}。</p>
+                                <p><strong>{{ swNameReply if swNameReply else "（未提供名稱）" }}</strong>{% if swPIDReply %} 可透過 {{ swPIDReply }} 取得{% endif %}。</p>
                             {%- endfor -%}
                             </ul>
                     {%- else -%}

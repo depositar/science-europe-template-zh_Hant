@@ -35,23 +35,32 @@
       {%- set otherReasonsOther = notOpenOtherReasonsAUuid == uuids.notOpenOtherReasonsOtherAUuid -%}
       {%- set reasons = [legalReasons, businessReasonsPatents, businessReasonsOther, otherReasonsPapers, otherReasonsOther] -%}
       {%- set nReasons = reasons|select("true")|list|length -%}
-{# __tr_branch_sentence_original:CiAgICAgIHslLSBpZiBuUmVhc29ucyA-IDAgLSV9CiAgICAgICAgPHA-CiAgICAgICAgVGhlIGRhdGEgY2Fubm90IGJlY29tZSBjb21wbGV0ZWx5IG9wZW4gYmVjYXVzZSAKICAgICAgICB7JS0gaWYgblJlYXNvbnMgPT0gMSAtJX0KICAgICAgICAgIHslLSBpZiBsZWdhbFJlYXNvbnMgJX0KICAgICAgICAgICAgb2YgbGVnYWwgcmVhc29ucy4KICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc1BhdGVudHMgJX0KICAgICAgICAgICAgb2YgcGF0ZW50LXJlbGF0ZWQgYnVzaW5lc3MgcmVhc29ucy4KICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc090aGVyICV9CiAgICAgICAgICAgIG9mIG5vbi1wYXRlbnQgYnVzaW5lc3MgcmVhc29uc3t7ICAiOiAiIH4gbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyfGRvdCBpZiBub3RPcGVuQnVzaW5lc3NSZWFzb25zT3RoZXIgZWxzZSAiLiIgfX0KICAgICAgICAgIHslLSBlbGlmIG90aGVyUmVhc29uc1BhcGVycyAlfQogICAgICAgICAgICB3ZSB3YW50IHRvIHB1Ymxpc2ggYSBwYXBlciBmaXJzdC4KICAgICAgICAgIHslLSBlbGlmIG90aGVyUmVhc29uc090aGVyICV9CiAgICAgICAgICAgIHdlIGhhdmUgb3RoZXIgdGhhbiBwYXBlci1wdWJsaXNoaW5nIHJlYXNvbnN7eyAiOiAiIH4gbm90T3Blbk90aGVyUmVhc29uc090aGVyfGRvdCBpZiBub3RPcGVuT3RoZXJSZWFzb25zT3RoZXIgZWxzZSAiLiIgfX0KICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICB7JS0gZWxzZSAlfQogICAgICAgICAgb2Y6CiAgICAgICAgICA8dWw-CiAgICAgICAgICAgIHslLSBpZiBsZWdhbFJlYXNvbnMgJX0KICAgICAgICAgICAgICA8bGk-bGVnYWwgcmVhc29uczwvbGk-CiAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgeyUtIGlmIGJ1c2luZXNzUmVhc29uc1BhdGVudHMgJX0KICAgICAgICAgICAgICA8bGk-cGF0ZW50LXJlbGF0ZWQgYnVzaW5lc3MgcmVhc29uczwvbGk-CiAgICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc090aGVyICV9CiAgICAgICAgICAgICAgPGxpPm5vbi1wYXRlbnQgYnVzaW5lc3MgcmVhc29uc3t7ICI6ICIgfiBub3RPcGVuQnVzaW5lc3NSZWFzb25zT3RoZXIgaWYgbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyIGVsc2UgIiIgfX08L2xpPgogICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAgIHslLSBpZiBvdGhlclJlYXNvbnNQYXBlcnMgJX0KICAgICAgICAgICAgICA8bGk-d2Ugd2FudCB0byBwdWJsaXNoIGEgcGFwZXIgZmlyc3Q8L2xpPgogICAgICAgICAgICB7JS0gZWxpZiBvdGhlclJlYXNvbnNPdGhlciAtJX0KICAgICAgICAgICAgICA8bGk-d2UgaGF2ZSBvdGhlciB0aGFuIHBhcGVyLXB1Ymxpc2hpbmcgcmVhc29uc3t7ICI6ICIgfiBub3RPcGVuT3RoZXJSZWFzb25zT3RoZXIgaWYgbm90T3Blbk90aGVyUmVhc29uc090aGVyIGVsc2UgIiIgfX08L2xpPgogICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICA8L3VsPgogICAgICAgIHslLSBlbmRpZiAtJX0K #}
+
       {%- if nReasons > 0 -%}
         {# __tr_block_0003:start #}<p>
+        The data cannot become completely open because
         {%- if nReasons == 1 -%}
           {%- if legalReasons %}
-            The data cannot become completely open because of legal reasons.
+            of legal reasons.
           {%- elif businessReasonsPatents %}
-            The data cannot become completely open because of patent-related business reasons.
+            of patent-related business reasons.
           {%- elif businessReasonsOther %}
-            The data cannot become completely open because of non-patent business reasons{{  ": " ~ notOpenBusinessReasonsOther|dot if notOpenBusinessReasonsOther else "." }}
+            {%- if notOpenBusinessReasonsOther %}
+              of non-patent business reasons: {{ notOpenBusinessReasonsOther }}.
+            {%- else %}
+              of non-patent business reasons.
+            {%- endif %}
           {%- elif otherReasonsPapers %}
-            The data cannot become completely open because we want to publish a paper first.
+            we want to publish a paper first.
           {%- elif otherReasonsOther %}
-            The data cannot become completely open because we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther|dot if notOpenOtherReasonsOther else "." }}
+            {%- if notOpenOtherReasonsOther %}
+              we have other than paper-publishing reasons: {{ notOpenOtherReasonsOther }}.
+            {%- else %}
+              we have other than paper-publishing reasons.
+            {%- endif %}
           {%- endif -%}
         {%- else %}
-          The data cannot become completely open because of:
+          of:
           <ul>
             {%- if legalReasons %}
               <li>legal reasons</li>
@@ -59,16 +68,16 @@
             {%- if businessReasonsPatents %}
               <li>patent-related business reasons</li>
             {%- elif businessReasonsOther %}
-              <li>non-patent business reasons{{ ": " ~ notOpenBusinessReasonsOther if notOpenBusinessReasonsOther else "" }}</li>
+              {# __tr_branch_sentence_original:PGxpPm5vbi1wYXRlbnQgYnVzaW5lc3MgcmVhc29uc3slIGlmIG5vdE9wZW5CdXNpbmVzc1JlYXNvbnNPdGhlciAlfToge3sgbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyIH19eyUgZW5kaWYgJX08L2xpPg== #}{% if notOpenBusinessReasonsOther %}<li>non-patent business reasons: {{ notOpenBusinessReasonsOther }}</li>{% else %}<li>non-patent business reasons</li>{% endif %}{# __tr_branch_sentence_original:end #}
             {%- endif -%}
             {%- if otherReasonsPapers %}
               <li>we want to publish a paper first</li>
             {%- elif otherReasonsOther -%}
-              <li>we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther if notOpenOtherReasonsOther else "" }}</li>
+              {# __tr_branch_sentence_original:PGxpPndlIGhhdmUgb3RoZXIgdGhhbiBwYXBlci1wdWJsaXNoaW5nIHJlYXNvbnN7JSBpZiBub3RPcGVuT3RoZXJSZWFzb25zT3RoZXIgJX06IHt7IG5vdE9wZW5PdGhlclJlYXNvbnNPdGhlciB9fXslIGVuZGlmICV9PC9saT4= #}{% if notOpenOtherReasonsOther %}<li>we have other than paper-publishing reasons: {{ notOpenOtherReasonsOther }}</li>{% else %}<li>we have other than paper-publishing reasons</li>{% endif %}{# __tr_branch_sentence_original:end #}
             {%- endif -%}
           </ul>
         {%- endif -%}{# __tr_block_0003:end #}
-{# __tr_branch_sentence_original:end #}      {%- else -%}
+      {%- else -%}
         {# __tr_block_0004:start #}<p>The data cannot become completely open.</p>{# __tr_block_0004:end #}
       {%- endif -%}
 
@@ -207,7 +216,11 @@
                 {%- elif refDataConditionsAUuid == uuids.refDataConditionsOtherAUuid -%}
                   {%- set refDataConditionsOtherPath = [refDataConditionsPath, uuids.refDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set refDataConditionsOther = repliesMap[refDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ refDataConditionsOther|dot if refDataConditionsOther else "." }}
+                  {%- if refDataConditionsOther %}
+                    It is available under specific restrictions, which we will follow in our project: {{ refDataConditionsOther }}.
+                  {%- else %}
+                    It is available under specific restrictions, which we will follow in our project.
+                  {%- endif %}
                 {%- endif -%}
               </li>
             {%- endif -%}
@@ -233,7 +246,11 @@
                 {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsOtherAUuid -%}
                   {%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set nrefDataConditionsOther = repliesMap[nrefDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ nrefDataConditionsOther|dot if nrefDataConditionsOther else "." }}
+                  {%- if nrefDataConditionsOther %}
+                    It is available under specific restrictions, which we will follow in our project: {{ nrefDataConditionsOther }}.
+                  {%- else %}
+                    It is available under specific restrictions, which we will follow in our project.
+                  {%- endif %}
                 {%- endif -%}
               </li>
             {%- endif -%}

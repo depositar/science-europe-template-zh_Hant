@@ -110,7 +110,7 @@
                 </ul>
                 </p>
               {%- else -%}
-                <p>{# __tr_block_0014:start #}我們將使用品質管控流程。{# __tr_block_0014:end #}{# __tr_block_0015:start #}<p>
+                {# __tr_block_0014:start #}<p>我們將使用品質管控流程。<p>
               {%- endif -%}
               {# Other quality processes #}
               {%- set mdQualityOtherPath = [mdqPrefix, uuids.mdQualityOtherQUuid]|reply_path -%}
@@ -119,16 +119,16 @@
                 {%- set mdQualityOtherYesPath = [mdQualityOtherPath, uuids.mdQualityOtherYesAUuid, uuids.mdQualityOtherWhatQUuid]|reply_path -%}
                 {%- set mdQualityOther = repliesMap[mdQualityOtherYesPath]|reply_str_value -%}
                 {%- if mdQualityOther -%}
-                  {# __tr_branch_sentence_original:PHA-eyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0lrRmtaR2wwYVc5dVlXd2lJR2xtSUhGMVlXeHBkSGxEYjNWdWRDQS1JREFnWld4elpTQWlUM1Z5SWlCOWZRPT0gI317JSBpZiBxdWFsaXR5Q291bnQgPiAwICV9e3sgIkFkZGl0aW9uYWwiIH19eyUgZWxzZSAlfXt7ICJPdXIiIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI30gcXVhbGl0eSBwcm9jZXNzZXMgYXJlOiB7eyBtZFF1YWxpdHlPdGhlcnxkb3QgfX08L3A- #}{% if qualityCount > 0 %}<p>其他品質管控流程為：{{ mdQualityOther|dot }}。</p>{% else %}<p>我們的品質管控流程是：{{ mdQualityOther|dot }}。</p>{% endif %}{# __tr_branch_sentence_original:end #}
+                  {# __tr_branch_sentence_original:PHA-eyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0lrRmtaR2wwYVc5dVlXd2lJR2xtSUhGMVlXeHBkSGxEYjNWdWRDQS1JREFnWld4elpTQWlUM1Z5SWlCOWZRPT0gI317JSBpZiBxdWFsaXR5Q291bnQgPiAwICV9e3sgIkFkZGl0aW9uYWwiIH19eyUgZWxzZSAlfXt7ICJPdXIiIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI30gcXVhbGl0eSBwcm9jZXNzZXMgYXJlOiB7eyBtZFF1YWxpdHlPdGhlciB9fS48L3A- #}{% if qualityCount > 0 %}<p>其他品質管控流程為：{{ mdQualityOther }}。</p>{% else %}<p>我們的品質管控流程是：{{ mdQualityOther }}。</p>{% endif %}{# __tr_branch_sentence_original:end #}
                 {%- endif -%}
-              {%- endif -%}{# __tr_block_0015:end #}
+              {%- endif -%}
             {%- endif -%}
           </li>
         {%- endfor -%}
       </ul>
     {%- endif -%}
   {%- else -%}
-    {# __tr_block_0016:start #}<p>該專案中不會有儀器資料集。</p>{# __tr_block_0016:end #}
+    <p>該專案中不會有儀器資料集。</p>
   {%- endif -%}
 
  {# Existing datasets #}
@@ -142,11 +142,11 @@
 
     {%- if (refDataItems|length > 0) or (nrefDataItems|length > 0) -%}
       <div>
-      {# __tr_block_0017:start #}<h4>再次使用的資料集</h4>{# __tr_block_0017:end #}
+      <h4>再次使用的資料集。</h4>
       <ul>
       {# Reference Data #}
         {%- for refDataItem in refDataItems -%}
-          {# __tr_block_0018:start #}<li>
+          <li>
           {%- set refDataPrefix = [refDataPath, refDataItem]|reply_path -%}
           {%- set refDataUse = [refDataPrefix, uuids.refDataUseQUuid]|reply_path -%}
           {%- set refDataUseReply = repliesMap[refDataUse]|reply_str_value -%}
@@ -311,14 +311,14 @@
             </p>
 {# __tr_branch_sentence_original:end #}
           {%- endif -%}
-        </li>{# __tr_block_0018:end #}
+        </li>
       {%- endfor -%}
       </ul>
 
       {# Non-reference Data #}
       <ul>
       {%- for nrefDataItem in nrefDataItems -%}
-      {# __tr_block_0019:start #}<li>
+      <li>
         {%- set nrefDataPrefix = [nrefDataPath, nrefDataItem]|reply_path  -%}
         {%- set nrefDataUse = [nrefDataPrefix, uuids.nrefDataUseQUuid]|reply_path -%}
         {%- set nrefDataUseReply = repliesMap[nrefDataUse]|reply_str_value -%}
@@ -411,11 +411,11 @@
             {%- set nrefDataPersonalLegalBasisReuse = [nrefDataPersonalLegalBasis, uuids.nrefDataPersonalLegalBasisConsentAUuid, uuids.nrefDataPersonalLegalBasisConsentReuseQUuid]|reply_path -%}
             {%- set nrefDataPersonalLegalBasisReuseReply = repliesMap[nrefDataPersonalLegalBasisReuse]|reply_str_value -%}
             {%- if nrefDataPersonalLegalBasisReuseReply == uuids.nrefDataPersonalLegalBasisConsentReuseYesAUuid -%}
-              <p>這些資料包括個人資料，這些資料合法地基於資料資料主體同意根據 GDPR 處理資料的情況，其中也包括我們的再次使用。</p>
+              <p>這些資料包含個人資料，且資料主體根據 GDPR 同意處理資料；該同意也涵蓋我們的再次使用。</p>
             {%- elif nrefDataPersonalLegalBasisReuseReply == uuids.nrefDataPersonalLegalBasisConsentReuseNoAUuid -%}
-              <p>這些資料包括個人資料，合法地基於資料資料主體同意根據 GDPR 處理資料的情況，這不包括我們的再次使用；因此，需要新的同意。</p>
+              <p>這些資料包含個人資料，且資料主體根據 GDPR 同意處理資料；但該同意未涵蓋我們的再次使用，因此需要重新取得同意。</p>
             {%- else -%}
-              <p>這些資料包括個人資料，這些資料合法地基於資料資料主體同意根據 GDPR 處理資料的情況。</p>
+              <p>這些資料包含個人資料，且資料主體根據 GDPR 同意處理資料。</p>
             {%- endif -%}
           {%- elif nrefDataPersonalLegalBasisReply == uuids.nrefDataPersonalLebalBasisOtherAUuid -%}
             {%- set nrefDataPersonalLegalBasisOther = [nrefDataPersonalLegalBasis, uuids.nrefDataPersonalLebalBasisOtherAUuid, uuids.nrefDataPersonalLegalBasisOtherQUuid]|reply_path -%}
@@ -502,7 +502,7 @@
           {%- endif -%}
           </p>
 {# __tr_branch_sentence_original:end #}
-        {%- endif -%}{# __tr_block_0019:end #}
+        {%- endif -%}
 
       </p>
       </li>
@@ -510,21 +510,21 @@
       </ul>
       </div>
     {%- else -%}
-      {# __tr_block_0020:start #}<p>沒有再次使用的資料集。</p>{# __tr_block_0020:end #}
+      <p>沒有再次使用的資料集。</p>
     {%- endif -%}
 
     {# Constrains - Data Harmonization #}
     {%- set dataHarmo = [preexistingPath, uuids.preexistingYesAUuid, uuids.dataHarmoQUuid]|reply_path -%}
     {%- set dataHarmoReply = repliesMap [dataHarmo]|reply_str_value -%}
     {%- if dataHarmoReply == uuids.dataHarmoYesAUuid -%}
-      {# __tr_branch_sentence_original:PHA-V2UgbmVlZCB0byBoYXJtb25pemUgZGlmZmVyZW50IHNvdXJjZXMgb2YgZXhpc3RpbmcgZGF0YSBiZWZvcmUgcmV1c2luZyB0aGVtCiAgICAgIHslLSBzZXQgZGF0YUhhcm1vbkF2YWlsYWJsZSA9IFtkYXRhSGFybW8sIHV1aWRzLmRhdGFIYXJtb1llc0FVdWlkLCB1dWlkcy5kYXRhSGFybW9PdGhlcnNRVXVpZF18cmVwbHlfcGF0aCAgLSV9CiAgICAgIHslLSBzZXQgZGF0YUhhcm1vbkF2YWlsYWJsZVJlcGx5ID0gcmVwbGllc01hcFtkYXRhSGFybW9uQXZhaWxhYmxlXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgIHslLSBpZiBkYXRhSGFybW9uQXZhaWxhYmxlUmVwbHkgPT0gdXVpZHMuZGF0YUhhcm1vT3RoZXJzWWVzQVV1aWQgLSV9CiAgICAgICAge3srIiAifX1hbmQgd2Ugd2lsbCBtYWtlIHRoaXMgaGFybW9uaXphdGlvbiByZXN1bHRzIGF2YWlsYWJsZSB0byBvdGhlcnMKICAgICAgeyUtIGVsaWYgZGF0YUhhcm1vbkF2YWlsYWJsZVJlcGx5ID09IHV1aWRzLmRhdGFIYXJtb090aGVyc05vQVV1aWQgLSV9CiAgICAgICAge3srIiAifX1idXQgd2Ugd29uJ3QgbWFrZSB0aGlzIGhhcm1vbml6YXRpb24gcmVzdWx0cyBhdmFpbGFibGUgdG8gb3RoZXJzCiAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgLjwvcD4= #}{%- set dataHarmonAvailable = [dataHarmo, uuids.dataHarmoYesAUuid, uuids.dataHarmoOthersQUuid]|reply_path  -%}{%- set dataHarmonAvailableReply = repliesMap[dataHarmonAvailable]|reply_str_value -%}{%- if dataHarmonAvailableReply == uuids.dataHarmoOthersYesAUuid -%}{# __tr_block_0021:start #}<p>在再次使用既有資料之前，我們需要協調不同來源的資料，並且我們會將協調結果提供給其他人。</p>{# __tr_block_0021:end #}{%- elif dataHarmonAvailableReply == uuids.dataHarmoOthersNoAUuid -%}{# __tr_block_0022:start #}<p>在再次使用既有資料之前，我們需要協調不同來源的資料，但我們不會將此協調結果提供給其他人。</p>{# __tr_block_0022:end #}{% else %}{# __tr_block_0023:start #}<p>在再次使用既有資料之前，我們需要協調不同來源的資料。</p>{# __tr_block_0023:end #}{%- endif -%}{# __tr_branch_sentence_original:end #}
+      {# __tr_branch_sentence_original:PHA-V2UgbmVlZCB0byBoYXJtb25pemUgZGlmZmVyZW50IHNvdXJjZXMgb2YgZXhpc3RpbmcgZGF0YSBiZWZvcmUgcmV1c2luZyB0aGVtCiAgICAgIHslLSBzZXQgZGF0YUhhcm1vbkF2YWlsYWJsZSA9IFtkYXRhSGFybW8sIHV1aWRzLmRhdGFIYXJtb1llc0FVdWlkLCB1dWlkcy5kYXRhSGFybW9PdGhlcnNRVXVpZF18cmVwbHlfcGF0aCAgLSV9CiAgICAgIHslLSBzZXQgZGF0YUhhcm1vbkF2YWlsYWJsZVJlcGx5ID0gcmVwbGllc01hcFtkYXRhSGFybW9uQXZhaWxhYmxlXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgIHslLSBpZiBkYXRhSGFybW9uQXZhaWxhYmxlUmVwbHkgPT0gdXVpZHMuZGF0YUhhcm1vT3RoZXJzWWVzQVV1aWQgLSV9CiAgICAgICAge3srIiAifX1hbmQgd2Ugd2lsbCBtYWtlIHRoaXMgaGFybW9uaXphdGlvbiByZXN1bHRzIGF2YWlsYWJsZSB0byBvdGhlcnMKICAgICAgeyUtIGVsaWYgZGF0YUhhcm1vbkF2YWlsYWJsZVJlcGx5ID09IHV1aWRzLmRhdGFIYXJtb090aGVyc05vQVV1aWQgLSV9CiAgICAgICAge3srIiAifX1idXQgd2Ugd29uJ3QgbWFrZSB0aGlzIGhhcm1vbml6YXRpb24gcmVzdWx0cyBhdmFpbGFibGUgdG8gb3RoZXJzCiAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgLjwvcD4= #}{%- set dataHarmonAvailable = [dataHarmo, uuids.dataHarmoYesAUuid, uuids.dataHarmoOthersQUuid]|reply_path  -%}{%- set dataHarmonAvailableReply = repliesMap[dataHarmonAvailable]|reply_str_value -%}{%- if dataHarmonAvailableReply == uuids.dataHarmoOthersYesAUuid -%}<p>在再次使用既有資料之前，我們需要協調不同來源的資料，並且我們會將協調結果提供給其他人。</p>{%- elif dataHarmonAvailableReply == uuids.dataHarmoOthersNoAUuid -%}<p>在再次使用既有資料之前，我們需要協調不同來源的資料，但我們不會將此協調結果提供給其他人。</p>{% else %}<p>在再次使用既有資料之前，我們需要協調不同來源的資料。</p>{%- endif -%}{# __tr_branch_sentence_original:end #}
     {%- endif -%}
 
     {# Constrains - (Re)made data computer readable #}
     {%- set dataCompRead = [preexistingPath, uuids.preexistingYesAUuid, uuids.dataCompReadQUuid]|reply_path -%}
     {%- set dataCompReadReply = repliesMap[dataCompRead]|reply_str_value -%}{# __tr_branch_sentence_original:CiAgICB7JS0gaWYgZGF0YUNvbXBSZWFkUmVwbHkgPT0gdXVpZHMuZGF0YUNvbXBSZWFkWWVzQVV1aWQgLSV9CiAgICAgIDxwPldlIHdpbGwgbmVlZCB0byAocmUtKW1hZGUgdGhlIGRhdGEgaW50byBjb21wdXRlciByZWFkYWJsZSBmb3JtIGJlZm9yZSB0aGVpciB1c2luZwoKICAgICAgeyUtIHNldCBkYXRhQ29tcFJlYWRJdHNlbGYgPSBbZGF0YUNvbXBSZWFkLCB1dWlkcy5kYXRhQ29tcFJlYWRZZXNBVXVpZCwgdXVpZHMuZGF0YUNvbXBSZWFkSXRzZWxmUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgIHslLSBzZXQgZGF0YUNvbXBSZWFkSXRzZWxmUmVwbHkgPSByZXBsaWVzTWFwW2RhdGFDb21wUmVhZEl0c2VsZl18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICB7JS0gc2V0IGRhdGFDb21wUmVhZE90aGVycyA9IFtkYXRhQ29tcFJlYWQsIHV1aWRzLmRhdGFDb21wUmVhZFllc0FVdWlkLCB1dWlkcy5kYXRhQ29tcFJlYWRPdGhlcnNRVXVpZF18cmVwbHlfcGF0aCAgLSV9CiAgICAgIHslLSBzZXQgZGF0YUNvbXBSZWFkT3RoZXJzUmVwbHkgPSByZXBsaWVzTWFwW2RhdGFDb21wUmVhZE90aGVyc118cmVwbHlfc3RyX3ZhbHVlIC0lfQoKICAgICAgeyUtIGlmIGRhdGFDb21wUmVhZEl0c2VsZlJlcGx5IC0lfQogICAgICAgIHslLSBpZiBkYXRhQ29tcFJlYWRJdHNlbGZSZXBseSA9PSB1dWlkcy5kYXRhQ29tcFJlYWRJdHNlbGZZZXNBVXVpZCAtJX0KICAgICAgICAgIHt7KyIgIn19YW5kIHdlIHdpbGwgbWFrZSB0aGlzIGNvbXB1dGVyIHJlYWRhYmxlIGZvcm0gYXZhaWxhYmxlIHRvIG90aGVycyB0aHJvdWdoIGEgc3RhbmRhcmQgcmVwb3NpdG9yeQogICAgICAgIHslLSBlbGlmIGRhdGFDb21wUmVhZEl0c2VsZlJlcGx5ID09IHV1aWRzLmRhdGFDb21wUmVhZEl0c2VsZlllc090aGVyQVV1aWQgLSV9IAogICAgICAgICAge3srIiAifX1hbmQgd2Ugd2lsbCBtYWtlIHRoaXMgY29tcHV0ZXIgcmVhZGFibGUgZm9ybSBhdmFpbGFibGUgdG8gb3RoZXJzCiAgICAgICAgeyUtIGVsaWYgZGF0YUNvbXBSZWFkSXRzZWxmUmVwbHkgPT0gdXVpZHMuZGF0YUNvbXBSZWFkSXRzZWxmTm9BVXVpZCAtJX0KICAgICAgICAgIHt7KyIgIn19YnV0IHdlIHdvbid0IG1ha2UgdGhpcyBjb21wdXRlciByZWFkYWJsZSBmb3JtIGF2YWlsYWJsZSB0byBvdGhlcnMKICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgLgoKICAgICAgeyUtIGlmIGRhdGFDb21wUmVhZE90aGVyc1JlcGx5IC0lfQogICAgICAgIHslLSBpZiBkYXRhQ29tcFJlYWRPdGhlcnNSZXBseSA9PSB1dWlkcy5kYXRhQ29tcFJlYWRPdGhlcnNZZXNBVXVpZCAlfQogICAgICAgICAgICBXZSB3aWxsIHByb3ZpZGUgbWFjaGluZSByZWFkYWJsZSwgc3RhbmRhcmRpemVkIG1ldGFkYXRhIHRvIG90aGVycwogICAgICAgICAgICB7JS0gc2V0IGRhdGFDb21wUmVhZFdoaWNoTWV0YWRhdGFTdGFuZGFyZFBhdGggPSBbZGF0YUNvbXBSZWFkT3RoZXJzLCB1dWlkcy5kYXRhQ29tcFJlYWRPdGhlcnNZZXNBVXVpZCwgdXVpZHMuZGF0YUNvbXBSZWFkT3RoZXJzWWVzU3RhbmRhcmRzUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgICAgIHslLSBzZXQgZGF0YUNvbXBSZWFkTWV0YWRhdGFTdGFuZGFyZEl0ZW1zID0gIHJlcGxpZXNNYXBbZGF0YUNvbXBSZWFkV2hpY2hNZXRhZGF0YVN0YW5kYXJkUGF0aF18cmVwbHlfaXRlbXMgLSV9CiAgICAgICAgICAgIHslLSBpZiBkYXRhQ29tcFJlYWRNZXRhZGF0YVN0YW5kYXJkSXRlbXN8bGVuZ3RoICA-IDAgLSV9CiAgICAgICAgICAgICAge3srIiAifX1hbmQgd2Ugd2lsbCB1c2UgZm9sbG93aW5nIE1ldGFkYXRhIFN0YW5kYXJkczp7eysiICJ9fQogICAgICAgICAgICAgICAgeyUtIGZvciBkYXRhQ29tcFJlYWRNZXRhZGF0YVN0YW5kYXJkSXRlbSBpbiBkYXRhQ29tcFJlYWRNZXRhZGF0YVN0YW5kYXJkSXRlbXMgLSV9CiAgICAgICAgICAgICAgICAgIHslLSBzZXQgZGF0YUNvbXBSZWFkTWV0YWRhdGFTdGFuZGFyZFByZWZpeCA9IFtkYXRhQ29tcFJlYWRXaGljaE1ldGFkYXRhU3RhbmRhcmRQYXRoLCBkYXRhQ29tcFJlYWRNZXRhZGF0YVN0YW5kYXJkSXRlbV18cmVwbHlfcGF0aCAtJX0KICAgICAgICAgICAgICAgICAgeyUtIHNldCBkYXRhQ29tcFJlYWRNZXRhZGF0YVN0YW5kYXJkID0gW2RhdGFDb21wUmVhZE1ldGFkYXRhU3RhbmRhcmRQcmVmaXgsIHV1aWRzLmRhdGFDb21wUmVhZE90aGVyc1llc1N0YW5kYXJkUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgICAgICAgICAgIHslLSBzZXQgZGF0YUNvbXBSZWFkTWV0YWRhdGFTdGFuZGFyZFJlcGx5ID0gcmVwbGllc01hcFtkYXRhQ29tcFJlYWRNZXRhZGF0YVN0YW5kYXJkXSAtJX0KICAgICAgICAgICAgICAgICAge3sgbWFjcm9zLmludGVncmF0aW9uRmFpclNoYXJpbmcoZGF0YUNvbXBSZWFkTWV0YWRhdGFTdGFuZGFyZFJlcGx5KSB9fXt7ICIsICIgaWYgbm90IGxvb3AubGFzdCBlbHNlICIuIiB9fQogICAgICAgICAgICAgICAgeyUtIGVuZGZvciAtJX0KICAgICAgICAgICAgeyUtIGVsc2UgLSV9CiAgICAgICAgICAgIC4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQoKICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAKICAgICAgeyUtIGVuZGlmIC0lfQogICAgICA8L3A-CiAgICB7JS0gZW5kaWYgLSV9Cg== #}
     {%- if dataCompReadReply == uuids.dataCompReadYesAUuid -%}
-      {# __tr_block_0024:start #}<p>
+      <p>
       {%- set dataCompReadItself = [dataCompRead, uuids.dataCompReadYesAUuid, uuids.dataCompReadItselfQUuid]|reply_path -%}
       {%- set dataCompReadItselfReply = repliesMap[dataCompReadItself]|reply_str_value -%}
       {%- set dataCompReadOthers = [dataCompRead, uuids.dataCompReadYesAUuid, uuids.dataCompReadOthersQUuid]|reply_path  -%}
@@ -555,7 +555,7 @@
           我們將向其他人提供機器可讀的標準化後設資料。
         {%- endif -%}
       {%- endif -%}
-      </p>{# __tr_block_0024:end #}
+      </p>
     {%- endif -%}
 {# __tr_branch_sentence_original:end #}    
 
@@ -568,19 +568,23 @@
       {%- set provenancePath = [metadataPath, uuids.metadataExploreAUuid, uuids.provenanceQUuid]|reply_path -%}
       {%- set provenanceAUuid = repliesMap[provenancePath]|reply_str_value -%}
       {%- if provenanceAUuid %}
-      {# __tr_block_0025:start #}<h4>資料溯源</h4>{# __tr_block_0025:end #}
+      <h4>來源。</h4>
       {%- if provenanceAUuid == uuids.provenanceLabNotebooksAUuid -%}
-        {# __tr_block_0026:start #}<p>我們將使用實驗室記錄本來確保資料分析有良好的來源。</p>{# __tr_block_0026:end #}
+        <p>我們將使用實驗室記錄本來確保資料分析有良好的來源。</p>
       {%- elif provenanceAUuid == uuids.provenanceELabNotebookAUuid -%}
-        {# __tr_block_0027:start #}<p>我們將使用電子實驗室記錄本來確保資料分析有良好的來源。</p>{# __tr_block_0027:end #}
+        <p>我們將使用電子實驗室記錄本來確保資料分析有良好的來源。</p>
       {%- elif provenanceAUuid == uuids.provenanceSystemAUuid -%}
-        {# __tr_block_0028:start #}<p>我們的運算工作流程系統保留有關資料分析的資料溯源資訊。</p>{# __tr_block_0028:end #}
+        <p>我們的運算工作流程系統保留有關資料分析的資料溯源資訊。</p>
       {%- elif provenanceAUuid == uuids.provenanceOtherAUuid -%}
         {%- set provenanceOtherPath = [provenancePath, uuids.provenanceOtherAUuid, uuids.provenanceOtherQUuid]|reply_path -%}
         {%- set provenanceOther = repliesMap[provenanceOtherPath]|reply_str_value -%}
-        <p>{# __tr_block_0029:start #}我們將使用（電子）實驗室記錄本以外的其他解決方案來確保資料分析有良好的來源{{ ": " ~ provenanceOther|dot if provenanceOther else "." }}
-      {# __tr_block_0029:end #}{%- endif -%}
+        {%- if provenanceOther %}
+          <p>我們將使用（電子）實驗室記錄本以外的其他解決方案來確保資料分析有良好的來源：{{ provenanceOther }}。</p>
+        {%- else %}
+          <p>我們將使用（電子）實驗室記錄本以外的其他解決方案來確保資料分析有良好的來源。</p>
+        {%- endif %}
       {%- endif -%}
-    {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}{# __tr_block_0014:end #}
   </div>
 </div>

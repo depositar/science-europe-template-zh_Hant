@@ -77,7 +77,7 @@
                                 {%- set publishedDataIdentifierSpecifyReply = repliesMap[publishedDataIdentifierSpecifyQUuid]|reply_str_value -%}
 
                                 {%- if publishedDataIdentifierSpecifyReply -%}
-                                    <p>分配的持續識別碼指定如下：{{ publishedDataIdentifierSpecifyReply|dot }}。</p>
+                                    <p>分配的持續識別碼指定如下：{{ publishedDataIdentifierSpecifyReply }}。</p>
                                 {%- endif -%}
                             </ul>
                             {%- endif -%}

@@ -43,7 +43,7 @@
                             {# __tr_block_0009:start #}<li>URL：<strong><a href="{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0009:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeOtherAUuid -%}
                             {%- set identifierType = repliesMap[[identifierTypePath, uuids.dataIdentifierTypeOtherAUuid, uuids.dataIdentifierTypeOtherTypeQUuid]|reply_path]|reply_str_value -%}
-                            <li>{{ identifierType }}: <strong>{{ identifierValue }}</strong></li>
+                            <li>{{ identifierType }}：<strong>{{ identifierValue }}</strong></li>
                         {%- endif -%}
                     {%- endfor -%}
                     </ul>
@@ -74,7 +74,7 @@
                                 {%- set domainSpecificRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoNameQUuid]|reply_path -%}
                                 {%- set domainSpecificRepoNameReply = repliesMap[domainSpecificRepoNamePath] -%}
                                 {%- if domainSpecificRepoNameReply -%}
-                                : {{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
+                                ：{{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
                                 {%- else -%}.
                                 {% endif -%}
                                 {# Contact the repository #}
@@ -89,14 +89,18 @@
                                 {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}
                                 {%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}
                                 {%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}
-                                我們已經做了其他安排{{ ": " ~ domainSpecificRepoContactBeforeOther|dot if domainSpecificRepoContactBeforeOther else "." }}
+                                {%- if domainSpecificRepoContactBeforeOther %}
+                                我們已經做了其他安排：{{ domainSpecificRepoContactBeforeOther }}。
+                                {%- else %}
+                                我們已經做了其他安排。
+                                {%- endif %}
                                 {%- endif -%}
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
                                 使用通用儲存庫
                                 {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                                 {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                                 {%- if generalPurposeRepoNameReply -%}
-                                    : {{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
+                                    ：{{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
                                 {%- else -%}.
                                 {%- endif -%}
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}
@@ -142,7 +146,11 @@
                                     {%- set licenseRestrictMetadataPath = [publishedDataLicensePath, uuids.publishedDataLicenseRestrictAUuid, uuids.licenseRestrictMetadataQUuid]|reply_path -%}
                                     {%- set licenseRestrictMetadataAUuid = repliesMap[licenseRestrictMetadataPath]|reply_str_value %}
                                     
-                                    在部分限制下可取得，我們將在我們的專案中遵循{{ ": " ~ licenseRestrictConditions|dot if licenseRestrictConditions else "." }}
+                                    {%- if licenseRestrictConditions %}
+                                    在部分限制下可取得，我們將在專案中遵循相關限制：{{ licenseRestrictConditions }}。
+                                    {%- else %}
+                                    在部分限制下可取得，我們將在專案中遵循相關限制。
+                                    {%- endif %}
                                     {%- if licenseRestrictAccessAUuid == uuids.licenseRestrictAccessRequestAUuid %}
                                     再次使用者將能夠透過向聯絡人提出請求來獲得取用權限。
                                     {%- elif licenseRestrictAccessAUuid == uuids.licenseRestrictAccessCommitteeAUuid %}
@@ -150,7 +158,11 @@
                                     {%- elif licenseRestrictAccessAUuid == uuids.licenseRestrictAccessAnotherAUuid -%}
                                     {%- set licenseRestrictAccessAnotherPath = [licenseRestrictAccessPath, uuids.licenseRestrictAccessAnotherAUuid, uuids.licenseRestrictAccessAnotherQUuid]|reply_path -%}
                                     {%- set licenseRestrictAccessAnother = repliesMap[licenseRestrictAccessAnotherPath]|reply_str_value %}
-                                    再次使用者將能夠透過專門的流程{{ ": " ~ licenseRestrictAccessAnother|dot if licenseRestrictAccessAnother else "." }} 獲得取用權限
+                                    {%- if licenseRestrictAccessAnother %}
+                                    再次使用者將能夠透過專門流程取得取用權限：{{ licenseRestrictAccessAnother }}。
+                                    {%- else %}
+                                    再次使用者將能夠透過專門流程取得取用權限。
+                                    {%- endif %}
                                     {%- endif -%}
                                     {%- if licenseRestrictMetadataAUuid == uuids.licenseRestrictMetadataYesAUuid %}
                                     這些條件將作為開放後設資料的一部分發布。
@@ -265,7 +277,11 @@
           {%- elif legalReasonsAuthorizeAUuid == uuids.legalReasonsAuthorizeOtherAUuid %}
             {%- set legalReasonsAuthorizeOtherPath = [legalReasonsAuthorizePath, uuids.legalReasonsAuthorizeOtherAUuid, uuids.legalReasonsAuthorizeOtherQUuid]|reply_path -%}
             {%- set legalReasonsAuthorizeOther = repliesMap[legalReasonsAuthorizeOtherPath]|reply_str_value %}
-            對於潛在使用者的授權，我們將做出特殊安排{{ ": " ~ legalReasonsAuthorizeOther|dot if legalReasonsAuthorizeOther else "." }}
+            {%- if legalReasonsAuthorizeOther %}
+              對於潛在使用者的授權，我們將做出特殊安排：{{ legalReasonsAuthorizeOther }}。
+            {%- else %}
+              對於潛在使用者的授權，我們將做出特殊安排。
+            {%- endif %}
           {%- endif -%}
         </p>{# __tr_block_0026:end #}
       {%- endif -%}

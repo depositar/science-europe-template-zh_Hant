@@ -125,7 +125,11 @@
         {%- elif risksPseudonymizationAUuid == uuids.risksPseudonymizationAnotherAUuid -%}
           {%- set risksPseudonymizationAnotherQUuid = [risksPseudonymizationPath, uuids.risksPseudonymizationAnotherAUuid, uuids.risksPseudonymizationAnotherQUuid]|reply_path -%}
           {%- set risksPseudonymizationAnother = repliesMap[risksPseudonymizationAnotherQUuid]|reply_str_value %}
-          We have a specific way of pseudonymization{{ ": " ~ risksPseudonymizationAnother|dot if risksPseudonymizationAnother else "." }}
+          {%- if risksPseudonymizationAnother %}
+            We have a specific way of pseudonymization: {{ risksPseudonymizationAnother }}.
+          {%- else %}
+            We have a specific way of pseudonymization.
+          {%- endif %}
         {%- endif -%}
       </p>{# __tr_block_0006:end #}
     {%- elif risksPersonalDataAUuid == uuids.risksPersonalDataAnonymousAUuid -%}

@@ -43,7 +43,7 @@
         <br>{{ macros.formatOrcid(contributor.orcid) }}
       {%- endif -%}
       {%- if contributor.roles|length > 0 %}
-        <br>{% if contributor.roles|length == 0 %}角色{% else %}角色{% endif %}: {% for role in contributor.roles %}<span class="role">{{ role }}</span>{% if not loop.last %}, {% endif %}{% endfor %}
+        <br>{% if contributor.roles|length == 0 %}角色{% else %}角色{% endif %}：{% for role in contributor.roles %}<span class="role">{{ role }}</span>{% if not loop.last %}、{% endif %}{% endfor %}
       {%- endif %}
       {%- if contributor.affiliation %}
         <br>所屬機構：<span class="affiliation">{{ macros.integrationROR(contributor.affiliation) }}</span>

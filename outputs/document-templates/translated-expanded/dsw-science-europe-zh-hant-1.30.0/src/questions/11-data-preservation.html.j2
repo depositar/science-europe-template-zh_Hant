@@ -31,17 +31,17 @@
             {% if publishedDataHowLongAUuid == uuids.publishedDataHowLongTechnicalAUuid -%}
               <p>只要技術上可行，該資料集將保持可取得。</p>
             {%- elif publishedDataHowLongAUuid == uuids.publishedDataHowLongDeletedAUuid -%}
-              <p>該資料集將保持可取得，直到因法律、合約或監管原因需要刪除為止。</p>{# __tr_branch_sentence_original:CiAgICAgICAgICAgIHslLSBlbGlmIHB1Ymxpc2hlZERhdGFIb3dMb25nQVV1aWQgPT0gdXVpZHMucHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZEFVdWlkIC0lfQogICAgICAgICAgICAgIHslLSBzZXQgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZFBhdGggPSBbcHVibGlzaGVkRGF0YUhvd0xvbmdQYXRoLCB1dWlkcy5wdWJsaXNoZWREYXRhSG93TG9uZ0ZpeGVkQVV1aWQsIHV1aWRzLnB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRRVXVpZF18cmVwbHlfcGF0aCAtJX0KICAgICAgICAgICAgICB7JS0gc2V0IHB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWQgPSByZXBsaWVzTWFwW3B1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRQYXRoXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgICAgICAgICAgPHA-VGhpcyBkYXRhIHNldCB3aWxsIGJlIGtlcHQgYXZhaWxhYmxlIGZvciBhIGZpeGVkIHBlcmlvZCAocHJlcGFpZCl7eyAiIG9mOiAiIH4gcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZHxkb3QgaWYgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZCBlbHNlICIuIiB9fTwvcD4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQo= #}
+              <p>該資料集將保持可取得，直到因法律、合約或監管原因需要刪除為止。</p>
             {%- elif publishedDataHowLongAUuid == uuids.publishedDataHowLongFixedAUuid -%}
               {%- set publishedDataHowLongFixedPath = [publishedDataHowLongPath, uuids.publishedDataHowLongFixedAUuid, uuids.publishedDataHowLongFixedQUuid]|reply_path -%}
               {%- set publishedDataHowLongFixed = repliesMap[publishedDataHowLongFixedPath]|reply_str_value -%}
-              {%- if publishedDataHowLongFixed -%}
-                <p>此資料集將在固定期限（預付費）內保留：{{ publishedDataHowLongFixed|dot }}。</p>
-              {%- else -%}
+              {%- if publishedDataHowLongFixed %}
+                <p>此資料集將在固定期限（預付費）內保留：{{ publishedDataHowLongFixed }}。</p>
+              {%- else %}
                 <p>該資料集將在固定期限內保留（預付）。</p>
-              {%- endif -%}
+              {%- endif %}
             {%- endif -%}
-{# __tr_branch_sentence_original:end #}            {%- if publishedDataMetadataPersistentAUuid == uuids.publishedDataMetadataPersistentYesAUuid %}
+            {%- if publishedDataMetadataPersistentAUuid == uuids.publishedDataMetadataPersistentYesAUuid %}
               <p>即使資料不再存在，後設資料也將可取得。</p>
             {%- endif -%}
           {%- endif -%}
@@ -63,8 +63,8 @@
                     {%- set domainSpecificRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoNameQUuid]|reply_path -%}
                     {%- set domainSpecificRepoNameReply = repliesMap[domainSpecificRepoNamePath] -%}
                     {%- if domainSpecificRepoNameReply -%}
-                      : {{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
-                    {%- else -%}.
+                      ：{{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
+                    {%- else -%}。
                     {% endif -%}
                     {# Contact the repository #}
                     {%- set domainSpecificRepoContactBeforePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoContactBeforeQUuid]|reply_path -%}
@@ -78,15 +78,19 @@
                     {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}
                       {%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}
                       {%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}
-                      我們做了其他安排，而不是直接聯絡儲存庫{{ ": " ~ domainSpecificRepoContactBeforeOther|dot if domainSpecificRepoContactBeforeOther else "." }}
+                      {%- if domainSpecificRepoContactBeforeOther %}
+                        我們做了其他安排，而不是直接聯絡儲存庫：{{ domainSpecificRepoContactBeforeOther }}。
+                      {%- else %}
+                        我們做了其他安排，而不是直接聯絡儲存庫。
+                      {%- endif %}
                     {%- endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
                     通用儲存庫
                     {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                     {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                     {%- if generalPurposeRepoNameReply -%}
-                      : {{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
-                    {%- else -%}.
+                      ：{{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
+                    {%- else -%}。
                     {% endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}
                     我們的國家儲存庫。

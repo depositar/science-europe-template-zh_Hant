@@ -164,7 +164,7 @@
             {%- set cpersDescribeProcedurePath = [legalBasePath, legalBaseAUuid, uuids.cpersDescribeProcedureQUuid]|reply_path -%}
             {%- set cpersDescribeProcedure = repliesMap[cpersDescribeProcedurePath]|reply_str_value -%}
             {%- if cpersDescribeProcedure -%}{# __tr_block_0024:start #}
-              {%- do sentences.append('取得資料資料主體同意的程序如下：') -%}
+              {%- do sentences.append('取得資料主體同意的程序如下：') -%}
               {# __tr_block_0024:end #}{%- do sentences.append(cpersDescribeProcedure|dot) -%}
             {%- endif -%}
 
