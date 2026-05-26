@@ -17,5 +17,5 @@ The following contributors are related to the {globals.projects} of this DMP:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+以下貢獻者與此資料管理方案的 {globals.projects} 相關：
 ~~~

@@ -17,5 +17,5 @@
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+（已拒絕）
 ~~~

@@ -11,11 +11,11 @@
 ### Sentence (en)
 
 ```text
-Within this repository, unique and persistent identifiers will be applied as follows:.
+Within this repository, unique and persistent identifiers will be applied as follows:
 ```
 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+在此儲存庫中，將如下套用唯一且持久的識別碼：
 ~~~

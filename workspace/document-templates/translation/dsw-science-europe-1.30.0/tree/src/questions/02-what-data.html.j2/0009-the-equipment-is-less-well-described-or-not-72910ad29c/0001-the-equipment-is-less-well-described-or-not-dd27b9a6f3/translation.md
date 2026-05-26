@@ -17,5 +17,5 @@ The equipment is less well described or not completely standard, so we will need
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+該設備的描述不太清楚或不完全標準，因此我們需要格外小心地記錄該過程。
 ~~~

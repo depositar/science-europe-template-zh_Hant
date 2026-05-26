@@ -17,5 +17,5 @@ Data will be released only as soon as restrictions are falling away.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+只有在限制解除後才會發布資料。
 ~~~

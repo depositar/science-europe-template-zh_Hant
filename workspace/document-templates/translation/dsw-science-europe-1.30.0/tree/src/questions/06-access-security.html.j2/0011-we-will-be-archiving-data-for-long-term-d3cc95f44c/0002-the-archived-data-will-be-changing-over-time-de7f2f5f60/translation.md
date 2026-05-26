@@ -17,5 +17,5 @@ The archived data will be changing over time and needs re-archival.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+歸檔的資料會隨著時間的推移而變化，需要重新歸檔。
 ~~~

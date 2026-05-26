@@ -17,5 +17,5 @@ We will be using quality processes.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用品質管控流程。
 ~~~

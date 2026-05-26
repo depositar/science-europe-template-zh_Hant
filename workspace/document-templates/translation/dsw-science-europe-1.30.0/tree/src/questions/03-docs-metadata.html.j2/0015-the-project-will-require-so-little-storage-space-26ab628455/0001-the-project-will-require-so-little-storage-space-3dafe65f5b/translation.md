@@ -17,5 +17,5 @@ The project will require so little storage space for all data and software (incl
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+該專案只需要很少的儲存空間來儲存庫有資料和軟體（包括臨時儲存），因此這不是問題。
 ~~~

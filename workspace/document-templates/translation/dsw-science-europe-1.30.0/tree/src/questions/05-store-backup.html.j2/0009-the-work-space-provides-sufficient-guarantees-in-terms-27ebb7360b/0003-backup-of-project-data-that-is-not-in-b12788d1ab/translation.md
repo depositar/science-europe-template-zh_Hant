@@ -17,5 +17,5 @@ Backup of project data that is not in the work space is left to the project part
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+不在工作空間中的項目資料的備份由專案參與者負責。
 ~~~

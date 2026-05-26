@@ -17,5 +17,5 @@ An institutional data steward will assign the persistent identifier.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+機構資料管理專員將分配持續識別碼。
 ~~~

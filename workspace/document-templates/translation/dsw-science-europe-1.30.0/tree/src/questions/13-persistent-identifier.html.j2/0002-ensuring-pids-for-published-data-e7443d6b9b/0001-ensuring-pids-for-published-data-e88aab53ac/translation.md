@@ -17,5 +17,5 @@ Ensuring PIDs for published data
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+確保已發布資料具備 PID
 ~~~

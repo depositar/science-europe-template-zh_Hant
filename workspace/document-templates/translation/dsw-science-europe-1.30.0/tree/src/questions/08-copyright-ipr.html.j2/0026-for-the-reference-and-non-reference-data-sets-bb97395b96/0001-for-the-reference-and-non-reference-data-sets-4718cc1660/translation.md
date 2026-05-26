@@ -17,5 +17,5 @@ For the reference and non-reference data sets that we reuse, conditions are as f
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+對於我們再次使用的參考資料集和非參考資料集，條件如下：
 ~~~

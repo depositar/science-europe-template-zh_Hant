@@ -11,11 +11,11 @@
 ### Sentence (en)
 
 ```text
-We have a specific way of pseudonymization{value}
+We have a specific way of pseudonymization{risksPseudonymizationAnother}
 ```
 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們有一個特定的假名方式{risksPseudonymizationAnother}
 ~~~

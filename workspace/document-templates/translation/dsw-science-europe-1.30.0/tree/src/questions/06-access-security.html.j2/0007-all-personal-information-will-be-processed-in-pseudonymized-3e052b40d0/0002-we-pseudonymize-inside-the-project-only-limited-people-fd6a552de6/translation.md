@@ -17,5 +17,5 @@ We pseudonymize inside the project, only limited people can access the keys.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們在專案內部使用假名，只有有限的人可以存取金鑰。
 ~~~

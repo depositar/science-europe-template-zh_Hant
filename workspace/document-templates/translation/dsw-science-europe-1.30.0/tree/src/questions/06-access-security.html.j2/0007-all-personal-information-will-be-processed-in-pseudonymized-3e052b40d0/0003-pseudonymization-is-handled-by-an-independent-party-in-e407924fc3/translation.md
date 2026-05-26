@@ -17,5 +17,5 @@ Pseudonymization is handled by an independent party in order to allow data coupl
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+擬匿名化由獨立方處理，以允許資料耦合。
 ~~~

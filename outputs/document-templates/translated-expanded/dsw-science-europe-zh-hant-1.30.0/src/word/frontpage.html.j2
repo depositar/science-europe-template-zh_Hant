@@ -1,12 +1,12 @@
 {# __tr_block_0000:start #}<h1>
-<strong>Science Europe</strong>
+Science Europe
 <br/>
-<strong>資料管理計畫</strong>
+資料管理方案
 <br/>
 <br/>
 {% if dc.project.version %}
 {% for version in dc.project.versions if version.uuid == dc.project.version.uuid %}
-{{ version.name }}
+{{version.name}}
 <br/>
 {% endfor %}
 {% endif %}{# __tr_block_0000:end #}
@@ -22,5 +22,5 @@
 />
 <br/>
 <br/>{# __tr_block_0001:start #}
-Created in {# __tr_block_0001:end #}<a href="{{ dc.config.service_url }}" target="_blank">{{ dc.config.service_name }}</a>
+建立於 {# __tr_block_0001:end #}<a href="{{ dc.config.service_url }}" target="_blank">{{ dc.config.service_name }}</a>
 </h1>

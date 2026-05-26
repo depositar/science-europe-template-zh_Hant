@@ -17,5 +17,5 @@ We will set up a data access committee for authorization of potential users of t
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將設立資料取用委員會，對資料的潛在使用者進行取用授權。
 ~~~

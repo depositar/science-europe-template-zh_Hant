@@ -17,5 +17,5 @@ This dataset will be collected by an external party.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料集將由外部方蒐集。
 ~~~

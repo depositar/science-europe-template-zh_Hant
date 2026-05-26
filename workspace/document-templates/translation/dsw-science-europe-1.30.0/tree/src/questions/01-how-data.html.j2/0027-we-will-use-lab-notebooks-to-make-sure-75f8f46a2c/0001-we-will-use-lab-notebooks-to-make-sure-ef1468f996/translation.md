@@ -17,5 +17,5 @@ We will use lab notebooks to make sure that there is good provenance of the data
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用實驗室記錄本來確保資料分析有良好的來源。
 ~~~

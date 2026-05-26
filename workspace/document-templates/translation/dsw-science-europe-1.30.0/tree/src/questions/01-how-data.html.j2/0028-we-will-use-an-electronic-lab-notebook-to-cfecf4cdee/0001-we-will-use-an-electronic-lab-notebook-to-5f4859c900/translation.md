@@ -17,5 +17,5 @@ We will use an electronic lab notebook to make sure that there is good provenanc
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用電子實驗室記錄本來確保資料分析有良好的來源。
 ~~~

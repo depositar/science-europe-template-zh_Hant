@@ -17,5 +17,5 @@ We will make (automated) backups of all data stored outside of the working area.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將對工作區域之外儲存的所有資料進行（自動）備份。
 ~~~

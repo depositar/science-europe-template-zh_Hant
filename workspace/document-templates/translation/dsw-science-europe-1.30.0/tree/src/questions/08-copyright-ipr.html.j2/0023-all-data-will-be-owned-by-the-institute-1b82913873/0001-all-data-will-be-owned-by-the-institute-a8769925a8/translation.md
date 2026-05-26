@@ -17,5 +17,5 @@ All data will be owned by the institute.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所有資料將歸該機構所有。
 ~~~

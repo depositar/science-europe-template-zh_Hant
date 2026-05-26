@@ -17,5 +17,5 @@ There is no shared workspace used during the project for working with data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案期間沒有使用共享工作區來處理資料。
 ~~~

@@ -17,5 +17,5 @@ Our quality processes are: {mdQualityOther}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們的品質管控流程是：{mdQualityOther}。
 ~~~

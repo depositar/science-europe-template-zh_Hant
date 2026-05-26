@@ -17,5 +17,5 @@ We have budgeted for the costs in the project to pay charges of the used reposit
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們已經對專案成本進行了預算，以支付所用儲存庫的費用。
 ~~~

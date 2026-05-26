@@ -17,5 +17,5 @@ All essential data is also stored elsewhere to prevent a total loss of data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所有重要資料也儲存在其他地方，以防止資料完全遺失。
 ~~~

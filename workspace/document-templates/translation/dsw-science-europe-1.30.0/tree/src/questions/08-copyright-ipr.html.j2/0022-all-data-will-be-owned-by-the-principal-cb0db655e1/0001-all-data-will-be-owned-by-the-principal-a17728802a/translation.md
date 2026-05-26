@@ -17,5 +17,5 @@ All data will be owned by the Principal Investigator.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所有資料將歸計畫主持人所有。
 ~~~

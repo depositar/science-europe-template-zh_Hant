@@ -17,5 +17,5 @@ The project partners acquire full ownership of the data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案合作夥伴獲得資料的完全所有權。
 ~~~

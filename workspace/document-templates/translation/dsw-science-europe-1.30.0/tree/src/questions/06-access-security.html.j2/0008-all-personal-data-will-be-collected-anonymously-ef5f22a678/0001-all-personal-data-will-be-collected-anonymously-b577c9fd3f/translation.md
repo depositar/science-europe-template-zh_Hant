@@ -17,5 +17,5 @@ All personal data will be collected anonymously.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所有個人資料將以匿名方式蒐集。
 ~~~

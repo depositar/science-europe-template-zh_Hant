@@ -17,5 +17,5 @@ Limited embargo cannot be used because some restricted data will be embargoed in
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+不能使用有限禁運，因為某些受限資料將被無限期禁運。
 ~~~

@@ -17,5 +17,5 @@ This data will be infrequently backed up and we will rely on these backups in ca
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+這些資料不會經常備份，我們將依靠這些備份來恢復人為錯誤。
 ~~~

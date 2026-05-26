@@ -17,5 +17,5 @@ We will carry the costs related to the used repositories by: {repoChargesHowPayO
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將透過以下方式承擔與已使用儲存庫相關的費用：{repoChargesHowPayOther}
 ~~~

@@ -17,5 +17,5 @@ We have a consortium agreement that arranges Intellectual Property.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們有一份安排智慧財產權的聯合體協議。
 ~~~

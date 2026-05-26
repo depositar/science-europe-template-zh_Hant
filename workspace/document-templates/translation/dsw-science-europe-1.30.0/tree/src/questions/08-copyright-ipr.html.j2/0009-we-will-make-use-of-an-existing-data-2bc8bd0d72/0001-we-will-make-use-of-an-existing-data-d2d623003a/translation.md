@@ -17,5 +17,5 @@ We will make use of an existing data committee - {legalReasonsAuthenticatedCommi
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將利用現有的資料委員會 - {legalReasonsAuthenticatedCommitteeReply}
 ~~~

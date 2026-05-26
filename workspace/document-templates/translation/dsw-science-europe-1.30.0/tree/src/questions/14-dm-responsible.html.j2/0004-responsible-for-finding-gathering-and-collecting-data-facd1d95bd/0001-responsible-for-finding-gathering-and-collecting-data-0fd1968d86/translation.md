@@ -17,5 +17,5 @@ responsible for finding, gathering, and collecting data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+負責查找、蒐集和蒐集資料。
 ~~~

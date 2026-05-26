@@ -17,5 +17,5 @@ Metadata will be available in a form that can be harvested and indexed (managed 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+後設資料將以可取得和索引的形式提供（由所使用的儲存庫管理）。
 ~~~

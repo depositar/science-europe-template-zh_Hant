@@ -17,5 +17,5 @@ The distributions will be available as follows:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料發布版本將依以下方式提供：
 ~~~

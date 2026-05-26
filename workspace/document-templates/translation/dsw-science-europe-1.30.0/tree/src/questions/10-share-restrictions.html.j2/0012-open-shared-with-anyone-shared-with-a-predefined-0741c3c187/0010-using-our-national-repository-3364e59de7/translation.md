@@ -17,5 +17,5 @@ using our national repository.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+使用我們的國家儲存庫。
 ~~~

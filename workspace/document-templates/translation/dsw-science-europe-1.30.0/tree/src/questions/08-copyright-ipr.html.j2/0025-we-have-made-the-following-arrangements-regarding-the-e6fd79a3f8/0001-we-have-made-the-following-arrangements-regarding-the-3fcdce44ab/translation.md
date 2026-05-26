@@ -17,5 +17,5 @@ We have made the following arrangements regarding the data ownership: {ownership
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們就資料所有權做出了以下安排：{ownershipOther}
 ~~~

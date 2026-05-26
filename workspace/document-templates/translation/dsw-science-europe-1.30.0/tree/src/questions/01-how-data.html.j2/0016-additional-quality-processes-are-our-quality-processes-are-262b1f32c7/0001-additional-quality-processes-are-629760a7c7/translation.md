@@ -17,5 +17,5 @@ Additional quality processes are: {mdQualityOther}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+其他品質管控流程為：{mdQualityOther}。
 ~~~

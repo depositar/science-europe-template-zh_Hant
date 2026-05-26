@@ -17,5 +17,5 @@ The assigned persistent identifier is specified as follows: {publishedDataIdenti
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+分配的持續識別碼指定如下：{publishedDataIdentifierSpecifyReply}。
 ~~~

@@ -17,5 +17,5 @@ Section 6: Data management responsibilities and resources
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+第 6 節：資料管理責任與資源
 ~~~

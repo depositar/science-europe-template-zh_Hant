@@ -17,5 +17,5 @@ We will not be storing data in an "object/document store" system.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不會將資料儲存在「物件/文件儲存」系統中。
 ~~~

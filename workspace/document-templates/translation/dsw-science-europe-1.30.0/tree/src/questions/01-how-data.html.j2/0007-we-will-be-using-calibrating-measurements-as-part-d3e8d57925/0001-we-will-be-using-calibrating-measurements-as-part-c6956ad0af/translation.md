@@ -17,5 +17,5 @@ We will be using calibrating measurements as part of the quality process.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用校準測量作為品質管控流程的一部分。
 ~~~

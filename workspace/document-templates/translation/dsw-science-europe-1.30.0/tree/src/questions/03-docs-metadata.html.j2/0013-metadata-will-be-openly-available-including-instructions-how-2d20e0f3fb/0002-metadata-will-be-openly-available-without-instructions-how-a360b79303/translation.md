@@ -17,5 +17,5 @@ Metadata will be openly available without instructions how to get access to the 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+後設資料將公開可取得，無需說明如何取用資料。
 ~~~

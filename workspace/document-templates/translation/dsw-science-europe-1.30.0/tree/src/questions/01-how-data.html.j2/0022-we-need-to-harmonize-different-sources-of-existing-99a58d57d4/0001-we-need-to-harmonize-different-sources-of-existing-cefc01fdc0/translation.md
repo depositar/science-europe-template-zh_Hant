@@ -17,5 +17,5 @@ We need to harmonize different sources of existing data before reusing them and 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+在再次使用既有資料之前，我們需要協調不同來源的資料，並且我們會將協調結果提供給其他人。
 ~~~

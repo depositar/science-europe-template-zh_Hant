@@ -17,5 +17,5 @@ using a domain-specific repository
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+使用特定於網域的儲存庫
 ~~~

@@ -17,5 +17,5 @@ The costs related to the used repositories will be carried by (one of) the insti
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+與所用儲存庫相關的費用將由參與該專案的（其中之一）機構承擔。
 ~~~
