@@ -71,9 +71,9 @@
 
     {# Extract selected levels for each type #}
     {%- set selected = {
-      'loss': risk_levels[risksInfoLossAUuid],
-      'leak': risk_levels[risksInfoLeakAUuid],
-      'vandalism': risk_levels[risksInfoVandalismAUuid]
+      '遺失': risk_levels[risksInfoLossAUuid],
+      '外洩': risk_levels[risksInfoLeakAUuid],
+      '遭竄改': risk_levels[risksInfoVandalismAUuid]
     } -%}
 
     {%- set small = [] -%}
@@ -94,19 +94,19 @@
     {# helper inline join #}
     {%- set fragments = [] -%}
     {%- if small|length > 0 -%}
-      {%- set risks = (small[:-1]|join(', ') ~ ', and ' ~ small[-1]) if small|length > 1 else small[0] -%}
+      {%- set risks = (small[:-1]|join('、') ~ '與' ~ small[-1]) if small|length > 1 else small[0] -%}
       {%- set _ = fragments.append("The possible impact of information " ~ risks ~ " is small") -%}
     {%- endif -%}
     {%- if low|length > 0 -%}
-      {%- set risks = (low[:-1]|join(', ') ~ ', and ' ~ low[-1]) if low|length > 1 else low[0] -%}
+      {%- set risks = (low[:-1]|join('、') ~ '與' ~ low[-1]) if low|length > 1 else low[0] -%}
       {%- set _ = fragments.append("The risk of information " ~ risks ~ " is acceptably low") -%}
     {%- endif -%}
     {%- if will|length > 0 -%}
-      {%- set risks = (will[:-1]|join(', ') ~ ', and ' ~ will[-1]) if will|length > 1 else will[0] -%}
+      {%- set risks = (will[:-1]|join('、') ~ '與' ~ will[-1]) if will|length > 1 else will[0] -%}
       {%- set _ = fragments.append("We will mitigate the risk of information " ~ risks) -%}
     {%- endif -%}
     {%- if fragments|length > 0 -%}
-      <p>{{ fragments | join('. ') }}.</p>
+      <p>{{ fragments | join('。') }}。</p>
     {%- endif -%}
     {# Personal data #}
     {%- set risksPersonalDataPath = [risksPathPrefix, uuids.risksPersonalDataQUuid]|reply_path -%}
@@ -125,7 +125,11 @@
         {%- elif risksPseudonymizationAUuid == uuids.risksPseudonymizationAnotherAUuid -%}
           {%- set risksPseudonymizationAnotherQUuid = [risksPseudonymizationPath, uuids.risksPseudonymizationAnotherAUuid, uuids.risksPseudonymizationAnotherQUuid]|reply_path -%}
           {%- set risksPseudonymizationAnother = repliesMap[risksPseudonymizationAnotherQUuid]|reply_str_value %}
-          We have a specific way of pseudonymization{{ ": " ~ risksPseudonymizationAnother|dot if risksPseudonymizationAnother else "." }}
+          {%- if risksPseudonymizationAnother %}
+            We have a specific way of pseudonymization: {{ risksPseudonymizationAnother }}.
+          {%- else %}
+            We have a specific way of pseudonymization.
+          {%- endif %}
         {%- endif -%}
       </p>
     {%- elif risksPersonalDataAUuid == uuids.risksPersonalDataAnonymousAUuid -%}

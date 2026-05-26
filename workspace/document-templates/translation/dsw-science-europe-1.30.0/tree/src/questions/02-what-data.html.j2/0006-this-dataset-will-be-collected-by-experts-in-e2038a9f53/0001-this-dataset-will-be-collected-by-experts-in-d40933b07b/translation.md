@@ -17,5 +17,5 @@ This dataset will be collected by experts in the project, at a specialized infra
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+該資料集將由專案專家在專門的基礎設施上蒐集。
 ~~~

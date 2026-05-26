@@ -17,5 +17,5 @@ The work space provides sufficient guarantees in terms of preventing a total los
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+工作空間在防止資料完全遺失方面提供了充分的保證。
 ~~~

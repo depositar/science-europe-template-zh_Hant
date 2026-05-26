@@ -97,7 +97,13 @@ jobs:
             github.event.pull_request.head.ref || 'master' }}
         run: |
           set -euo pipefail
-          if [ -z "$(git status --short -- "$EXPANDED_TEMPLATE_DIR" "$TRANSLATION_TREE_DIR")" ]; then
+          required_paths=(
+            "$EXPANDED_TEMPLATE_DIR"
+            "$TRANSLATION_TREE_DIR/.translation-tree"
+            "$TRANSLATION_TREE_DIR/tree"
+          )
+
+          if [ -z "$(git status --short -- "${required_paths[@]}")" ]; then
             echo "No generated translation input repairs to commit."
             exit 0
           fi
@@ -169,6 +175,83 @@ jobs:
             --output "$HOST_ROOT/$TRANSLATED_TEMPLATE_PACKAGE" \
             --force
 
+      - name: Audit generated translated output
+        run: |
+          set -euo pipefail
+          HOST_ROOT="$GITHUB_WORKSPACE/template-repo"
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+
+          host_root = Path(os.environ["GITHUB_WORKSPACE"]) / "template-repo"
+          expanded_root = host_root / os.environ["EXPANDED_TEMPLATE_DIR"]
+          translated_root = host_root / os.environ["TRANSLATED_TEMPLATE_DIR"]
+
+          def count_href(root: Path) -> int:
+              return sum(path.read_text(encoding="utf-8").count("href=") for path in root.rglob("*.j2"))
+
+          expanded_href_count = count_href(expanded_root)
+          translated_href_count = count_href(translated_root)
+          if expanded_href_count != translated_href_count:
+              raise SystemExit(
+                  "Translated output lost or gained links: "
+                  f"expanded href={expanded_href_count}, translated href={translated_href_count}"
+              )
+
+          forbidden_terms = {
+              "標識符": "識別碼",
+              "持久性標識符": "持續識別碼",
+              "數字物件": "數位物件",
+              "可重複性": "可重現性",
+              "信息": "資訊",
+              "主要研究者": "計畫主持人",
+              "資料公平": "資料符合 FAIR 原則",
+              "項目資料": "專案資料",
+              "以下項目": "以下專案",
+              "該項目": "該專案",
+              "這些項目": "這些專案",
+              "所描述的項目": "所描述的專案",
+              "創建者": "創作者",
+              "未找到": "找不到",
+              "購買": "取得",
+          }
+          forbidden_english = [
+              "<html lang=\"en\">",
+              "(no name given)",
+              "alt=\"Logo\"",
+              "Default DCC DMP Template recommended by Science Europe",
+              "content: 'Data Management Plan'",
+              "'loss':",
+              "'leak':",
+              "'vandalism':",
+              "This dataset will be collected by an external party",
+              "The ownership of the resulting data",
+              "The project partners acquire full ownership",
+              "For the ownership of the data",
+              "We are not using a standardized format",
+          ]
+
+          issues: list[str] = []
+          generated_source_files = [
+              path
+              for path in (translated_root / "src").rglob("*")
+              if path.suffix in {".css", ".j2"}
+          ]
+          generated_source_files.append(translated_root / "template.json")
+          for path in sorted(generated_source_files):
+              text = path.read_text(encoding="utf-8")
+              relative = path.relative_to(translated_root).as_posix()
+              for bad, expected in forbidden_terms.items():
+                  if bad in text:
+                      issues.append(f"{relative}: uses {bad!r}; prefer {expected!r}")
+              for phrase in forbidden_english:
+                  if phrase in text:
+                      issues.append(f"{relative}: untranslated source phrase {phrase!r}")
+
+          if issues:
+              raise SystemExit("\n".join(issues))
+          PY
+
       # This boots an ephemeral DSW and copies PROJECT_REF into it. PROJECT_REF
       # can either point at an existing project UUID for a persistent DSW, or at
       # a JSON recipe with `knowledge_model_package_id` and `events_file`.
@@ -196,6 +279,38 @@ jobs:
             --output "$HOST_ROOT/$PROJECT_RENDER_OUTPUT" \
             --tdk-executable "$TOOL_ROOT/.venv/bin/dsw-tdk"
 
+      - name: Annotate sample render metadata
+        if: ${{ env.PROJECT_REF != '' }}
+        working-directory: template-repo
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import json
+          import os
+
+          root = Path.cwd()
+          template_dir = root / os.environ["TRANSLATED_TEMPLATE_DIR"]
+          metadata_path = root / f"{os.environ['PROJECT_RENDER_OUTPUT']}.json"
+
+          digest = hashlib.sha256()
+          for path in sorted(p for p in template_dir.rglob("*") if p.is_file()):
+              relative = path.relative_to(template_dir).as_posix()
+              digest.update(relative.encode("utf-8"))
+              digest.update(b"\0")
+              digest.update(path.read_bytes())
+              digest.update(b"\0")
+
+          metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+          metadata["output"] = os.environ["PROJECT_RENDER_OUTPUT"]
+          metadata["translated_template_sha256"] = digest.hexdigest()
+          metadata_path.write_text(
+              json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
       - name: Collect local DSW logs
         if: ${{ always() && env.PROJECT_REF != '' }}
         working-directory: tooling-repo
@@ -216,30 +331,96 @@ jobs:
           set -euo pipefail
           content_paths=("$TRANSLATED_TEMPLATE_DIR")
           output_paths=("$TRANSLATED_TEMPLATE_DIR" "$TRANSLATED_TEMPLATE_PACKAGE")
+          render_paths=()
           if [ -n "$PROJECT_RENDER_OUTPUT" ]; then
-            output_paths+=("$PROJECT_RENDER_OUTPUT")
+            render_paths=("$PROJECT_RENDER_OUTPUT" "$PROJECT_RENDER_OUTPUT.json")
+            output_paths+=("${render_paths[@]}")
           fi
 
           # `dsw-tdk package` embeds UUID/timestamp metadata in the zip. Avoid
           # committing zip/PDF-only churn when the translated template directory
-          # did not actually change.
-          restore_generated_path() {
-            if git ls-files --error-unmatch "$1" >/dev/null 2>&1; then
-              git checkout -- "$1"
-            else
-              rm -rf "$1"
+          # did not actually change. Keep those fresh files in the workspace so
+          # the artifact upload still contains the latest package/render preview.
+          committed_render_is_current() {
+            if [ -z "$PROJECT_RENDER_OUTPUT" ]; then
+              return 0
             fi
+
+            EXPECTED_SOURCE_TEMPLATE_ID="${TRANSLATED_TEMPLATE_ORGANIZATION_ID}:${TRANSLATED_TEMPLATE_ID}:${TRANSLATED_TEMPLATE_VERSION}" \
+            EXPECTED_STAGED_TEMPLATE_ID="${TRANSLATED_TEMPLATE_ORGANIZATION_ID}:${TRANSLATED_TEMPLATE_ID}-project-render:${TRANSLATED_TEMPLATE_VERSION}" \
+            TRANSLATED_TEMPLATE_DIR="$TRANSLATED_TEMPLATE_DIR" \
+            PROJECT_RENDER_OUTPUT="$PROJECT_RENDER_OUTPUT" python3 - <<'PY'
+          import json
+          import hashlib
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          render_output = os.environ["PROJECT_RENDER_OUTPUT"]
+          template_dir = Path(os.environ["TRANSLATED_TEMPLATE_DIR"])
+          expected_source = os.environ["EXPECTED_SOURCE_TEMPLATE_ID"]
+          expected_staged = os.environ["EXPECTED_STAGED_TEMPLATE_ID"]
+
+          digest = hashlib.sha256()
+          for path in sorted(p for p in template_dir.rglob("*") if p.is_file()):
+              relative = path.relative_to(template_dir).as_posix()
+              digest.update(relative.encode("utf-8"))
+              digest.update(b"\0")
+              digest.update(path.read_bytes())
+              digest.update(b"\0")
+          expected_template_hash = digest.hexdigest()
+
+          result = subprocess.run(
+              ["git", "show", f"HEAD:{render_output}.json"],
+              check=False,
+              stdout=subprocess.PIPE,
+              stderr=subprocess.DEVNULL,
+              text=True,
+          )
+          if result.returncode != 0:
+              sys.exit(1)
+
+          try:
+              metadata = json.loads(result.stdout)
+          except json.JSONDecodeError:
+              sys.exit(1)
+
+          if metadata.get("source_template_id") != expected_source:
+              sys.exit(1)
+          if metadata.get("staged_template_id") != expected_staged:
+              sys.exit(1)
+          if metadata.get("translated_template_sha256") != expected_template_hash:
+              sys.exit(1)
+
+          pdf_exists = subprocess.run(
+              ["git", "cat-file", "-e", f"HEAD:{render_output}"],
+              check=False,
+              stdout=subprocess.DEVNULL,
+              stderr=subprocess.DEVNULL,
+          )
+          sys.exit(0 if pdf_exists.returncode == 0 else 1)
+          PY
           }
 
           if [ -z "$(git status --short -- "${content_paths[@]}")" ]; then
-            if [ -n "$(git status --short -- "$TRANSLATED_TEMPLATE_PACKAGE")" ]; then
-              restore_generated_path "$TRANSLATED_TEMPLATE_PACKAGE"
+            if [ "${#render_paths[@]}" -gt 0 ] && ! committed_render_is_current; then
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add "${render_paths[@]}"
+              git commit -m "chore(sync): refresh sample project render"
+              git push origin "HEAD:$TARGET_REF"
+
+              {
+                echo "## Auto-committed sample project render"
+                echo
+                echo "The translated template content was already committed, but the"
+                echo "checked-in demo project render was stale and has been refreshed."
+              } >> "$GITHUB_STEP_SUMMARY"
+              exit 0
             fi
-            if [ -n "$PROJECT_RENDER_OUTPUT" ] &&
-              [ -n "$(git status --short -- "$PROJECT_RENDER_OUTPUT")" ]; then
-              restore_generated_path "$PROJECT_RENDER_OUTPUT"
-            fi
-            echo "No generated output changes to commit."
+
+            echo "No translated template content changes to commit."
             exit 0
           fi
 

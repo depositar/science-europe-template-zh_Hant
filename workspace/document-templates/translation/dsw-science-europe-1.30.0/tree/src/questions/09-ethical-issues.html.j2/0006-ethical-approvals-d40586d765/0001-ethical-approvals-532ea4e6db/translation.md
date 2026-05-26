@@ -17,5 +17,5 @@ Ethical approvals
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+倫理審查核准
 ~~~

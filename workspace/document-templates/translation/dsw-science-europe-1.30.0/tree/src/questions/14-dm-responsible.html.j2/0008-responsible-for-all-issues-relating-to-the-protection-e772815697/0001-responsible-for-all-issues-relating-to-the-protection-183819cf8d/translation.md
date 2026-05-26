@@ -17,5 +17,5 @@ responsible for all issues relating to the protection of personal data and data 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+負責與個人資料保護和一般資料保護政策相關的所有問題。
 ~~~

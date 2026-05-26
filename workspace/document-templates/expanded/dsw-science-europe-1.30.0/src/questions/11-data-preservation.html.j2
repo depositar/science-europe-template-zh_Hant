@@ -35,7 +35,11 @@
             {%- elif publishedDataHowLongAUuid == uuids.publishedDataHowLongFixedAUuid -%}
               {%- set publishedDataHowLongFixedPath = [publishedDataHowLongPath, uuids.publishedDataHowLongFixedAUuid, uuids.publishedDataHowLongFixedQUuid]|reply_path -%}
               {%- set publishedDataHowLongFixed = repliesMap[publishedDataHowLongFixedPath]|reply_str_value -%}
-              <p>This data set will be kept available for a fixed period (prepaid){# __tr_inline_if_original:e3sgIiBvZjogIiB-IHB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWR8ZG90IGlmIHB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWQgZWxzZSAiLiIgfX0= #}{% if publishedDataHowLongFixed %}{{ " of: " ~ publishedDataHowLongFixed|dot }}{% else %}{{ "." }}{% endif %}{# __tr_inline_if_original:end #}</p>
+              {%- if publishedDataHowLongFixed %}
+                <p>This data set will be kept available for a fixed period (prepaid) of: {{ publishedDataHowLongFixed }}.</p>
+              {%- else %}
+                <p>This data set will be kept available for a fixed period (prepaid).</p>
+              {%- endif %}
             {%- endif -%}
             {%- if publishedDataMetadataPersistentAUuid == uuids.publishedDataMetadataPersistentYesAUuid %}
               <p>The metadata will be available even when the data no longer exists.</p>
@@ -59,8 +63,8 @@
                     {%- set domainSpecificRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoNameQUuid]|reply_path -%}
                     {%- set domainSpecificRepoNameReply = repliesMap[domainSpecificRepoNamePath] -%}
                     {%- if domainSpecificRepoNameReply -%}
-                      : {{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
-                    {%- else -%}.
+                      ：{{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
+                    {%- else -%}。
                     {% endif -%}
                     {# Contact the repository #}
                     {%- set domainSpecificRepoContactBeforePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoContactBeforeQUuid]|reply_path -%}
@@ -74,15 +78,19 @@
                     {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}
                       {%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}
                       {%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}
-                      We have made other arrangements instead of contacting the repository directly{{ ": " ~ domainSpecificRepoContactBeforeOther|dot if domainSpecificRepoContactBeforeOther else "." }}
+                      {%- if domainSpecificRepoContactBeforeOther %}
+                        We have made other arrangements instead of contacting the repository directly: {{ domainSpecificRepoContactBeforeOther }}.
+                      {%- else %}
+                        We have made other arrangements instead of contacting the repository directly.
+                      {%- endif %}
                     {%- endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
                     <em>General-purpose repository</em>
                     {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                     {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                     {%- if generalPurposeRepoNameReply -%}
-                      : {{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
-                    {%- else -%}.
+                      ：{{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
+                    {%- else -%}。
                     {% endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}
                     Our national repository.

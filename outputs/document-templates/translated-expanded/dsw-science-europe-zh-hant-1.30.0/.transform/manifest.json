@@ -37,6 +37,6 @@
     "cjk_font_face"
   ],
   "post_expand_patch_state": {
-    "template_json_trailing_newline": false
+    "template_json_trailing_newline": true
   }
 }

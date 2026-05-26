@@ -17,5 +17,5 @@ All of our data can become completely open over time.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+隨著時間的推移，我們所有的資料都可以完全開放。
 ~~~

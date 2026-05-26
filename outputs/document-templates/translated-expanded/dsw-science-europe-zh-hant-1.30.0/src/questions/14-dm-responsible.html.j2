@@ -1,5 +1,5 @@
 <div id="q-dm-responsible" class="question">
-  {# __tr_block_0000:start #}<h3>14. Who (for example role, position, and institution) will be responsible for data management (i.e. the data steward)?</h3>{# __tr_block_0000:end #}
+  {# __tr_block_0000:start #}<h3>14. 誰（例如角色、職位與機構）將負責資料管理（亦即資料管理專員）？</h3>{# __tr_block_0000:end #}
 
   <div class="answer">
 
@@ -19,29 +19,29 @@
         {%- if nNames > 0 -%}
           {# __tr_block_0001:start #}<p>
             {%- if nNames > 2 -%}
-              {{ names[0:-1]|join(", ") }}, and {{ names[-1] }} are {{ responsibility }}
+              {{ names[0:-1]|join(", ") }}、{{ names[-1] }}：{{ responsibility }}
             {%- elif nNames == 2 -%}
-              {{ names[0] }} and {{ names[1] }} are {{ responsibility }}
+              {{ names[0] }}和{{ names[1] }}：{{ responsibility }}
             {%- else -%}
-              {{ names[0] }} is {{ responsibility }}
+              {{ names[0] }}：{{ responsibility }}
             {%- endif %}
           </p>{# __tr_block_0001:end #}
         {%- endif -%}
       {%- endmacro -%}
       {# Data curators #}{# __tr_block_0002:start #}
-      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataCuratorAUuid, "responsible for reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use and maintenance within a data centre or repository.") }}
+      負責審查、增強、清理或標準化後設資料以及提交用於資料中心或儲存庫內儲存、使用和維護的相關資料。
       {# __tr_block_0002:end #}{# Data collectors #}{# __tr_block_0003:start #}
-      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataCollectorAUuid, "responsible for finding, gathering, and collecting data.") }}
+      負責查找、蒐集和蒐集資料。
       {# __tr_block_0003:end #}{# Data managers #}{# __tr_block_0004:start #}
-      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataManagerAUuid, "responsible for maintaining the finished resource.") }}
+      負責維護已完成的資源。
       {# __tr_block_0004:end #}{# Data stewards #}{# __tr_block_0005:start #}
-      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataStewardAUuid, "responsible for the management and proficiency of data including data processing, data policies, data guidelines, and data availability.") }}
+      負責資料的管理和熟練程度，包括資料處理、資料政策、資料指南和資料可取得性。
       {# __tr_block_0005:end #}{# Distributors #}{# __tr_block_0006:start #}
-      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDistributorAUuid, "responsible for generating and disseminating copies of the resource in either electronic or print form.") }}
+      負責以電子或印刷形式產生和傳播資源副本。
       {# __tr_block_0006:end #}{# Data protection officers #}{# __tr_block_0007:start #}
-      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataProtectorAUuid, "responsible for all issues relating to the protection of personal data and data protection policies in general.") }}
+      負責與個人資料保護和一般資料保護政策相關的所有問題。
       {# __tr_block_0007:end #}{# Data protection officers #}{# __tr_block_0008:start #}
-      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleCreatorOfDMPAUuid, "responsible for implementing the DMP, and ensuring it is reviewed and revised.") }}
+      負責實施資料管理方案，並確保其得到審查和修訂。
     {# __tr_block_0008:end #}{%- endif -%}
   </div>
 </div>

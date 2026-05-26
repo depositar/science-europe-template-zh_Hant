@@ -17,5 +17,5 @@ responsible for reviewing, enhancing, cleaning, or standardizing metadata and th
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+負責審查、增強、清理或標準化後設資料以及提交用於資料中心或儲存庫內儲存、使用和維護的相關資料。
 ~~~

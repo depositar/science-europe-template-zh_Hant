@@ -1,31 +1,31 @@
 <div id="q-share-restrictions" class="question">
-  {# __tr_block_0000:start #}<h3>10. How and when will data be shared? Are there possible restrictions to data sharing or embargo reasons?</h3>{# __tr_block_0000:end #}
+  {# __tr_block_0000:start #}<h3>10. 資料將如何以及何時共享？是否有資料共享限制或禁運原因？</h3>{# __tr_block_0000:end #}
 
   <div class="answer">
     {# How data will be shared #}
     {# Produced datasets #}
     {%- set producedDataPath = [uuids.preservingCUuid, uuids.producedDataQUuid]|reply_path -%}
     {%- set producedDataItems = repliesMap[producedDataPath]|reply_items -%}
-    {# __tr_block_0001:start #}<h4>How the data will be shared</h4>{# __tr_block_0001:end #}
+    {# __tr_block_0001:start #}<h4>資料將如何共享</h4>{# __tr_block_0001:end #}
     {%- if producedDataItems|length > 0 -%}
         <ul>
         {%- for i in producedDataItems -%}
             {%- set pathPrefix = [producedDataPath, i]|reply_path -%}
             {%- set producedDataName = repliesMap[[pathPrefix, uuids.producedDataNameQUuid]|reply_path]|reply_str_value -%}
             {# __tr_block_0002:start #}<li>
-            <strong>{# __tr_inline_if_original:e3sgcHJvZHVjZWREYXRhTmFtZSBpZiBwcm9kdWNlZERhdGFOYW1lIGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if producedDataName %}{{ producedDataName }}{% else %}{{ "(no name given)" }}{% endif %}{# __tr_block_0002:end #}{# __tr_inline_if_original:end #}</strong>
+            <strong>{# __tr_inline_if_original:e3sgcHJvZHVjZWREYXRhTmFtZSBpZiBwcm9kdWNlZERhdGFOYW1lIGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if producedDataName %}{{ producedDataName }}{% else %}（未提供名稱）{% endif %}{# __tr_block_0002:end #}{# __tr_inline_if_original:end #}</strong>
             {# If will be published #}
             {%- set isPublishedDataPath = [pathPrefix, uuids.isPublishedDataQUuid]|reply_path -%}
             {%- set isPublishedDataAUuid = repliesMap[isPublishedDataPath]|reply_str_value -%}
             {% if isPublishedDataAUuid == uuids.isPublishedDataNoAUuid %}{# __tr_block_0003:start #}
-                (not published)
+                （未發布）
             {# __tr_block_0003:end #}{% elif isPublishedDataAUuid == uuids.isPublishedDataYesAUuid %}{# __tr_block_0004:start #}
-                (will be published)
+                （將發布）
                 {# __tr_block_0004:end #}{# Identifiers #}
                 {% set identifiersPath = [pathPrefix, uuids.producedDataIdentifiersQUuid]|reply_path -%}
                 {%- set identifiersItems = repliesMap[identifiersPath]|reply_items -%}
                 {%- if identifiersItems|length > 0 -%}
-                    <br>{# __tr_block_0005:start #}The dataset has the following identifiers:
+                    <br>{# __tr_block_0005:start #}資料集具有以下識別碼：
                     {# __tr_block_0005:end #}<ul>
                     {%- for j in identifiersItems -%}
                         {%- set identifierPrefix = [identifiersPath, j]|reply_path -%}
@@ -34,16 +34,16 @@
                         {%- set identifierValuePath = [identifierPrefix, uuids.dataIdentifierIdentifierQUuid]|reply_path -%}
                         {%- set identifierValue = repliesMap[identifierValuePath]|reply_str_value -%}
                         {%- if identifierTypeAUuid == uuids.dataIdentifierTypeHandleAUuid -%}
-                            {# __tr_block_0006:start #}<li>Handle: <strong>{{ identifierValue }}</strong></li>{# __tr_block_0006:end #}
+                            {# __tr_block_0006:start #}<li>Handle：<strong>{{ identifierValue }}</strong></li>{# __tr_block_0006:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeDoiAUuid -%}
-                            {# __tr_block_0007:start #}<li>DOI: <strong><a href="https://doi.org/{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0007:end #}
+                            {# __tr_block_0007:start #}<li>DOI：<strong><a href="https://doi.org/{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0007:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeArkAUuid -%}
-                            {# __tr_block_0008:start #}<li>ARK: <strong>{{ identifierValue }}</strong></li>{# __tr_block_0008:end #}
+                            {# __tr_block_0008:start #}<li>ARK：<strong>{{ identifierValue }}</strong></li>{# __tr_block_0008:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeUrlAUuid -%}
-                            {# __tr_block_0009:start #}<li>URL: <strong><a href="{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0009:end #}
+                            {# __tr_block_0009:start #}<li>URL：<strong><a href="{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0009:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeOtherAUuid -%}
                             {%- set identifierType = repliesMap[[identifierTypePath, uuids.dataIdentifierTypeOtherAUuid, uuids.dataIdentifierTypeOtherTypeQUuid]|reply_path]|reply_str_value -%}
-                            <li>{{ identifierType }}: <strong>{{ identifierValue }}</strong></li>
+                            <li>{{ identifierType }}：<strong>{{ identifierValue }}</strong></li>
                         {%- endif -%}
                     {%- endfor -%}
                     </ul>
@@ -52,7 +52,7 @@
                 {% set distrosPath = [isPublishedDataPath, uuids.isPublishedDataYesAUuid, uuids.publishedDistrosQUuid]|reply_path -%}
                 {%- set distrosItems = repliesMap[distrosPath]|reply_items -%}
                 {%- if distrosItems|length > 0 -%}
-                    <br>{# __tr_block_0010:start #}The distributions will be available as follows:
+                    <br>{# __tr_block_0010:start #}資料發布版本將依以下方式提供：
                     {# __tr_block_0010:end #}<ul>
                     {%- for j in distrosItems -%}
                         {%- set distroPrefix = [distrosPath, j]|reply_path -%}
@@ -63,71 +63,79 @@
                         {%- if distroRepositoryKindAUuid and distroShareAUuid -%}
                         {# __tr_block_0011:start #}<li>
                             {%- if distroShareAUuid == uuids.publishedDistroShareOpenAUuid %}
-                                Open (shared with anyone)
+                                開放（與任何人共享）
                             {%- elif distroShareAUuid == uuids.publishedDistroShareSharedAUuid %}
-                                Shared with a predefined list of people
+                                與預先定義的人員名單共享
                             {%- elif distroShareAUuid == uuids.publishedDistroShareClosedAUuid %}
-                                Closed (not meant for sharing)
+                                封閉（不打算共享）
                             {%- endif %}
                             {% if distroRepositoryKindAUuid == uuids.publishedDataRepositoryDomainSpecificAUuid %}
-                                using a domain-specific repository
+                                使用特定於網域的儲存庫
                                 {%- set domainSpecificRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoNameQUuid]|reply_path -%}
                                 {%- set domainSpecificRepoNameReply = repliesMap[domainSpecificRepoNamePath] -%}
                                 {%- if domainSpecificRepoNameReply -%}
-                                : {{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
+                                ：{{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
                                 {%- else -%}.
                                 {% endif -%}
                                 {# Contact the repository #}
                                 {%- set domainSpecificRepoContactBeforePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoContactBeforeQUuid]|reply_path -%}
                                 {%- set domainSpecificRepoContactBeforeAUuid = repliesMap[domainSpecificRepoContactBeforePath]|reply_str_value -%}
                                 {%- if domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeNoAUuid %}
-                                We don't need to contact the repository because it is a routine for us.
+                                我們不需要聯繫儲存庫，因為這對我們來說是例行公事。
                                 {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeYesAlreadyAUuid %}
-                                We have already contacted the repository.
+                                我們已經聯繫了儲存庫。
                                 {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeYesWillAUuid %}
-                                We are going to contact the repository.
+                                我們將聯繫儲存庫。
                                 {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}
                                 {%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}
                                 {%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}
-                                We have made other arrangements{{ ": " ~ domainSpecificRepoContactBeforeOther|dot if domainSpecificRepoContactBeforeOther else "." }}
+                                {%- if domainSpecificRepoContactBeforeOther %}
+                                我們已經做了其他安排：{{ domainSpecificRepoContactBeforeOther }}。
+                                {%- else %}
+                                我們已經做了其他安排。
+                                {%- endif %}
                                 {%- endif -%}
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
-                                using a general-purpose repository
+                                使用通用儲存庫
                                 {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                                 {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                                 {%- if generalPurposeRepoNameReply -%}
-                                    : {{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
+                                    ：{{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
                                 {%- else -%}.
                                 {%- endif -%}
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}
-                                using our national repository.
+                                使用我們的國家儲存庫。
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryInstitutionalAUuid %}
-                                using our institutional repository.
+                                使用我們的機構儲存庫。
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositorySpecialAUuid %}
-                                using a special-purpose repository for the project.
+                                為專案使用專用儲存庫。
                             {%- endif -%}{# __tr_block_0011:end #}
                         {%- endif -%}
                         {# Licenses #}
                         {%- set licensesPath = [distroPrefix, uuids.publishedDataLicensesQUuid]|reply_path -%}
-                        {%- set licensesItems = repliesMap[licensesPath]|reply_items -%}
-                        {%- if licensesItems|length > 0 %}{# __tr_block_0012:start #}
-                            The distribution will be available under the following {# __tr_block_0012:end #}{# __tr_inline_if_original:e3sgImxpY2Vuc2VzIiBpZiBsaWNlbnNlc0l0ZW1zfGxlbmd0aCA-IDEgZWxzZSAibGljZW5zZSIgfX0= #}{% if licensesItems|length > 1 %}{# __tr_block_0013:start #}{{ "licenses" }}{# __tr_block_0013:end #}{% else %}{# __tr_block_0014:start #}{{ "license" }}{# __tr_block_0014:end #}{% endif %}{# __tr_inline_if_original:end #}:
+                        {%- set licensesItems = repliesMap[licensesPath]|reply_items -%}{# __tr_branch_sentence_original:CiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBpZiBsaWNlbnNlc0l0ZW1zfGxlbmd0aCA-IDAgJX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRoZSBkaXN0cmlidXRpb24gd2lsbCBiZSBhdmFpbGFibGUgdW5kZXIgdGhlIGZvbGxvd2luZyB7eyAibGljZW5zZXMiIGlmIGxpY2Vuc2VzSXRlbXN8bGVuZ3RoID4gMSBlbHNlICJsaWNlbnNlIiB9fToKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx1bD4K #}
+                        {%- if licensesItems|length > 0 %}
+                            {%- if licensesItems|length > 1 -%}{# __tr_block_0012:start #}
+                              該資料發布版本將依以下授權條款提供：
+                            {# __tr_block_0012:end #}{%- else -%}{# __tr_block_0013:start #}
+                              該資料發布版本將在以下授權條款下提供：
+                            {# __tr_block_0013:end #}{%- endif -%}
                             <ul>
-                            {%- for k in licensesItems -%}
-                                {# __tr_block_0015:start #}<li>
+{# __tr_branch_sentence_original:end #}                            {%- for k in licensesItems -%}
+                                {# __tr_block_0014:start #}<li>
                                 {%- set licensePrefix = [licensesPath, k]|reply_path -%}
                                 {%- set licenseStartPath = [licensePrefix, uuids.publishedDataLicenseStartQUuid]|reply_path -%}
                                 {%- set licenseStart = repliesMap[licenseStartPath]|reply_str_value -%}
                                 {% if licenseStart %}
-                                    Starting {{ licenseStart }}: 
+                                    自 {{ licenseStart }} 起： 
                                 {% endif %}
                                 
                                 {%- set publishedDataLicensePath = [licensePrefix, uuids.publishedDataLicenseQUuid]|reply_path -%}
                                 {%- set publishedDataLicenseAUuid = repliesMap[publishedDataLicensePath]|reply_str_value -%}
                                 {%- if publishedDataLicenseAUuid == uuids.publishedDataLicenseCC0AUuid %}
-                                    Freely available for any use (public domain or CC0).
+                                    可免費用於任何用途（公共領域或 CC0）。
                                 {%- elif publishedDataLicenseAUuid == uuids.publishedDataLicenseCCBYAUuid %}
-                                    Freely available with obligation to quote the source (e.g. CC-BY).
+                                    免費提供，但有義務引用來源（例如 CC-BY）。
                                 {%- elif publishedDataLicenseAUuid == uuids.publishedDataLicenseRestrictAUuid -%}
                                     {%- set licenseRestrictConditionsPath = [publishedDataLicensePath, uuids.publishedDataLicenseRestrictAUuid, uuids.licenseRestrictConditionsQUuid]|reply_path -%}
                                     {%- set licenseRestrictConditions = repliesMap[licenseRestrictConditionsPath]|reply_str_value -%}
@@ -138,24 +146,32 @@
                                     {%- set licenseRestrictMetadataPath = [publishedDataLicensePath, uuids.publishedDataLicenseRestrictAUuid, uuids.licenseRestrictMetadataQUuid]|reply_path -%}
                                     {%- set licenseRestrictMetadataAUuid = repliesMap[licenseRestrictMetadataPath]|reply_str_value %}
                                     
-                                    Available under some restrictions, which we will follow in our project{{ ": " ~ licenseRestrictConditions|dot if licenseRestrictConditions else "." }}
+                                    {%- if licenseRestrictConditions %}
+                                    在部分限制下可取得，我們將在專案中遵循相關限制：{{ licenseRestrictConditions }}。
+                                    {%- else %}
+                                    在部分限制下可取得，我們將在專案中遵循相關限制。
+                                    {%- endif %}
                                     {%- if licenseRestrictAccessAUuid == uuids.licenseRestrictAccessRequestAUuid %}
-                                    Re-users will be able to get access by request to the contact person.
+                                    再次使用者將能夠透過向聯絡人提出請求來獲得取用權限。
                                     {%- elif licenseRestrictAccessAUuid == uuids.licenseRestrictAccessCommitteeAUuid %}
-                                    Re-users will be able to get access through a <em>Data Access Committee</em> for the project.
+                                    再用戶將能夠透過該專案的資料取用委員會獲得取用權限。
                                     {%- elif licenseRestrictAccessAUuid == uuids.licenseRestrictAccessAnotherAUuid -%}
                                     {%- set licenseRestrictAccessAnotherPath = [licenseRestrictAccessPath, uuids.licenseRestrictAccessAnotherAUuid, uuids.licenseRestrictAccessAnotherQUuid]|reply_path -%}
                                     {%- set licenseRestrictAccessAnother = repliesMap[licenseRestrictAccessAnotherPath]|reply_str_value %}
-                                    Re-users will be able to get access through a specialized process{{ ": " ~ licenseRestrictAccessAnother|dot if licenseRestrictAccessAnother else "." }}
+                                    {%- if licenseRestrictAccessAnother %}
+                                    再次使用者將能夠透過專門流程取得取用權限：{{ licenseRestrictAccessAnother }}。
+                                    {%- else %}
+                                    再次使用者將能夠透過專門流程取得取用權限。
+                                    {%- endif %}
                                     {%- endif -%}
                                     {%- if licenseRestrictMetadataAUuid == uuids.licenseRestrictMetadataYesAUuid %}
-                                    The conditions will be published as part of open metadata.
+                                    這些條件將作為開放後設資料的一部分發布。
                                     {%- endif -%}
                                     {% if licenseRestrictLink %}
-                                    More information about the restrictions can be found here: <a href="{{ licenseRestrictLink }}" target="_blank">{{ licenseRestrictLink }}</a>.
+                                    限制的更多資訊可見於：<a href="{{ licenseRestrictLink }}" target="_blank">{{ licenseRestrictLink }}</a>。
                                     {% endif %}
                                 {%- endif -%}
-                                </li>{# __tr_block_0015:end #}
+                                </li>{# __tr_block_0014:end #}
                             {%- endfor -%}
                             </ul>
                         {%- endif -%}
@@ -168,22 +184,22 @@
             {%- set publishedDataCataloguePath = [isPublishedDataPath, uuids.isPublishedDataYesAUuid, uuids.publishedDataCatalogueQUuid]|reply_path -%}
             {%- set publishedDataCatalogueAUuid = repliesMap[publishedDataCataloguePath]|reply_str_value -%}
             {%- if publishedDataCatalogueAUuid == uuids.publishedDataCatalogueYesAUuid -%}
-                <br>{# __tr_block_0016:start #}We will be adding a reference to the published data to at least one data catalogue.
-            {# __tr_block_0016:end #}{%- endif -%}
+                <br>{# __tr_block_0015:start #}我們將對已發布資料的引用新增至至少一個資料目錄。
+            {# __tr_block_0015:end #}{%- endif -%}
             {# When published #}
             {%- set publishedWhenPath = [isPublishedDataPath, uuids.isPublishedDataYesAUuid, uuids.publishedWhenQUuid]|reply_path -%}
             {%- set publishedWhenAUuid = repliesMap[publishedWhenPath]|reply_str_value -%}
             {%- if publishedWhenAUuid == uuids.publishedWhenSoonAUuid %}
-                <br>{# __tr_block_0017:start #}The dataset will published as soon as possible after collecting it.
-            {# __tr_block_0017:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenCleanupAUuid %}
-                <br>{# __tr_block_0018:start #}The dataset will published after initial cleanup.
-            {# __tr_block_0018:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenFinishedAUuid %}
-                <br>{# __tr_block_0019:start #}The dataset will published after all our processing has finished.
-            {# __tr_block_0019:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenWrappedAUuid %}
-                <br>{# __tr_block_0020:start #}The dataset will published when the project is wrapped up.
-            {# __tr_block_0020:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenEmbargoAUuid %}
-                <br>{# __tr_block_0021:start #}The dataset will published after an embargo.
-            {# __tr_block_0021:end #}{%- endif %}
+                <br>{# __tr_block_0016:start #}資料集蒐集後將盡快發布。
+            {# __tr_block_0016:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenCleanupAUuid %}
+                <br>{# __tr_block_0017:start #}資料集將在初步清理後發布。
+            {# __tr_block_0017:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenFinishedAUuid %}
+                <br>{# __tr_block_0018:start #}資料集將在我們所有處理完成後發布。
+            {# __tr_block_0018:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenWrappedAUuid %}
+                <br>{# __tr_block_0019:start #}該資料集將在專案結束時發布。
+            {# __tr_block_0019:end #}{%- elif publishedWhenAUuid == uuids.publishedWhenEmbargoAUuid %}
+                <br>{# __tr_block_0020:start #}該資料集將在禁運後發布。
+            {# __tr_block_0020:end #}{%- endif %}
             {# Qualified references #}
             {%- set publishedQReferencesPath = [isPublishedDataPath, uuids.isPublishedDataYesAUuid, uuids.publishedQReferencesQUuid]|reply_path -%}
             {%- set publishedQReferencesAUuid = repliesMap[publishedQReferencesPath]|reply_str_value -%}
@@ -203,8 +219,8 @@
                 {%- endfor -%}
             {%- endif -%}
             {%- if qreferences|length > 0 -%}
-                <br>{# __tr_block_0022:start #}The following qualified references to other data sets will be included:
-                {# __tr_block_0022:end #}<ul>
+                <br>{# __tr_block_0021:start #}將包括以下對其他資料集的合格引用：
+                {# __tr_block_0021:end #}<ul>
                     {%- for qref in qreferences -%}
                     <li><em>{{ qref.id|e }}</em> &ndash; {{ qref.relation|e }}</li>
                     {%- endfor -%}
@@ -217,13 +233,13 @@
 
     {# Restrictions #}
 
-    {# __tr_block_0023:start #}<h4>Restrictions on data sharing</h4>{# __tr_block_0023:end #}
-    {# __tr_block_0024:start #}<p>Ethical and legal restrictions are documented under Section 4. We have used the {{ dc.config.service_name }}, which made us aware of options to minimize the restrictions.</p>{# __tr_block_0024:end #}
+    {# __tr_block_0022:start #}<h4>資料共享限制</h4>{# __tr_block_0022:end #}
+    {# __tr_block_0023:start #}<p>倫理和法律限制記錄在第 4 節。我們使用了 {{ dc.config.service_name }}，這讓我們了解了盡量減少限制的選項。</p>{# __tr_block_0023:end #}
 
     {%- set openImmediatelyPath = [uuids.accessCUuid, uuids.openImmediatelyQUuid]|reply_path -%}
     {%- set openImmediatelyAUuid = repliesMap[openImmediatelyPath]|reply_str_value -%}
     {%- if openImmediatelyAUuid == uuids.openImmediatelyYesAUuid -%}
-      {# __tr_block_0025:start #}<p>No data sharing agreement will be required.</p>{# __tr_block_0025:end #}
+      {# __tr_block_0024:start #}<p>不需要資料共享協定。</p>{# __tr_block_0024:end #}
     {%- elif openImmediatelyAUuid == uuids.openImmediatelyNoAUuid -%}
       {%- set pathPrefix = [openImmediatelyPath, uuids.openImmediatelyNoAUuid]|reply_path -%}
       {%- set embargoPath = [uuids.accessCUuid, uuids.limitedEmbargoQUuid]|reply_path -%}
@@ -231,53 +247,57 @@
       {%- if embargoAUuid == uuids.limitedEmbargoYesAUuid -%}
         {%- set embargoPeriodPath = [embargoPath, embargoAUuid, uuids.limitedEmbargoPeriodQUuid]|reply_path -%}
         {%- set embargoPeriod = repliesMap[embargoPeriodPath]|reply_str_value -%}
-        {# __tr_block_0026:start #}<p>
-          Data cannot be completely open due to legal reasons. But data that is not legally restrained will be released after a fixed time period.
+        {# __tr_block_0025:start #}<p>
+          由於法律原因，資料無法完全公開。但不受法律限制的資料將在固定期限後發布。
           {%- if embargoPeriod %}
-            The embargo period will be {{ embargoPeriod|dot }}
+            禁運期間為 {{ embargoPeriod|dot }}
           {%- endif %}
-        </p>{# __tr_block_0026:end #}
+        </p>{# __tr_block_0025:end #}
       {%- endif -%}
 
       {%- set legalReasonsAuthenticatedPath = [pathPrefix, uuids.notOpenLegalReasonsQUuid, uuids.notOpenLegalReasonsYesAUuid, uuids.legalReasonsAuthenticatedQUuid]|reply_path -%}
       {%- set legalReasonsAuthenticatedAUuid = repliesMap[legalReasonsAuthenticatedPath]|reply_str_value -%}
       {%- if legalReasonsAuthenticatedAUuid == uuids.legalReasonsAuthenticatedYesAUuid -%}
-        {# __tr_block_0027:start #}<p>
-          A data sharing agreement will be required.
+        {# __tr_block_0026:start #}<p>
+          需要簽訂資料共享協議。
           {%- set legalReasonsAuthorizePath = [legalReasonsAuthenticatedPath, uuids.legalReasonsAuthenticatedYesAUuid, uuids.legalReasonsAuthorizeQUuid]|reply_path -%}
           {%- set legalReasonsAuthorizeAUuid = repliesMap[legalReasonsAuthorizePath]|reply_str_value -%}
           {%- if legalReasonsAuthorizeAUuid == uuids.legalReasonsAuthorizeMemberAUuid %}
-            People can apply to one of the project members.
+            人們可以向專案成員之一提出申請。
           {%- elif legalReasonsAuthorizeAUuid == uuids.legalReasonsAuthorizeNewCommitteeAUuid %}
-            People can apply to the data access committee that we will set up.
+            人們可以向我們將設立的資料取用委員會提出申請。
           {%- elif legalReasonsAuthorizeAUuid == uuids.legalReasonsAuthorizeOldCommitteeAUuid %}
             {%- set legalReasonsAuthorizeOldCommitteePath = [legalReasonsAuthorizePath, uuids.legalReasonsAuthorizeOldCommitteeAUuid, uuids.legalReasonsAuthorizeOldCommitteeQUuid]|reply_path -%}
             {%- set legalReasonsAuthorizeOldCommittee = repliesMap[legalReasonsAuthorizeOldCommitteePath]|reply_str_value -%}
             {%- if legalReasonsAuthorizeOldCommittee %}
-              People can apply to the <em>{{ legalReasonsAuthorizeOldCommittee }}</em> data access committee.
+              人們可以向 <em>{{ legalReasonsAuthorizeOldCommittee }}</em> 資料取用委員會提出申請。
             {%- else -%}
-              People can apply to an existing data access committee.
+              人們可以向現有的資料取用委員會提出申請。
             {%- endif -%}
           {%- elif legalReasonsAuthorizeAUuid == uuids.legalReasonsAuthorizeOtherAUuid %}
             {%- set legalReasonsAuthorizeOtherPath = [legalReasonsAuthorizePath, uuids.legalReasonsAuthorizeOtherAUuid, uuids.legalReasonsAuthorizeOtherQUuid]|reply_path -%}
             {%- set legalReasonsAuthorizeOther = repliesMap[legalReasonsAuthorizeOtherPath]|reply_str_value %}
-            For the authorization of potential users, we will make special arrangements{{ ": " ~ legalReasonsAuthorizeOther|dot if legalReasonsAuthorizeOther else "." }}
+            {%- if legalReasonsAuthorizeOther %}
+              對於潛在使用者的授權，我們將做出特殊安排：{{ legalReasonsAuthorizeOther }}。
+            {%- else %}
+              對於潛在使用者的授權，我們將做出特殊安排。
+            {%- endif %}
           {%- endif -%}
-        </p>{# __tr_block_0027:end #}
+        </p>{# __tr_block_0026:end #}
       {%- endif -%}
     {%- endif -%}
 
     {%- set collabPath = [uuids.creatingCUuid, uuids.collabQUuid]|reply_path -%}
     {%- set collabAUuid = repliesMap[collabPath]|reply_str_value -%}
     {%- if collabAUuid == uuids.collabNoAUuid -%}
-      {# __tr_block_0028:start #}<p>We are not running the project in a collaboration between different groups nor institutes. Therefore, no collaboration agreement related to data access is needed.</p>{# __tr_block_0028:end #}
+      {# __tr_block_0027:start #}<p>我們並不是在不同團體或機構之間合作運作該專案。因此，不需要與資料取用相關的協作協議。</p>{# __tr_block_0027:end #}
     {%- elif collabAUuid == uuids.collabYesAUuid -%}
       {%- set collabAgreePath = [collabPath, collabAUuid, uuids.collabAgreeQUuid]|reply_path -%}
       {%- set collabAgreeAUuid = repliesMap[collabAgreePath]|reply_str_value -%}
       {%- if collabAgreeAUuid == uuids.collabAgreeNoAUuid -%}
-        {# __tr_block_0029:start #}<p>We are running the project in a collaboration between different groups and institutes. However, there is no collaboration agreement in the project that describes who can have access to what data.</p>{# __tr_block_0029:end #}
+        {# __tr_block_0028:start #}<p>我們正在不同團體和機構之間合作運作該專案。然而，該專案中沒有合作協議來描述誰可以存取哪些資料。</p>{# __tr_block_0028:end #}
       {%- elif collabAgreeAUuid == uuids.collabAgreeYesAUuid -%}
-        {# __tr_block_0030:start #}<p>We are running the project in a collaboration between different groups and institutes. A collaboration agreement that describes who can have access to what data in the project is set.</p>{# __tr_block_0030:end #}
+        {# __tr_block_0029:start #}<p>我們正在不同團體和機構之間合作運作該專案。一份協作協議，描述誰可以存取專案中設定的哪些資料。</p>{# __tr_block_0029:end #}
       {%- endif -%}
     {%- endif -%}
   </div>

@@ -17,5 +17,5 @@
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+{firstName}和{secondName}：{responsibility}
 ~~~

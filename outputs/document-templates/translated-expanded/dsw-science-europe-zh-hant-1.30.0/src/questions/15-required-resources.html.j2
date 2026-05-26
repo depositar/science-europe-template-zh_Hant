@@ -1,56 +1,48 @@
 <div id="q-required-resources" class="question">
-  {# __tr_block_0000:start #}<h3>15. What resources (for example financial and time) will be dedicated to data management and ensuring that data will be FAIR (Findable, Accessible, Interoperable, Re-usable)?</h3>{# __tr_block_0000:end #}
+  {# __tr_block_0000:start #}<h3>15. 將投入哪些資源（例如經費與時間）來進行資料管理，並確保資料符合 FAIR（可被找到、可被取用、可相互操作、可再次使用）原則？</h3>{# __tr_block_0000:end #}
 
   <div class="answer">
     {# additional expertise #}
     {%- set expertisePath = [uuids.adminDetailsCUuid, uuids.additionalExpertiseQUuid]|reply_path -%}
     {%- set expertiseAUuid = repliesMap[expertisePath]|reply_str_value -%}
     {%- if expertiseAUuid == uuids.additionalExpertiseNoAUuid -%}
-      {# __tr_block_0001:start #}<p>To execute the DMP, no additional specialist expertise is required.</p>{# __tr_block_0001:end #}
+      {# __tr_block_0001:start #}<p>執行資料管理方案不需要額外的專業知識。</p>{# __tr_block_0001:end #}
     {%- elif expertiseAUuid == uuids.additionalExpertiseYesAvailableAUuid -%}
-      {# __tr_block_0002:start #}<p>To execute the DMP, additional specialist expertise is required and we have such trained support staff available.</p>{# __tr_block_0002:end #}
+      {# __tr_block_0002:start #}<p>為了執行資料管理方案，需要額外的專業知識，並且我們擁有經過培訓的支援人員。</p>{# __tr_block_0002:end #}
     {%- elif expertiseAUuid == uuids.additionalExpertiseYesTrainAUuid -%}
-      {# __tr_block_0003:start #}<p>
-        To execute the DMP, additional specialist expertise is required. We will be training existing staff
-        {%- set expertiseTrainPath = [expertisePath, uuids.additionalExpertiseYesTrainAUuid, uuids.additionalExpertiseYesTrainTrainingQUuid]|reply_path -%}
-        {%- set expertiseTrainText = repliesMap[expertiseTrainPath]|reply_str_value -%}
-        {%- if expertiseTrainText %}
-          {{" "}}on: {{ expertiseTrainText}}
-        {%- endif -%}
-        .
-      </p>{# __tr_block_0003:end #}
+      {# __tr_branch_sentence_original:PHA-CiAgICAgICAgVG8gZXhlY3V0ZSB0aGUgRE1QLCBhZGRpdGlvbmFsIHNwZWNpYWxpc3QgZXhwZXJ0aXNlIGlzIHJlcXVpcmVkLiBXZSB3aWxsIGJlIHRyYWluaW5nIGV4aXN0aW5nIHN0YWZmCiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VUcmFpblBhdGggPSBbZXhwZXJ0aXNlUGF0aCwgdXVpZHMuYWRkaXRpb25hbEV4cGVydGlzZVllc1RyYWluQVV1aWQsIHV1aWRzLmFkZGl0aW9uYWxFeHBlcnRpc2VZZXNUcmFpblRyYWluaW5nUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VUcmFpblRleHQgPSByZXBsaWVzTWFwW2V4cGVydGlzZVRyYWluUGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgIHslLSBpZiBleHBlcnRpc2VUcmFpblRleHQgJX0KICAgICAgICAgIHt7IiAifX1vbjoge3sgZXhwZXJ0aXNlVHJhaW5UZXh0fX0KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgLgogICAgICA8L3A- #}{%- set expertiseTrainPath = [expertisePath, uuids.additionalExpertiseYesTrainAUuid, uuids.additionalExpertiseYesTrainTrainingQUuid]|reply_path -%}{%- set expertiseTrainText = repliesMap[expertiseTrainPath]|reply_str_value -%}{%- if expertiseTrainText %}{# __tr_block_0003:start #}<p>
+        為了執行資料管理方案，需要額外的專業知識。我們將對現有員工進行以下方面的培訓：{{ expertiseTrainText }}。
+      </p>{# __tr_block_0003:end #}{% else %}{# __tr_block_0004:start #}<p>
+        為了執行資料管理方案，需要額外的專業知識。我們將培訓現有員工。
+      </p>{# __tr_block_0004:end #}{%- endif -%}{# __tr_branch_sentence_original:end #}
     {%- elif expertiseAUuid == uuids.additionalExpertiseYesHireAUuid -%}
-      {# __tr_block_0004:start #}<p>
-        To execute the DMP, additional specialist expertise is required. We will be hiring new people with additional expertise
-        {%- set expertiseHirePath = [expertisePath, uuids.additionalExpertiseYesHireAUuid, uuids.additionalExpertiseYesHireExpertiseQUuid]|reply_path -%}
-        {%- set expertiseHireText = repliesMap[expertiseHirePath]|reply_str_value -%}
-        {%- if expertiseHireText %}
-          {{" "}}in: {{ expertiseHireText}}
-        {%- endif -%}
-        .
-      </p>{# __tr_block_0004:end #}
+      {# __tr_branch_sentence_original:PHA-CiAgICAgICAgVG8gZXhlY3V0ZSB0aGUgRE1QLCBhZGRpdGlvbmFsIHNwZWNpYWxpc3QgZXhwZXJ0aXNlIGlzIHJlcXVpcmVkLiBXZSB3aWxsIGJlIGhpcmluZyBuZXcgcGVvcGxlIHdpdGggYWRkaXRpb25hbCBleHBlcnRpc2UKICAgICAgICB7JS0gc2V0IGV4cGVydGlzZUhpcmVQYXRoID0gW2V4cGVydGlzZVBhdGgsIHV1aWRzLmFkZGl0aW9uYWxFeHBlcnRpc2VZZXNIaXJlQVV1aWQsIHV1aWRzLmFkZGl0aW9uYWxFeHBlcnRpc2VZZXNIaXJlRXhwZXJ0aXNlUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VIaXJlVGV4dCA9IHJlcGxpZXNNYXBbZXhwZXJ0aXNlSGlyZVBhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICB7JS0gaWYgZXhwZXJ0aXNlSGlyZVRleHQgJX0KICAgICAgICAgIHt7IiAifX1pbjoge3sgZXhwZXJ0aXNlSGlyZVRleHR9fQogICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAuCiAgICAgIDwvcD4= #}{%- set expertiseHirePath = [expertisePath, uuids.additionalExpertiseYesHireAUuid, uuids.additionalExpertiseYesHireExpertiseQUuid]|reply_path -%}{%- set expertiseHireText = repliesMap[expertiseHirePath]|reply_str_value -%}{%- if expertiseHireText %}{# __tr_block_0005:start #}<p>
+        為了執行資料管理方案，需要額外的專業知識。我們將招募具有以下專業知識的新員工：{{ expertiseHireText }}。
+      </p>{# __tr_block_0005:end #}{% else %}{# __tr_block_0006:start #}<p>
+        為了執行資料管理方案，需要額外的專業知識。我們將僱用具有額外專業知識的新員工。
+      </p>{# __tr_block_0006:end #}{%- endif -%}{# __tr_branch_sentence_original:end #}
     {%- endif -%}
     {# additional hw/sw #}
     {%- set additionalHWSWPath = [uuids.adminDetailsCUuid, uuids.additionalHWSWQUuid]|reply_path -%}
     {%- set additionalHWSWAUuid = repliesMap[additionalHWSWPath]|reply_str_value -%}
     {%- if additionalHWSWAUuid == uuids.additionalHWSWNoAUuid -%}
-      {# __tr_block_0005:start #}<p>We do not require any hardware or software in addition to what is usually available in the institute.</p>{# __tr_block_0005:end #}
+      {# __tr_block_0007:start #}<p>除了機構通常提供的硬體或軟體之外，我們不需要任何硬體或軟體。</p>{# __tr_block_0007:end #}
     {%- elif additionalHWSWAUuid == uuids.additionalHWSWYesAUuid -%}
       {%- set additionalHWSWWhatPath = [additionalHWSWPath, uuids.additionalHWSWYesAUuid, uuids.additionalHWSWYesWhatQUuid]|reply_path -%}
       {%- set additionalHWSWWhat = repliesMap[additionalHWSWWhatPath]|reply_str_value -%}
       {%- if additionalHWSWWhat -%}
-        {# __tr_block_0006:start #}<p>We require the following hardware or software in addition to what is usually available in the institute: {{ additionalHWSWWhat|dot }}</p>{# __tr_block_0006:end #}
+        {# __tr_block_0008:start #}<p>除了機構通常提供的硬體或軟體外，我們還需要以下硬體或軟體：{{ additionalHWSWWhat|dot }}</p>{# __tr_block_0008:end #}
       {%- else -%}
-        {# __tr_block_0007:start #}<p>We require hardware or software in addition to what is usually available in the institute.</p>{# __tr_block_0007:end #}
+        {# __tr_block_0009:start #}<p>除了機構通常提供的硬體或軟體之外，我們還需要硬體或軟體。</p>{# __tr_block_0009:end #}
       {%- endif -%}
     {%- endif -%}
     {# charges #}
-    {# __tr_block_0008:start #}<p>Charges applied by data repositories (if any) are mentioned already in Section 4, Question 11.</p>{# __tr_block_0008:end #}
+    {# __tr_block_0010:start #}<p>資料儲存庫收取的費用（如果有）已在第 4 節問題 11 中提及。</p>{# __tr_block_0010:end #}
     {# costs #}
     {%- set projectPath = [uuids.adminDetailsCUuid, uuids.projectsQUuid]|reply_path -%}
     {%- set projectItems = repliesMap[projectPath]|reply_items -%}
     {%- if projectItems|length > 0 -%}
-    {# __tr_block_0009:start #}<p>Following resources will be dedicated to data management and ensuring that data will be FAIR:</p>{# __tr_block_0009:end #}
+    {# __tr_block_0011:start #}<p>以下資源將專門用於資料管理，並確保資料符合 FAIR 原則：</p>{# __tr_block_0011:end #}
     <ul>
         {%- for i in projectItems -%}
             {%- set projectItem = [projectPath, i]|reply_path -%}
@@ -59,8 +51,8 @@
 
             {%- set projectItemNumberQUuid = [projectItem, uuids.projectNumberQUuid]|reply_path -%}
             {%- set projectItemNumberReply = repliesMap[projectItemNumberQUuid]|reply_str_value -%}
-            {# __tr_block_0010:start #}<li> 
-                <strong>{# __tr_inline_if_original:e3sgcHJvamVjdEl0ZW1OYW1lUmVwbHkgaWYgcHJvamVjdEl0ZW1OYW1lUmVwbHkgZWxzZSAiKG5vIG5hbWUgZ2l2ZW4pIiB9fQ== #}{% if projectItemNameReply %}{{ projectItemNameReply }}{% else %}{{ "(no name given)" }}{% endif %}{# __tr_inline_if_original:end #}{{ " - " + projectItemNumberReply if projectItemNumberReply}} </strong>
+            {# __tr_block_0012:start #}<li>
+                <strong>{# __tr_inline_if_original:e3sgcHJvamVjdEl0ZW1OYW1lUmVwbHkgaWYgcHJvamVjdEl0ZW1OYW1lUmVwbHkgZWxzZSAiKG5vIG5hbWUgZ2l2ZW4pIiB9fQ== #}{% if projectItemNameReply %}{{ projectItemNameReply }}{% else %}（未提供名稱）{% endif %}{# __tr_inline_if_original:end #}{{ " - " + projectItemNumberReply if projectItemNumberReply}} </strong>
 
                 {%- set projectCostPath = [projectItem, uuids.costQUuid]|reply_path -%}
                 {%- set projectCostItems = repliesMap[projectCostPath]|reply_items -%}
@@ -72,7 +64,7 @@
                         {%- set projectCostItemTitleQUuid = [projectCostItem, uuids.costTitleQUuid]|reply_path -%}
                         {%- set projectCostItemTitleReply = repliesMap[projectCostItemTitleQUuid]|reply_str_value -%}
                         <li>
-                        <strong>{# __tr_inline_if_original:e3sgcHJvamVjdENvc3RJdGVtVGl0bGVSZXBseSBpZiBwcm9qZWN0Q29zdEl0ZW1UaXRsZVJlcGx5IGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if projectCostItemTitleReply %}{{ projectCostItemTitleReply }}{% else %}{{ "(no name given)" }}{% endif %}{# __tr_inline_if_original:end #}</strong>
+                        <strong>{# __tr_inline_if_original:e3sgcHJvamVjdENvc3RJdGVtVGl0bGVSZXBseSBpZiBwcm9qZWN0Q29zdEl0ZW1UaXRsZVJlcGx5IGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if projectCostItemTitleReply %}{{ projectCostItemTitleReply }}{% else %}（未提供名稱）{% endif %}{# __tr_inline_if_original:end #}</strong>
                         
                         {%- set projectCostItemDescriptionQUuid = [projectCostItem, uuids.costDescriptionQUuid]|reply_path -%}
                         {%- set projectCostItemDescriptionReply = repliesMap[projectCostItemDescriptionQUuid]|reply_str_value  -%}
@@ -87,7 +79,7 @@
                         {%- set projectCostItemAmountReply = repliesMap[projectCostItemAmountQUuid]|reply_str_value -%}
 
                         {%- if  projectCostItemAmountReply and projectCostItemCurrencyReply -%}
-                            <p>The amount is {{projectCostItemAmountReply}} {{macros.integrationCurrency(projectCostItemCurrencyReply) }}.</p>
+                            <p>金額為 {{ projectCostItemAmountReply }} {{ macros.integrationCurrency(projectCostItemCurrencyReply) }}。</p>
                         {%- endif -%}
 
                         {%- set projectCostItemAllocationQUuid = [projectCostItem, uuids.costAllocationQUuid]|reply_path  -%}
@@ -96,29 +88,30 @@
                         
                           {%- set projectCostItemAllocations = [] -%}
                           {%- if uuids.costAllocationFindabilityAUuid in projectCostItemAllocationItems -%}
-                            {%- do projectCostItemAllocations.append("ensuring findability") -%}
+                            {%- do projectCostItemAllocations.append("確保資料可被找到") -%}
                           {%- endif -%}
                           {%- if uuids.costAllocationAccessibilityAUuid in projectCostItemAllocationItems -%}
-                            {%- do projectCostItemAllocations.append("ensuring accessibility") -%}
+                            {%- do projectCostItemAllocations.append("確保資料可被取用") -%}
                           {%- endif -%}
                           {%- if uuids.costAllocationInteroperabilityAUuid in projectCostItemAllocationItems -%}
-                            {%- do projectCostItemAllocations.append("ensuring interoperability") -%}
+                            {%- do projectCostItemAllocations.append("確保資料可相互操作") -%}
                           {%- endif -%}
                           {%- if uuids.costAllocationReusabilityAUuid in projectCostItemAllocationItems -%}
-                            {%- do projectCostItemAllocations.append("ensuring reusability") -%}
+                            {%- do projectCostItemAllocations.append("確保資料可再次使用") -%}
                           {%- endif -%}
                           {%- if uuids.costManagementAUuid in projectCostItemAllocationItems -%}
-                            {%- do projectCostItemAllocations.append("supporting management") -%}
+                            {%- do projectCostItemAllocations.append("支援資料管理") -%}
                           {%- endif -%}
                         
                         {%- if projectCostItemAllocations|length > 0 -%}
-                          {# __tr_branch_sentence_original:PHA-CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBUaGlzIHJlc291cmNlIGlzIGFsbG9jYXRlZCBmb3J7eysiICJ9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGlmIHByb2plY3RDb3N0SXRlbUFsbG9jYXRpb25zfGxlbmd0aCA-IDIgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7IHByb2plY3RDb3N0SXRlbUFsbG9jYXRpb25zWzA6LTFdfGpvaW4oIiwgIikgfX0sIGFuZCB7eyBwcm9qZWN0Q29zdEl0ZW1BbGxvY2F0aW9uc1stMV0gfX0gb2YgZGF0YS4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHslLSBlbGlmIHByb2plY3RDb3N0SXRlbUFsbG9jYXRpb25zfGxlbmd0aCA9PSAyIC0lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7eyBwcm9qZWN0Q29zdEl0ZW1BbGxvY2F0aW9uc1swXSB9fSBhbmQge3sgcHJvamVjdENvc3RJdGVtQWxsb2NhdGlvbnNbMV0gfX0gb2YgZGF0YS4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHslLSBlbHNlIC0lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7eyBwcm9qZWN0Q29zdEl0ZW1BbGxvY2F0aW9uc1swXSB9fSBvZiBkYXRhLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGVuZGlmICV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgPC9wPg== #}{%- if projectCostItemAllocations|length > 2 -%}<p>
-                            This resource is allocated for{{+" "}}{{ projectCostItemAllocations[0:-1]|join(", ") }}, and {{ projectCostItemAllocations[-1] }} of data.
-                          </p>{%- elif projectCostItemAllocations|length == 2 -%}<p>
-                            This resource is allocated for{{+" "}}{{ projectCostItemAllocations[0] }} and {{ projectCostItemAllocations[1] }} of data.
-                          </p>{%- else -%}<p>
-                            This resource is allocated for{{+" "}}{{ projectCostItemAllocations[0] }} of data.
-                          </p>{%- endif %}{# __tr_branch_sentence_original:end #}
+                          {%- if projectCostItemAllocations|length > 2 -%}
+                            {%- set allocationText = projectCostItemAllocations[0:-1]|join("、") ~ "和" ~ projectCostItemAllocations[-1] -%}
+                          {%- elif projectCostItemAllocations|length == 2 -%}
+                            {%- set allocationText = projectCostItemAllocations[0] ~ "和" ~ projectCostItemAllocations[1] -%}
+                          {%- else -%}
+                            {%- set allocationText = projectCostItemAllocations[0] -%}
+                          {%- endif -%}
+                          <p>此資源用於{{ allocationText }}。</p>
                         {%- endif -%}
                        
  
@@ -128,9 +121,9 @@
                         {%- if projectCostItemCoverReply == uuids.costCoverGrantAUuid -%}
                           {%- set costCoverGrantIdQUuid = [projectCostItemCoverQUuid, uuids.costCoverGrantAUuid, uuids.costCoverGrantIdQUuid]|reply_path -%}
                           {%- set costCoverGrantIdReply = repliesMap[costCoverGrantIdQUuid]|reply_str_value -%}
-                          <p>This cost will be covered by funding grant
+                          <p>這筆費用將由資助金支付
                           {%- if costCoverGrantIdReply -%}
-                            {{" "}}(grant number: {{costCoverGrantIdReply}})
+                            （補助編號：{{ costCoverGrantIdReply }}）
                           {%- else -%}
                             . </p>
                           {%- endif -%}
@@ -138,7 +131,7 @@
                           {%- set costCoverOtherHowQUuid = [projectCostItemCoverQUuid,uuids.costCoverOtherAUuid, uuids.costCoverOtherHowQUuid]|reply_path  -%}
                           {%- set costCoverOtherHowReply = repliesMap[costCoverOtherHowQUuid]|reply_str_value -%}
                           {%- if costCoverOtherHowReply -%}
-                            <p>This cost will be covered as follows: {{costCoverOtherHowReply}}.</p>
+                            <p>此費用將按如下方式支付：{{ costCoverOtherHowReply }}。</p>
                           {%- endif -%}
 
                         {%- endif -%}
@@ -149,7 +142,7 @@
                     </ul>
                 {%- endif -%}
 
-            </li>{# __tr_block_0010:end #}
+            </li>{# __tr_block_0012:end #}
 
         {%- endfor -%}
     </ul>

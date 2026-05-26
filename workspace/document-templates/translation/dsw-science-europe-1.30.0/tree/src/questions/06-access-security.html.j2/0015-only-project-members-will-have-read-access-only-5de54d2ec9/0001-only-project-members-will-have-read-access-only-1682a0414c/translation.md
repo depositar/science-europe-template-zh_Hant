@@ -17,5 +17,5 @@ Only project members will have read access; only selected project members will b
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+只有專案成員才有讀取權限；只有選定的專案成員才能寫入資料。
 ~~~

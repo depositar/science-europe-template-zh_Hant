@@ -17,5 +17,5 @@ Our data is legally not copyrightable, there is no legal owner.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們的資料在法律上不受版權保護，沒有合法所有者。
 ~~~

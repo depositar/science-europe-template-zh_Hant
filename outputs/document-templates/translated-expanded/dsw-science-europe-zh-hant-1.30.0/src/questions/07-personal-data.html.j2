@@ -1,8 +1,8 @@
 <div id="q-access-security" class="question">
-    {# __tr_block_0000:start #}<h3>7. If personal data are processed, how will compliance with legislation on personal data and on security be ensured?</h3>{# __tr_block_0000:end #}
+    {# __tr_block_0000:start #}<h3>7. 如果會處理個人資料，將如何確保符合個人資料與安全相關法規？</h3>{# __tr_block_0000:end #}
 
     <div class="answer">
-        {# __tr_block_0001:start #}<p>Data security protection is described in Section 3, Question 6.</p>{# __tr_block_0001:end #}
+        {# __tr_block_0001:start #}<p>資料安全保護在第 3 節問題 6 中描述。</p>{# __tr_block_0001:end #}
         {%- set personalDataQUuid = [uuids.creatingCUuid,uuids.collectPersonalQUuid ]|reply_path -%}
         {%- set personalDataReply = repliesMap[personalDataQUuid]|reply_str_value -%}
         {%- if personalDataReply == uuids.collectPersonalYesAUuid -%}
@@ -14,26 +14,27 @@
                 {%- set personalDataLegalBasisQUuid = [personalDataGDPRPath, uuids.cpersGdprExploreAUuid, uuids.cpersGdprLegalBasisQUuid]|reply_path  -%}
                 {%- set personalDataLegalBasisReply = repliesMap[personalDataLegalBasisQUuid]|reply_str_value -%}
                 {%- if personalDataLegalBasisReply  -%}
-                    {# __tr_block_0002:start #}<h4>Legal basis for collecting and processing personal data</h4>{# __tr_block_0002:end #}
-                    {# __tr_block_0003:start #}<p> We are collecting and processing personal data{{+" "}}
+                    {# __tr_block_0002:start #}<h4>蒐集與處理個人資料的法律依據</h4>{# __tr_block_0002:end #}{# __tr_branch_sentence_original:CiAgICAgICAgICAgICAgICAgICAgPHA-IFdlIGFyZSBjb2xsZWN0aW5nIGFuZCBwcm9jZXNzaW5nIHBlcnNvbmFsIGRhdGF7eysiICJ9fQogICAgICAgICAgICAgICAgICAgIHslLSBpZiBwZXJzb25hbERhdGFMZWdhbEJhc2lzUmVwbHkgPT0gdXVpZHMuY3BlcnNHZHByTGVnYWxCYXNpc1B1YmxpY0FVdWlkIC0lfQogICAgICAgICAgICAgICAgICAgICAgICBiYXNlZCBvbiBwdWJsaWMgaW50ZXJlc3QuPC9wPgogICAgICAgICAgICAgICAgICAgIHslLSBlbGlmIHBlcnNvbmFsRGF0YUxlZ2FsQmFzaXNSZXBseSA9PSB1dWlkcy5jcGVyc0dkcHJMZWdhbEJhc2lzQXNrQVV1aWQgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgIGJhc2VkIG9uIHN1YmplY3QncyBjb25zZW50LjwvcD4KICAgICAgICAgICAgICAgICAgICB7JS0gZWxpZiBwZXJzb25hbERhdGFMZWdhbEJhc2lzUmVwbHkgPT0gdXVpZHMuY3BlcnNHZHByTGVnYWxCYXNpc090aGVyQVV1aWQgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBzZXQgcGVyc29uYWxEYXRhTGVnYWxCYXNpc090aGVyUVV1aWQgPSBbcGVyc29uYWxEYXRhTGVnYWxCYXNpc1FVdWlkLCB1dWlkcy5jcGVyc0dkcHJMZWdhbEJhc2lzT3RoZXJBVXVpZCwgdXVpZHMuIGNwZXJzR2RwckxlZ2FsQmFzaXNPdGhlcldoaWNoUVV1aWQgXXxyZXBseV9wYXRoIC0lfQogICAgICAgICAgICAgICAgICAgICAgICB7JS0gc2V0IHBlcnNvbmFsRGF0YUxlZ2FsQmFzaXNPdGhlclJlcGx5ID0gcmVwbGllc01hcFtwZXJzb25hbERhdGFMZWdhbEJhc2lzT3RoZXJRVXVpZF18cmVwbHlfc3RyX3ZhbHVlICAtJX0KICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGlmIHBlcnNvbmFsRGF0YUxlZ2FsQmFzaXNPdGhlclJlcGx5ID09IHV1aWRzLmNwZXJzR2RwckxlZ2FsQmFzaXNPdGhlcldoaWNoQ29udHJhY3RBVXVpIC0lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaW4gb3JkZXIgdG8gZnVsZmlsIGNvbnRyYWN0LjwvcD4KICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGVsaWYgcGVyc29uYWxEYXRhTGVnYWxCYXNpc090aGVyUmVwbHkgPT0gdXVpZHMuY3BlcnNHZHByTGVnYWxCYXNpc090aGVyV2hpY2hMZWdpdEFVdWlkIC0lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmFzZWQgb24gbGVnaXRpbWF0ZSBpbnRlcmVzdC48L3A-CiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBlbGlmIHBlcnNvbmFsRGF0YUxlZ2FsQmFzaXNPdGhlclJlcGx5ID09IHV1aWRzLmNwZXJzR2RwckxlZ2FsQmFzaXNPdGhlcldoaWNoVml0YWxBVXVpZCAtJX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJhc2VkIG9uIHZpdGFsIGludGVyZXN0LjwvcD4KICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGVsaWYgcGVyc29uYWxEYXRhTGVnYWxCYXNpc090aGVyUmVwbHkgPT0gdXVpZHMuY3BlcnNHZHByTGVnYWxCYXNpc090aGVyV2hpY2hMZWdhbEFVdWlkIC0lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmFzZWQgb24gbGVnYWwgcmVxdWlyZW1lbnQuPC9wPgogICAgICAgICAgICAgICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQo= #}
                     {%- if personalDataLegalBasisReply == uuids.cpersGdprLegalBasisPublicAUuid -%}
-                        based on public interest.</p>
+                        {# __tr_block_0003:start #}<p> 我們基於公共利益蒐集和處理個人資料。</p>{# __tr_block_0003:end #}
                     {%- elif personalDataLegalBasisReply == uuids.cpersGdprLegalBasisAskAUuid -%}
-                        based on subject's consent.</p>
+                        {# __tr_block_0004:start #}<p> 我們在徵得資料主體同意的情況下蒐集和處理個人資料。</p>{# __tr_block_0004:end #}
                     {%- elif personalDataLegalBasisReply == uuids.cpersGdprLegalBasisOtherAUuid -%}
                         {%- set personalDataLegalBasisOtherQUuid = [personalDataLegalBasisQUuid, uuids.cpersGdprLegalBasisOtherAUuid, uuids. cpersGdprLegalBasisOtherWhichQUuid ]|reply_path -%}
                         {%- set personalDataLegalBasisOtherReply = repliesMap[personalDataLegalBasisOtherQUuid]|reply_str_value  -%}
                         {%- if personalDataLegalBasisOtherReply == uuids.cpersGdprLegalBasisOtherWhichContractAUui -%}
-                            in order to fulfil contract.</p>
+                            {# __tr_block_0005:start #}<p> 我們正在蒐集和處理個人資料以履行合約。</p>{# __tr_block_0005:end #}
                         {%- elif personalDataLegalBasisOtherReply == uuids.cpersGdprLegalBasisOtherWhichLegitAUuid -%}
-                            based on legitimate interest.</p>
+                            {# __tr_block_0006:start #}<p> 我們基於正當利益蒐集和處理個人資料。</p>{# __tr_block_0006:end #}
                         {%- elif personalDataLegalBasisOtherReply == uuids.cpersGdprLegalBasisOtherWhichVitalAUuid -%}
-                            based on vital interest.</p>
+                            {# __tr_block_0007:start #}<p> 我們基於重大利益蒐集和處理個人資料。</p>{# __tr_block_0007:end #}
                         {%- elif personalDataLegalBasisOtherReply == uuids.cpersGdprLegalBasisOtherWhichLegalAUuid -%}
-                            based on legal requirement.</p>
+                            {# __tr_block_0008:start #}<p> 我們根據法律要求蒐集和處理個人資料。</p>{# __tr_block_0008:end #}
+                        {%- else -%}
+                            {# __tr_block_0009:start #}<p> 我們正在蒐集和處理個人資料{%- if false -%}</p>{%- endif -%}{# __tr_block_0009:end #}
                         {%- endif -%}
-                    {%- endif -%}{# __tr_block_0003:end #}
-                {%- endif -%}
+                    {%- endif -%}
+{# __tr_branch_sentence_original:end #}                {%- endif -%}
 
                 {# Technical and procedural safeguards #}
                 {%- set personalDataSafeguardsQUuid = [personalDataGDPRPath, uuids.cpersGdprExploreAUuid, uuids.cpersGdprSafeguardsQUuid]|reply_path -%}
@@ -41,23 +42,23 @@
 
                 {%- if personalDataSafeguardReply == uuids.cpersGdprSafeguardsAUuid -%}
 
-                    {# __tr_block_0004:start #}<h4>Technical and procedural measures</h4>{# __tr_block_0004:end #}
+                    {# __tr_block_0010:start #}<h4>技術與程序措施</h4>{# __tr_block_0010:end #}
 
                     {%- set personalDataSafeguardLvlIdentifQUuid = [personalDataSafeguardsQUuid, uuids.cpersGdprSafeguardsAUuid, uuids.cpersGdprSafeguardsIdentifQUuid]|reply_path -%}
                     {%- set personalDataSafeguardLvlIdentifReply = repliesMap[personalDataSafeguardLvlIdentifQUuid]|reply_str_value -%}
 
                     {%- if personalDataSafeguardLvlIdentifReply == uuids.cpersGdprSafeguardsIdentifAnonymAUuid -%}
-                        {# __tr_block_0005:start #}<p>The stored data are irrevocably anonymized.</p>{# __tr_block_0005:end #}
+                        {# __tr_block_0011:start #}<p>儲存的資料不可撤銷地匿名化。</p>{# __tr_block_0011:end #}
                     {%- elif personalDataSafeguardLvlIdentifReply == uuids.cpersGdprSafeguardsIdentifPseudoAUuid -%}
-                        {# __tr_block_0006:start #}<p>The stored data are psuedoanonymized.</p>{# __tr_block_0006:end #}
+                        {# __tr_block_0012:start #}<p>儲存的資料是偽匿名的。</p>{# __tr_block_0012:end #}
                     {%- elif personalDataSafeguardLvlIdentifReply == uuids.cpersGdprSafeguardsIdentifIdentifiableAUuid -%}
-                        {# __tr_block_0007:start #}<p>The stored data are identifiable.</p>{# __tr_block_0007:end #}
+                        {# __tr_block_0013:start #}<p>儲存的資料是可識別的。</p>{# __tr_block_0013:end #}
                     {%- endif -%}
 
                     {%- set personalDataSafeguardElaborateQUuid = [personalDataSafeguardsQUuid, uuids.cpersGdprSafeguardsAUuid, uuids.cpersGdprSafeguardElaborateQUuid ]|reply_path  -%}
                     {%- set personalDataSafeguardElaborateReply = repliesMap[personalDataSafeguardElaborateQUuid]|reply_str_value -%}
                     {%- if personalDataSafeguardElaborateReply -%}
-                        {# __tr_block_0008:start #}<p>We will use the following technical and procedural safeguards : {{personalDataSafeguardElaborateReply|dot}}</p>{# __tr_block_0008:end #}
+                        {# __tr_block_0014:start #}<p>我們將使用以下技術和程序保障措施：{{ personalDataSafeguardElaborateReply|dot }}</p>{# __tr_block_0014:end #}
                    {%- endif -%}
 
                     {%- set personalDataSafeguardTransferQUuid = [personalDataSafeguardsQUuid, uuids.cpersGdprSafeguardsAUuid, uuids.cpersGdprSafeguardsTransferQUuid]|reply_path -%}
@@ -66,13 +67,12 @@
                     {%- set personalDataSafeguardTransferMeasuresReply = repliesMap[personalDataSafeguardTransferMeasuresQUuid]|reply_str_value -%}
 
                     {%- if (personalDataSafeguardTransferReply == uuids.cpersGdprSafeguardsTransferYesAUuid) and (personalDataSafeguardTransferMeasuresReply) -%}
-                        {# __tr_block_0009:start #}<p>We plan to transfer data outside the EU/EEA and these are measures we will place to protect data:
-                        {{personalDataSafeguardTransferMeasuresReply|dot}}</p>{# __tr_block_0009:end #}
+                        {# __tr_block_0015:start #}<p>我們計畫將資料傳輸到歐盟/歐洲經濟區之外，我們將採取以下措施來保護資料：{{ personalDataSafeguardTransferMeasuresReply|dot }}</p>{# __tr_block_0015:end #}
                     {%- endif -%}
                 {%- endif -%}
             {%- endif -%}
         {%- elif personalDataReply == uuids.collectPersonalNoAUuid -%}
-        {# __tr_block_0010:start #}<p>We will not collect any data related to individuals.</p>{# __tr_block_0010:end #}
+        {# __tr_block_0016:start #}<p>我們不會蒐集與個人相關的任何資料。</p>{# __tr_block_0016:end #}
         {%- endif -%}
 
         {# Managed access procedure to personal data #}
@@ -88,8 +88,8 @@
                 {%- set personalDataManagedAccessReply = repliesMap[personalDataManagedAccessQUuid]|reply_str_value -%}
                 
                 {%- if personalDataManagedAccessReply -%}
-                    {# __tr_block_0011:start #}<h4>Access procedure to personal data</h4>{# __tr_block_0011:end #}
-                    {# __tr_block_0012:start #}<p>There is a procedure for users to access private data as follows: {{personalDataManagedAccessReply}}</p>{# __tr_block_0012:end #}
+                    {# __tr_block_0017:start #}<h4>個人資料取用程序</h4>{# __tr_block_0017:end #}
+                    {# __tr_block_0018:start #}<p>使用者取用私有資料的程序如下：{{ personalDataManagedAccessReply }}</p>{# __tr_block_0018:end #}
                 {%- endif -%}
             {%- endif -%}
         {%- endif -%}

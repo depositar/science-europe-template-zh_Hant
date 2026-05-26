@@ -1,8 +1,8 @@
 <div id="q-docs-metadata" class="question">
-  {# __tr_block_0000:start #}<h3>3. What metadata and documentation (for example the methodology of data collection and way of organizing data) will accompany the data?</h3>{# __tr_block_0000:end #}
+  {# __tr_block_0000:start #}<h3>3. 資料將附帶哪些後設資料和文件（例如資料蒐集方法與資料組織方式）？</h3>{# __tr_block_0000:end #}
 
   <div class="answer">
-    {# __tr_block_0001:start #}<p>List of data to be published is given in Section 5, Question 10 and 11. This also includes information about catalogs where the data can be found. Information about data types used is given in Section 1, Question 2.</p>{# __tr_block_0001:end #}
+    {# __tr_block_0001:start #}<p>第 5 節問題 10 和 11 給出了要發布的資料清單。這也包括有關可以找到資料的目錄的資訊。關於所使用資料類型的資訊在第 1 節問題 2 中給出。</p>{# __tr_block_0001:end #}
 
     {# Metadata #}
     {%- set metadataPath = [uuids.creatingCUuid, uuids.metadataQUuid]|reply_path -%}
@@ -34,24 +34,24 @@
           {%- do metadataStandards.append("DataCite") -%}
         {# __tr_block_0003:end #}{%- endif -%}
         {%- if metadataStandardsDDIAUuid == uuids.metadataStandardsDDIYesAUuid -%}{# __tr_block_0004:start #}
-          {%- do metadataStandards.append("DDI (Data Documentation Initiative)") -%}
+          {%- do metadataStandards.append("DDI（資料文件倡議）") -%}
         {# __tr_block_0004:end #}{%- endif -%}
-        {%- if metadataStandards|length == 1 -%}{# __tr_block_0005:start #}
-          {%- do metadataSentences.append("We will be documenting the data with " ~ metadataStandards[0] ~ " metadata standard.") -%}
-        {# __tr_block_0005:end #}{%- elif metadataStandards|length == 2 -%}{# __tr_block_0006:start #}
-          {%- do metadataSentences.append("We will be documenting the data with " ~ metadataStandards[0] ~ " and " ~ metadataStandards[1] ~ " metadata standards.") -%}
-        {# __tr_block_0006:end #}{%- elif metadataStandards|length == 3 -%}{# __tr_block_0007:start #}
-          {%- do metadataSentences.append("We will be documenting the data with " ~ metadataStandards[0] ~ ", " ~ metadataStandards[1] ~ ", and " ~ metadataStandards[2] ~ " metadata standards.") -%}
-        {# __tr_block_0007:end #}{%- endif -%}
+        {%- if metadataStandards|length == 1 -%}
+          {# __tr_append_sentence_original:eyUtIGRvIG1ldGFkYXRhU2VudGVuY2VzLmFwcGVuZCgiV2Ugd2lsbCBiZSBkb2N1bWVudGluZyB0aGUgZGF0YSB3aXRoICIgfiBtZXRhZGF0YVN0YW5kYXJkc1swXSB-ICIgbWV0YWRhdGEgc3RhbmRhcmQuIikgLSV9 #}{%- set __tr_append_sentence_0000 -%}{# __tr_block_0005:start #}我們將使用 {{ metadataStandards[0] }} 後設資料標準記錄資料。{# __tr_block_0005:end #}{%- endset -%}{%- do metadataSentences.append(__tr_append_sentence_0000) -%}{# __tr_append_sentence_original:end -#}
+        {%- elif metadataStandards|length == 2 -%}
+          {# __tr_append_sentence_original:eyUtIGRvIG1ldGFkYXRhU2VudGVuY2VzLmFwcGVuZCgiV2Ugd2lsbCBiZSBkb2N1bWVudGluZyB0aGUgZGF0YSB3aXRoICIgfiBtZXRhZGF0YVN0YW5kYXJkc1swXSB-ICIgYW5kICIgfiBtZXRhZGF0YVN0YW5kYXJkc1sxXSB-ICIgbWV0YWRhdGEgc3RhbmRhcmRzLiIpIC0lfQ== #}{%- set __tr_append_sentence_0001 -%}{# __tr_block_0006:start #}我們將使用 {{ metadataStandards[0] }} 和 {{ metadataStandards[1] }} 後設資料標準記錄資料。{# __tr_block_0006:end #}{%- endset -%}{%- do metadataSentences.append(__tr_append_sentence_0001) -%}{# __tr_append_sentence_original:end -#}
+        {%- elif metadataStandards|length == 3 -%}
+          {# __tr_append_sentence_original:eyUtIGRvIG1ldGFkYXRhU2VudGVuY2VzLmFwcGVuZCgiV2Ugd2lsbCBiZSBkb2N1bWVudGluZyB0aGUgZGF0YSB3aXRoICIgfiBtZXRhZGF0YVN0YW5kYXJkc1swXSB-ICIsICIgfiBtZXRhZGF0YVN0YW5kYXJkc1sxXSB-ICIsIGFuZCAiIH4gbWV0YWRhdGFTdGFuZGFyZHNbMl0gfiAiIG1ldGFkYXRhIHN0YW5kYXJkcy4iKSAtJX0= #}{%- set __tr_append_sentence_0002 -%}{# __tr_block_0007:start #}我們將使用 {{ metadataStandards[0] }}、{{ metadataStandards[1] }} 和 {{ metadataStandards[2] }} 後設資料標準來記錄資料。{# __tr_block_0007:end #}{%- endset -%}{%- do metadataSentences.append(__tr_append_sentence_0002) -%}{# __tr_append_sentence_original:end -#}
+        {%- endif -%}
         {%- if metadataStandardsKeywordsAUuid == uuids.metadataStandardsKeywordsYesAUuid -%}{# __tr_block_0008:start #}
-          {%- do metadataSentences.append("We will include keywords and relevant ontology references to optimize the possibility for discovery and potential reuse.") -%}
+          {%- do metadataSentences.append("我們將包括關鍵字和相關本體參考，以優化發現和潛在再次使用的可能性。") -%}
         {# __tr_block_0008:end #}{%- endif -%}
       {%- endif -%}
 
       {%- set provenanceW3CPath = [metadataPath, uuids.metadataExploreAUuid, uuids.provenanceW3CQUuid]|reply_path -%}
       {%- set provenanceW3CAUuid = repliesMap[provenanceW3CPath]|reply_str_value -%}
       {%- if provenanceW3CAUuid == uuids.provenanceW3CYesAUuid -%}{# __tr_block_0009:start #}
-          {%- do metadataSentences.append("The provenance will be captured using W3C PROV.") -%}
+          {%- do metadataSentences.append("將使用 W3C PROV 捕捉出處。") -%}
       {# __tr_block_0009:end #}{%- endif -%}
 
       {%- if metadataSentences|length > 0 -%}
@@ -65,27 +65,27 @@
     {%- if metadataOpenAUuid == uuids.metadataOpenNoAUuid %}
       {%- set explanation = repliesMap[[metadataOpenPath, metadataOpenAUuid, uuids.metadataOpenNoExplainQUuid]|reply_path]|reply_str_value -%}
       {%- if explanation -%}
-        {# __tr_block_0010:start #}<p>Metadata will not be available openly &ndash; {{ explanation|e|dot }}</p>{# __tr_block_0010:end #}
+        {# __tr_block_0010:start #}<p>後設資料將不會公開 - {{ explanation|e|dot }}</p>{# __tr_block_0010:end #}
       {%- else -%}
-        {# __tr_block_0011:start #}<p>Metadata will not be available openly.</p>{# __tr_block_0011:end #}
+        {# __tr_block_0011:start #}<p>後設資料將不會公開提供。</p>{# __tr_block_0011:end #}
       {%- endif -%}
     {%- elif metadataOpenAUuid == uuids.metadataOpenYesAUuid -%}
       {%- set metadataOpenInstrAUuid = repliesMap[[metadataOpenPath, metadataOpenAUuid, uuids.metadataOpenInstrQUuid]|reply_path]|reply_str_value -%}
       {%- set metadataOpenFormAUuid = repliesMap[[metadataOpenPath, metadataOpenAUuid, uuids.metadataOpenFormQUuid]|reply_path]|reply_str_value -%}
       {# __tr_block_0012:start #}<p>
       {%- if metadataOpenInstrAUuid == uuids.metadataOpenInstrNoAUuid %}
-        Metadata will be openly available including instructions how to get access to the data.
+        後設資料將公開提供，包括如何取用資料的說明。
       {%- elif metadataOpenInstrAUuid == uuids.metadataOpenInstrNoAUuid %}
-        Metadata will be openly available without instructions how to get access to the data.
+        後設資料將公開可取得，無需說明如何取用資料。
       {%- else %}
-        Metadata will be openly available.
+        後設資料將公開提供。
       {%- endif %}
       {%- if metadataOpenFormAUuid == uuids.metadataOpenFormNoAUuid %}
-        Metadata will not be available in a form that can be harvested and indexed.
+        後設資料將無法以可蒐集和索引的形式提供。
       {%- elif metadataOpenFormAUuid == uuids.metadataOpenFormYesRepoAUuid %}
-        Metadata will be available in a form that can be harvested and indexed (managed by the used repository / repositories).
+        後設資料將以可取得和索引的形式提供（由所使用的儲存庫管理）。
       {%- elif metadataOpenFormAUuid == uuids.metadataOpenFormYesCareAUuid %}
-        Metadata will be available in a form that can be harvested and indexed.
+        後設資料將以可蒐集和索引的形式提供。
       {%- endif %}
       </p>{# __tr_block_0012:end #}
     {%- endif -%}
@@ -104,20 +104,20 @@
     {%- set storageConvRelDbPath = [stConvPrefix, uuids.storageConvRelDbQUuid]|reply_path -%}
     {%- set storageConvRelDbAUuid = repliesMap[storageConvRelDbPath]|reply_str_value -%}
     {%- if storageConvFSysAUuid or storageConvObjStoreAUuid or storageConvRelDbAUuid -%}
-      {# __tr_block_0013:start #}<h4>Data storage and file conventions</h4>{# __tr_block_0013:end #}
+      {# __tr_block_0013:start #}<h4>資料儲存與檔案規則</h4>{# __tr_block_0013:end #}
       {# Storage space #}
       {%- if storageSpaceAUuid == uuids.storageSpaceLittleAUuid -%}
-        {# __tr_block_0014:start #}<p>The project will require so little storage space for all data and software (including temporary storage) that it is not a problem.</p>{# __tr_block_0014:end #}
+        {# __tr_block_0014:start #}<p>該專案只需要很少的儲存空間來儲存庫有資料和軟體（包括臨時儲存），因此這不是問題。</p>{# __tr_block_0014:end #}
       {%- elif storageSpaceAUuid == uuids.storageSpaceSpecifyAUuid -%}
         {%- set size = repliesMap[[storageSpacePath, storageSpaceAUuid, uuids.storageSpaceSpecifyQUuid]|reply_path]|reply_str_value -%}
         {%- if size -%}
-        {# __tr_block_0015:start #}<p>We estimate the storage space that the project will require for all data and software (including temporary storage) to {{ size }} gigabytes.</p>{# __tr_block_0015:end #}
+        {# __tr_block_0015:start #}<p>我們估計該專案所有資料和軟體（包括暫存）所需的儲存空間為 {{ size }} GB。</p>{# __tr_block_0015:end #}
         {%- endif -%}
       {%- endif -%}
       {# File System #}
-      {# __tr_block_0016:start #}<p>
+      {# __tr_branch_sentence_original:PHA-CiAgICAgIHslLSBpZiBzdG9yYWdlQ29udkZTeXNBVXVpZCA9PSB1dWlkcy5zdG9yYWdlQ29udkZTeXNOb0FVdWlkIC0lfQogICAgICAgIFdlIHdpbGwgbm90IHVzZSBhIGZpbGVzeXN0ZW0gd2l0aCBmaWxlcyBhbmQgZm9sZGVycy4KICAgICAgeyUtIGVsaWYgc3RvcmFnZUNvbnZGU3lzQVV1aWQgPT0gdXVpZHMuc3RvcmFnZUNvbnZGU3lzWWVzQVV1aWQgLSV9CiAgICAgICAgeyUtIHNldCBzY0ZTeXNQcmVmaXggPSBbc3RvcmFnZUNvbnZGU3lzUGF0aCwgdXVpZHMuc3RvcmFnZUNvbnZGU3lzWWVzQVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyMgRm9sZGVyIHR5cGVzICN9CiAgICAgICAgeyUtIHNldCBzY0ZTeXNTdWJqRm9sZGVyc1BhdGggPSBbc2NGU3lzUHJlZml4LCB1dWlkcy5zY0ZTeXNTdWJqRm9sZGVyc1FVdWlkXXxyZXBseV9wYXRoIC0lfQogICAgICAgIHslLSBzZXQgc2NGU3lzU3ViakZvbGRlcnNBVXVpZCA9IHJlcGxpZXNNYXBbc2NGU3lzU3ViakZvbGRlcnNQYXRoXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgICAgeyUtIHNldCBzY0ZTeXNBbmFseXNpc0ZvbGRlcnNQYXRoID0gW3NjRlN5c1ByZWZpeCwgdXVpZHMuc2NGU3lzQW5hbHlzaXNGb2xkZXJzUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBzY0ZTeXNBbmFseXNpc0ZvbGRlcnNBVXVpZCA9IHJlcGxpZXNNYXBbc2NGU3lzQW5hbHlzaXNGb2xkZXJzUGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgIHslLSBzZXQgc2NGU3lzV29ya2Zsb3dTdGVwRm9sZGVyc1BhdGggPSBbc2NGU3lzUHJlZml4LCB1dWlkcy5zY0ZTeXNXb3JrZmxvd1N0ZXBGb2xkZXJzUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBzY0ZTeXNXb3JrZmxvd1N0ZXBGb2xkZXJzQVV1aWQgPSByZXBsaWVzTWFwW3NjRlN5c1dvcmtmbG93U3RlcEZvbGRlcnNQYXRoXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgICAgeyUtIHNldCBzdWJqZWN0Rm9sZGVycyA9IHNjRlN5c1N1YmpGb2xkZXJzQVV1aWQgPT0gdXVpZHMuc2NGU3lzU3ViakZvbGRlcnNZZXNBVXVpZCAtJX0KICAgICAgICB7JS0gc2V0IGFuYWx5c2lzRm9sZGVycyA9IHNjRlN5c0FuYWx5c2lzRm9sZGVyc0FVdWlkID09IHV1aWRzLnNjRlN5c0FuYWx5c2lzRm9sZGVyc1llc0FVdWlkIC0lfQogICAgICAgIHslLSBzZXQgd29ya2Zsb3dTdGVwRm9sZGVycyA9IHNjRlN5c1dvcmtmbG93U3RlcEZvbGRlcnNBVXVpZCA9PSB1dWlkcy5zY0ZTeXNXb3JrZmxvd1N0ZXBGb2xkZXJzWWVzQVV1aWQgLSV9CiAgICAgICAgeyUtIHNldCBmb2xkZXJzID0gW3N1YmplY3RGb2xkZXJzLCBhbmFseXNpc0ZvbGRlcnMsIHdvcmtmbG93U3RlcEZvbGRlcnNdIC0lfQogICAgICAgIHslLSBpZiBmb2xkZXJzfGFueSAtJX0KICAgICAgICAgIFdlIHdpbGwgdXNlIGEgZmlsZXN5c3RlbSB3aXRoIGZpbGVzIGFuZCBmb2xkZXJzIHdpdGggdGhlIGZvbGxvd2luZyBmb2xkZXIgY29udmVudGlvbnM6CiAgICAgICAgICA8dWw-CiAgICAgICAgICAgIHslLSBpZiBzdWJqZWN0Rm9sZGVycyAtJX0KICAgICAgICAgICAgICB7JS0gc2V0IHNjRlN5c1N1YmpGb2xkZXJzQ29udnMgPSByZXBsaWVzTWFwW1tzY0ZTeXNTdWJqRm9sZGVyc1BhdGgsIHV1aWRzLnNjRlN5c1N1YmpGb2xkZXJzWWVzQVV1aWQsIHV1aWRzLnNjRlN5c1N1YmpGb2xkZXJzQ29udnNRVXVpZF18cmVwbHlfcGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgICAgICAgIDxsaT4KICAgICAgICAgICAgICAgIFRoZXJlIHdpbGwgYmUgYSA8c3Ryb25nPmZvbGRlciBmb3IgZWFjaCBzYW1wbGUvc3ViamVjdDwvc3Ryb25nPi4KICAgICAgICAgICAgICAgIHslIGlmIHNjRlN5c1N1YmpGb2xkZXJzQ29udnMgJX0KICAgICAgICAgICAgICAgICAgRWFjaCBvZiB0aG9zZSB3aWxsIHVzZSB0aGUgZm9sbG93aW5nIGNvbnZlbnRpb25zOiB7eyBzY0ZTeXNTdWJqRm9sZGVyc0NvbnZzfGRvdCB9fQogICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgIDwvbGk-CiAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgeyUtIGlmIGFuYWx5c2lzRm9sZGVycyAtJX0KICAgICAgICAgICAgICB7JS0gc2V0IHNjRlN5c0FuYWx5c2lzRm9sZGVyc0NvbnZzID0gcmVwbGllc01hcFtbc2NGU3lzQW5hbHlzaXNGb2xkZXJzUGF0aCwgdXVpZHMuc2NGU3lzQW5hbHlzaXNGb2xkZXJzWWVzQVV1aWQsIHV1aWRzLnNjRlN5c0FuYWx5c2lzRm9sZGVyc0NvbnZzUVV1aWRdfHJlcGx5X3BhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICAgICAgICA8bGk-CiAgICAgICAgICAgICAgICBUaGVyZSB3aWxsIGJlICBhIDxzdHJvbmc-KHN1Yilmb2xkZXIgZm9yIGVhY2ggKHJlcGVhdGVkKSBhbmFseXNpczwvc3Ryb25nPi4gCiAgICAgICAgICAgICAgICB7JSBpZiBzY0ZTeXNBbmFseXNpc0ZvbGRlcnNDb252cyAlfQogICAgICAgICAgICAgICAgICBFYWNoIG9mIHRob3NlIHdpbGwgdXNlIHRoZSBmb2xsb3dpbmcgY29udmVudGlvbnM6IHt7IHNjRlN5c0FuYWx5c2lzRm9sZGVyc0NvbnZzfGRvdCB9fQogICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgIDwvbGk-CiAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgeyUtIGlmIHdvcmtmbG93U3RlcEZvbGRlcnMgLSV9CiAgICAgICAgICAgICAgeyUtIHNldCBzY0ZTeXNXb3JrZmxvd1N0ZXBGb2xkZXJzQ29udnMgPSByZXBsaWVzTWFwW1tzY0ZTeXNXb3JrZmxvd1N0ZXBGb2xkZXJzUGF0aCwgdXVpZHMuc2NGU3lzV29ya2Zsb3dTdGVwRm9sZGVyc1llc0FVdWlkLCB1dWlkcy5zY0ZTeXNXb3JrZmxvd1N0ZXBGb2xkZXJzQ29udnNRVXVpZF18cmVwbHlfcGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgICAgICAgIDxsaT4KICAgICAgICAgICAgICAgIFRoZXJlIHdpbGwgYmUgYSA8c3Ryb25nPihzdWIpZm9sZGVyIGZvciBlYWNoIHN0ZXAgaW4gdGhlIGFuYWx5c2lzIHdvcmtmbG93PC9zdHJvbmc-LgogICAgICAgICAgICAgICAgeyUgaWYgc2NGU3lzV29ya2Zsb3dTdGVwRm9sZGVyc0NvbnZzICV9CiAgICAgICAgICAgICAgICAgIEVhY2ggb2YgdGhvc2Ugd2lsbCB1c2UgdGhlIGZvbGxvd2luZyBjb252ZW50aW9uczoge3sgc2NGU3lzV29ya2Zsb3dTdGVwRm9sZGVyc0NvbnZzfGRvdCB9fQogICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgIDwvbGk-CiAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgIDwvdWw-CiAgICAgICAgeyUtIGVsc2UgLSV9CiAgICAgICAgICBXZSB3aWxsIHVzZSBhIGZpbGVzeXN0ZW0gd2l0aCBmaWxlcyBhbmQgZm9sZGVycy4KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgeyMgVmVyc2lvbmluZyAjfQogICAgICAgIHslLSBzZXQgc2NEb2N1bWVudFZlcnNpb25pbmdQYXRoID0gW3NjRlN5c1ByZWZpeCwgdXVpZHMuc2NEb2N1bWVudFZlcnNpb25pbmdRVXVpZF18cmVwbHlfcGF0aCAtJX0KICAgICAgICB7JS0gc2V0IHNjRG9jdW1lbnRWZXJzaW9uaW5nQVV1aWQgPSByZXBsaWVzTWFwW3NjRG9jdW1lbnRWZXJzaW9uaW5nUGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgIHslLSBpZiBzY0RvY3VtZW50VmVyc2lvbmluZ0FVdWlkID09IHV1aWRzLnNjRG9jdW1lbnRWZXJzaW9uaW5nWWVzQVV1aWQgJX0KICAgICAgICAgIFdlIGRvY3VtZW50IGhvdyB3ZSBtYW5hZ2UgZmlsZSB2ZXJzaW9uaW5nIGZvciBmaWxlcyBhbmQgZm9sZGVycy4KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgeyMgT3RoZXIgYXBwb2ludG1lbnRzICN9CiAgICAgICAgeyUtIHNldCBzY0ZTeXNBcHBvaW50bWVudHNQYXRoID0gW3NjRlN5c1ByZWZpeCwgdXVpZHMuc2NGU3lzQXBwb2ludG1lbnRzUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBzY0ZTeXNBcHBvaW50bWVudHMgPSByZXBsaWVzTWFwW3NjRlN5c0FwcG9pbnRtZW50c1BhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICB7JS0gaWYgc2NGU3lzQXBwb2ludG1lbnRzICV9CiAgICAgICAgICB7IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplM3NnSWsxdmNtVnZkbVZ5TENCM1pTSWdhV1lnWm05c1pHVnljM3hoYm5rZ1pXeHpaU0FpVjJVaUlIMTkgI317JSBpZiBmb2xkZXJzfGFueSAlfXt7ICJNb3Jlb3Zlciwgd2UiIH19eyUgZWxzZSAlfXt7ICJXZSIgfX17JSBlbmRpZiAlfXsjIF9fdHJfaW5saW5lX2lmX29yaWdpbmFsOmVuZCAjfSBoYXZlIG1hZGUgYXBwb2ludG1lbnRzIGFib3V0IG5hbWluZyB0aGUgZmlsZXMuIHt7IGFwcG9pbnRtZW50c1RleHR8Y2FwaXRhbGl6ZXxkb3QgfX0KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgPC9wPg== #}{# __tr_block_0016:start #}<p>
       {%- if storageConvFSysAUuid == uuids.storageConvFSysNoAUuid -%}
-        We will not use a filesystem with files and folders.
+        我們不會使用包含檔案和資料夾的檔案系統。
       {%- elif storageConvFSysAUuid == uuids.storageConvFSysYesAUuid -%}
         {%- set scFSysPrefix = [storageConvFSysPath, uuids.storageConvFSysYesAUuid]|reply_path -%}
         {# Folder types #}
@@ -132,81 +132,83 @@
         {%- set workflowStepFolders = scFSysWorkflowStepFoldersAUuid == uuids.scFSysWorkflowStepFoldersYesAUuid -%}
         {%- set folders = [subjectFolders, analysisFolders, workflowStepFolders] -%}
         {%- if folders|any -%}
-          We will use a filesystem with files and folders with the following folder conventions:
+          我們將使用包含具有以下資料夾約定的檔案和資料夾的檔案系統：
           <ul>
             {%- if subjectFolders -%}
               {%- set scFSysSubjFoldersConvs = repliesMap[[scFSysSubjFoldersPath, uuids.scFSysSubjFoldersYesAUuid, uuids.scFSysSubjFoldersConvsQUuid]|reply_path]|reply_str_value -%}
               <li>
-                There will be a <strong>folder for each sample/subject</strong>.
+                每個樣本/主題都會有一個資料夾。
                 {% if scFSysSubjFoldersConvs %}
-                  Each of those will use the following conventions: {{ scFSysSubjFoldersConvs|dot }}
+                  其中每個將使用以下約定：{{ scFSysSubjFoldersConvs|dot }}
                 {%- endif -%}
               </li>
             {%- endif -%}
             {%- if analysisFolders -%}
               {%- set scFSysAnalysisFoldersConvs = repliesMap[[scFSysAnalysisFoldersPath, uuids.scFSysAnalysisFoldersYesAUuid, uuids.scFSysAnalysisFoldersConvsQUuid]|reply_path]|reply_str_value -%}
               <li>
-                There will be  a <strong>(sub)folder for each (repeated) analysis</strong>. 
+                每個（重複）分析都會有一個（子）資料夾。 
                 {% if scFSysAnalysisFoldersConvs %}
-                  Each of those will use the following conventions: {{ scFSysAnalysisFoldersConvs|dot }}
+                  其中每個將使用以下約定：{{ scFSysAnalysisFoldersConvs|dot }}
                 {%- endif -%}
               </li>
             {%- endif -%}
             {%- if workflowStepFolders -%}
               {%- set scFSysWorkflowStepFoldersConvs = repliesMap[[scFSysWorkflowStepFoldersPath, uuids.scFSysWorkflowStepFoldersYesAUuid, uuids.scFSysWorkflowStepFoldersConvsQUuid]|reply_path]|reply_str_value -%}
               <li>
-                There will be a <strong>(sub)folder for each step in the analysis workflow</strong>.
+                分析工作流程中的每個步驟都會有一個（子）資料夾。
                 {% if scFSysWorkflowStepFoldersConvs %}
-                  Each of those will use the following conventions: {{ scFSysWorkflowStepFoldersConvs|dot }}
+                  其中每個將使用以下約定：{{ scFSysWorkflowStepFoldersConvs|dot }}
                 {%- endif -%}
               </li>
             {%- endif -%}
           </ul>
         {%- else -%}
-          We will use a filesystem with files and folders.
+          我們將使用包含檔案和資料夾的檔案系統。
         {%- endif -%}
         {# Versioning #}
         {%- set scDocumentVersioningPath = [scFSysPrefix, uuids.scDocumentVersioningQUuid]|reply_path -%}
         {%- set scDocumentVersioningAUuid = repliesMap[scDocumentVersioningPath]|reply_str_value -%}
         {%- if scDocumentVersioningAUuid == uuids.scDocumentVersioningYesAUuid %}
-          We document how we manage file versioning for files and folders.
+          我們記錄瞭如何管理檔案和資料夾的檔案版本控制。
         {%- endif -%}
         {# Other appointments #}
         {%- set scFSysAppointmentsPath = [scFSysPrefix, uuids.scFSysAppointmentsQUuid]|reply_path -%}
         {%- set scFSysAppointments = repliesMap[scFSysAppointmentsPath]|reply_str_value -%}
-        {%- if scFSysAppointments %}
-          {# __tr_inline_if_original:e3sgIk1vcmVvdmVyLCB3ZSIgaWYgZm9sZGVyc3xhbnkgZWxzZSAiV2UiIH19 #}{% if folders|any %}{{ "Moreover, we" }}{% else %}{{ "We" }}{% endif %}{# __tr_inline_if_original:end #} have made appointments about naming the files. {{ appointmentsText|capitalize|dot }}
-        {%- endif -%}
+        {%- if scFSysAppointments %}{% if folders|any %}
+          {# __tr_inline_if_original:e3sgIk1vcmVvdmVyLCB3ZSIgaWYgZm9sZGVyc3xhbnkgZWxzZSAiV2UiIH19 #}此外，我們也約定了檔案的命名。 {{ appointmentsText|capitalize|dot }}
+        {% else %}
+          {# __tr_inline_if_original:e3sgIk1vcmVvdmVyLCB3ZSIgaWYgZm9sZGVyc3xhbnkgZWxzZSAiV2UiIH19 #}我們已經就命名檔案進行了約定。 {{ appointmentsText|capitalize|dot }}
+        {% endif %}{%- endif -%}
       {%- endif -%}
-      </p>{# __tr_block_0016:end #}
+      </p>{# __tr_block_0016:end #}{# __tr_branch_sentence_original:end #}
       {# Object and Document Store #}
       {# __tr_block_0017:start #}<p>
       {%- if storageConvObjStoreAUuid == uuids.storageConvObjStoreNoAUuid -%}
-        We will not be storing data in an "object/document store" system.
+        我們不會將資料儲存在「物件/文件儲存」系統中。
       {%- elif storageConvObjStoreAUuid == uuids.storageConvObjStoreYesAUuid -%}
         {%- set scObjStoreNamingQUuid = [storageConvObjStorePath, uuids.storageConvObjStoreYesAUuid, uuids.scObjStoreNamingQUuid]|reply_path -%}
         {%- set scObjStoreNaming = repliesMap[scObjStoreNamingQUuid]|reply_str_value -%}
         {%- if scObjStoreNaming -%} 
-          We will be storing data in an "object/document store" system using following naming conventions for objects in the store: {{ scObjStoreNaming|dot }}
+          我們將使用儲存中物件的以下命名約定將資料儲存在「物件/文件儲存」系統中：{{ scObjStoreNaming|dot }}
         {%- else -%}
-          We will be storing data in an "object/document store" system.
+          我們將把資料儲存在「物件/文件儲存」系統中。
         {%- endif -%}
       {%- endif -%}
       </p>{# __tr_block_0017:end #}
       {# Databases #}
       {# __tr_block_0018:start #}<p>
       {%- if storageConvRelDbAUuid == uuids.storageConvRelDbNoAUuid -%}
-        We will not use a database system to store project data.
+        我們不會使用資料庫系統來儲存專案資料。
       {%- elif storageConvRelDbAUuid == uuids.storageConvRelDbYesAUuid -%}
-        We will use a database system to store project data.
+        我們將使用資料庫系統來儲存專案資料。
         {%- set scRelDbHandleChangesPath = [storageConvRelDbPath, uuids.storageConvRelDbYesAUuid, uuids.scRelDbHandleChangesQUuid]|reply_path -%}
         {%- set scRelDbHandleChangesAUuid = repliesMap[scRelDbHandleChangesPath]|reply_str_value -%}
         {%- if scRelDbHandleChangesAUuid == uuids.scRelDbReadOnlyAnswerUuid %}
-          Data in the database will be read-only.
+          資料庫中的資料將是唯讀的。
         {%- elif scRelDbHandleChangesAUuid == uuids.scRelDbCrudAnswerUuid %}
-          We will be allowing Create, Update and Delete operations for data in the database.
+          我們將允許對資料庫中的資料進行建立、更新和刪除操作。
         {%- elif scRelDbHandleChangesAUuid == uuids.scRelDbExpireAnswerUuid %}
-          Modifications will be made by <em>Expiring</em> the existing data and <em>Adding</em> updated data.
+          將透過使既有資料過期並添加更新的資料來進行修改。
         {%- endif -%}
       {%- endif -%}
       </p>{# __tr_block_0018:end #}

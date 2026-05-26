@@ -17,5 +17,5 @@ There are no contributors described for this DMP.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料管理方案沒有描述任何貢獻者。
 ~~~

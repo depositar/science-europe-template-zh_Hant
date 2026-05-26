@@ -17,5 +17,5 @@ For this dataset we will not be using quality process for this dataset.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+對於該資料集，我們不會對該資料集使用品質管控流程。
 ~~~

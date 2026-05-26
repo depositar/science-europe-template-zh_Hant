@@ -17,5 +17,5 @@ We will be storing data in an "object/document store" system using following nam
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用儲存中物件的以下命名約定將資料儲存在「物件/文件儲存」系統中：{scObjStoreNaming}
 ~~~

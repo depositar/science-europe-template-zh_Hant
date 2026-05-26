@@ -38,18 +38,26 @@
 
       {%- if nReasons > 0 -%}
         <p>
-        The data cannot become completely open because 
+        The data cannot become completely open because
         {%- if nReasons == 1 -%}
           {%- if legalReasons %}
             of legal reasons.
           {%- elif businessReasonsPatents %}
             of patent-related business reasons.
           {%- elif businessReasonsOther %}
-            of non-patent business reasons{{  ": " ~ notOpenBusinessReasonsOther|dot if notOpenBusinessReasonsOther else "." }}
+            {%- if notOpenBusinessReasonsOther %}
+              of non-patent business reasons: {{ notOpenBusinessReasonsOther }}.
+            {%- else %}
+              of non-patent business reasons.
+            {%- endif %}
           {%- elif otherReasonsPapers %}
             we want to publish a paper first.
           {%- elif otherReasonsOther %}
-            we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther|dot if notOpenOtherReasonsOther else "." }}
+            {%- if notOpenOtherReasonsOther %}
+              we have other than paper-publishing reasons: {{ notOpenOtherReasonsOther }}.
+            {%- else %}
+              we have other than paper-publishing reasons.
+            {%- endif %}
           {%- endif -%}
         {%- else %}
           of:
@@ -60,12 +68,12 @@
             {%- if businessReasonsPatents %}
               <li>patent-related business reasons</li>
             {%- elif businessReasonsOther %}
-              <li>non-patent business reasons{{ ": " ~ notOpenBusinessReasonsOther if notOpenBusinessReasonsOther else "" }}</li>
+              <li>non-patent business reasons{% if notOpenBusinessReasonsOther %}: {{ notOpenBusinessReasonsOther }}{% endif %}</li>
             {%- endif -%}
             {%- if otherReasonsPapers %}
               <li>we want to publish a paper first</li>
             {%- elif otherReasonsOther -%}
-              <li>we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther if notOpenOtherReasonsOther else "" }}</li>
+              <li>we have other than paper-publishing reasons{% if notOpenOtherReasonsOther %}: {{ notOpenOtherReasonsOther }}{% endif %}</li>
             {%- endif -%}
           </ul>
         {%- endif -%}
@@ -208,7 +216,11 @@
                 {%- elif refDataConditionsAUuid == uuids.refDataConditionsOtherAUuid -%}
                   {%- set refDataConditionsOtherPath = [refDataConditionsPath, uuids.refDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set refDataConditionsOther = repliesMap[refDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ refDataConditionsOther|dot if refDataConditionsOther else "." }}
+                  {%- if refDataConditionsOther %}
+                    It is available under specific restrictions, which we will follow in our project: {{ refDataConditionsOther }}.
+                  {%- else %}
+                    It is available under specific restrictions, which we will follow in our project.
+                  {%- endif %}
                 {%- endif -%}
               </li>
             {%- endif -%}
@@ -234,7 +246,11 @@
                 {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsOtherAUuid -%}
                   {%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set nrefDataConditionsOther = repliesMap[nrefDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ nrefDataConditionsOther|dot if nrefDataConditionsOther else "." }}
+                  {%- if nrefDataConditionsOther %}
+                    It is available under specific restrictions, which we will follow in our project: {{ nrefDataConditionsOther }}.
+                  {%- else %}
+                    It is available under specific restrictions, which we will follow in our project.
+                  {%- endif %}
                 {%- endif -%}
               </li>
             {%- endif -%}

@@ -17,5 +17,5 @@ We are not using any personal information.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不使用任何個人資訊。
 ~~~

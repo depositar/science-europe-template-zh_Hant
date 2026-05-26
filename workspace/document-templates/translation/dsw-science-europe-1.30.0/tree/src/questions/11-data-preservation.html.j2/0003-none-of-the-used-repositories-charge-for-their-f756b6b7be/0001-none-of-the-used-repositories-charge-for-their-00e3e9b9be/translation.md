@@ -17,5 +17,5 @@ None of the used repositories charge for their services.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所使用的儲存庫均不收取服務費用。
 ~~~

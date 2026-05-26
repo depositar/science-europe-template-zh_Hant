@@ -17,5 +17,5 @@ responsible for implementing the DMP, and ensuring it is reviewed and revised.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+負責實施資料管理方案，並確保其得到審查和修訂。
 ~~~

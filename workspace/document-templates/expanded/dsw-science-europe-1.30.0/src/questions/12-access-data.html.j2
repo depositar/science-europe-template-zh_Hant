@@ -30,12 +30,7 @@
                                 {%- set swNameReply = repliesMap[swNameUuid]|reply_str_value -%}
                                 {%- set swPIDUuid = [isPublishedSWPath, swItem, uuids.publishedSpecSwUseWhatPIDQUuid]|reply_path -%}
                                 {%- set swPIDReply = repliesMap[swPIDUuid]|reply_str_value -%}
-                                <p><strong>{# __tr_inline_if_original:e3sgc3dOYW1lUmVwbHkgaWYgc3dOYW1lUmVwbHkgZWxzZSAiKG5vIG5hbWUgZ2l2ZW4pIiB9fQ== #}{% if swNameReply %}{{ swNameReply }}{% else %}{{ "(no name given)" }}{% endif %}{# __tr_inline_if_original:end #}</strong>
-                                {%- if swPIDReply -%}
-                                , available at {{swPIDReply|dot}}</p>
-                                {%- else -%}
-                                .
-                                {%- endif -%}
+                                <p><strong>{{ swNameReply if swNameReply else "（未提供名稱）" }}</strong>{% if swPIDReply %} 可透過 {{ swPIDReply }} 取得{% endif %}。</p>
                             {%- endfor -%}
                             </ul>
                     {%- else -%}

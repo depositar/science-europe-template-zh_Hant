@@ -17,5 +17,5 @@ This data needs frequent backups and we will rely on these backups in case of re
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+這些資料需要經常備份，我們將依靠這些備份來恢復人為錯誤。
 ~~~

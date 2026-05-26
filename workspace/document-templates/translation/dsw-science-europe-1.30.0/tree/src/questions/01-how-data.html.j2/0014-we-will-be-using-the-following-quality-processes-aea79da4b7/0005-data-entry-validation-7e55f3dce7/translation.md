@@ -17,5 +17,5 @@ Data Entry validation.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料輸入驗證。
 ~~~

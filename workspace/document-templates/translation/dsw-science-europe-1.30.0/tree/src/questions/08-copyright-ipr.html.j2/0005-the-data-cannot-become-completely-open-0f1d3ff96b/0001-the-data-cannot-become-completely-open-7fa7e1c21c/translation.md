@@ -17,5 +17,5 @@ The data cannot become completely open.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料無法完全公開。
 ~~~

@@ -17,5 +17,5 @@ All personal data will be anonymized as early as possible.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所有個人資料將盡快匿名化。
 ~~~

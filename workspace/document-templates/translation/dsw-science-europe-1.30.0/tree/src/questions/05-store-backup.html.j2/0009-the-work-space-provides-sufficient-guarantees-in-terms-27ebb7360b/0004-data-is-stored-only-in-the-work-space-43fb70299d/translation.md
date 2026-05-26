@@ -17,5 +17,5 @@ Data is stored only in the work space, therefore additional backup copies of fil
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料僅儲存在工作空間中，因此需要在工作空間之外對檔案進行額外的備份副本。
 ~~~

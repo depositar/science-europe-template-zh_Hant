@@ -17,5 +17,5 @@ Anyone in the institute has read access to the data; all project members have re
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+機構中的任何人都可以讀取資料；所有專案成員都具有讀取/寫入取用權限。
 ~~~

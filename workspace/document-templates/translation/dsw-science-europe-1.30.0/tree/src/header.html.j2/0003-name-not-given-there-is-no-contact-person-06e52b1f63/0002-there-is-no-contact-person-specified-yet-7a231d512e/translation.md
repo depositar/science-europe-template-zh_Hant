@@ -17,5 +17,5 @@ There is no contact person specified yet
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+尚未指定聯絡人
 ~~~
