@@ -4,8 +4,8 @@
 - Wrapper Name: `__tr_block_0005`
 - Wrapper Order: `6`
 - Wrapper Key: `responsible-for-the-management-and-proficiency-of-data-ddfedcdeff`
-- Unit Key: `responsible-for-the-management-and-proficiency-of-data-7c5a79986f`
-- Source Hash: `e0a12edf29595af3c4405d58ddf73d7af56a8bcb`
+- Unit Key: `responsible-for-the-management-and-proficiency-of-data-6916e1e91e`
+- Source Hash: `9f5229babbaba47f7a7121af4c0680972c53b4da`
 - Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
@@ -17,5 +17,5 @@ responsible for the management and proficiency of data including data processing
 ### Translation (zh_Hant)
 
 ~~~jinja
-負責資料的管理和熟練程度，包括資料處理、資料政策、資料指南和資料可取得性。
+
 ~~~

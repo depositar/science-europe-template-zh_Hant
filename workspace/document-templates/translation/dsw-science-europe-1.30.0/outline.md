@@ -2708,7 +2708,7 @@
 
           [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0005-it-involves-human-subjects-c07d086818/translation.md>)
 
-- [ ] [file] src/questions/10-share-restrictions.html.j2 (55/59)
+- [x] [file] src/questions/10-share-restrictions.html.j2 (59/59)
 
   [J2] `src/questions/10-share-restrictions.html.j2`
 
@@ -2760,35 +2760,35 @@
 
           [T] [translation](<tree/src/questions/10-share-restrictions.html.j2/0006-the-dataset-has-the-following-identifiers-2b02e005b6/0001-the-dataset-has-the-following-identifiers-48202364bf/translation.md>)
 
-    - [ ] [wrapper] 0007-handle-879f4830e6 (0/1)
+    - [x] [wrapper] 0007-handle-879f4830e6 (1/1)
 
       [W] `0007-handle-879f4830e6`
 
-        - [ ] [unit] 0001-handle-803d31e4ae: Handle： {identifierValue}
+        - [x] [unit] 0001-handle-803d31e4ae: Handle： {identifierValue}
 
           [T] [translation](<tree/src/questions/10-share-restrictions.html.j2/0007-handle-879f4830e6/0001-handle-803d31e4ae/translation.md>)
 
-    - [ ] [wrapper] 0008-doi-7bdf6e70de (0/1)
+    - [x] [wrapper] 0008-doi-7bdf6e70de (1/1)
 
       [W] `0008-doi-7bdf6e70de`
 
-        - [ ] [unit] 0001-doi-af43cf40ac: DOI： {identifierValue}
+        - [x] [unit] 0001-doi-af43cf40ac: DOI： {identifierValue}
 
           [T] [translation](<tree/src/questions/10-share-restrictions.html.j2/0008-doi-7bdf6e70de/0001-doi-af43cf40ac/translation.md>)
 
-    - [ ] [wrapper] 0009-ark-767d4abc02 (0/1)
+    - [x] [wrapper] 0009-ark-767d4abc02 (1/1)
 
       [W] `0009-ark-767d4abc02`
 
-        - [ ] [unit] 0001-ark-bab38ccccd: ARK： {identifierValue}
+        - [x] [unit] 0001-ark-bab38ccccd: ARK： {identifierValue}
 
           [T] [translation](<tree/src/questions/10-share-restrictions.html.j2/0009-ark-767d4abc02/0001-ark-bab38ccccd/translation.md>)
 
-    - [ ] [wrapper] 0010-url-47a22024eb (0/1)
+    - [x] [wrapper] 0010-url-47a22024eb (1/1)
 
       [W] `0010-url-47a22024eb`
 
-        - [ ] [unit] 0001-url-317b92cdff: URL： {identifierValue}
+        - [x] [unit] 0001-url-317b92cdff: URL： {identifierValue}
 
           [T] [translation](<tree/src/questions/10-share-restrictions.html.j2/0010-url-47a22024eb/0001-url-317b92cdff/translation.md>)
 
@@ -3436,7 +3436,7 @@
 
           [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0014-researchers-working-in-other-fields-will-be-interested-5e3ca8aead/0001-researchers-working-in-other-fields-will-be-interested-c9e76560db/translation.md>)
 
-- [x] [file] src/questions/14-dm-responsible.html.j2 (11/11)
+- [ ] [file] src/questions/14-dm-responsible.html.j2 (4/11)
 
   [J2] `src/questions/14-dm-responsible.html.j2`
 
@@ -3464,61 +3464,61 @@
 
           [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0002-and-are-and-are-is-359e3f24c2/0003-is-77a645f8be/translation.md>)
 
-    - [x] [wrapper] 0003-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-3d68df0e36 (1/1)
+    - [ ] [wrapper] 0003-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-3d68df0e36 (0/1)
 
       [W] `0003-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-3d68df0e36`
 
-        - [x] [unit] 0001-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-cc00048409: responsible for reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use and maintenance within a data centre or repository.
+        - [ ] [unit] 0001-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-ad3b7d2fcb: responsible for reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use and maintenance within a data centre or repository.
 
-          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0003-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-3d68df0e36/0001-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-cc00048409/translation.md>)
+          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0003-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-3d68df0e36/0001-responsible-for-reviewing-enhancing-cleaning-or-standardizing-metadata-ad3b7d2fcb/translation.md>)
 
-    - [x] [wrapper] 0004-responsible-for-finding-gathering-and-collecting-data-facd1d95bd (1/1)
+    - [ ] [wrapper] 0004-responsible-for-finding-gathering-and-collecting-data-facd1d95bd (0/1)
 
       [W] `0004-responsible-for-finding-gathering-and-collecting-data-facd1d95bd`
 
-        - [x] [unit] 0001-responsible-for-finding-gathering-and-collecting-data-0fd1968d86: responsible for finding, gathering, and collecting data.
+        - [ ] [unit] 0001-responsible-for-finding-gathering-and-collecting-data-b8572d5220: responsible for finding, gathering, and collecting data.
 
-          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0004-responsible-for-finding-gathering-and-collecting-data-facd1d95bd/0001-responsible-for-finding-gathering-and-collecting-data-0fd1968d86/translation.md>)
+          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0004-responsible-for-finding-gathering-and-collecting-data-facd1d95bd/0001-responsible-for-finding-gathering-and-collecting-data-b8572d5220/translation.md>)
 
-    - [x] [wrapper] 0005-responsible-for-maintaining-the-finished-resource-4ec9907d07 (1/1)
+    - [ ] [wrapper] 0005-responsible-for-maintaining-the-finished-resource-4ec9907d07 (0/1)
 
       [W] `0005-responsible-for-maintaining-the-finished-resource-4ec9907d07`
 
-        - [x] [unit] 0001-responsible-for-maintaining-the-finished-resource-9e25821ebe: responsible for maintaining the finished resource.
+        - [ ] [unit] 0001-responsible-for-maintaining-the-finished-resource-aa333d61d2: responsible for maintaining the finished resource.
 
-          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0005-responsible-for-maintaining-the-finished-resource-4ec9907d07/0001-responsible-for-maintaining-the-finished-resource-9e25821ebe/translation.md>)
+          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0005-responsible-for-maintaining-the-finished-resource-4ec9907d07/0001-responsible-for-maintaining-the-finished-resource-aa333d61d2/translation.md>)
 
-    - [x] [wrapper] 0006-responsible-for-the-management-and-proficiency-of-data-ddfedcdeff (1/1)
+    - [ ] [wrapper] 0006-responsible-for-the-management-and-proficiency-of-data-ddfedcdeff (0/1)
 
       [W] `0006-responsible-for-the-management-and-proficiency-of-data-ddfedcdeff`
 
-        - [x] [unit] 0001-responsible-for-the-management-and-proficiency-of-data-7c5a79986f: responsible for the management and proficiency of data including data processing, data policies, data guidelines, and data availability.
+        - [ ] [unit] 0001-responsible-for-the-management-and-proficiency-of-data-6916e1e91e: responsible for the management and proficiency of data including data processing, data policies, data guidelines, and data availability.
 
-          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0006-responsible-for-the-management-and-proficiency-of-data-ddfedcdeff/0001-responsible-for-the-management-and-proficiency-of-data-7c5a79986f/translation.md>)
+          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0006-responsible-for-the-management-and-proficiency-of-data-ddfedcdeff/0001-responsible-for-the-management-and-proficiency-of-data-6916e1e91e/translation.md>)
 
-    - [x] [wrapper] 0007-responsible-for-generating-and-disseminating-copies-of-the-ba494d9e3b (1/1)
+    - [ ] [wrapper] 0007-responsible-for-generating-and-disseminating-copies-of-the-ba494d9e3b (0/1)
 
       [W] `0007-responsible-for-generating-and-disseminating-copies-of-the-ba494d9e3b`
 
-        - [x] [unit] 0001-responsible-for-generating-and-disseminating-copies-of-the-82d1ae59a5: responsible for generating and disseminating copies of the resource in either electronic or print form.
+        - [ ] [unit] 0001-responsible-for-generating-and-disseminating-copies-of-the-3b347d728c: responsible for generating and disseminating copies of the resource in either electronic or print form.
 
-          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0007-responsible-for-generating-and-disseminating-copies-of-the-ba494d9e3b/0001-responsible-for-generating-and-disseminating-copies-of-the-82d1ae59a5/translation.md>)
+          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0007-responsible-for-generating-and-disseminating-copies-of-the-ba494d9e3b/0001-responsible-for-generating-and-disseminating-copies-of-the-3b347d728c/translation.md>)
 
-    - [x] [wrapper] 0008-responsible-for-all-issues-relating-to-the-protection-e772815697 (1/1)
+    - [ ] [wrapper] 0008-responsible-for-all-issues-relating-to-the-protection-e772815697 (0/1)
 
       [W] `0008-responsible-for-all-issues-relating-to-the-protection-e772815697`
 
-        - [x] [unit] 0001-responsible-for-all-issues-relating-to-the-protection-183819cf8d: responsible for all issues relating to the protection of personal data and data protection policies in general.
+        - [ ] [unit] 0001-responsible-for-all-issues-relating-to-the-protection-3427ec1382: responsible for all issues relating to the protection of personal data and data protection policies in general.
 
-          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0008-responsible-for-all-issues-relating-to-the-protection-e772815697/0001-responsible-for-all-issues-relating-to-the-protection-183819cf8d/translation.md>)
+          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0008-responsible-for-all-issues-relating-to-the-protection-e772815697/0001-responsible-for-all-issues-relating-to-the-protection-3427ec1382/translation.md>)
 
-    - [x] [wrapper] 0009-responsible-for-implementing-the-dmp-and-ensuring-it-4db7bf660a (1/1)
+    - [ ] [wrapper] 0009-responsible-for-implementing-the-dmp-and-ensuring-it-4db7bf660a (0/1)
 
       [W] `0009-responsible-for-implementing-the-dmp-and-ensuring-it-4db7bf660a`
 
-        - [x] [unit] 0001-responsible-for-implementing-the-dmp-and-ensuring-it-f1ba4e54d5: responsible for implementing the DMP, and ensuring it is reviewed and revised.
+        - [ ] [unit] 0001-responsible-for-implementing-the-dmp-and-ensuring-it-d581cfd50c: responsible for implementing the DMP, and ensuring it is reviewed and revised.
 
-          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0009-responsible-for-implementing-the-dmp-and-ensuring-it-4db7bf660a/0001-responsible-for-implementing-the-dmp-and-ensuring-it-f1ba4e54d5/translation.md>)
+          [T] [translation](<tree/src/questions/14-dm-responsible.html.j2/0009-responsible-for-implementing-the-dmp-and-ensuring-it-4db7bf660a/0001-responsible-for-implementing-the-dmp-and-ensuring-it-d581cfd50c/translation.md>)
 
 - [x] [file] src/questions/15-required-resources.html.j2 (24/24)
 

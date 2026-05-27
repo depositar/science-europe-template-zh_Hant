@@ -4,8 +4,8 @@
 - Wrapper Name: `__tr_block_0006`
 - Wrapper Order: `7`
 - Wrapper Key: `responsible-for-generating-and-disseminating-copies-of-the-ba494d9e3b`
-- Unit Key: `responsible-for-generating-and-disseminating-copies-of-the-82d1ae59a5`
-- Source Hash: `b2c41348c0a8a60a487225a02da8b262e9c6c955`
+- Unit Key: `responsible-for-generating-and-disseminating-copies-of-the-3b347d728c`
+- Source Hash: `c2f5ed46e161f93a1a63a1501be96b64469b3b08`
 - Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
@@ -17,5 +17,5 @@ responsible for generating and disseminating copies of the resource in either el
 ### Translation (zh_Hant)
 
 ~~~jinja
-負責以電子或印刷形式產生和傳播資源副本。
+
 ~~~
