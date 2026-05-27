@@ -29,19 +29,19 @@
         {%- endif -%}
       {%- endmacro -%}
       {# Data curators #}{# __tr_block_0002:start #}
-      負責審查、增強、清理或標準化後設資料以及提交用於資料中心或儲存庫內儲存、使用和維護的相關資料。
+      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataCuratorAUuid, "responsible for reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use and maintenance within a data centre or repository.") }}
       {# __tr_block_0002:end #}{# Data collectors #}{# __tr_block_0003:start #}
-      負責查找、蒐集和蒐集資料。
+      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataCollectorAUuid, "responsible for finding, gathering, and collecting data.") }}
       {# __tr_block_0003:end #}{# Data managers #}{# __tr_block_0004:start #}
-      負責維護已完成的資源。
+      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataManagerAUuid, "responsible for maintaining the finished resource.") }}
       {# __tr_block_0004:end #}{# Data stewards #}{# __tr_block_0005:start #}
-      負責資料的管理和熟練程度，包括資料處理、資料政策、資料指南和資料可取得性。
+      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataStewardAUuid, "responsible for the management and proficiency of data including data processing, data policies, data guidelines, and data availability.") }}
       {# __tr_block_0005:end #}{# Distributors #}{# __tr_block_0006:start #}
-      負責以電子或印刷形式產生和傳播資源副本。
+      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDistributorAUuid, "responsible for generating and disseminating copies of the resource in either electronic or print form.") }}
       {# __tr_block_0006:end #}{# Data protection officers #}{# __tr_block_0007:start #}
-      負責與個人資料保護和一般資料保護政策相關的所有問題。
+      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleDataProtectorAUuid, "responsible for all issues relating to the protection of personal data and data protection policies in general.") }}
       {# __tr_block_0007:end #}{# Data protection officers #}{# __tr_block_0008:start #}
-      負責實施資料管理方案，並確保其得到審查和修訂。
+      {{ contributorsResponsibility(contributorsItems, uuids.contributorRoleCreatorOfDMPAUuid, "responsible for implementing the DMP, and ensuring it is reviewed and revised.") }}
     {# __tr_block_0008:end #}{%- endif -%}
   </div>
 </div>

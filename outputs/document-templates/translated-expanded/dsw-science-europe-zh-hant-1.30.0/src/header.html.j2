@@ -35,7 +35,7 @@
                   {%- if contributorName -%}
                     <span class="contact-name">{{ contributorName }}</span>
                   {%- else -%}
-                    （未提供姓名）
+                    <span class="contact-name missing">（未提供姓名）</span>
                   {%- endif -%}
                   {%- if contributorEmail and contributorOrcid %}
                     <br>{{ macros.formatEmail(contributorEmail) }}, {{ macros.formatOrcid(contributorOrcid) }}
@@ -51,7 +51,7 @@
               {%- endfor -%}
             </ul>
           {%- else -%}
-            尚未指定聯絡人
+            <span class="empty-value">尚未指定聯絡人</span>
           {%- endif -%}
         </dd>{# __tr_block_0002:end #}
       {%- endif -%}
@@ -79,7 +79,7 @@
                     {%- if creatorName -%}
                       <span class="contact-name">{{ creatorName }}</span>
                     {%- else -%}
-                      （未提供姓名）
+                      <span class="contact-name missing">（未提供姓名）</span>
                     {%- endif -%}
                     {%- if creatorEmail and creatorOrcid -%}
                       <br>{{ macros.formatEmail(creatorEmail) }}, {{ macros.formatOrcid(creatorOrcid) }}
@@ -95,7 +95,7 @@
                 {%- endfor -%}
               </ul>
             {%- else -%}
-              尚未指定創作者
+              <span class="empty-value">尚未指定創作者</span>
           {%- endif -%}
         </dd>{# __tr_block_0006:end #}
       

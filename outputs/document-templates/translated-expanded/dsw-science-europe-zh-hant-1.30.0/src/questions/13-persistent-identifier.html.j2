@@ -32,15 +32,15 @@
                             {%- set repositoryKindAUuid = repliesMap[repositoryKindQUuid]|reply_str_value -%}
                             {# __tr_block_0005:start #}<li>
                             {%- if repositoryKindAUuid == uuids.publishedDataRepositoryDomainSpecificAUuid -%}
-                                領域專用儲存庫
+                                <strong>領域專用儲存庫</strong>
                             {%- elif repositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid -%}
-                                通用儲存庫
+                                <strong>通用儲存庫</strong>
                             {%- elif repositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid -%}
-                               國家儲存庫
+                               <strong>國家儲存庫</strong>
                             {%- elif repositoryKindAUuid == uuids.publishedDataRepositoryInstitutionalAUuid -%}
-                                機構儲存庫
+                                <strong>機構儲存庫</strong>
                             {%- elif repositoryKindAUuid == uuids.publishedDataRepositorySpecialAUuid -%}
-                                專案專用儲存庫
+                                <strong>專案專用儲存庫</strong>
                             {%- endif -%}
 
                             {# Will this data be assigned persistent identifier? #}

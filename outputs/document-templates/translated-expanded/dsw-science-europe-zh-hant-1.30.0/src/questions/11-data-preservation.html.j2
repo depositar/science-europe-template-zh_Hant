@@ -85,7 +85,7 @@
                       {%- endif %}
                     {%- endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
-                    通用儲存庫
+                    <em>通用儲存庫</em>
                     {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                     {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                     {%- if generalPurposeRepoNameReply -%}
