@@ -31,17 +31,17 @@
             {% if publishedDataHowLongAUuid == uuids.publishedDataHowLongTechnicalAUuid -%}
               <p>This data set will be kept available as long as technically possible.</p>
             {%- elif publishedDataHowLongAUuid == uuids.publishedDataHowLongDeletedAUuid -%}
-              <p> This data set will be kept available until it needs to be deleted for legal, contractual or regulatory reasons.</p>{# __tr_branch_sentence_original:CiAgICAgICAgICAgIHslLSBlbGlmIHB1Ymxpc2hlZERhdGFIb3dMb25nQVV1aWQgPT0gdXVpZHMucHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZEFVdWlkIC0lfQogICAgICAgICAgICAgIHslLSBzZXQgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZFBhdGggPSBbcHVibGlzaGVkRGF0YUhvd0xvbmdQYXRoLCB1dWlkcy5wdWJsaXNoZWREYXRhSG93TG9uZ0ZpeGVkQVV1aWQsIHV1aWRzLnB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRRVXVpZF18cmVwbHlfcGF0aCAtJX0KICAgICAgICAgICAgICB7JS0gc2V0IHB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWQgPSByZXBsaWVzTWFwW3B1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRQYXRoXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgICAgICAgICAgPHA-VGhpcyBkYXRhIHNldCB3aWxsIGJlIGtlcHQgYXZhaWxhYmxlIGZvciBhIGZpeGVkIHBlcmlvZCAocHJlcGFpZCl7eyAiIG9mOiAiIH4gcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZHxkb3QgaWYgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZCBlbHNlICIuIiB9fTwvcD4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQo= #}
+              <p> This data set will be kept available until it needs to be deleted for legal, contractual or regulatory reasons.</p>
             {%- elif publishedDataHowLongAUuid == uuids.publishedDataHowLongFixedAUuid -%}
               {%- set publishedDataHowLongFixedPath = [publishedDataHowLongPath, uuids.publishedDataHowLongFixedAUuid, uuids.publishedDataHowLongFixedQUuid]|reply_path -%}
               {%- set publishedDataHowLongFixed = repliesMap[publishedDataHowLongFixedPath]|reply_str_value -%}
-              {%- if publishedDataHowLongFixed -%}
-                <p>This data set will be kept available for a fixed period (prepaid) of: {{ publishedDataHowLongFixed|dot }}</p>
-              {%- else -%}
+              {%- if publishedDataHowLongFixed %}
+                <p>This data set will be kept available for a fixed period (prepaid) of: {{ publishedDataHowLongFixed }}.</p>
+              {%- else %}
                 <p>This data set will be kept available for a fixed period (prepaid).</p>
-              {%- endif -%}
+              {%- endif %}
             {%- endif -%}
-{# __tr_branch_sentence_original:end #}            {%- if publishedDataMetadataPersistentAUuid == uuids.publishedDataMetadataPersistentYesAUuid %}
+            {%- if publishedDataMetadataPersistentAUuid == uuids.publishedDataMetadataPersistentYesAUuid %}
               <p>The metadata will be available even when the data no longer exists.</p>
             {%- endif -%}
           {%- endif -%}
@@ -63,8 +63,8 @@
                     {%- set domainSpecificRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoNameQUuid]|reply_path -%}
                     {%- set domainSpecificRepoNameReply = repliesMap[domainSpecificRepoNamePath] -%}
                     {%- if domainSpecificRepoNameReply -%}
-                      : {{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
-                    {%- else -%}.
+                      ：{{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
+                    {%- else -%}。
                     {% endif -%}
                     {# Contact the repository #}
                     {%- set domainSpecificRepoContactBeforePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoContactBeforeQUuid]|reply_path -%}
@@ -78,15 +78,19 @@
                     {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}
                       {%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}
                       {%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}
-                      We have made other arrangements instead of contacting the repository directly{{ ": " ~ domainSpecificRepoContactBeforeOther|markdown if domainSpecificRepoContactBeforeOther else "." }}
+                      {%- if domainSpecificRepoContactBeforeOther %}
+                        We have made other arrangements instead of contacting the repository directly: {{ domainSpecificRepoContactBeforeOther }}.
+                      {%- else %}
+                        We have made other arrangements instead of contacting the repository directly.
+                      {%- endif %}
                     {%- endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
                     <em>General-purpose repository</em>
                     {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                     {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                     {%- if generalPurposeRepoNameReply -%}
-                      : {{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
-                    {%- else -%}.
+                      ：{{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
+                    {%- else -%}。
                     {% endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}
                     Our national repository.
@@ -144,7 +148,7 @@
         {%- set repoChargesHowPayOtherPath = [repoChargesHowPayPath, uuids.repoChargesHowPayOtherAUuid, uuids.repoChargesHowPayOtherQUuid]|reply_path -%}
         {%- set repoChargesHowPayOther = repliesMap[repoChargesHowPayOtherPath]|reply_str_value -%}
         {%- if repoChargesHowPayOther -%}
-          {# __tr_block_0006:start #}<p>We will carry the costs related to the used repositories by: {{ repoChargesHowPayOther|markdown }}</p>{# __tr_block_0006:end #}
+          {# __tr_block_0006:start #}<p>We will carry the costs related to the used repositories by: {{ repoChargesHowPayOther|dot }}</p>{# __tr_block_0006:end #}
         {%- endif -%}
       {%- endif -%}
     {%- endif -%}

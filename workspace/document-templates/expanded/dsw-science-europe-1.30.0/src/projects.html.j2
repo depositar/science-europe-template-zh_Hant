@@ -41,7 +41,7 @@
               {%- set grantNumber = repliesMap[grantNumberPath]|reply_str_value -%}
               {%- set funderStatusPath = [fundersPath, fundersItem, uuids.funderStatusQUuid]|reply_path -%}
               {%- set funderStatus = repliesMap[funderStatusPath]|reply_str_value %}
-              <li>{{ macros.integrationCrossref(funderNameReply) }}: {# __tr_inline_if_original:e3sgZ3JhbnROdW1iZXIgaWYgZ3JhbnROdW1iZXIgZWxzZSAiZ3JhbnQgbnVtYmVyIG5vdCB5ZXQgZ2l2ZW4iIH19 #}{% if grantNumber %}{{ grantNumber }}{% else %}{{ "grant number not yet given" }}{% endif %}{# __tr_inline_if_original:end #} {% if funderStatus == uuids.funderStatusPlannedAUuid %}(planned){% elif funderStatus == uuids.funderStatusAppliedAUuid %}(applied){% elif funderStatus == uuids.funderStatusGrantedAUuid %}(granted){% elif funderStatus == uuids.funderStatusRejectedAUuid %}(rejected){% endif %}</li>
+              <li>{{ macros.integrationCrossref(funderNameReply) }}：{# __tr_inline_if_original:e3sgZ3JhbnROdW1iZXIgaWYgZ3JhbnROdW1iZXIgZWxzZSAiZ3JhbnQgbnVtYmVyIG5vdCB5ZXQgZ2l2ZW4iIH19 #}{% if grantNumber %}{{ grantNumber }}{% else %}{{ "grant number not yet given" }}{% endif %}{# __tr_inline_if_original:end #} {% if funderStatus == uuids.funderStatusPlannedAUuid %}(planned){% elif funderStatus == uuids.funderStatusAppliedAUuid %}(applied){% elif funderStatus == uuids.funderStatusGrantedAUuid %}(granted){% elif funderStatus == uuids.funderStatusRejectedAUuid %}(rejected){% endif %}</li>
             {%- endfor %}
             </ul>
           {%- else -%}
@@ -54,7 +54,10 @@
     {%- set projectAbstract = repliesMap[projectAbstractPath]|reply_str_value -%}
     {%- if projectAbstract %}
       <section class="abstract">
-        {{ projectAbstract|markdown }}
+        {%- set paragraphs = projectAbstract.split('\n') -%}
+        {% for paragraph in paragraphs %}
+        <p>{{ paragraph }}</p>
+        {% endfor %}
       </section>
     {%- endif -%}
     </div>

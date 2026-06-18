@@ -38,18 +38,26 @@
 
       {%- if nReasons > 0 -%}
         {# __tr_block_0003:start #}<p>
-        The data cannot become completely open because 
+        The data cannot become completely open because
         {%- if nReasons == 1 -%}
           {%- if legalReasons %}
             of legal reasons.
           {%- elif businessReasonsPatents %}
             of patent-related business reasons.
           {%- elif businessReasonsOther %}
-            of non-patent business reasons{{  ": " ~ notOpenBusinessReasonsOther|markdown if notOpenBusinessReasonsOther else "." }}
+            {%- if notOpenBusinessReasonsOther %}
+              of non-patent business reasons: {{ notOpenBusinessReasonsOther }}.
+            {%- else %}
+              of non-patent business reasons.
+            {%- endif %}
           {%- elif otherReasonsPapers %}
             we want to publish a paper first.
           {%- elif otherReasonsOther %}
-            we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther|markdown if notOpenOtherReasonsOther else "." }}
+            {%- if notOpenOtherReasonsOther %}
+              we have other than paper-publishing reasons: {{ notOpenOtherReasonsOther }}.
+            {%- else %}
+              we have other than paper-publishing reasons.
+            {%- endif %}
           {%- endif -%}
         {%- else %}
           of:
@@ -60,12 +68,12 @@
             {%- if businessReasonsPatents %}
               <li>patent-related business reasons</li>
             {%- elif businessReasonsOther %}
-              <li>non-patent business reasons{{ ": " ~ notOpenBusinessReasonsOther|markdown if notOpenBusinessReasonsOther else "" }}</li>
+              {# __tr_branch_sentence_original:PGxpPm5vbi1wYXRlbnQgYnVzaW5lc3MgcmVhc29uc3slIGlmIG5vdE9wZW5CdXNpbmVzc1JlYXNvbnNPdGhlciAlfToge3sgbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyIH19eyUgZW5kaWYgJX08L2xpPg== #}{% if notOpenBusinessReasonsOther %}<li>non-patent business reasons: {{ notOpenBusinessReasonsOther }}</li>{% else %}<li>non-patent business reasons</li>{% endif %}{# __tr_branch_sentence_original:end #}
             {%- endif -%}
             {%- if otherReasonsPapers %}
               <li>we want to publish a paper first</li>
             {%- elif otherReasonsOther -%}
-              <li>we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther|markdown if notOpenOtherReasonsOther else "" }}</li>
+              {# __tr_branch_sentence_original:PGxpPndlIGhhdmUgb3RoZXIgdGhhbiBwYXBlci1wdWJsaXNoaW5nIHJlYXNvbnN7JSBpZiBub3RPcGVuT3RoZXJSZWFzb25zT3RoZXIgJX06IHt7IG5vdE9wZW5PdGhlclJlYXNvbnNPdGhlciB9fXslIGVuZGlmICV9PC9saT4= #}{% if notOpenOtherReasonsOther %}<li>we have other than paper-publishing reasons: {{ notOpenOtherReasonsOther }}</li>{% else %}<li>we have other than paper-publishing reasons</li>{% endif %}{# __tr_branch_sentence_original:end #}
             {%- endif -%}
           </ul>
         {%- endif -%}{# __tr_block_0003:end #}
@@ -90,7 +98,7 @@
             {%- set legalReasonsAuthenticatedCommitteeReply = repliesMap[legalReasonsAuthenticatedCommitteeQUuid]|reply_str_value -%}
             
             {%- if legalReasonsAuthenticatedCommitteeReply -%}
-              {# __tr_block_0008:start #}<p>We will make use of an existing data committee: {{legalReasonsAuthenticatedCommitteeReply|markdown}}</p>{# __tr_block_0008:end #}
+              {# __tr_block_0008:start #}<p>We will make use of an existing data committee - {{legalReasonsAuthenticatedCommitteeReply|dot}}</p>{# __tr_block_0008:end #}
             {%- else -%}
               {# __tr_block_0009:start #}<p>We will make use of an existing data committee.</p>{# __tr_block_0009:end #}
             {%- endif -%}
@@ -100,7 +108,7 @@
             {%- set legalReasonsAuthenticatedOtherReply = repliesMap[legalReasonsAuthenticatedOtherQUuid]|reply_str_value -%}
 
             {%- if legalReasonsAuthenticatedOtherReply  -%}
-              {# __tr_block_0010:start #}<p>We will have following arrangements: {{legalReasonsAuthenticatedOtherReply|markdown}}</p>{# __tr_block_0010:end #}
+              {# __tr_block_0010:start #}<p>We will have following arrangements: {{legalReasonsAuthenticatedOtherReply|dot}}</p>{# __tr_block_0010:end #}
             {%- else -%}
               {# __tr_block_0011:start #}<p>We will have not decided yet.</p>{# __tr_block_0011:end #}
             {%- endif -%}
@@ -155,7 +163,7 @@
       {%- set ownershipOtherPath = [ownershipPath, uuids.ownershipOtherAUuid, uuids.ownershipOtherQUuid]|reply_path -%}
       {%- set ownershipOther = repliesMap[ownershipOtherPath]|reply_str_value -%}
       {%- if ownershipOther -%}
-        {# __tr_block_0024:start #}<p>We have made the following arrangements regarding the data ownership: {{ ownershipOther|markdown }}</p>{# __tr_block_0024:end #}
+        {# __tr_block_0024:start #}<p>We have made the following arrangements regarding the data ownership: {{ ownershipOther|dot }}</p>{# __tr_block_0024:end #}
       {%- endif -%}
     {%- endif -%}
 
@@ -208,7 +216,11 @@
                 {%- elif refDataConditionsAUuid == uuids.refDataConditionsOtherAUuid -%}
                   {%- set refDataConditionsOtherPath = [refDataConditionsPath, uuids.refDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set refDataConditionsOther = repliesMap[refDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ refDataConditionsOther|markdown if refDataConditionsOther else "." }}
+                  {%- if refDataConditionsOther %}
+                    It is available under specific restrictions, which we will follow in our project: {{ refDataConditionsOther }}.
+                  {%- else %}
+                    It is available under specific restrictions, which we will follow in our project.
+                  {%- endif %}
                 {%- endif -%}
               </li>
             {%- endif -%}
@@ -232,9 +244,13 @@
                 {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsCCBYAUuid -%}
                   It is freely available with obligation to quote the source (e.g. CC-BY).
                 {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsOtherAUuid -%}
-                  {%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.nrefDataConditionsOtherQUuid]|reply_path -%}
+                  {%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set nrefDataConditionsOther = repliesMap[nrefDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ nrefDataConditionsOther|markdown if nrefDataConditionsOther else "." }}
+                  {%- if nrefDataConditionsOther %}
+                    It is available under specific restrictions, which we will follow in our project: {{ nrefDataConditionsOther }}.
+                  {%- else %}
+                    It is available under specific restrictions, which we will follow in our project.
+                  {%- endif %}
                 {%- endif -%}
               </li>
             {%- endif -%}
