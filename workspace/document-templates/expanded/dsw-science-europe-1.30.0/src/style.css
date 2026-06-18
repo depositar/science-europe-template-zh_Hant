@@ -112,7 +112,7 @@ header {
 
 header .dmp::after {
   font-size: 18pt;
-  content: '資料管理方案';
+  content: 'Data Management Plan';
 }
 
 h1 {

@@ -58,7 +58,7 @@
                     {%- set personalDataSafeguardElaborateQUuid = [personalDataSafeguardsQUuid, uuids.cpersGdprSafeguardsAUuid, uuids.cpersGdprSafeguardElaborateQUuid ]|reply_path  -%}
                     {%- set personalDataSafeguardElaborateReply = repliesMap[personalDataSafeguardElaborateQUuid]|reply_str_value -%}
                     {%- if personalDataSafeguardElaborateReply -%}
-                        {# __tr_block_0014:start #}<p>We will use the following technical and procedural safeguards : {{personalDataSafeguardElaborateReply|dot}}</p>{# __tr_block_0014:end #}
+                        {# __tr_block_0014:start #}<p>We will use the following technical and procedural safeguards : {{personalDataSafeguardElaborateReply|markdown}}</p>{# __tr_block_0014:end #}
                    {%- endif -%}
 
                     {%- set personalDataSafeguardTransferQUuid = [personalDataSafeguardsQUuid, uuids.cpersGdprSafeguardsAUuid, uuids.cpersGdprSafeguardsTransferQUuid]|reply_path -%}
@@ -68,7 +68,7 @@
 
                     {%- if (personalDataSafeguardTransferReply == uuids.cpersGdprSafeguardsTransferYesAUuid) and (personalDataSafeguardTransferMeasuresReply) -%}
                         {# __tr_block_0015:start #}<p>We plan to transfer data outside the EU/EEA and these are measures we will place to protect data:
-                        {{personalDataSafeguardTransferMeasuresReply|dot}}</p>{# __tr_block_0015:end #}
+                        {{personalDataSafeguardTransferMeasuresReply|markdown}}</p>{# __tr_block_0015:end #}
                     {%- endif -%}
                 {%- endif -%}
             {%- endif -%}

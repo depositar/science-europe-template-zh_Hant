@@ -1,9 +1,9 @@
 {
-  "templateId": "science-europe",
   "organizationId": "dsw",
-  "version": "1.30.0",
+  "templateId": "science-europe",
+  "version": "1.30.1",
   "name": "Science Europe DMP Template",
-  "description": "Science Europe 建議使用的預設資料管理方案模板",
+  "description": "Default DCC DMP Template recommended by Science Europe",
   "license": "Apache-2.0",
   "metamodelVersion": "18.0",
   "allowedPackages": [
@@ -35,10 +35,29 @@
         {
           "name": "jinja",
           "options": {
+            "template": "src/index.html.j2",
             "content-type": "text/html",
-            "extension": "html",
-            "template": "src/index.html.j2"
+            "extension": "html"
           }
+        }
+      ]
+    },
+    {
+      "uuid": "68c26e34-5e77-4e15-9bf7-06ff92582257",
+      "name": "PDF Document",
+      "icon": "far fa-file-pdf",
+      "steps": [
+        {
+          "name": "jinja",
+          "options": {
+            "template": "src/index.html.j2",
+            "content-type": "text/html",
+            "extension": "html"
+          }
+        },
+        {
+          "name": "weasyprint",
+          "options": {}
         }
       ]
     },
@@ -50,9 +69,9 @@
         {
           "name": "jinja",
           "options": {
+            "template": "src/index.html.j2",
             "content-type": "text/html",
-            "extension": "html",
-            "template": "src/index.html.j2"
+            "extension": "html"
           }
         },
         {
@@ -72,17 +91,17 @@
         {
           "name": "jinja",
           "options": {
+            "template": "src/word/index.html.j2",
             "content-type": "text/html",
-            "extension": "html",
-            "template": "src/word/index.html.j2"
+            "extension": "html"
           }
         },
         {
           "name": "pandoc",
           "options": {
-            "args": "--filter=pandoc-docx-pagebreakpy --reference-doc=src/word/reference.docx",
             "from": "html",
-            "to": "docx"
+            "to": "docx",
+            "args": "--filter=pandoc-docx-pagebreakpy --reference-doc=src/word/reference.docx"
           }
         }
       ]
@@ -95,9 +114,9 @@
         {
           "name": "jinja",
           "options": {
+            "template": "src/index.html.j2",
             "content-type": "text/html",
-            "extension": "html",
-            "template": "src/index.html.j2"
+            "extension": "html"
           }
         },
         {
@@ -108,34 +127,14 @@
           }
         }
       ]
-    },
-    {
-      "uuid": "68c26e34-5e77-4e15-9bf7-06ff92582257",
-      "name": "PDF Document",
-      "icon": "far fa-file-pdf",
-      "steps": [
-        {
-          "name": "jinja",
-          "options": {
-            "content-type": "text/html",
-            "extension": "html",
-            "template": "src/index.html.j2"
-          }
-        },
-        {
-          "name": "weasyprint",
-          "options": {}
-        }
-      ]
     }
   ],
   "_tdk": {
-    "version": "4.30.2",
+    "version": "4.1.0",
     "readmeFile": "README.md",
     "files": [
-      "*",
-      "!.git/",
-      "!.env"
+      "src/*",
+      "src/**/*"
     ]
   }
 }

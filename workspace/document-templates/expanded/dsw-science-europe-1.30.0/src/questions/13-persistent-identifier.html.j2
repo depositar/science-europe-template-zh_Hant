@@ -77,7 +77,7 @@
                                 {%- set publishedDataIdentifierSpecifyReply = repliesMap[publishedDataIdentifierSpecifyQUuid]|reply_str_value -%}
 
                                 {%- if publishedDataIdentifierSpecifyReply -%}
-                                    <p>The assigned persistent identifier is specified as follows: {{ publishedDataIdentifierSpecifyReply }}.</p>
+                                    <p>The assigned persistent identifier is specified as follows: {{publishedDataIdentifierSpecifyReply|dot}}</p>
                                 {%- endif -%}
                             </ul>
                             {%- endif -%}
@@ -121,13 +121,16 @@
             {%- elif measuredDataReuseAUuid == uuids.measuredDataReuseOtherFieldAUuid -%}
                 {%- set measuredDataReuseOtherFieldHowQUuid = [measuredDataReuseQUuid, uuids.measuredDataReuseOtherFieldAUuid, uuids.measuredDataReuseOtherFieldHowQUuid]|reply_path -%}
                 {%- set measuredDataReuseOtherFieldHowReply = repliesMap[measuredDataReuseOtherFieldHowQUuid]|reply_str_value -%}
-{# __tr_branch_sentence_original:CiAgICAgICAgICAgICAgICA8cD5SZXNlYXJjaGVycyB3b3JraW5nIGluIG90aGVyIGZpZWxkcyB3aWxsIGJlIGludGVyZXN0ZWQgaW4gcmUtdXNpbmcgdGhpcyBkYXRhCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIHslLSBpZiBtZWFzdXJlZERhdGFSZXVzZU90aGVyRmllbGRIb3dSZXBseSAtJX0KICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgIHt7IiAifX1iZWNhdXNlOiB7e21lYXN1cmVkRGF0YVJldXNlT3RoZXJGaWVsZEhvd1JlcGx5fGRvdH19PC9wPgogICAgICAgICAgICAgICAgeyUtIGVsc2UgLSV9CiAgICAgICAgICAgICAgICAuCiAgICAgICAgICAgICAgICB7JS0gZW5kaWYgLSV9Cg== #}
+
+                {# __tr_block_0012:start #}<p>Researchers working in other fields will be interested in re-using this data
+                
                 {%- if measuredDataReuseOtherFieldHowReply -%}
-                {# __tr_block_0012:start #}<p>Researchers working in other fields will be interested in re-using this data{{" "}}because: {{measuredDataReuseOtherFieldHowReply|dot}}</p>{# __tr_block_0012:end #}
+                
+                 {{" "}}because: {{measuredDataReuseOtherFieldHowReply|markdown}}</p>
                 {%- else -%}
-                {# __tr_block_0013:start #}<p>Researchers working in other fields will be interested in re-using this data.</p>{# __tr_block_0013:end #}
-                {%- endif -%}
-{# __tr_branch_sentence_original:end #}
+                .
+                {%- endif -%}{# __tr_block_0012:end #}
+
             {%- endif -%}
             </li>
         {%- endfor -%}
