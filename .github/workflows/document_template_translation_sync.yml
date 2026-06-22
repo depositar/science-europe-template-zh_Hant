@@ -224,6 +224,7 @@ jobs:
             --tooling-root "$GITHUB_WORKSPACE/tooling-repo" \
             --clean-artifact-root "$GITHUB_WORKSPACE/tooling-artifacts" \
             --github-output "$GITHUB_OUTPUT" \
+            --refresh-existing \
             --push
 
       - name: Resolve migration source version
