@@ -1,0 +1,30 @@
+schema_version: 1
+
+template:
+  organization_id: dsw
+  template_id: science-europe
+  upstream_repository: https://github.com/ds-wizard/science-europe-template.git
+  supported_ref_spec: v1.30.0+
+  supported_versions:
+    - v1.30.0
+    - v1.30.1
+
+translation:
+  source_language: en
+  target_language: zh_Hant
+  target_language_label: zh-Hant
+  translated_template_organization_id: dsw
+  translated_template_id: science-europe-zh-hant
+  translated_template_name: Science Europe DMP Template (zh-Hant)
+
+branches:
+  version_branch_prefix: translation/
+  archive_branch: archive/master-before-version-branches-20260622-135746
+
+tooling:
+  repository: ThreeMonth03/DSW-document-template-tool
+  ref: master
+
+migration:
+  mode: exact-only
+  non_exact_policy: leave_empty_needs_translation

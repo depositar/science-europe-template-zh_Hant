@@ -1,30 +1,51 @@
-# DSW-document-template-translation
+# DSW Document Template Translation Control
 
-Third-party translation workspace for the Science Europe DSW document template.
+This repository translates the Science Europe DSW document template to
+Traditional Chinese.
 
-This repository intentionally contains only the template assets, translation
-tree, generated output, and GitHub Actions workflow needed to consume
-`ThreeMonth03/DSW-document-template-tool` as external tooling.
+The `master` branch is intentionally version-neutral. It keeps only the control
+plane for translation maintenance:
 
-## Layout
+- translation policy and supported upstream versions
+- CI workflows
+- shared fixture projects and knowledge models
+- documentation for branch layout
 
-- `.github/workflows/document_template_translation_sync.yml`: CI workflow copied from the tooling repo.
-- `workspace/document-templates/compact/`: upstream DSW document template source.
-- `workspace/document-templates/expanded/`: generated Jinja workspace used for translation extraction.
-- `workspace/document-templates/translation/`: translator-facing `translation.md` files.
-- `workspace/knowledge-models/`: KM bundle used by the sample project render.
-- `workspace/projects/`: replayable sample project fixture.
-- `outputs/document-templates/translated-expanded/`: generated translated template output.
-- `outputs/project-render/`: sample rendered PDF output.
+Actual translation work lives on version branches.
 
-## CI Behavior
+## Version Branches
 
-The workflow is intentionally not triggered by every branch push or manual
-dispatch. It runs only on:
+Each supported upstream template tag has a dedicated branch:
 
-- pull requests targeting `master`
-- the daily scheduled check
+- `translation/v1.30.0`
+- `translation/v1.30.1`
 
-This keeps feature branches quiet while still letting PRs and scheduled checks
-validate that translations can sync into a document template, package, and render
-the sample project preview.
+Open translation PRs against the matching `translation/v*` branch, not against
+`master`.
+
+## Branch Responsibilities
+
+- `master`: control plane only; no checked-in document template workspace or
+  generated output.
+- `translation/v*`: translator-facing `translation.md` files for one upstream
+  version.
+- `archive/*`: safety snapshots of historical repository layouts.
+
+Generated document template packages and demo renders should be published as
+GitHub Actions artifacts or release assets, not committed to `master`.
+
+## Migration Policy
+
+Version upgrades use exact-only migration:
+
+- If a translation unit has the same source hash and executable placeholders as
+  the previous version, the translation may be copied automatically.
+- Otherwise the translation block stays empty and must be reviewed by a human.
+
+This keeps cross-version reuse safe without silently applying stale text to a
+changed upstream template.
+
+## Current Configuration
+
+See `translation-config.yml` for the source template, supported upstream tags,
+language, branch naming, and tooling repository.
