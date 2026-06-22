@@ -3,6 +3,8 @@ name: DSW Document Template Translation Sync
 on:
   pull_request:
     branches: ["translation/v1.30.0"]
+  push:
+    branches: ["translation/v1.30.0"]
   schedule:
     # 04:00 Asia/Taipei every day.
     - cron: "0 20 * * *"
