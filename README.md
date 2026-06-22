@@ -52,7 +52,9 @@ workflow creates or updates migration PRs for the other configured versions.
 
 The bot workflow:
 
-- refreshes the target version from its own upstream workspace
+- downloads the clean upstream scaffold artifact from the tooling repository
+- refreshes the target version from the clean upstream scaffold workspace
+  bundled in that artifact
 - preserves target-branch translations first
 - fills only blank target units from the source version using exact-safe matches
 - leaves changed or unsafe units empty
@@ -60,6 +62,9 @@ The bot workflow:
 
 Humans should review and merge those migration PRs instead of manually copying
 translation files between version branches.
+
+If cross-repository artifact downloads fail, add a `TOOLING_ARTIFACT_TOKEN`
+repository secret with read access to `ThreeMonth03/DSW-document-template-tool`.
 
 ## Current Configuration
 

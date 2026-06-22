@@ -19,6 +19,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: read
 
 concurrency:
   group: >-
@@ -173,6 +174,52 @@ jobs:
         working-directory: tooling-repo
         run: make install-dev BOOTSTRAP_PYTHON=python
 
+      - name: Download clean scaffold artifacts from tooling CI
+        env:
+          GH_TOKEN: ${{ secrets.TOOLING_ARTIFACT_TOKEN || github.token }}
+          TOOLING_REPOSITORY: ThreeMonth03/DSW-document-template-tool
+          TOOLING_WORKFLOW: headless_render_regression.yml
+        run: |
+          set -euo pipefail
+
+          run_id="$(
+            gh run list \
+              --repo "$TOOLING_REPOSITORY" \
+              --workflow "$TOOLING_WORKFLOW" \
+              --branch master \
+              --status success \
+              --limit 1 \
+              --json databaseId \
+              --jq '.[0].databaseId // empty'
+          )"
+          if [ -z "$run_id" ]; then
+            echo "::error title=Clean scaffold artifacts unavailable::No successful tooling CI run found."
+            exit 1
+          fi
+
+          mkdir -p tooling-artifacts
+          artifact_names=(
+            clean-upstream-version-artifacts-metamodel-16
+            clean-upstream-version-artifacts-metamodel-17-0
+            clean-upstream-version-artifacts-metamodel-17-1
+            clean-upstream-version-artifacts-metamodel-18-0
+          )
+
+          for artifact_name in "${artifact_names[@]}"; do
+            echo "Downloading $artifact_name from tooling run $run_id"
+            if ! gh run download "$run_id" \
+              --repo "$TOOLING_REPOSITORY" \
+              --name "$artifact_name" \
+              --dir tooling-artifacts; then
+              echo "::error title=Clean scaffold artifact download failed::$artifact_name"
+              echo "If this repository cannot read cross-repository artifacts, add a"
+              echo "TOOLING_ARTIFACT_TOKEN secret with read access to $TOOLING_REPOSITORY."
+              exit 1
+            fi
+          done
+
+          test -d tooling-artifacts/upstream-workspaces/dsw-science-europe
+
       - name: Resolve migration source version
         id: source
         env:
@@ -215,5 +262,6 @@ jobs:
             --repo "$GITHUB_WORKSPACE" \
             --tooling-root "$GITHUB_WORKSPACE/tooling-repo" \
             --source-version "${{ steps.source.outputs.source_version }}" \
+            --clean-artifact-root "$GITHUB_WORKSPACE/tooling-artifacts" \
             --push \
             --create-pr
