@@ -38,3 +38,6 @@ tooling:
 migration:
   mode: exact-only
   non_exact_policy: leave_empty_needs_translation
+  auto_pr_enabled: true
+  auto_pr_branch_prefix: automation/migrate
+  auto_merge_when_clean: false

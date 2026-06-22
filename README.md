@@ -45,6 +45,22 @@ Version upgrades use exact-only migration:
 This keeps cross-version reuse safe without silently applying stale text to a
 changed upstream template.
 
+## Automated Migration PRs
+
+After a `translation/v*` branch passes its sync workflow, the `master` control
+workflow creates or updates migration PRs for the other configured versions.
+
+The bot workflow:
+
+- refreshes the target version from its own upstream workspace
+- preserves target-branch translations first
+- fills only blank target units from the source version using exact-safe matches
+- leaves changed or unsafe units empty
+- writes a `migration-reports/vX-to-vY.md` summary into the PR
+
+Humans should review and merge those migration PRs instead of manually copying
+translation files between version branches.
+
 ## Current Configuration
 
 See `translation-config.yml` for the source template, supported upstream tags,

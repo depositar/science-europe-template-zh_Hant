@@ -4,15 +4,26 @@ on:
   pull_request:
     branches: ["master"]
   workflow_dispatch:
+    inputs:
+      source_version:
+        description: "Source version to migrate from, e.g. v1.30.1. Defaults to latest supported version."
+        required: false
+        type: string
+  workflow_run:
+    workflows: ["DSW Document Template Translation Sync"]
+    types: [completed]
   schedule:
     # 04:00 Asia/Taipei every day.
     - cron: "0 20 * * *"
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 concurrency:
-  group: dsw-translation-control-plane-${{ github.ref }}
+  group: >-
+    dsw-translation-control-plane-${{ github.event_name == 'workflow_run' &&
+    github.event.workflow_run.head_branch || github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -129,3 +140,80 @@ jobs:
               encoding="utf-8",
           )
           PY
+
+  migrate-translations:
+    needs: validate-control-plane
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_branch, 'translation/v'))
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout translation control repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout DSW document-template tooling
+        uses: actions/checkout@v4
+        with:
+          repository: ThreeMonth03/DSW-document-template-tool
+          ref: master
+          path: tooling-repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install tooling dependencies
+        working-directory: tooling-repo
+        run: make install-dev BOOTSTRAP_PYTHON=python
+
+      - name: Resolve migration source version
+        id: source
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MANUAL_SOURCE_VERSION: ${{ inputs.source_version }}
+          WORKFLOW_RUN_HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          set -euo pipefail
+          source_version="$MANUAL_SOURCE_VERSION"
+
+          if [ -z "$source_version" ] && [ "$EVENT_NAME" = "workflow_run" ]; then
+            case "$WORKFLOW_RUN_HEAD_BRANCH" in
+              translation/v*) source_version="${WORKFLOW_RUN_HEAD_BRANCH#translation/}" ;;
+              *)
+                echo "No translation version source branch found; skipping."
+                echo "skip=true" >> "$GITHUB_OUTPUT"
+                exit 0
+                ;;
+            esac
+          fi
+
+          if [ -z "$source_version" ]; then
+            source_version="$(
+              python -c 'import yaml; config = yaml.safe_load(open("translation-config.yml", encoding="utf-8")); print(config["template"]["supported_versions"][-1])'
+            )"
+          fi
+
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "source_version=$source_version" >> "$GITHUB_OUTPUT"
+          echo "Using migration source version: $source_version"
+
+      - name: Create or update migration PRs
+        if: steps.source.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/create_translation_migration_prs.py" \
+            --repo "$GITHUB_WORKSPACE" \
+            --tooling-root "$GITHUB_WORKSPACE/tooling-repo" \
+            --source-version "${{ steps.source.outputs.source_version }}" \
+            --push \
+            --create-pr
