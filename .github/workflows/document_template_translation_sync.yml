@@ -1,35 +1,68 @@
-name: DSW Translation Control Plane
+name: DSW Document Template Translation Sync
 
 on:
   pull_request:
-    branches: ["master"]
-  workflow_dispatch:
+    branches: ["translation/v1.29.1"]
   schedule:
     # 04:00 Asia/Taipei every day.
     - cron: "0 20 * * *"
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: dsw-translation-control-plane-${{ github.ref }}
+  group: >-
+    document-template-translation-sync-${{ github.event_name == 'pull_request' &&
+    github.event.pull_request.head.ref || 'translation/v1.29.1' }}
   cancel-in-progress: false
 
+env:
+  # Pin this to a released branch/tag in production.
+  TOOLING_REPOSITORY: ThreeMonth03/DSW-document-template-tool
+  TOOLING_REF: master
+
+  # Change only these paths for the host repository.
+  COMPACT_TEMPLATE_DIR: workspace/document-templates/compact/dsw-science-europe-1.29.1
+  EXPANDED_TEMPLATE_DIR: workspace/document-templates/expanded/dsw-science-europe-1.29.1
+  TRANSLATION_TREE_DIR: workspace/document-templates/translation/dsw-science-europe-1.29.1
+  TRANSLATED_TEMPLATE_ORGANIZATION_ID: dsw
+  TRANSLATED_TEMPLATE_ID: science-europe-zh-hant
+  TRANSLATED_TEMPLATE_VERSION: 1.29.1
+  TRANSLATED_TEMPLATE_NAME: Science Europe DMP Template (zh-Hant)
+  TRANSLATION_SOURCE_LANG: en
+  TRANSLATION_TARGET_LANG: zh_Hant
+  TRANSLATED_TEMPLATE_DIR: outputs/document-templates/dsw-science-europe/v1.29.1/zh-Hant/dsw-science-europe-zh-hant-1.29.1
+  TRANSLATED_TEMPLATE_PACKAGE: outputs/document-templates/dsw-science-europe/v1.29.1/zh-Hant/dsw-science-europe-zh-hant-1.29.1.zip
+  PROJECT_REF: workspace/projects/test-project.json
+  PROJECT_RENDER_OUTPUT: outputs/project-render/dsw-science-europe/v1.29.1/zh-Hant/test-project.pdf
+  PROJECT_RENDER_FORMAT_UUID: 68c26e34-5e77-4e15-9bf7-06ff92582257
+
 jobs:
-  validate-control-plane:
+  translation-sync:
+    if: >-
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name == 'schedule' ||
+      github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout translation control repo
+      - name: Checkout template repository
         uses: actions/checkout@v4
         with:
+          repository: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.ref || 'translation/v1.29.1' }}
+          path: template-repo
           fetch-depth: 0
 
       - name: Checkout DSW document-template tooling
         uses: actions/checkout@v4
         with:
-          repository: ThreeMonth03/DSW-document-template-tool
-          ref: master
+          repository: ${{ env.TOOLING_REPOSITORY }}
+          ref: ${{ env.TOOLING_REF }}
           path: tooling-repo
 
       - name: Set up Python
@@ -41,91 +74,236 @@ jobs:
         working-directory: tooling-repo
         run: make install-dev BOOTSTRAP_PYTHON=python
 
-      - name: Validate translation configuration
-        env:
-          CONFIG_PATH: translation-config.yml
+      # Keep this step when expanded/translation are checked-in generated inputs.
+      # If another repository only wants to package already-committed translation
+      # edits, it can remove this step and keep only sync/package below.
+      - name: Refresh expanded template and translation tree
         run: |
           set -euo pipefail
-          tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          HOST_ROOT="$GITHUB_WORKSPACE/template-repo"
+          TOOL_ROOT="$GITHUB_WORKSPACE/tooling-repo"
+          FRESH_TRANSLATION_TREE="$(mktemp -d)"
+          MERGED_TRANSLATION_TREE="$(mktemp -d)"
 
-          "$tooling_python" - <<'PY'
-          from __future__ import annotations
+          "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/transform_template.py" expand \
+            --source "$HOST_ROOT/$COMPACT_TEMPLATE_DIR" \
+            --output "$HOST_ROOT/$EXPANDED_TEMPLATE_DIR"
 
-          import os
-          import subprocess
-          from pathlib import Path
+          "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/translation_tree.py" export \
+            --source "$HOST_ROOT/$EXPANDED_TEMPLATE_DIR" \
+            --output "$FRESH_TRANSLATION_TREE"
 
-          import yaml
+          if [ -f "$HOST_ROOT/$TRANSLATION_TREE_DIR/.translation-tree/manifest.json" ]; then
+            "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/translation_tree.py" merge \
+              --old-tree "$HOST_ROOT/$TRANSLATION_TREE_DIR" \
+              --new-tree "$FRESH_TRANSLATION_TREE" \
+              --output "$MERGED_TRANSLATION_TREE" \
+              --source-lang "$TRANSLATION_SOURCE_LANG" \
+              --target-lang "$TRANSLATION_TARGET_LANG"
+          else
+            cp -a "$FRESH_TRANSLATION_TREE/." "$MERGED_TRANSLATION_TREE/"
+          fi
 
-          config_path = Path(os.environ["CONFIG_PATH"])
-          config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+          rm -rf "$HOST_ROOT/$TRANSLATION_TREE_DIR"
+          mkdir -p "$HOST_ROOT/$TRANSLATION_TREE_DIR"
+          cp -a "$MERGED_TRANSLATION_TREE/." "$HOST_ROOT/$TRANSLATION_TREE_DIR/"
 
-          required_top_level = {
-              "schema_version",
-              "template",
-              "translation",
-              "branches",
-              "tooling",
-              "migration",
-          }
-          missing = sorted(required_top_level - set(config))
-          if missing:
-              raise SystemExit(f"Missing top-level config keys: {', '.join(missing)}")
-
-          template = config["template"]
-          branches = config["branches"]
-          migration = config["migration"]
-
-          upstream = template["upstream_repository"]
-          supported_versions = template["supported_versions"]
-          if not supported_versions:
-              raise SystemExit("template.supported_versions must not be empty")
-          if migration["mode"] != "exact-only":
-              raise SystemExit("Only exact-only migration is currently allowed")
-
-          def remote_ref_exists(*args: str) -> bool:
-              result = subprocess.run(
-                  ["git", "ls-remote", "--exit-code", *args],
-                  stdout=subprocess.DEVNULL,
-                  stderr=subprocess.DEVNULL,
-                  check=False,
-              )
-              return result.returncode == 0
-
-          missing_tags: list[str] = []
-          missing_branches: list[str] = []
-          branch_prefix = branches["version_branch_prefix"]
-
-          for version in supported_versions:
-              if not remote_ref_exists("--tags", upstream, f"refs/tags/{version}"):
-                  missing_tags.append(version)
-              branch_name = f"{branch_prefix}{version}"
-              if not remote_ref_exists("--heads", "origin", branch_name):
-                  missing_branches.append(branch_name)
-
-          if missing_tags or missing_branches:
-              details: list[str] = []
-              if missing_tags:
-                  details.append("Missing upstream tags: " + ", ".join(missing_tags))
-              if missing_branches:
-                  details.append("Missing translation branches: " + ", ".join(missing_branches))
-              raise SystemExit("\n".join(details))
-
-          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
-          summary.write_text(
-              "\n".join(
-                  [
-                      "## Translation control plane",
-                      "",
-                      f"- Upstream repository: `{upstream}`",
-                      f"- Supported versions: `{', '.join(supported_versions)}`",
-                      f"- Version branch prefix: `{branch_prefix}`",
-                      f"- Migration mode: `{migration['mode']}`",
-                      "",
-                      "All configured upstream tags and translation branches exist.",
-                      "",
-                  ]
-              ),
-              encoding="utf-8",
+      - name: Auto-commit repaired translation inputs
+        working-directory: template-repo
+        env:
+          TARGET_REF: >-
+            ${{ github.event_name == 'pull_request' &&
+            github.event.pull_request.head.ref || 'translation/v1.29.1' }}
+        run: |
+          set -euo pipefail
+          required_paths=(
+            "$EXPANDED_TEMPLATE_DIR"
+            "$TRANSLATION_TREE_DIR/.translation-tree"
+            "$TRANSLATION_TREE_DIR/tree"
           )
-          PY
+
+          if [ -z "$(git status --short -- "${required_paths[@]}")" ]; then
+            echo "No generated translation input repairs to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$EXPANDED_TEMPLATE_DIR" "$TRANSLATION_TREE_DIR"
+          git commit -m "chore(sync): refresh document template translations"
+          git push origin "HEAD:$TARGET_REF"
+
+          {
+            echo "## Auto-committed translation repairs"
+            echo
+            echo "The workflow refreshed generated template/translation inputs and pushed"
+            echo "the repair commit back to \`$TARGET_REF\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check generated translation inputs are committed
+        working-directory: template-repo
+        run: |
+          set -euo pipefail
+          # `outline.md` is a generated progress view. Let CI refresh it without
+          # requiring translators to commit checkbox churn before opening a PR.
+          git diff --exit-code -- \
+            "$EXPANDED_TEMPLATE_DIR" \
+            "$TRANSLATION_TREE_DIR/.translation-tree" \
+            "$TRANSLATION_TREE_DIR/tree"
+          test -z "$(git status --short -- \
+            "$EXPANDED_TEMPLATE_DIR" \
+            "$TRANSLATION_TREE_DIR/.translation-tree" \
+            "$TRANSLATION_TREE_DIR/tree")"
+
+      - name: Audit translation blocks
+        run: |
+          set -euo pipefail
+          HOST_ROOT="$GITHUB_WORKSPACE/template-repo"
+          TOOL_ROOT="$GITHUB_WORKSPACE/tooling-repo"
+          AUDIT_LOG="$(mktemp)"
+
+          if ! "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/translation_tree.py" audit \
+            --tree "$HOST_ROOT/$TRANSLATION_TREE_DIR" \
+            --source "$HOST_ROOT/$EXPANDED_TEMPLATE_DIR" 2>&1 | tee "$AUDIT_LOG"; then
+            {
+              echo "## Translation block audit failed"
+              echo
+              echo "The translation tree contains blocks that are unsafe for translators."
+              echo "Usually this means raw Jinja leaked into a translation.md file or a"
+              echo "source unit still needs to be split by the expanded-template rewrite."
+              echo
+              echo '```text'
+              tail -n 120 "$AUDIT_LOG"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+
+            ERROR_LINE="$(grep -E '^- ' "$AUDIT_LOG" | head -n 1 || true)"
+            if [ -n "$ERROR_LINE" ]; then
+              echo "::error title=Translation block audit failed::$ERROR_LINE"
+            else
+              echo "::error title=Translation block audit failed::See job summary for details."
+            fi
+            exit 1
+          fi
+
+      - name: Sync translations into output template
+        run: |
+          set -euo pipefail
+          HOST_ROOT="$GITHUB_WORKSPACE/template-repo"
+          TOOL_ROOT="$GITHUB_WORKSPACE/tooling-repo"
+          SYNC_LOG="$(mktemp)"
+
+          if ! "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/translation_tree.py" sync \
+            --tree "$HOST_ROOT/$TRANSLATION_TREE_DIR" \
+            --source "$HOST_ROOT/$EXPANDED_TEMPLATE_DIR" \
+            --output "$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR" \
+            --template-organization-id "$TRANSLATED_TEMPLATE_ORGANIZATION_ID" \
+            --template-id "$TRANSLATED_TEMPLATE_ID" \
+            --template-name "$TRANSLATED_TEMPLATE_NAME" \
+            --template-version "$TRANSLATED_TEMPLATE_VERSION" 2>&1 | tee "$SYNC_LOG"; then
+            {
+              echo "## Translation sync failed"
+              echo
+              echo "The translated template could not be generated. Check the message below;"
+              echo "it usually points at the exact translation.md file and placeholder issue."
+              echo
+              echo '```text'
+              tail -n 80 "$SYNC_LOG"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+
+            ERROR_LINE="$(grep -E 'Translation(TreeError| is | uses | introduces )|Missing translation document|Invalid translation document' "$SYNC_LOG" | tail -n 1 || true)"
+            if [ -n "$ERROR_LINE" ]; then
+              echo "::error title=Translation sync failed::$ERROR_LINE"
+            else
+              echo "::error title=Translation sync failed::See job summary for details."
+            fi
+            exit 1
+          fi
+
+          STRUCTURE_LOG="$(mktemp)"
+          if ! "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/translation_tree.py" audit-output \
+            --source "$HOST_ROOT/$EXPANDED_TEMPLATE_DIR" \
+            --output "$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR" 2>&1 | tee "$STRUCTURE_LOG"; then
+            {
+              echo "## Translated output structure audit failed"
+              echo
+              echo "The translated template changed executable Jinja, HTML wiring,"
+              echo "links/assets, or static source assets. This is a structural issue,"
+              echo "not a wording issue."
+              echo
+              echo '```text'
+              tail -n 120 "$STRUCTURE_LOG"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+
+            ERROR_LINE="$(grep -E '^- ' "$STRUCTURE_LOG" | head -n 1 || true)"
+            if [ -n "$ERROR_LINE" ]; then
+              echo "::error title=Translated output structure audit failed::$ERROR_LINE"
+            else
+              echo "::error title=Translated output structure audit failed::See job summary for details."
+            fi
+            exit 1
+          fi
+
+          "$TOOL_ROOT/.venv/bin/dsw-tdk" package "$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR" \
+            --output "$HOST_ROOT/$TRANSLATED_TEMPLATE_PACKAGE" \
+            --force
+
+      # This boots an ephemeral DSW and copies PROJECT_REF into it. PROJECT_REF
+      # can either point at an existing project UUID for a persistent DSW, or at
+      # a JSON recipe with `knowledge_model_package_id` and `events_file`.
+      - name: Start local DSW stack for sample render
+        if: ${{ env.PROJECT_REF != '' }}
+        working-directory: tooling-repo
+        run: make start-ci-dsw
+
+      - name: Render sample project preview
+        if: ${{ env.PROJECT_REF != '' }}
+        env:
+          DSW_API_URL: http://localhost:3000/wizard-api
+          DSW_EMAIL: albert.einstein@example.com
+          DSW_PASSWORD: password
+          DSW_DOWNLOAD_HOST_ALIAS: host.docker.internal=localhost
+        run: |
+          set -euo pipefail
+          HOST_ROOT="$GITHUB_WORKSPACE/template-repo"
+          TOOL_ROOT="$GITHUB_WORKSPACE/tooling-repo"
+
+          "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/render_project.py" \
+            --project-ref "$HOST_ROOT/$PROJECT_REF" \
+            --template-dir "$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR" \
+            --format-uuid "$PROJECT_RENDER_FORMAT_UUID" \
+            --output "$HOST_ROOT/$PROJECT_RENDER_OUTPUT" \
+            --tdk-executable "$TOOL_ROOT/.venv/bin/dsw-tdk"
+
+      - name: Collect local DSW logs
+        if: ${{ always() && env.PROJECT_REF != '' }}
+        working-directory: tooling-repo
+        run: make ci-dsw-logs
+
+      - name: Stop local DSW stack
+        if: ${{ always() && env.PROJECT_REF != '' }}
+        working-directory: tooling-repo
+        run: make stop-ci-dsw
+
+      - name: Upload translated template package
+        uses: actions/upload-artifact@v4
+        with:
+          name: translated-document-template-v${{ env.TRANSLATED_TEMPLATE_VERSION }}
+          path: |
+            template-repo/${{ env.TRANSLATED_TEMPLATE_DIR }}
+            template-repo/${{ env.TRANSLATED_TEMPLATE_PACKAGE }}
+            template-repo/${{ env.PROJECT_RENDER_OUTPUT }}
+            template-repo/${{ env.PROJECT_RENDER_OUTPUT }}.json
+            tooling-repo/outputs/ci-dsw/
+
+  skip-fork-pr:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Explain fork PR skip policy
+        run: echo "Skipping auto-sync commit for fork pull requests."
