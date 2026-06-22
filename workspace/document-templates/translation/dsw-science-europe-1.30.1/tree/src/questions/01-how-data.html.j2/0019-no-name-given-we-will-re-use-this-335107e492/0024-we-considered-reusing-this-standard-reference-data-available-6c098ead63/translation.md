@@ -1,0 +1,21 @@
+# Translation Unit
+
+- Source File: `src/questions/01-how-data.html.j2`
+- Wrapper Name: `__tr_block_0018`
+- Wrapper Order: `19`
+- Wrapper Key: `no-name-given-we-will-re-use-this-335107e492`
+- Unit Key: `we-considered-reusing-this-standard-reference-data-available-6c098ead63`
+- Source Hash: `262cc8f7f989c7762bdd63f4a22c83cbf72f53a6`
+- Edit only the `Translation (zh_Hant)` block below.
+
+### Sentence (en)
+
+```text
+We considered reusing this standard reference data available via: {refDataWhere}, but decided not to re-use it because it misses data we need.
+```
+
+### Translation (zh_Hant)
+
+~~~jinja
+
+~~~
