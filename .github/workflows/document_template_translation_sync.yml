@@ -105,23 +105,14 @@ jobs:
               return result.returncode == 0
 
           missing_tags: list[str] = []
-          missing_branches: list[str] = []
           branch_prefix = branches["version_branch_prefix"]
 
           for version in supported_versions:
               if not remote_ref_exists("--tags", upstream, f"refs/tags/{version}"):
                   missing_tags.append(version)
-              branch_name = f"{branch_prefix}{version}"
-              if not remote_ref_exists("--heads", "origin", branch_name):
-                  missing_branches.append(branch_name)
 
-          if missing_tags or missing_branches:
-              details: list[str] = []
-              if missing_tags:
-                  details.append("Missing upstream tags: " + ", ".join(missing_tags))
-              if missing_branches:
-                  details.append("Missing translation branches: " + ", ".join(missing_branches))
-              raise SystemExit("\n".join(details))
+          if missing_tags:
+              raise SystemExit("Missing upstream tags: " + ", ".join(missing_tags))
 
           summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
           summary.write_text(
@@ -134,7 +125,8 @@ jobs:
                       f"- Version branch prefix: `{branch_prefix}`",
                       f"- Migration mode: `{migration['mode']}`",
                       "",
-                      "All configured upstream tags and translation branches exist.",
+                      "All configured upstream tags exist.",
+                      "Missing translation branches are created by the migration job.",
                       "",
                   ]
               ),
@@ -220,12 +212,28 @@ jobs:
 
           test -d tooling-artifacts/upstream-workspaces/dsw-science-europe
 
+      - name: Sync supported versions and version branches
+        id: version-sync
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/sync_translation_version_branches.py" \
+            --repo "$GITHUB_WORKSPACE" \
+            --tooling-root "$GITHUB_WORKSPACE/tooling-repo" \
+            --clean-artifact-root "$GITHUB_WORKSPACE/tooling-artifacts" \
+            --github-output "$GITHUB_OUTPUT" \
+            --push
+
       - name: Resolve migration source version
         id: source
         env:
           EVENT_NAME: ${{ github.event_name }}
           MANUAL_SOURCE_VERSION: ${{ inputs.source_version }}
           WORKFLOW_RUN_HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          PREVIOUS_LATEST_VERSION: ${{ steps.version-sync.outputs.previous_latest_version }}
+          CURRENT_LATEST_VERSION: ${{ steps.version-sync.outputs.current_latest_version }}
         run: |
           set -euo pipefail
           source_version="$MANUAL_SOURCE_VERSION"
@@ -242,9 +250,7 @@ jobs:
           fi
 
           if [ -z "$source_version" ]; then
-            source_version="$(
-              python -c 'import yaml; config = yaml.safe_load(open("translation-config.yml", encoding="utf-8")); print(config["template"]["supported_versions"][-1])'
-            )"
+            source_version="${PREVIOUS_LATEST_VERSION:-$CURRENT_LATEST_VERSION}"
           fi
 
           echo "skip=false" >> "$GITHUB_OUTPUT"
