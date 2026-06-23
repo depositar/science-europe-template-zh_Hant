@@ -4,8 +4,9 @@ template:
   organization_id: dsw
   template_id: science-europe
   upstream_repository: https://github.com/ds-wizard/science-europe-template.git
-  supported_ref_spec: v1.30.0+
+  supported_ref_spec: v1.29.1+
   supported_versions:
+    - v1.29.1
     - v1.30.0
     - v1.30.1
 
@@ -28,3 +29,6 @@ tooling:
 migration:
   mode: exact-only
   non_exact_policy: leave_empty_needs_translation
+  auto_pr_enabled: true
+  auto_pr_branch_prefix: automation/migrate
+  auto_merge_when_clean: false
