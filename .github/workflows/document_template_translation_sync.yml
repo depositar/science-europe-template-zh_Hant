@@ -191,8 +191,6 @@ jobs:
 
           mkdir -p tooling-artifacts
           artifact_names=(
-            clean-upstream-version-artifacts-metamodel-16
-            clean-upstream-version-artifacts-metamodel-17-0
             clean-upstream-version-artifacts-metamodel-17-1
             clean-upstream-version-artifacts-metamodel-18-0
           )
