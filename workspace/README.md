@@ -1,10 +1,11 @@
-# Shared Workspace Assets
+# Workspace
 
-The `master` branch keeps only shared assets that are not tied to one document
-template version:
+The `master` branch intentionally keeps this workspace nearly empty.
 
-- `knowledge-models/` stores KM bundles used by CI render fixtures.
-- `projects/` stores replayable sample project fixtures.
+Demo KM/project fixtures are maintained in
+`ThreeMonth03/DSW-document-template-tool` and checked out by CI as
+`tooling-repo/workspace/...`. Keeping those fixtures in one place avoids stale
+preview PDFs when the sample project changes.
 
 Document template workspaces are version-specific and live on
 `translation/v*` branches or in GitHub Actions artifacts.

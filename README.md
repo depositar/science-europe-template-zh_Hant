@@ -8,7 +8,6 @@ plane for translation maintenance:
 
 - translation policy and supported upstream versions
 - CI workflows
-- shared fixture projects and knowledge models
 - documentation for branch layout
 
 Actual translation work lives on version branches.
@@ -17,6 +16,7 @@ Actual translation work lives on version branches.
 
 Each supported upstream template tag has a dedicated branch:
 
+- `translation/v1.29.1`
 - `translation/v1.30.0`
 - `translation/v1.30.1`
 
@@ -33,6 +33,11 @@ Open translation PRs against the matching `translation/v*` branch, not against
 
 Generated document template packages and demo renders should be published as
 GitHub Actions artifacts or release assets, not committed to `master`.
+
+Demo project fixtures and KM bundles are supplied by
+`ThreeMonth03/DSW-document-template-tool`. Version branches reference the
+tooling checkout during CI so this repository does not carry stale fixture
+copies.
 
 ## Migration Policy
 
