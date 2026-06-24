@@ -1,5 +1,5 @@
 <div id="q-how-data" class="question">
-  {# __tr_block_0000:start #}<h3>1. How will new data be collected or produced and/or how will existing data be re-used?</h3>{# __tr_block_0000:end #}
+  {# __tr_block_0000:start #}<h3>1. 新資料將如何蒐集或產製？既有資料又將如何再使用？</h3>{# __tr_block_0000:end #}
 
   <div class="answer">
 
@@ -11,7 +11,7 @@
     {%- set measuredDataPath = [measuredPath, uuids.measuredYesAUuid, uuids.measuredDataQUuid]|reply_path -%}
     {%- set measuredDataItems = repliesMap[measuredDataPath]|reply_items -%}
     {%- if measuredDataItems|length > 0 -%}
-      {# __tr_block_0001:start #}<h4>Instrument datasets</h4>{# __tr_block_0001:end #}
+      {# __tr_block_0001:start #}<h4>儀器資料集</h4>{# __tr_block_0001:end #}
       <ul>
         {%- for datasetItem in measuredDataItems -%}
           {%- set pathPrefix = [measuredDataPath, datasetItem]|reply_path -%}

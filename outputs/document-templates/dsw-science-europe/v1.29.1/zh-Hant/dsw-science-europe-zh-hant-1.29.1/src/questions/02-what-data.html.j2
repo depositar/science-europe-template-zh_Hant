@@ -1,5 +1,5 @@
 <div id="q-what-data" class="question">
-  {# __tr_block_0000:start #}<h3>2. What data (kind, format, volume) will be collected or produced?</h3>{# __tr_block_0000:end #}
+  {# __tr_block_0000:start #}<h3>2. 將蒐集或產製哪些資料（種類、格式、容量）？</h3>{# __tr_block_0000:end #}
   <div class="answer">
 
   {%- set measuredPath = [uuids.creatingCUuid, uuids.measuredQUuid]|reply_path -%}
@@ -10,7 +10,7 @@
     {# Measured datasets #}
     {%- if measuredDataItems|length > 0 -%}
       <div>
-      {# __tr_block_0001:start #}<h4>Instrument datasets</h4>{# __tr_block_0001:end #}{# __tr_block_0002:start #}
+      {# __tr_block_0001:start #}<h4>儀器資料集</h4>{# __tr_block_0001:end #}{# __tr_block_0002:start #}
       The following instrument datasets will be acquired in the project:
       {# __tr_block_0002:end #}<ul>
         {%- for datasetItem in measuredDataItems -%}
@@ -79,7 +79,7 @@
     {%- set eRecords = neqDataERecordsAUuid == uuids.neqDataERecordsYesAUuid -%}
     {%- if questionnaires or caseReport or eRecords or neqDataSetsItems|length > 0 -%}
       <div>
-      {# __tr_block_0013:start #}<h4>Non-equipment datasets</h4>{# __tr_block_0013:end #}
+      {# __tr_block_0013:start #}<h4>非設備資料集</h4>{# __tr_block_0013:end #}
       {# Types #}
       {%- set typesNames = [] -%}
       {%- if questionnaires -%}{# __tr_block_0014:start #}{%- do typesNames.append("questionnaires") -%}{# __tr_block_0014:end #}{%- endif -%}
@@ -131,7 +131,7 @@
   {%- set formatsPath = [uuids.creatingCUuid, uuids.formatsQUuid]|reply_path -%}
   {%- set formatsItems = repliesMap[formatsPath]|reply_items -%}
   {%- if formatsItems|length > 0 -%}
-    {# __tr_block_0020:start #}<h4>Data formats and types</h4>{# __tr_block_0020:end #}
+    {# __tr_block_0020:start #}<h4>資料格式與類型</h4>{# __tr_block_0020:end #}
     <div>{# __tr_block_0021:start #}We will be using the following data formats and types:
     {# __tr_block_0021:end #}<ul>
       {%- for formatItem in formatsItems -%}
