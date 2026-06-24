@@ -17,5 +17,5 @@ case number: {authority.case}, status: {authority.status}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+案號：{authority.case}，狀態：{authority.status}。
 ~~~

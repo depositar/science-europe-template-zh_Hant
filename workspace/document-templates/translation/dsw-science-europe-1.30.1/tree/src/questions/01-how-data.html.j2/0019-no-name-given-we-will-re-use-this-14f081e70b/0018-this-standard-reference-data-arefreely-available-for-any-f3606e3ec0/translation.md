@@ -17,5 +17,5 @@ This standard reference data are freely available for any use.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此標準參考資料可自由取得並用於任何用途。
 ~~~

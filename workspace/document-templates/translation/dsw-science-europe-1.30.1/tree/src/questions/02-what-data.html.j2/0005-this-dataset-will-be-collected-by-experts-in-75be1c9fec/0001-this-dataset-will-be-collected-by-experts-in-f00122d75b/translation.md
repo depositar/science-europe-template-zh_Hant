@@ -17,5 +17,5 @@ This dataset will be collected by experts in the project, with our own equipment
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料集將由專案中的專家使用自有設備蒐集。
 ~~~

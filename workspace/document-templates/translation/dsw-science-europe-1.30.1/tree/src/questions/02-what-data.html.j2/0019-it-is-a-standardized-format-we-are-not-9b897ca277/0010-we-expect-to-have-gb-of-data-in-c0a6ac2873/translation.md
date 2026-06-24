@@ -17,5 +17,5 @@ We expect to have {formatsVolumeTotalGB} GB of data in this format.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們預計此格式的資料量為 {formatsVolumeTotalGB} GB。
 ~~~

@@ -17,5 +17,5 @@ Data that is not legally restrained will be released after a fixed time period (
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+不受法律限制的資料將在固定期限（{embargoPeriod}）後無條件釋出。
 ~~~

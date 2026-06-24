@@ -17,5 +17,5 @@ ensuring findability
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+確保可尋性
 ~~~

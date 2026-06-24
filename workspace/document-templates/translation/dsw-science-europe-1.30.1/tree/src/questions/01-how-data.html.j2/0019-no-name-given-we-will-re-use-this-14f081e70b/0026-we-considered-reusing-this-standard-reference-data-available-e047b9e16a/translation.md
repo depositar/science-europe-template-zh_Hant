@@ -17,5 +17,5 @@ We considered reusing this standard reference data available via: {refDataWhere}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們曾考慮再使用可透過 {refDataWhere} 取得的此標準參考資料，但決定不再使用，因為其品質不足。
 ~~~

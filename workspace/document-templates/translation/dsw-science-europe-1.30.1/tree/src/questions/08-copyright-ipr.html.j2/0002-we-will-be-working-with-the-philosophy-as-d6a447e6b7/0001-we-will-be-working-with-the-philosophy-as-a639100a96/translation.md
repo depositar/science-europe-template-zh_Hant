@@ -17,5 +17,5 @@ We will be working with the philosophy as open as possible for our data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將以「盡可能開放」的理念處理資料。
 ~~~

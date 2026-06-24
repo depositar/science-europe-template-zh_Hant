@@ -17,5 +17,5 @@ The format of this data needs to be transformed before our using.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+使用前需要先轉換此資料的格式。
 ~~~

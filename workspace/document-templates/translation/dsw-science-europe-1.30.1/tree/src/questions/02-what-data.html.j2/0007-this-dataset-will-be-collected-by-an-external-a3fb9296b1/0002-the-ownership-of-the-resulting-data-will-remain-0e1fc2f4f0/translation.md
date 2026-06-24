@@ -17,5 +17,5 @@ The ownership of the resulting data will remain with the external party.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+產出資料的所有權將保留於外部單位。
 ~~~

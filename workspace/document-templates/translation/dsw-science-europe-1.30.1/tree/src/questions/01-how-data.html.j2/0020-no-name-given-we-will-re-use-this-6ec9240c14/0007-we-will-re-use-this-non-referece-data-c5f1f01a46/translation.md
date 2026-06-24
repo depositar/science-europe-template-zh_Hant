@@ -17,5 +17,5 @@ We will re-use this non-referece data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將再使用此非參考資料。
 ~~~

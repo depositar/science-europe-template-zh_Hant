@@ -17,5 +17,5 @@ We will use the following version of this dataset: {refDataVersionedWhich} If a 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料集使用版本：{refDataVersionedWhich} 若專案期間出現新版本，所有分析都將使用新版本重新進行。
 ~~~

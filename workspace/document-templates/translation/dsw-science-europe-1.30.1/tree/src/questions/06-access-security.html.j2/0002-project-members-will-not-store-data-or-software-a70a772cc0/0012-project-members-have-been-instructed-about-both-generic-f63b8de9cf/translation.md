@@ -17,5 +17,5 @@ Project members have been instructed about both generic and specific risks to th
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案成員已接受專案一般風險與特定風險的說明。
 ~~~

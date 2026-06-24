@@ -17,5 +17,5 @@ A project data steward or principle investigator will assign the persistent iden
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案資料管理員或計畫主持人將指派持續識別碼。
 ~~~

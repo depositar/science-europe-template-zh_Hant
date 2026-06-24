@@ -17,5 +17,5 @@ No data sharing agreement will be required.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+不需要資料共享協議。
 ~~~

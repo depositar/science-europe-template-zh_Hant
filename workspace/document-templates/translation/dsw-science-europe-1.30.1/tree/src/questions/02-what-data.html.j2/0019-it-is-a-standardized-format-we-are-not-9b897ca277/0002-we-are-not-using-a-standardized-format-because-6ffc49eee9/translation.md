@@ -17,5 +17,5 @@ We are not using a standardized format because there is no standardized format f
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不使用標準化格式，因為此資料類型沒有標準化格式。
 ~~~

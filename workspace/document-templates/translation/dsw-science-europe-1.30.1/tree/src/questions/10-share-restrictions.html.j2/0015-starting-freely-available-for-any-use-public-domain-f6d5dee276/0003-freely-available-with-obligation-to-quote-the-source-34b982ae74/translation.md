@@ -17,5 +17,5 @@ Freely available with obligation to quote the source (e.g. CC-BY).
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+可自由使用，但需註明來源（例如 CC-BY）。
 ~~~

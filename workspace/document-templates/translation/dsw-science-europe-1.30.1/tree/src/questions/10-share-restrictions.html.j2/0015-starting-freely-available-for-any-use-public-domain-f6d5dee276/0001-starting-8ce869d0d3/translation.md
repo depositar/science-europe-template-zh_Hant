@@ -17,5 +17,5 @@ Starting {licenseStart}:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+自 {licenseStart} 起：
 ~~~

@@ -17,5 +17,5 @@ It does not involve human subjects.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+不涉及人體研究參與者。
 ~~~

@@ -17,5 +17,5 @@ We collect consent for our specific use of the data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會就本專案特定用途取得同意。
 ~~~

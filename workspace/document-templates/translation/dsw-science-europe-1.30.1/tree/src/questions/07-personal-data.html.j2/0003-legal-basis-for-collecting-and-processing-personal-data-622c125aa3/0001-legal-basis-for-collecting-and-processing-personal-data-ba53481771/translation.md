@@ -17,5 +17,5 @@ Legal basis for collecting and processing personal data
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+蒐集與處理個人資料的法律依據
 ~~~

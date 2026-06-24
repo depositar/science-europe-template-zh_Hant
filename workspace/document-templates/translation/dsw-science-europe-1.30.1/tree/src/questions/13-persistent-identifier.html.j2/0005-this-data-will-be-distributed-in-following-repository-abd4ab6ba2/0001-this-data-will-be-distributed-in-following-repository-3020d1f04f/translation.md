@@ -17,5 +17,5 @@ This data will be distributed in following repository:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+這份資料將發行於下列資料儲存庫：
 ~~~

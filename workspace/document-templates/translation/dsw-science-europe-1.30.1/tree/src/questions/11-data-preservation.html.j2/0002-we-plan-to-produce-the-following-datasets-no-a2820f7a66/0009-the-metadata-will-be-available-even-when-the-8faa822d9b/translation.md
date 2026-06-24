@@ -17,5 +17,5 @@ The metadata will be available even when the data no longer exists.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+即使資料不再存在，後設資料仍將可取得。
 ~~~

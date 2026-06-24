@@ -17,5 +17,5 @@ We will keep the copy of this standard reference data and make it available with
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會保留此標準參考資料的副本，並與研究結果一併提供。
 ~~~

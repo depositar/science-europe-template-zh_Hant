@@ -17,5 +17,5 @@ Domain-specific repository
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+領域專用資料儲存庫
 ~~~

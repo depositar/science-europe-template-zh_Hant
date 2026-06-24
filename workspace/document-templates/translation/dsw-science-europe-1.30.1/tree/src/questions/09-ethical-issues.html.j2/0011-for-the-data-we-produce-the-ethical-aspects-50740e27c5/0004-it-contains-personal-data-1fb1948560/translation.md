@@ -17,5 +17,5 @@ It contains personal data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+包含個人資料。
 ~~~

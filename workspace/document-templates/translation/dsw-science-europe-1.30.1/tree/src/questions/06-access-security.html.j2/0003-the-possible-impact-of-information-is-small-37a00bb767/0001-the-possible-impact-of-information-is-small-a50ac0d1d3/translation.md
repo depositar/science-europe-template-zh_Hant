@@ -17,5 +17,5 @@ The possible impact of information {risks} is small
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+{risks}可能造成的影響很小
 ~~~

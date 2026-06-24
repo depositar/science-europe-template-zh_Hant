@@ -17,5 +17,5 @@ The embargo period will be {embargoPeriod}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+禁運期間為 {embargoPeriod}
 ~~~

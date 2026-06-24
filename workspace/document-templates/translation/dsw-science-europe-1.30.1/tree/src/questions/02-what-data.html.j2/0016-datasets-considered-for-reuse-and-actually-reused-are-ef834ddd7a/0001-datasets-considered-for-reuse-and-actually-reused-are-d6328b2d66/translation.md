@@ -17,5 +17,5 @@ Datasets considered for reuse and actually reused are described in Question 1.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+曾考慮再使用且實際再使用的資料集已於問題 1 說明。
 ~~~

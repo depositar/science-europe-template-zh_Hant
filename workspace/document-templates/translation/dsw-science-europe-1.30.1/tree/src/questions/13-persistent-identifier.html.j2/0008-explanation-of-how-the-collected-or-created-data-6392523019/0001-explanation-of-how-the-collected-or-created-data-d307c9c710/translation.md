@@ -17,5 +17,5 @@ Explanation of how the collected or created data might be re-used in other conte
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+關於所蒐集或產生資料可能如何在其他脈絡中再次使用的說明：
 ~~~

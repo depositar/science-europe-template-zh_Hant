@@ -17,5 +17,5 @@ The stored data are identifiable.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所儲存的資料可識別個人。
 ~~~

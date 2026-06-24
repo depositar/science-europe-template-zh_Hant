@@ -17,5 +17,5 @@ We will collect consent for our use of the data and for anonymization; We will a
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會就本專案使用資料及匿名化取得同意；之後會將資料匿名化，以供再次使用。
 ~~~

@@ -17,5 +17,5 @@ The existing ethical approval under research ethics laws of this non-reference d
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此非參考資料既有的研究倫理法規核准涵蓋我們的再使用。
 ~~~

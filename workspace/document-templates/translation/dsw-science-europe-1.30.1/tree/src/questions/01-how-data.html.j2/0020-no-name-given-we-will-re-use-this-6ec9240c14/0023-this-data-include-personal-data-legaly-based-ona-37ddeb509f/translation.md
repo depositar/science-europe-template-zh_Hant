@@ -17,5 +17,5 @@ This data include personal data, legally based on a vital interest (meaning it n
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料包含個人資料，其處理依重大利益（亦即為保護資料當事人的重大利益而必須進行）作為法律依據。
 ~~~

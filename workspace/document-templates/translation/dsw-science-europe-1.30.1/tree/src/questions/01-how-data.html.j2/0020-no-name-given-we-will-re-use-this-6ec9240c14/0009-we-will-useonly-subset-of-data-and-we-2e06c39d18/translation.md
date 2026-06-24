@@ -17,5 +17,5 @@ We will use only subset of data and we will select it by filtering and/or select
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們只會使用部分資料，並會透過篩選及／或選取來決定使用範圍（此過程將加以記錄）。
 ~~~

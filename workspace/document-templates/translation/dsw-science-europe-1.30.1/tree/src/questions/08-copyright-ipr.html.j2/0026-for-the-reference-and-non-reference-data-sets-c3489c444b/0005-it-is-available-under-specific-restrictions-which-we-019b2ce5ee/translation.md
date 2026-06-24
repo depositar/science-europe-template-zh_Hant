@@ -17,5 +17,5 @@ It is available under specific restrictions, which we will follow in our project
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+其可在特定限制下取得，我們將在專案中遵循這些限制{refDataConditionsOther}
 ~~~

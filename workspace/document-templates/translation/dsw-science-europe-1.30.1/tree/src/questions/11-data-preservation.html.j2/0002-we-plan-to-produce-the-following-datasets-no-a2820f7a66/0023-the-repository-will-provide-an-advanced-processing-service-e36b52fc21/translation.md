@@ -17,5 +17,5 @@ The repository will provide an advanced processing service.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料儲存庫將提供進階處理服務。
 ~~~

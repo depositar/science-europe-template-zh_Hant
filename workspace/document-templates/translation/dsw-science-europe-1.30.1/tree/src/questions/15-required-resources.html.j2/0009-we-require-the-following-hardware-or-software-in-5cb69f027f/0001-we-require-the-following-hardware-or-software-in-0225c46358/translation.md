@@ -17,5 +17,5 @@ We require the following hardware or software in addition to what is usually ava
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+除機構通常提供的資源外，我們還需要以下硬體或軟體：{additionalHWSWWhat}
 ~~~

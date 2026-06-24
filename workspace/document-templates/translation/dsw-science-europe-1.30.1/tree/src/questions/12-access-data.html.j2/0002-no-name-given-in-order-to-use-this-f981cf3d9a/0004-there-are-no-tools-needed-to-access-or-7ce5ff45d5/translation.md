@@ -17,5 +17,5 @@ There are no tools needed to access or use this data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+存取或使用此資料不需要額外工具。
 ~~~

@@ -17,5 +17,5 @@ We have made appointments about naming the files. {scFSysAppointments}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們已約定檔案命名方式：{scFSysAppointments}
 ~~~

@@ -17,5 +17,5 @@ This is a suitable format for long-term archiving.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+這是適合長期保存的格式。
 ~~~

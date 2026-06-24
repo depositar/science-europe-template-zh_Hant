@@ -17,5 +17,5 @@ applied
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+已申請
 ~~~

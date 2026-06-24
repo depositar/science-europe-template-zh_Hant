@@ -17,5 +17,5 @@ We will use other solution than (electronic) lab notebooks to make sure that the
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用（電子）實驗紀錄本以外的其他方式，確保資料分析具有良好的來源與處理歷程紀錄{provenanceOther}
 ~~~

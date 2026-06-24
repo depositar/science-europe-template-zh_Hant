@@ -17,5 +17,5 @@ The repository will make sure the persistent identifier can be resolved to a dig
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料儲存庫將確保持續識別碼可解析至數位物件。
 ~~~

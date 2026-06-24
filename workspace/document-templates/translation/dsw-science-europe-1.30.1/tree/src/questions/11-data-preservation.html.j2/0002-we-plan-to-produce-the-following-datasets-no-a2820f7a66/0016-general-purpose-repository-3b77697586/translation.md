@@ -17,5 +17,5 @@ General-purpose repository
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+通用型資料儲存庫
 ~~~

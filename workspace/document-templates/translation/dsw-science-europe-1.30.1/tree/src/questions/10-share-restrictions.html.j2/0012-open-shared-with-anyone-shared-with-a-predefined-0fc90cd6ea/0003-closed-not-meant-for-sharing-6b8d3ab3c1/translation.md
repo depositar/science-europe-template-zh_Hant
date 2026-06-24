@@ -17,5 +17,5 @@ Closed (not meant for sharing)
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+關閉（不打算共享）
 ~~~

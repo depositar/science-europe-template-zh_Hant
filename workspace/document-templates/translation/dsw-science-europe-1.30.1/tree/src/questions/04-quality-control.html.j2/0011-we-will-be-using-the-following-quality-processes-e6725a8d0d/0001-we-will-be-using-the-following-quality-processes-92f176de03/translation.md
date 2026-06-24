@@ -17,5 +17,5 @@ We will be using the following quality processes for this dataset:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+針對此資料集，我們將使用以下資料品質控管流程：
 ~~~

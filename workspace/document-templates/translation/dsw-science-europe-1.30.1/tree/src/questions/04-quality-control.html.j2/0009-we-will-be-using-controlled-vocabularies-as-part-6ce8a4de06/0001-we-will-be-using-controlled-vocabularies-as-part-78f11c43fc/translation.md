@@ -17,5 +17,5 @@ We will be using controlled vocabularies as part of the quality process.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會將受控詞彙作為資料品質控管流程的一部分。
 ~~~

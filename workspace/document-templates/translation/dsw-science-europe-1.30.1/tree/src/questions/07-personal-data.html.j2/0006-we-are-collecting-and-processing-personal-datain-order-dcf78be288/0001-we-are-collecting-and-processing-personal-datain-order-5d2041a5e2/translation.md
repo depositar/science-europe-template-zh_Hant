@@ -17,5 +17,5 @@ We are collecting and processing personal data in order to fulfil contract.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們為履行契約而蒐集與處理個人資料。
 ~~~

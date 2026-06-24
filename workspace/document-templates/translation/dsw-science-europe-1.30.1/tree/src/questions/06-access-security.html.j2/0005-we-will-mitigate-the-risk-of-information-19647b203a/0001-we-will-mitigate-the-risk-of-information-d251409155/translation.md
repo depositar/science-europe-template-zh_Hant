@@ -17,5 +17,5 @@ We will mitigate the risk of information {risks}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將降低{risks}的風險
 ~~~

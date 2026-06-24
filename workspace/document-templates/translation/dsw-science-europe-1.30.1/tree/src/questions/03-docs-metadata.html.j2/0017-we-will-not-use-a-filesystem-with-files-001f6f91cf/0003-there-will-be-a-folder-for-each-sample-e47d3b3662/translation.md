@@ -17,5 +17,5 @@ There will be a folder for each sample/subject.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+每個樣本／研究對象都會有一個資料夾。
 ~~~

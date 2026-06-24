@@ -17,5 +17,5 @@ We have made other arrangements instead of contacting the repository directly{do
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們已作出其他安排，而非直接聯絡資料儲存庫{domainSpecificRepoContactBeforeOther}
 ~~~

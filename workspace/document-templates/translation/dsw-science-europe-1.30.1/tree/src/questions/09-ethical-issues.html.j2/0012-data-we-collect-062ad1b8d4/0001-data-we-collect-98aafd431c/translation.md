@@ -17,5 +17,5 @@ Data we collect
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們蒐集的資料
 ~~~

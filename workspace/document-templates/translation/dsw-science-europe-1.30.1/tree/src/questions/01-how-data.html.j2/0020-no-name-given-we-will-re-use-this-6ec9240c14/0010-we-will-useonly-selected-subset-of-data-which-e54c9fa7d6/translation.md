@@ -17,5 +17,5 @@ We will use only selected subset of data, which will be available together with 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們只會使用選定的部分資料，且該部分資料將與研究結果一併提供。
 ~~~

@@ -17,5 +17,5 @@ Re-users will be able to get access through a Data Access Committee for the proj
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料再次使用者可透過專案的資料存取委員會取得存取權。
 ~~~

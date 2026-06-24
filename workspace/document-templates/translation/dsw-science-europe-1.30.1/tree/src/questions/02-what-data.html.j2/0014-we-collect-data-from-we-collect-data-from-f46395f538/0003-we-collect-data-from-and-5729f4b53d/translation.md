@@ -17,5 +17,5 @@ We collect data from {typesNames_0}, {typesNames_1}, and {typesNames_2}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將從{typesNames_0}、{typesNames_1}與{typesNames_2}蒐集資料。
 ~~~

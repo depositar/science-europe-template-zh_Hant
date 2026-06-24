@@ -17,5 +17,5 @@ patent-related business reasons.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+與專利相關的商業因素。
 ~~~

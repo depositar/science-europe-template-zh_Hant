@@ -17,5 +17,5 @@ we want to publish a paper first.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們想先發表論文。
 ~~~

@@ -17,5 +17,5 @@ Open (shared with anyone)
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+開放（與任何人共享）
 ~~~

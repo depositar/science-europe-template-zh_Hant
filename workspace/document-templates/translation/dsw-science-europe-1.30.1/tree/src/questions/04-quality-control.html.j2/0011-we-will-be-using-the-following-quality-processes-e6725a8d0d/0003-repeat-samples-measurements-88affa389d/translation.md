@@ -17,5 +17,5 @@ repeat samples/measurements.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+重複樣本／量測。
 ~~~

@@ -17,5 +17,5 @@ This data are available with restrictions, that will be specified.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料可在限制下取得，限制內容將另行說明。
 ~~~

@@ -17,5 +17,5 @@ using a domain-specific repository
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+使用特定學科的資料儲存庫
 ~~~
