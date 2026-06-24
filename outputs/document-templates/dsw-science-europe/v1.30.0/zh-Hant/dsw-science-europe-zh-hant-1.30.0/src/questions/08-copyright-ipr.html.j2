@@ -44,11 +44,11 @@
           {%- elif businessReasonsPatents %}
             The data cannot become completely open because of patent-related business reasons.
           {%- elif businessReasonsOther %}
-            The data cannot become completely open because of non-patent business reasons{{  ": " ~ notOpenBusinessReasonsOther|dot if notOpenBusinessReasonsOther else "." }}
+            The data cannot become completely open because of non-patent business reasons{{ "：" ~ notOpenBusinessReasonsOther|dot if notOpenBusinessReasonsOther else "。" }}
           {%- elif otherReasonsPapers %}
             The data cannot become completely open because we want to publish a paper first.
           {%- elif otherReasonsOther %}
-            The data cannot become completely open because we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther|dot if notOpenOtherReasonsOther else "." }}
+            The data cannot become completely open because we have other than paper-publishing reasons{{ "：" ~ notOpenOtherReasonsOther|dot if notOpenOtherReasonsOther else "。" }}
           {%- endif -%}
         {%- else %}
           The data cannot become completely open because of:
@@ -59,12 +59,12 @@
             {%- if businessReasonsPatents %}
               <li>patent-related business reasons</li>
             {%- elif businessReasonsOther %}
-              <li>non-patent business reasons{{ ": " ~ notOpenBusinessReasonsOther if notOpenBusinessReasonsOther else "" }}</li>
+              <li>non-patent business reasons{{ "：" ~ notOpenBusinessReasonsOther if notOpenBusinessReasonsOther else "" }}</li>
             {%- endif -%}
             {%- if otherReasonsPapers %}
               <li>we want to publish a paper first</li>
             {%- elif otherReasonsOther -%}
-              <li>we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther if notOpenOtherReasonsOther else "" }}</li>
+              <li>we have other than paper-publishing reasons{{ "：" ~ notOpenOtherReasonsOther if notOpenOtherReasonsOther else "" }}</li>
             {%- endif -%}
           </ul>
         {%- endif -%}{# __tr_block_0003:end #}
@@ -207,7 +207,7 @@
                 {%- elif refDataConditionsAUuid == uuids.refDataConditionsOtherAUuid -%}
                   {%- set refDataConditionsOtherPath = [refDataConditionsPath, uuids.refDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set refDataConditionsOther = repliesMap[refDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ refDataConditionsOther|dot if refDataConditionsOther else "." }}
+                  It is available under specific restrictions, which we will follow in our project{{ "：" ~ refDataConditionsOther|dot if refDataConditionsOther else "。" }}
                 {%- endif -%}
               </li>
             {%- endif -%}
@@ -233,7 +233,7 @@
                 {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsOtherAUuid -%}
                   {%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set nrefDataConditionsOther = repliesMap[nrefDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ ": " ~ nrefDataConditionsOther|dot if nrefDataConditionsOther else "." }}
+                  It is available under specific restrictions, which we will follow in our project{{ "：" ~ nrefDataConditionsOther|dot if nrefDataConditionsOther else "。" }}
                 {%- endif -%}
               </li>
             {%- endif -%}

@@ -224,7 +224,7 @@
                 {%- if refDataUsageReply -%}
                   <p>We will re-use this standard reference data available via:{{" "}}{{ refDataWhere }}{{+" "}}in order to "{{ refDataUsageReply}}".</p>
                 {%- else -%}
-                  <p>We will re-use this standard reference data available via:{{" "}}{{ refDataWhere }}.</p>
+                  <p>We will re-use this standard reference data available via:{{" "}}{{ refDataWhere }}。</p>
                 {%- endif -%}
               {%- endif -%}
             {%- elif refDataUsageReply -%}
@@ -337,7 +337,7 @@
             {%- elif refDataWhere and refDataUseNoReply -%}
               We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}, but decided not to re-use it.
             {%- elif refDataWhere -%}
-              We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}.
+              We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}。
             {%- elif refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}
               We considered reusing this standard reference data, but decided not to re-use it{{" "}}because it misses data we need.
             {%- elif refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}
@@ -395,7 +395,7 @@
               {%- if nrefDataUsageReply -%}
                 <p>We will re-use this non-referece data available via:{{" "}}{{ nrefDataWhere }}{{+" "}}in order to "{{ nrefDataUsageReply}}".</p>
               {%- else -%}
-                <p>We will re-use this non-referece data available via:{{" "}}{{ nrefDataWhere }}.</p>
+                <p>We will re-use this non-referece data available via:{{" "}}{{ nrefDataWhere }}。</p>
               {%- endif -%}
             {%- endif -%}
           {%- elif nrefDataUsageReply -%}
@@ -535,7 +535,7 @@
           {%- elif nrefDataWhere and nrefDataUseNoReply -%}
             We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}, but decided not to reuse it.
           {%- elif nrefDataWhere -%}
-            We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}.
+            We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}。
           {%- elif nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}
             We considered reusing this non-reference data, but decided not to reuse it{{" "}}because it misses data we need.
           {%- elif nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}
@@ -600,7 +600,7 @@
             {%- set dataCompReadMetadataStandardPrefix = [dataCompReadWhichMetadataStandardPath, dataCompReadMetadataStandardItem]|reply_path -%}
             {%- set dataCompReadMetadataStandard = [dataCompReadMetadataStandardPrefix, uuids.dataCompReadOthersYesStandardQUuid]|reply_path -%}
             {%- set dataCompReadMetadataStandardReply = repliesMap[dataCompReadMetadataStandard] -%}
-            {{ macros.integrationFairSharing(dataCompReadMetadataStandardReply) }}{{ ", " if not loop.last else "." }}
+            {{ macros.integrationFairSharing(dataCompReadMetadataStandardReply) }}{{ "、" if not loop.last else "。" }}
           {%- endfor -%}
         {%- else -%}
           {{+" "}}We will provide machine readable, standardized metadata to others.
@@ -629,7 +629,7 @@
       {%- elif provenanceAUuid == uuids.provenanceOtherAUuid -%}
         {%- set provenanceOtherPath = [provenancePath, uuids.provenanceOtherAUuid, uuids.provenanceOtherQUuid]|reply_path -%}
         {%- set provenanceOther = repliesMap[provenanceOtherPath]|reply_str_value -%}
-        <p>{# __tr_block_0029:start #}We will use other solution than (electronic) lab notebooks to make sure that there is good provenance of the data analysis{{ ": " ~ provenanceOther|dot if provenanceOther else "." }}
+        <p>{# __tr_block_0029:start #}We will use other solution than (electronic) lab notebooks to make sure that there is good provenance of the data analysis{{ "：" ~ provenanceOther|dot if provenanceOther else "。" }}
       {# __tr_block_0029:end #}{%- endif -%}
       {%- endif -%}
     {%- endif -%}

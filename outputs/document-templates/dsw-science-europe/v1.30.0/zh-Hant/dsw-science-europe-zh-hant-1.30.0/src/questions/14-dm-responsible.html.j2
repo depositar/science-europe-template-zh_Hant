@@ -19,7 +19,7 @@
         {%- if nNames > 0 -%}
           {# __tr_block_0001:start #}<p>
             {%- if nNames > 2 -%}
-              {{ names[0:-1]|join(", ") }}, and {{ names[-1] }} are {{ responsibility }}
+              {{ names[0:-1]|join("、") }}, and {{ names[-1] }} are {{ responsibility }}
             {%- elif nNames == 2 -%}
               {{ names[0] }} and {{ names[1] }} are {{ responsibility }}
             {%- else -%}
