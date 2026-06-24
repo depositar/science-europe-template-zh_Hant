@@ -17,5 +17,5 @@ We explored General Data Protection Regulation (GDPR) considerations and relevan
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們已檢視《一般資料保護規則》（GDPR）的考量事項與相關資料。
+我們已檢視歐盟《個人資料保護規則》（GDPR）的考量事項與相關資料。
 ~~~

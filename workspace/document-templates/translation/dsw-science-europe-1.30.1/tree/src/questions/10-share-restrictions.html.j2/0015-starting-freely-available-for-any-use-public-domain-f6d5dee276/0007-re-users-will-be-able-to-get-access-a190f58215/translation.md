@@ -17,5 +17,5 @@ Re-users will be able to get access through a specialized process{licenseRestric
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料再次使用者可透過專門程序取得存取權{licenseRestrictAccessAnother}
+資料再次使用者可透過專門程序取得資料取用權{licenseRestrictAccessAnother}
 ~~~

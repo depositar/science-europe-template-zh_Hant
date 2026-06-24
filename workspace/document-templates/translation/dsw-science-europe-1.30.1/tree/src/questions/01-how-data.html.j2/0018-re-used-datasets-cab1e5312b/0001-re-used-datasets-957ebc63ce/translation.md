@@ -17,5 +17,5 @@ Re-used datasets
 ### Translation (zh_Hant)
 
 ~~~jinja
-再使用的資料集
+再次使用的資料集
 ~~~

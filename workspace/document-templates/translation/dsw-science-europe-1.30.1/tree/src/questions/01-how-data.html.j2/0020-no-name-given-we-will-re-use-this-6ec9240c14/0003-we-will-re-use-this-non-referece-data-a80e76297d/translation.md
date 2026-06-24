@@ -17,5 +17,5 @@ We will re-use this non-referece data available via: {nrefDataWhere}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將再使用此非參考資料，可透過以下位置取得：{nrefDataWhere}。
+我們將再次使用此非參考資料，可透過以下位置取得：{nrefDataWhere}。
 ~~~

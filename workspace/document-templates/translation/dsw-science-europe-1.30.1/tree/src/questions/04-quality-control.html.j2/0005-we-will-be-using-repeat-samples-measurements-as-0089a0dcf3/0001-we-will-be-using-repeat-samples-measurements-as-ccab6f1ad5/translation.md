@@ -17,5 +17,5 @@ We will be using repeat samples/measurements as part of the quality process.
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們會將重複樣本／量測作為資料品質控管流程的一部分。
+我們會將重複樣本／量測作為資料品質管控流程的一部分。
 ~~~

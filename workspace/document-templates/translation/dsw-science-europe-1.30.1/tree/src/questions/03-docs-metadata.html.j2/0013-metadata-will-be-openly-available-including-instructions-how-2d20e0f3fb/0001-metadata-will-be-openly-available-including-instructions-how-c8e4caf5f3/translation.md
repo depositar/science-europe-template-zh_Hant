@@ -17,5 +17,5 @@ Metadata will be openly available including instructions how to get access to th
 ### Translation (zh_Hant)
 
 ~~~jinja
-後設資料將公開提供，並包含如何存取資料的說明。
+後設資料將公開提供，並包含如何取用資料的說明。
 ~~~

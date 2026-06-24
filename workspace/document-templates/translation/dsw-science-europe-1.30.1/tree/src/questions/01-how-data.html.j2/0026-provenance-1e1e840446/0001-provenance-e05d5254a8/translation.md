@@ -17,5 +17,5 @@ Provenance
 ### Translation (zh_Hant)
 
 ~~~jinja
-來源與處理歷程
+資料溯源
 ~~~

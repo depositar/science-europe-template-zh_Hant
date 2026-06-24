@@ -17,5 +17,5 @@ Access procedure to personal data
 ### Translation (zh_Hant)
 
 ~~~jinja
-個人資料存取程序
+個人資料取用程序
 ~~~

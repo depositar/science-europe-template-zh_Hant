@@ -17,5 +17,5 @@ There are no re-used datasets.
 ### Translation (zh_Hant)
 
 ~~~jinja
-沒有再使用的資料集。
+沒有再次使用的資料集。
 ~~~

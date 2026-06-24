@@ -17,5 +17,5 @@ Re-users will be able to get access by request to the contact person.
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料再次使用者可向聯絡人申請取得存取權。
+資料再次使用者可向聯絡人申請取得資料取用權。
 ~~~

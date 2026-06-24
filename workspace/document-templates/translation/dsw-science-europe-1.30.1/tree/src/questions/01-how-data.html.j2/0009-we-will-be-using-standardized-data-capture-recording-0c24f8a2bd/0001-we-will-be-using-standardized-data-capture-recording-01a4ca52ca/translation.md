@@ -17,5 +17,5 @@ We will be using standardized data capture/recording as part of the quality proc
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們會將標準化資料擷取／紀錄作為資料品質控管流程的一部分。
+我們會將標準化資料擷取／紀錄作為資料品質管控流程的一部分。
 ~~~

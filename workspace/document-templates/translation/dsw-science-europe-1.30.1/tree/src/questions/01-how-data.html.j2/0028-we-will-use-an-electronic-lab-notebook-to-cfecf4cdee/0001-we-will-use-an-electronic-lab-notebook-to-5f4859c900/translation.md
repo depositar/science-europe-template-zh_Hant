@@ -17,5 +17,5 @@ We will use an electronic lab notebook to make sure that there is good provenanc
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將使用電子實驗紀錄本，以確保資料分析具有良好的來源與處理歷程紀錄。
+我們將使用電子實驗室記錄本，以確保資料分析具有良好的資料溯源紀錄。
 ~~~

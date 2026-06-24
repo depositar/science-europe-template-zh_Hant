@@ -17,5 +17,5 @@ Access to data during research
 ### Translation (zh_Hant)
 
 ~~~jinja
-研究期間的資料存取
+研究期間的資料取用
 ~~~

@@ -17,5 +17,5 @@ We are running the project in a collaboration between different groups and insti
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們的專案由不同群體與機構共同合作執行。然而，本專案沒有說明誰可以存取哪些資料的合作協議。
+我們的專案由不同群體與機構共同合作執行。然而，本專案沒有說明誰可以取用哪些資料的合作協議。
 ~~~

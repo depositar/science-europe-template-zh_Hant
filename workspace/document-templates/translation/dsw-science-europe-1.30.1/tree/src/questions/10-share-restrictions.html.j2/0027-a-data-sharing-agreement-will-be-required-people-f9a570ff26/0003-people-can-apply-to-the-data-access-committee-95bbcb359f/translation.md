@@ -17,5 +17,5 @@ People can apply to the data access committee that we will set up.
 ### Translation (zh_Hant)
 
 ~~~jinja
-可向我們將設立的資料存取委員會申請。
+可向我們將設立的資料取用委員會申請。
 ~~~
