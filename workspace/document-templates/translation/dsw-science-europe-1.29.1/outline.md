@@ -3324,121 +3324,117 @@
 
           [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0005-this-data-will-be-distributed-in-following-repository-abd4ab6ba2/0001-this-data-will-be-distributed-in-following-repository-3020d1f04f/translation.md>)
 
-    - [ ] [wrapper] 0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62 (0/12)
+    - [ ] [wrapper] 0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad (0/13)
 
-      [W] `0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62`
+      [W] `0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad`
 
         - [ ] [unit] 0001-domain-specific-repository-d74749bd50: Domain-specific repository
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0001-domain-specific-repository-d74749bd50/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0001-domain-specific-repository-d74749bd50/translation.md>)
 
         - [ ] [unit] 0002-general-purpose-repository-8e5afc6b98: General-purpose repository
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0002-general-purpose-repository-8e5afc6b98/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0002-general-purpose-repository-8e5afc6b98/translation.md>)
 
         - [ ] [unit] 0003-national-repository-90c93e44f2: National repository
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0003-national-repository-90c93e44f2/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0003-national-repository-90c93e44f2/translation.md>)
 
         - [ ] [unit] 0004-institutional-repository-a1778e4d26: Institutional repository
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0004-institutional-repository-a1778e4d26/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0004-institutional-repository-a1778e4d26/translation.md>)
 
         - [ ] [unit] 0005-special-purpose-repository-dc84073233: Special-purpose repository
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0005-special-purpose-repository-dc84073233/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0005-special-purpose-repository-dc84073233/translation.md>)
 
         - [ ] [unit] 0006-within-this-repository-unique-and-persistent-identifiers-will-29d7de6791: Within this repository, unique and persistent identifiers will be applied as follows:
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0006-within-this-repository-unique-and-persistent-identifiers-will-29d7de6791/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0006-within-this-repository-unique-and-persistent-identifiers-will-29d7de6791/translation.md>)
 
         - [ ] [unit] 0007-a-project-data-steward-or-principle-investigator-will-dac2e8ec02: A project data steward or principle investigator will assign the persistent identifier.
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0007-a-project-data-steward-or-principle-investigator-will-dac2e8ec02/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0007-a-project-data-steward-or-principle-investigator-will-dac2e8ec02/translation.md>)
 
         - [ ] [unit] 0008-an-institutional-data-steward-will-assign-the-persistent-49c0d2b636: An institutional data steward will assign the persistent identifier.
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0008-an-institutional-data-steward-will-assign-the-persistent-49c0d2b636/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0008-an-institutional-data-steward-will-assign-the-persistent-49c0d2b636/translation.md>)
 
         - [ ] [unit] 0009-the-repository-will-assign-the-persistent-identifier-8aa3490a7c: The repository will assign the persistent identifier.
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0009-the-repository-will-assign-the-persistent-identifier-8aa3490a7c/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0009-the-repository-will-assign-the-persistent-identifier-8aa3490a7c/translation.md>)
 
         - [ ] [unit] 0010-the-repository-will-make-sure-the-persistent-identifier-82b8aefb17: The repository will make sure the persistent identifier can be resolved to a digital object.
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0010-the-repository-will-make-sure-the-persistent-identifier-82b8aefb17/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0010-the-repository-will-make-sure-the-persistent-identifier-82b8aefb17/translation.md>)
 
         - [ ] [unit] 0011-the-repository-will-not-make-sure-the-persistent-595bdd3bfd: The repository will not make sure the persistent identifier can be resolved to a digital object.
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0011-the-repository-will-not-make-sure-the-persistent-595bdd3bfd/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0011-the-repository-will-not-make-sure-the-persistent-595bdd3bfd/translation.md>)
 
         - [ ] [unit] 0012-the-assigned-persistent-identifier-is-specified-as-follows-2600ff7209: The assigned persistent identifier is specified as follows: {publishedDataIdentifierSpecifyReply}.
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-2a1e466a62/0012-the-assigned-persistent-identifier-is-specified-as-follows-2600ff7209/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0012-the-assigned-persistent-identifier-is-specified-as-follows-2600ff7209/translation.md>)
 
-    - [ ] [wrapper] 0007-within-this-repository-unique-and-persistent-identifiers-will-a50ff56af0 (0/1)
+        - [ ] [unit] 0013-within-this-repository-unique-and-persistent-identifiers-will-6618b5c726: Within this repository, unique and persistent identifiers will not be applied.
 
-      [W] `0007-within-this-repository-unique-and-persistent-identifiers-will-a50ff56af0`
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0013-within-this-repository-unique-and-persistent-identifiers-will-6618b5c726/translation.md>)
 
-        - [ ] [unit] 0001-within-this-repository-unique-and-persistent-identifiers-will-1a18516f7c: Within this repository, unique and persistent identifiers will not be applied.
+    - [ ] [wrapper] 0007-possible-re-use-of-created-data-in-other-96145ffe55 (0/1)
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0007-within-this-repository-unique-and-persistent-identifiers-will-a50ff56af0/0001-within-this-repository-unique-and-persistent-identifiers-will-1a18516f7c/translation.md>)
+      [W] `0007-possible-re-use-of-created-data-in-other-96145ffe55`
 
-    - [ ] [wrapper] 0008-possible-re-use-of-created-data-in-other-96145ffe55 (0/1)
+        - [ ] [unit] 0001-possible-re-use-of-created-data-in-other-87f42bc75a: Possible re-use of created data in other contexts
 
-      [W] `0008-possible-re-use-of-created-data-in-other-96145ffe55`
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0007-possible-re-use-of-created-data-in-other-96145ffe55/0001-possible-re-use-of-created-data-in-other-87f42bc75a/translation.md>)
 
-        - [ ] [unit] 0001-possible-re-use-of-created-data-in-other-aeecb88978: Possible re-use of created data in other contexts
+    - [ ] [wrapper] 0008-explanation-of-how-the-collected-or-created-data-6392523019 (0/1)
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0008-possible-re-use-of-created-data-in-other-96145ffe55/0001-possible-re-use-of-created-data-in-other-aeecb88978/translation.md>)
+      [W] `0008-explanation-of-how-the-collected-or-created-data-6392523019`
 
-    - [ ] [wrapper] 0009-explanation-of-how-the-collected-or-created-data-6392523019 (0/1)
+        - [ ] [unit] 0001-explanation-of-how-the-collected-or-created-data-d307c9c710: Explanation of how the collected or created data might be re-used in other contexts:
 
-      [W] `0009-explanation-of-how-the-collected-or-created-data-6392523019`
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0008-explanation-of-how-the-collected-or-created-data-6392523019/0001-explanation-of-how-the-collected-or-created-data-d307c9c710/translation.md>)
 
-        - [ ] [unit] 0001-explanation-of-how-the-collected-or-created-data-e62478ffb2: Explanation of how the collected or created data might be re-used in other contexts:
+    - [ ] [wrapper] 0009-no-name-given-16a8ce22a9 (0/1)
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0009-explanation-of-how-the-collected-or-created-data-6392523019/0001-explanation-of-how-the-collected-or-created-data-e62478ffb2/translation.md>)
+      [W] `0009-no-name-given-16a8ce22a9`
 
-    - [ ] [wrapper] 0010-no-name-given-16a8ce22a9 (0/1)
+        - [ ] [unit] 0001-no-name-given-500d0ad607: (no name given)
 
-      [W] `0010-no-name-given-16a8ce22a9`
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0009-no-name-given-16a8ce22a9/0001-no-name-given-500d0ad607/translation.md>)
 
-        - [ ] [unit] 0001-no-name-given-a7840f96ac: (no name given)
+    - [ ] [wrapper] 0010-only-we-will-be-interested-in-re-using-22c2f5e94b (0/1)
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0010-no-name-given-16a8ce22a9/0001-no-name-given-a7840f96ac/translation.md>)
+      [W] `0010-only-we-will-be-interested-in-re-using-22c2f5e94b`
 
-    - [ ] [wrapper] 0011-only-we-will-be-interested-in-re-using-22c2f5e94b (0/1)
+        - [ ] [unit] 0001-only-we-will-be-interested-in-re-using-3d33624b1d: Only we will be interested in re-using this data.
 
-      [W] `0011-only-we-will-be-interested-in-re-using-22c2f5e94b`
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0010-only-we-will-be-interested-in-re-using-22c2f5e94b/0001-only-we-will-be-interested-in-re-using-3d33624b1d/translation.md>)
 
-        - [ ] [unit] 0001-only-we-will-be-interested-in-re-using-d027296acd: Only we will be interested in re-using this data.
+    - [ ] [wrapper] 0011-other-researchers-in-this-field-will-be-interested-fc64081eb4 (0/1)
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0011-only-we-will-be-interested-in-re-using-22c2f5e94b/0001-only-we-will-be-interested-in-re-using-d027296acd/translation.md>)
+      [W] `0011-other-researchers-in-this-field-will-be-interested-fc64081eb4`
 
-    - [ ] [wrapper] 0012-other-researchers-in-this-field-will-be-interested-fc64081eb4 (0/1)
+        - [ ] [unit] 0001-other-researchers-in-this-field-will-be-interested-2673741e2b: Other researchers in this field will be interested in re-using this data.
 
-      [W] `0012-other-researchers-in-this-field-will-be-interested-fc64081eb4`
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0011-other-researchers-in-this-field-will-be-interested-fc64081eb4/0001-other-researchers-in-this-field-will-be-interested-2673741e2b/translation.md>)
 
-        - [ ] [unit] 0001-other-researchers-in-this-field-will-be-interested-7d1f60c2cc: Other researchers in this field will be interested in re-using this data.
+    - [ ] [wrapper] 0012-researchers-working-in-other-fields-will-be-interested-1ed95ff00d (0/1)
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0012-other-researchers-in-this-field-will-be-interested-fc64081eb4/0001-other-researchers-in-this-field-will-be-interested-7d1f60c2cc/translation.md>)
+      [W] `0012-researchers-working-in-other-fields-will-be-interested-1ed95ff00d`
 
-    - [ ] [wrapper] 0013-researchers-working-in-other-fields-will-be-interested-1ed95ff00d (0/1)
+        - [ ] [unit] 0001-researchers-working-in-other-fields-will-be-interested-7375370f24: Researchers working in other fields will be interested in re-using this data because: {measuredDataReuseOtherFieldHowReply}
 
-      [W] `0013-researchers-working-in-other-fields-will-be-interested-1ed95ff00d`
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0012-researchers-working-in-other-fields-will-be-interested-1ed95ff00d/0001-researchers-working-in-other-fields-will-be-interested-7375370f24/translation.md>)
 
-        - [ ] [unit] 0001-researchers-working-in-other-fields-will-be-interested-114529fa0b: Researchers working in other fields will be interested in re-using this data because: {measuredDataReuseOtherFieldHowReply}
+    - [ ] [wrapper] 0013-researchers-working-in-other-fields-will-be-interested-5e3ca8aead (0/1)
 
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0013-researchers-working-in-other-fields-will-be-interested-1ed95ff00d/0001-researchers-working-in-other-fields-will-be-interested-114529fa0b/translation.md>)
+      [W] `0013-researchers-working-in-other-fields-will-be-interested-5e3ca8aead`
 
-    - [ ] [wrapper] 0014-researchers-working-in-other-fields-will-be-interested-5e3ca8aead (0/1)
+        - [ ] [unit] 0001-researchers-working-in-other-fields-will-be-interested-f725bd0db0: Researchers working in other fields will be interested in re-using this data.
 
-      [W] `0014-researchers-working-in-other-fields-will-be-interested-5e3ca8aead`
-
-        - [ ] [unit] 0001-researchers-working-in-other-fields-will-be-interested-c9e76560db: Researchers working in other fields will be interested in re-using this data.
-
-          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0014-researchers-working-in-other-fields-will-be-interested-5e3ca8aead/0001-researchers-working-in-other-fields-will-be-interested-c9e76560db/translation.md>)
+          [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0013-researchers-working-in-other-fields-will-be-interested-5e3ca8aead/0001-researchers-working-in-other-fields-will-be-interested-f725bd0db0/translation.md>)
 
 - [ ] [file] src/questions/14-dm-responsible.html.j2 (0/11)
 

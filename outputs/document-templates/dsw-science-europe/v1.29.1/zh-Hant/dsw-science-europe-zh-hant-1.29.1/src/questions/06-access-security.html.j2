@@ -68,14 +68,14 @@
       uuids.risksInfoVandalismLowAUuid: 'low',
       uuids.risksInfoVandalismWillAUuid: 'will'
     } -%}
-
+{# __tr_branch_sentence_original:CiAgICB7IyBFeHRyYWN0IHNlbGVjdGVkIGxldmVscyBmb3IgZWFjaCB0eXBlICN9CiAgICB7JS0gc2V0IHNlbGVjdGVkID0gewogICAgICAnbG9zcyc6IHJpc2tfbGV2ZWxzW3Jpc2tzSW5mb0xvc3NBVXVpZF0sCiAgICAgICdsZWFrJzogcmlza19sZXZlbHNbcmlza3NJbmZvTGVha0FVdWlkXSwKICAgICAgJ3ZhbmRhbGlzbSc6IHJpc2tfbGV2ZWxzW3Jpc2tzSW5mb1ZhbmRhbGlzbUFVdWlkXQogICAgfSAtJX0K #}
     {# Extract selected levels for each type #}
     {%- set selected = {
-      'loss': risk_levels[risksInfoLossAUuid],
-      'leak': risk_levels[risksInfoLeakAUuid],
-      'vandalism': risk_levels[risksInfoVandalismAUuid]
+      '資訊遺失': risk_levels[risksInfoLossAUuid],
+      '資訊外洩': risk_levels[risksInfoLeakAUuid],
+      '資訊遭竄改': risk_levels[risksInfoVandalismAUuid]
     } -%}
-
+{# __tr_branch_sentence_original:end #}
     {%- set small = [] -%}
     {%- set low = [] -%}
     {%- set will = [] -%}
@@ -93,21 +93,21 @@
 
     {# helper inline join #}
     {%- set fragments = [] -%}
-    {%- if small|length > 0 -%}
-      {%- set risks = (small[:-1]|join(', ') ~ ', and ' ~ small[-1]) if small|length > 1 else small[0] -%}
-      {# __tr_append_sentence_original:eyUtIHNldCBfID0gZnJhZ21lbnRzLmFwcGVuZCgiVGhlIHBvc3NpYmxlIGltcGFjdCBvZiBpbmZvcm1hdGlvbiAiIH4gcmlza3MgfiAiIGlzIHNtYWxsIikgLSV9 #}{%- set __tr_append_sentence_0000 -%}{# __tr_block_0002:start #}The possible impact of information {{ risks }} is small{# __tr_block_0002:end #}{%- endset -%}{%- set _ = fragments.append(__tr_append_sentence_0000) -%}{# __tr_append_sentence_original:end -#}
+    {%- if small|length > 0 -%}{# __tr_branch_sentence_original:CiAgICAgIHslLSBzZXQgcmlza3MgPSAoc21hbGxbOi0xXXxqb2luKCcsICcpIH4gJywgYW5kICcgfiBzbWFsbFstMV0pIGlmIHNtYWxsfGxlbmd0aCA-IDEgZWxzZSBzbWFsbFswXSAtJX0K #}
+      {%- set risks = small|join('、') -%}
+{# __tr_branch_sentence_original:end #}      {# __tr_append_sentence_original:eyUtIHNldCBfID0gZnJhZ21lbnRzLmFwcGVuZCgiVGhlIHBvc3NpYmxlIGltcGFjdCBvZiBpbmZvcm1hdGlvbiAiIH4gcmlza3MgfiAiIGlzIHNtYWxsIikgLSV9 #}{%- set __tr_append_sentence_0000 -%}{# __tr_block_0002:start #}The possible impact of information {{ risks }} is small{# __tr_block_0002:end #}{%- endset -%}{%- set _ = fragments.append(__tr_append_sentence_0000) -%}{# __tr_append_sentence_original:end -#}
     {%- endif -%}
-    {%- if low|length > 0 -%}
-      {%- set risks = (low[:-1]|join(', ') ~ ', and ' ~ low[-1]) if low|length > 1 else low[0] -%}
-      {# __tr_append_sentence_original:eyUtIHNldCBfID0gZnJhZ21lbnRzLmFwcGVuZCgiVGhlIHJpc2sgb2YgaW5mb3JtYXRpb24gIiB-IHJpc2tzIH4gIiBpcyBhY2NlcHRhYmx5IGxvdyIpIC0lfQ== #}{%- set __tr_append_sentence_0001 -%}{# __tr_block_0003:start #}The risk of information {{ risks }} is acceptably low{# __tr_block_0003:end #}{%- endset -%}{%- set _ = fragments.append(__tr_append_sentence_0001) -%}{# __tr_append_sentence_original:end -#}
+    {%- if low|length > 0 -%}{# __tr_branch_sentence_original:CiAgICAgIHslLSBzZXQgcmlza3MgPSAobG93WzotMV18am9pbignLCAnKSB-ICcsIGFuZCAnIH4gbG93Wy0xXSkgaWYgbG93fGxlbmd0aCA-IDEgZWxzZSBsb3dbMF0gLSV9Cg== #}
+      {%- set risks = low|join('、') -%}
+{# __tr_branch_sentence_original:end #}      {# __tr_append_sentence_original:eyUtIHNldCBfID0gZnJhZ21lbnRzLmFwcGVuZCgiVGhlIHJpc2sgb2YgaW5mb3JtYXRpb24gIiB-IHJpc2tzIH4gIiBpcyBhY2NlcHRhYmx5IGxvdyIpIC0lfQ== #}{%- set __tr_append_sentence_0001 -%}{# __tr_block_0003:start #}The risk of information {{ risks }} is acceptably low{# __tr_block_0003:end #}{%- endset -%}{%- set _ = fragments.append(__tr_append_sentence_0001) -%}{# __tr_append_sentence_original:end -#}
     {%- endif -%}
-    {%- if will|length > 0 -%}
-      {%- set risks = (will[:-1]|join(', ') ~ ', and ' ~ will[-1]) if will|length > 1 else will[0] -%}
-      {# __tr_append_sentence_original:eyUtIHNldCBfID0gZnJhZ21lbnRzLmFwcGVuZCgiV2Ugd2lsbCBtaXRpZ2F0ZSB0aGUgcmlzayBvZiBpbmZvcm1hdGlvbiAiIH4gcmlza3MpIC0lfQ== #}{%- set __tr_append_sentence_0002 -%}{# __tr_block_0004:start #}We will mitigate the risk of information {{ risks }}{# __tr_block_0004:end #}{%- endset -%}{%- set _ = fragments.append(__tr_append_sentence_0002) -%}{# __tr_append_sentence_original:end -#}
+    {%- if will|length > 0 -%}{# __tr_branch_sentence_original:CiAgICAgIHslLSBzZXQgcmlza3MgPSAod2lsbFs6LTFdfGpvaW4oJywgJykgfiAnLCBhbmQgJyB-IHdpbGxbLTFdKSBpZiB3aWxsfGxlbmd0aCA-IDEgZWxzZSB3aWxsWzBdIC0lfQo= #}
+      {%- set risks = will|join('、') -%}
+{# __tr_branch_sentence_original:end #}      {# __tr_append_sentence_original:eyUtIHNldCBfID0gZnJhZ21lbnRzLmFwcGVuZCgiV2Ugd2lsbCBtaXRpZ2F0ZSB0aGUgcmlzayBvZiBpbmZvcm1hdGlvbiAiIH4gcmlza3MpIC0lfQ== #}{%- set __tr_append_sentence_0002 -%}{# __tr_block_0004:start #}We will mitigate the risk of information {{ risks }}{# __tr_block_0004:end #}{%- endset -%}{%- set _ = fragments.append(__tr_append_sentence_0002) -%}{# __tr_append_sentence_original:end -#}
     {%- endif -%}
-    {%- if fragments|length > 0 -%}
-      <p>{{ fragments | join('. ') }}.</p>
-    {%- endif -%}
+    {%- if fragments|length > 0 -%}{# __tr_branch_sentence_original:CiAgICAgIDxwPnt7IGZyYWdtZW50cyB8IGpvaW4oJy4gJykgfX0uPC9wPgo= #}
+      <p>{{ fragments | join('。') }}。</p>
+{# __tr_branch_sentence_original:end #}    {%- endif -%}
     {# Personal data #}
     {%- set risksPersonalDataPath = [risksPathPrefix, uuids.risksPersonalDataQUuid]|reply_path -%}
     {%- set risksPersonalDataAUuid = repliesMap[risksPersonalDataPath]|reply_str_value -%}
@@ -125,7 +125,7 @@
         {%- elif risksPseudonymizationAUuid == uuids.risksPseudonymizationAnotherAUuid -%}
           {%- set risksPseudonymizationAnotherQUuid = [risksPseudonymizationPath, uuids.risksPseudonymizationAnotherAUuid, uuids.risksPseudonymizationAnotherQUuid]|reply_path -%}
           {%- set risksPseudonymizationAnother = repliesMap[risksPseudonymizationAnotherQUuid]|reply_str_value %}
-          We have a specific way of pseudonymization{{ ": " ~ risksPseudonymizationAnother|dot if risksPseudonymizationAnother else "." }}
+          We have a specific way of pseudonymization{{ "：" ~ risksPseudonymizationAnother|dot if risksPseudonymizationAnother else "。" }}
         {%- endif -%}
       </p>{# __tr_block_0006:end #}
     {%- elif risksPersonalDataAUuid == uuids.risksPersonalDataAnonymousAUuid -%}

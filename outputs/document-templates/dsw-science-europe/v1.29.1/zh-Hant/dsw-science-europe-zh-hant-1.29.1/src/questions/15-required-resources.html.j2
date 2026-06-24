@@ -12,14 +12,14 @@
     {%- elif expertiseAUuid == uuids.additionalExpertiseYesTrainAUuid -%}
       {# __tr_branch_sentence_original:PHA-CiAgICAgICAgVG8gZXhlY3V0ZSB0aGUgRE1QLCBhZGRpdGlvbmFsIHNwZWNpYWxpc3QgZXhwZXJ0aXNlIGlzIHJlcXVpcmVkLiBXZSB3aWxsIGJlIHRyYWluaW5nIGV4aXN0aW5nIHN0YWZmCiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VUcmFpblBhdGggPSBbZXhwZXJ0aXNlUGF0aCwgdXVpZHMuYWRkaXRpb25hbEV4cGVydGlzZVllc1RyYWluQVV1aWQsIHV1aWRzLmFkZGl0aW9uYWxFeHBlcnRpc2VZZXNUcmFpblRyYWluaW5nUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VUcmFpblRleHQgPSByZXBsaWVzTWFwW2V4cGVydGlzZVRyYWluUGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgIHslLSBpZiBleHBlcnRpc2VUcmFpblRleHQgJX0KICAgICAgICAgIHt7IiAifX1vbjoge3sgZXhwZXJ0aXNlVHJhaW5UZXh0fX0KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgLgogICAgICA8L3A- #}{%- set expertiseTrainPath = [expertisePath, uuids.additionalExpertiseYesTrainAUuid, uuids.additionalExpertiseYesTrainTrainingQUuid]|reply_path -%}{%- set expertiseTrainText = repliesMap[expertiseTrainPath]|reply_str_value -%}{%- if expertiseTrainText %}{# __tr_block_0003:start #}<p>
         To execute the DMP, additional specialist expertise is required. We will be training existing staff
-          {{" "}}on: {{ expertiseTrainText}}.
+          {{" "}}on: {{ expertiseTrainText}}。
       </p>{# __tr_block_0003:end #}{% else %}{# __tr_block_0004:start #}<p>
         To execute the DMP, additional specialist expertise is required. We will be training existing staff.
       </p>{# __tr_block_0004:end #}{%- endif -%}{# __tr_branch_sentence_original:end #}
     {%- elif expertiseAUuid == uuids.additionalExpertiseYesHireAUuid -%}
       {# __tr_branch_sentence_original:PHA-CiAgICAgICAgVG8gZXhlY3V0ZSB0aGUgRE1QLCBhZGRpdGlvbmFsIHNwZWNpYWxpc3QgZXhwZXJ0aXNlIGlzIHJlcXVpcmVkLiBXZSB3aWxsIGJlIGhpcmluZyBuZXcgcGVvcGxlIHdpdGggYWRkaXRpb25hbCBleHBlcnRpc2UKICAgICAgICB7JS0gc2V0IGV4cGVydGlzZUhpcmVQYXRoID0gW2V4cGVydGlzZVBhdGgsIHV1aWRzLmFkZGl0aW9uYWxFeHBlcnRpc2VZZXNIaXJlQVV1aWQsIHV1aWRzLmFkZGl0aW9uYWxFeHBlcnRpc2VZZXNIaXJlRXhwZXJ0aXNlUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VIaXJlVGV4dCA9IHJlcGxpZXNNYXBbZXhwZXJ0aXNlSGlyZVBhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICB7JS0gaWYgZXhwZXJ0aXNlSGlyZVRleHQgJX0KICAgICAgICAgIHt7IiAifX1pbjoge3sgZXhwZXJ0aXNlSGlyZVRleHR9fQogICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAuCiAgICAgIDwvcD4= #}{%- set expertiseHirePath = [expertisePath, uuids.additionalExpertiseYesHireAUuid, uuids.additionalExpertiseYesHireExpertiseQUuid]|reply_path -%}{%- set expertiseHireText = repliesMap[expertiseHirePath]|reply_str_value -%}{%- if expertiseHireText %}{# __tr_block_0005:start #}<p>
         To execute the DMP, additional specialist expertise is required. We will be hiring new people with additional expertise
-          {{" "}}in: {{ expertiseHireText}}.
+          {{" "}}in: {{ expertiseHireText}}。
       </p>{# __tr_block_0005:end #}{% else %}{# __tr_block_0006:start #}<p>
         To execute the DMP, additional specialist expertise is required. We will be hiring new people with additional expertise.
       </p>{# __tr_block_0006:end #}{%- endif -%}{# __tr_branch_sentence_original:end #}
@@ -81,7 +81,7 @@
                         {%- set projectCostItemAmountReply = repliesMap[projectCostItemAmountQUuid]|reply_str_value -%}
 
                         {%- if  projectCostItemAmountReply and projectCostItemCurrencyReply -%}
-                            <p>The amount is {{projectCostItemAmountReply}} {{macros.integrationCurrency(projectCostItemCurrencyReply) }}.</p>
+                            <p>The amount is {{projectCostItemAmountReply}} {{macros.integrationCurrency(projectCostItemCurrencyReply) }}。</p>
                         {%- endif -%}
 
                         {%- set projectCostItemAllocationQUuid = [projectCostItem, uuids.costAllocationQUuid]|reply_path  -%}
@@ -107,7 +107,7 @@
                         
                         {%- if projectCostItemAllocations|length > 0 -%}{%- if projectCostItemAllocations|length > 2 -%}
                           <p>
-                            This resource is allocated for{{+" "}}{{" "}}{{ projectCostItemAllocations[0:-1]|join(", ") }}, and {{ projectCostItemAllocations[-1] }} of data.
+                            This resource is allocated for{{+" "}}{{" "}}{{ projectCostItemAllocations[0:-1]|join("、") }}, and {{ projectCostItemAllocations[-1] }} of data.
                           </p>
                         {%- elif projectCostItemAllocations|length == 2 -%}
                           <p>
@@ -136,7 +136,7 @@
                           {%- set costCoverOtherHowQUuid = [projectCostItemCoverQUuid,uuids.costCoverOtherAUuid, uuids.costCoverOtherHowQUuid]|reply_path  -%}
                           {%- set costCoverOtherHowReply = repliesMap[costCoverOtherHowQUuid]|reply_str_value -%}
                           {%- if costCoverOtherHowReply -%}
-                            <p>This cost will be covered as follows: {{costCoverOtherHowReply}}.</p>
+                            <p>This cost will be covered as follows: {{costCoverOtherHowReply}}。</p>
                           {%- endif -%}
 
                         {%- endif -%}
