@@ -17,5 +17,5 @@ Contributors
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+貢獻者
 ~~~
