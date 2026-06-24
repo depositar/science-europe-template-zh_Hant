@@ -36,7 +36,7 @@ env:
   TRANSLATION_TARGET_LANG: zh_Hant
   TRANSLATED_TEMPLATE_DIR: outputs/document-templates/dsw-science-europe/v1.30.0/zh-Hant/dsw-science-europe-zh-hant-1.30.0
   TRANSLATED_TEMPLATE_PACKAGE: outputs/document-templates/dsw-science-europe/v1.30.0/zh-Hant/dsw-science-europe-zh-hant-1.30.0.zip
-  PROJECT_REF: workspace/projects/test-project.json
+  PROJECT_REF: tooling-repo/workspace/projects/test-project.json
   PROJECT_RENDER_OUTPUT: outputs/project-render/dsw-science-europe/v1.30.0/zh-Hant/test-project.pdf
   PROJECT_RENDER_FORMAT_UUID: 68c26e34-5e77-4e15-9bf7-06ff92582257
   DSW_VERSION: "4.30"
@@ -133,7 +133,7 @@ jobs:
           set -euo pipefail
           required_paths=(
             "$EXPANDED_TEMPLATE_DIR"
-            "$TRANSLATION_TREE_DIR/.translation-tree"
+            "$TRANSLATION_TREE_DIR/.translation-tree/manifest.json"
             "$TRANSLATION_TREE_DIR/tree"
           )
 
@@ -144,7 +144,7 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$EXPANDED_TEMPLATE_DIR" "$TRANSLATION_TREE_DIR"
+          git add "$EXPANDED_TEMPLATE_DIR" "$TRANSLATION_TREE_DIR/.translation-tree/manifest.json" "$TRANSLATION_TREE_DIR/tree"
           git commit -m "chore(sync): refresh document template translations"
           echo "repaired_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           git push origin "HEAD:$TARGET_REF"
@@ -162,13 +162,16 @@ jobs:
           set -euo pipefail
           # `outline.md` is a generated progress view. Let CI refresh it without
           # requiring translators to commit checkbox churn before opening a PR.
+          # `merge-report.json` is diagnostic metadata; it can change match
+          # classification after the first repaired commit without changing any
+          # translation content or executable template structure.
           git diff --exit-code -- \
             "$EXPANDED_TEMPLATE_DIR" \
-            "$TRANSLATION_TREE_DIR/.translation-tree" \
+            "$TRANSLATION_TREE_DIR/.translation-tree/manifest.json" \
             "$TRANSLATION_TREE_DIR/tree"
           test -z "$(git status --short -- \
             "$EXPANDED_TEMPLATE_DIR" \
-            "$TRANSLATION_TREE_DIR/.translation-tree" \
+            "$TRANSLATION_TREE_DIR/.translation-tree/manifest.json" \
             "$TRANSLATION_TREE_DIR/tree")"
 
       - name: Audit translation blocks
@@ -274,9 +277,11 @@ jobs:
             template-repo/${{ env.TRANSLATED_TEMPLATE_DIR }}
             template-repo/${{ env.TRANSLATED_TEMPLATE_PACKAGE }}
 
-      # This boots an ephemeral DSW and copies PROJECT_REF into it. PROJECT_REF
-      # can either point at an existing project UUID for a persistent DSW, or at
-      # a JSON recipe with `knowledge_model_package_id` and `events_file`.
+      # This boots an ephemeral DSW and copies PROJECT_REF into it. By default,
+      # the sample project fixture lives in the tooling repo so translation
+      # repositories do not need to carry their own stale demo KM/project copies.
+      # PROJECT_REF can also point at a JSON recipe or existing project UUID in
+      # the checked-out template repo if a downstream workflow overrides it.
       - name: Start local DSW stack for sample render
         if: ${{ env.PROJECT_REF != '' }}
         working-directory: tooling-repo
@@ -296,10 +301,14 @@ jobs:
           template_json="$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR/template.json"
           template_metamodel_version="$("$TOOL_ROOT/.venv/bin/python" -c 'import json, sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("metamodelVersion", ""))' "$template_json")"
           failure_path="$(dirname "$HOST_ROOT/$PROJECT_RENDER_OUTPUT")/failed.json"
+          case "$PROJECT_REF" in
+            /*) project_ref_path="$PROJECT_REF" ;;
+            *) project_ref_path="$GITHUB_WORKSPACE/$PROJECT_REF" ;;
+          esac
 
           set +e
           "$TOOL_ROOT/.venv/bin/python" "$TOOL_ROOT/src/render_project.py" \
-            --project-ref "$HOST_ROOT/$PROJECT_REF" \
+            --project-ref "$project_ref_path" \
             --template-dir "$HOST_ROOT/$TRANSLATED_TEMPLATE_DIR" \
             --format-uuid "$PROJECT_RENDER_FORMAT_UUID" \
             --output "$HOST_ROOT/$PROJECT_RENDER_OUTPUT" \
