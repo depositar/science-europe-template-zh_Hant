@@ -17,5 +17,5 @@ standardized data capture/recording.
 ### Translation (zh_Hant)
 
 ~~~jinja
-標準化資料擷取／紀錄。
+標準化的資料擷取／記錄。
 ~~~

@@ -17,5 +17,5 @@ This resource is allocated for {projectCostItemAllocations_0_minus_1}, and {proj
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資源分配用於資料的{projectCostItemAllocations_0_minus_1}與{projectCostItemAllocations_minus_1}。
+此資源分配用於{projectCostItemAllocations_0_minus_1}與{projectCostItemAllocations_minus_1}。
 ~~~

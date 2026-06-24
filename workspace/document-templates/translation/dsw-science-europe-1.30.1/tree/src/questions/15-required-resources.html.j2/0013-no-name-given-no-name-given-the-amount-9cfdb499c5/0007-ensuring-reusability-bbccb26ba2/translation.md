@@ -17,5 +17,5 @@ ensuring reusability
 ### Translation (zh_Hant)
 
 ~~~jinja
-確保可再次使用性
+確保資料可再次使用
 ~~~

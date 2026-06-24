@@ -17,5 +17,5 @@ We will re-use this standard reference data available via: {refDataWhere} in ord
 ### Translation (zh_Hant)
 
 ~~~jinja
-此標準參考資料可透過 {refDataWhere} 取得；再次使用目的：{refDataUsageReply}
+此標準參考資料可透過 {refDataWhere} 取得。再次使用目的：{refDataUsageReply}
 ~~~

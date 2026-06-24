@@ -17,5 +17,5 @@ Limited embargo will not be used as all data will be opened.
 ### Translation (zh_Hant)
 
 ~~~jinja
-由於所有資料都會開放，因此不會設定有限的延後開放期限。
+由於所有資料都會開放，因此不會設定延後開放期限。
 ~~~

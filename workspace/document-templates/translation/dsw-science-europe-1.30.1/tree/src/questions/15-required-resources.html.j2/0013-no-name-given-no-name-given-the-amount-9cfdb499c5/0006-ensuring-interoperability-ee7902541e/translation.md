@@ -17,5 +17,5 @@ ensuring interoperability
 ### Translation (zh_Hant)
 
 ~~~jinja
-確保互通性
+確保資料可相互操作
 ~~~

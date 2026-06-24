@@ -17,5 +17,5 @@ using a special-purpose repository for the project.
 ### Translation (zh_Hant)
 
 ~~~jinja
-使用此專案的專用資料儲存庫。
+並使用此專案的專用資料儲存庫。
 ~~~

@@ -17,5 +17,5 @@ Within this repository, unique and persistent identifiers will not be applied.
 ### Translation (zh_Hant)
 
 ~~~jinja
-在此資料儲存庫中，不會套用唯一且持續的識別碼。
+在此資料儲存庫中，不會套用具唯一性及持續性的識別碼。
 ~~~

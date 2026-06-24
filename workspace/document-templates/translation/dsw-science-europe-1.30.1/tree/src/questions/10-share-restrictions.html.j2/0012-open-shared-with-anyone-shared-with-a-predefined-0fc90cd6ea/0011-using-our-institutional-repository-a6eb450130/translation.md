@@ -17,5 +17,5 @@ using our institutional repository.
 ### Translation (zh_Hant)
 
 ~~~jinja
-使用我們的機構資料儲存庫。
+並使用機構資料儲存庫。
 ~~~

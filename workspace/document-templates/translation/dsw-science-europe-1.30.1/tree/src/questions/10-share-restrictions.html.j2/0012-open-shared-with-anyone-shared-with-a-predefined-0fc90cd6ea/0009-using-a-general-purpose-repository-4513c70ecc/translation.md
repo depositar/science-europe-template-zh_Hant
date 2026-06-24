@@ -17,5 +17,5 @@ using a general-purpose repository
 ### Translation (zh_Hant)
 
 ~~~jinja
-使用通用型資料儲存庫
+並使用通用型資料儲存庫
 ~~~
