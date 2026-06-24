@@ -43,7 +43,7 @@
                             {# __tr_block_0009:start #}<li>URL: <strong><a href="{{ identifierValue }}" target="_blank">{{ identifierValue }}</a></strong></li>{# __tr_block_0009:end #}
                         {%- elif identifierTypeAUuid == uuids.dataIdentifierTypeOtherAUuid -%}
                             {%- set identifierType = repliesMap[[identifierTypePath, uuids.dataIdentifierTypeOtherAUuid, uuids.dataIdentifierTypeOtherTypeQUuid]|reply_path]|reply_str_value -%}
-                            <li>{{ identifierType }}: <strong>{{ identifierValue }}</strong></li>
+                            <li>{{ identifierType }}：<strong>{{ identifierValue }}</strong></li>
                         {%- endif -%}
                     {%- endfor -%}
                     </ul>
@@ -74,8 +74,8 @@
                                 {%- set domainSpecificRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoNameQUuid]|reply_path -%}
                                 {%- set domainSpecificRepoNameReply = repliesMap[domainSpecificRepoNamePath] -%}
                                 {%- if domainSpecificRepoNameReply -%}
-                                : {{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}.
-                                {%- else -%}.
+                                ：{{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}。
+                                {%- else -%}。
                                 {% endif -%}
                                 {# Contact the repository #}
                                 {%- set domainSpecificRepoContactBeforePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoContactBeforeQUuid]|reply_path -%}
@@ -89,15 +89,15 @@
                                 {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}
                                 {%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}
                                 {%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}
-                                We have made other arrangements{{ ": " ~ domainSpecificRepoContactBeforeOther|markdown if domainSpecificRepoContactBeforeOther else "." }}
+                                We have made other arrangements{{ "：" ~ domainSpecificRepoContactBeforeOther|markdown if domainSpecificRepoContactBeforeOther else "。" }}
                                 {%- endif -%}
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
                                 using a general-purpose repository
                                 {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                                 {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                                 {%- if generalPurposeRepoNameReply -%}
-                                    : {{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}.
-                                {%- else -%}.
+                                    ：{{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}。
+                                {%- else -%}。
                                 {%- endif -%}
                             {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}
                                 using our national repository.
@@ -123,8 +123,7 @@
                                 {%- set licenseStartPath = [licensePrefix, uuids.publishedDataLicenseStartQUuid]|reply_path -%}
                                 {%- set licenseStart = repliesMap[licenseStartPath]|reply_str_value -%}
                                 {% if licenseStart %}
-                                    Starting {{ licenseStart }}: 
-                                {% endif %}
+                                    Starting {{ licenseStart }}：{% endif %}
                                 
                                 {%- set publishedDataLicensePath = [licensePrefix, uuids.publishedDataLicenseQUuid]|reply_path -%}
                                 {%- set publishedDataLicenseAUuid = repliesMap[publishedDataLicensePath]|reply_str_value -%}
@@ -142,7 +141,7 @@
                                     {%- set licenseRestrictMetadataPath = [publishedDataLicensePath, uuids.publishedDataLicenseRestrictAUuid, uuids.licenseRestrictMetadataQUuid]|reply_path -%}
                                     {%- set licenseRestrictMetadataAUuid = repliesMap[licenseRestrictMetadataPath]|reply_str_value %}
                                     
-                                    Available under some restrictions, which we will follow in our project{{ ": " ~ licenseRestrictConditions|markdown if licenseRestrictConditions else "." }}
+                                    Available under some restrictions, which we will follow in our project{{ "：" ~ licenseRestrictConditions|markdown if licenseRestrictConditions else "。" }}
                                     {%- if licenseRestrictAccessAUuid == uuids.licenseRestrictAccessRequestAUuid %}
                                     Re-users will be able to get access by request to the contact person.
                                     {%- elif licenseRestrictAccessAUuid == uuids.licenseRestrictAccessCommitteeAUuid %}
@@ -150,7 +149,7 @@
                                     {%- elif licenseRestrictAccessAUuid == uuids.licenseRestrictAccessAnotherAUuid -%}
                                     {%- set licenseRestrictAccessAnotherPath = [licenseRestrictAccessPath, uuids.licenseRestrictAccessAnotherAUuid, uuids.licenseRestrictAccessAnotherQUuid]|reply_path -%}
                                     {%- set licenseRestrictAccessAnother = repliesMap[licenseRestrictAccessAnotherPath]|reply_str_value %}
-                                    Re-users will be able to get access through a specialized process{{ ": " ~ licenseRestrictAccessAnother|markdown if licenseRestrictAccessAnother else "." }}
+                                    Re-users will be able to get access through a specialized process{{ "：" ~ licenseRestrictAccessAnother|markdown if licenseRestrictAccessAnother else "。" }}
                                     {%- endif -%}
                                     {%- if licenseRestrictMetadataAUuid == uuids.licenseRestrictMetadataYesAUuid %}
                                     The conditions will be published as part of open metadata.
@@ -265,7 +264,7 @@
           {%- elif legalReasonsAuthorizeAUuid == uuids.legalReasonsAuthorizeOtherAUuid %}
             {%- set legalReasonsAuthorizeOtherPath = [legalReasonsAuthorizePath, uuids.legalReasonsAuthorizeOtherAUuid, uuids.legalReasonsAuthorizeOtherQUuid]|reply_path -%}
             {%- set legalReasonsAuthorizeOther = repliesMap[legalReasonsAuthorizeOtherPath]|reply_str_value %}
-            For the authorization of potential users, we will make special arrangements{{ ": " ~ legalReasonsAuthorizeOther|markdown if legalReasonsAuthorizeOther else "." }}
+            For the authorization of potential users, we will make special arrangements{{ "：" ~ legalReasonsAuthorizeOther|markdown if legalReasonsAuthorizeOther else "。" }}
           {%- endif -%}
         </p>{# __tr_block_0026:end #}
       {%- endif -%}
