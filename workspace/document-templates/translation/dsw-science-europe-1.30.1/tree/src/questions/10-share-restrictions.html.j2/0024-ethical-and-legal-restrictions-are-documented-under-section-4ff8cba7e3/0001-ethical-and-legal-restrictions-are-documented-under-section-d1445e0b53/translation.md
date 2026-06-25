@@ -17,5 +17,5 @@ Ethical and legal restrictions are documented under Section 4. We have used the 
 ### Translation (zh_Hant)
 
 ~~~jinja
-倫理與法律限制已記錄於第 4 節。我們使用了 {dc.config.service_name}，因此了解可用於最小化限制的選項。
+我們已在第 4 節記錄倫理與法律限制，並使用 {dc.config.service_name} 了解可降低限制的可行選項。
 ~~~
