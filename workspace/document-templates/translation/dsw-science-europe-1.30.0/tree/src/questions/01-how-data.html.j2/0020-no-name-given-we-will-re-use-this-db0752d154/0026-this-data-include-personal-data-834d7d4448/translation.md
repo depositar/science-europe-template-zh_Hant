@@ -17,5 +17,5 @@ This data include personal data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料包含個人資料。
 ~~~

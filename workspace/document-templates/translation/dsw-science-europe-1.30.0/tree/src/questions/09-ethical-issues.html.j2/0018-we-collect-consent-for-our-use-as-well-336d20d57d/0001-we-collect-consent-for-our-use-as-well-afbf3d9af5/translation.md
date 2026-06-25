@@ -17,5 +17,5 @@ We collect consent for our use as well as for reuse of the data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會就本專案使用及資料再次使用取得同意。
 ~~~

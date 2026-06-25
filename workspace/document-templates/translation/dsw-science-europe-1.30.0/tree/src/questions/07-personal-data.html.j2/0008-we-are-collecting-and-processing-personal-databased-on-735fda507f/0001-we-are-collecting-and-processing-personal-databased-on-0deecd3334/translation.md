@@ -17,5 +17,5 @@ We are collecting and processing personal data based on vital interest.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們依重大利益蒐集與處理個人資料。
 ~~~

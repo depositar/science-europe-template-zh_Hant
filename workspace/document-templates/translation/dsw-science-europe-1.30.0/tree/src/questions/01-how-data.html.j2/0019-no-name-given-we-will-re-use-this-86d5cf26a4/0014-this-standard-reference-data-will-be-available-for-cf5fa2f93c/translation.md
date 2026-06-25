@@ -17,5 +17,5 @@ This standard reference data will be available for long-term by the provider as 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此標準參考資料將由提供者長期提供；我們也會保留此資料集的副本，並與研究結果一併提供。
 ~~~

@@ -17,5 +17,5 @@ The stored data are irrevocably anonymized.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所儲存的資料已不可逆匿名化。
 ~~~

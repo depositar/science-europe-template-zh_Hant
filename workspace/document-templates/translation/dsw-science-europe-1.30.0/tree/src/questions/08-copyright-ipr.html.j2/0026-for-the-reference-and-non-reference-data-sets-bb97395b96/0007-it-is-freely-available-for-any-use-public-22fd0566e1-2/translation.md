@@ -17,5 +17,5 @@ It is freely available for any use (public domain or CC0).
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+可自由取得並用於任何用途（公眾領域或 CC0）。
 ~~~

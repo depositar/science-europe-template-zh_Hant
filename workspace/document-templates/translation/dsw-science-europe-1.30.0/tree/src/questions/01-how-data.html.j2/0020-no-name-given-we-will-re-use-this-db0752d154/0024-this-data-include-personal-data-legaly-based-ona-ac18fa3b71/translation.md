@@ -17,5 +17,5 @@ This data include personal data, legally based on a legitimate interest (meaning
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料包含個人資料，其處理依正當利益（亦即資料主體基於我們的身分可合理預期此資料處理）作為法律依據。
 ~~~

@@ -17,5 +17,5 @@ It does not contain personal data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+不包含個人資料。
 ~~~

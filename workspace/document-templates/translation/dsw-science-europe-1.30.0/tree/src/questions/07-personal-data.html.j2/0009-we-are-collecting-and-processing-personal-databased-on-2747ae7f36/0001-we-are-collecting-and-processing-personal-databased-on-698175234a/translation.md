@@ -17,5 +17,5 @@ We are collecting and processing personal data based on legal requirement.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們依法律要求蒐集與處理個人資料。
 ~~~

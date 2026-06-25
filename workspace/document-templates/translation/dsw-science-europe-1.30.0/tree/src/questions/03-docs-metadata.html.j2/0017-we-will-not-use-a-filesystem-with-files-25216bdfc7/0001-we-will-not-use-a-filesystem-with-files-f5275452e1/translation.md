@@ -17,5 +17,5 @@ We will not use a filesystem with files and folders.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不會使用以檔案與資料夾組成的檔案系統。
 ~~~

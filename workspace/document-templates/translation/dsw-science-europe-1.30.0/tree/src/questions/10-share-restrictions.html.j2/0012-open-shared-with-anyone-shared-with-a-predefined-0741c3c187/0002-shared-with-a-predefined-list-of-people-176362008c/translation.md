@@ -17,5 +17,5 @@ Shared with a predefined list of people
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+與預先定義的人員名單共享
 ~~~

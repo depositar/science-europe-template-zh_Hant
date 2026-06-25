@@ -17,5 +17,5 @@ Only all project members have read/write access to the data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+只有全體專案成員擁有資料的讀寫權限。
 ~~~

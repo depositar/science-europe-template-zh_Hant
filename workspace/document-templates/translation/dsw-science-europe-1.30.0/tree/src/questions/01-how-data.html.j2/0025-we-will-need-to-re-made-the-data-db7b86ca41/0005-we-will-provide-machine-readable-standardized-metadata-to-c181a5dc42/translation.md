@@ -17,5 +17,5 @@ We will provide machine readable, standardized metadata to others and we will us
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會向他人提供機器可讀且標準化的後設資料，並使用以下後設資料標準：
 ~~~

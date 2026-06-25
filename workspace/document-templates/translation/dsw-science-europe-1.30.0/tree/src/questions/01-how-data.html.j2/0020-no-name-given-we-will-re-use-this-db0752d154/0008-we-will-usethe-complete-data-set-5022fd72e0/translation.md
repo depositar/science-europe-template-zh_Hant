@@ -17,5 +17,5 @@ We will use the complete data set.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用完整資料集。
 ~~~

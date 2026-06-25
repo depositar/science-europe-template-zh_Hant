@@ -17,5 +17,5 @@ Storage needs are large at the beginning and will be reduced later.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案初期的儲存需求較大，之後會降低。
 ~~~

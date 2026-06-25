@@ -17,5 +17,5 @@ We require hardware or software in addition to what is usually available in the 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+除機構通常提供的資源外，我們還需要其他硬體或軟體。
 ~~~

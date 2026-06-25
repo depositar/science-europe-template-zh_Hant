@@ -17,5 +17,5 @@ How the data will be shared
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料共享方式
 ~~~

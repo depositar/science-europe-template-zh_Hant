@@ -17,5 +17,5 @@ The dataset will published as soon as possible after collecting it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料集將在蒐集後儘快發布。
 ~~~

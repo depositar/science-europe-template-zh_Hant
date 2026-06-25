@@ -17,5 +17,5 @@ We ask the data subjects for their consent.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會向資料主體取得同意。
 ~~~

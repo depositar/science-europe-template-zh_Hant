@@ -17,5 +17,5 @@ We will be archiving data for long-term preservation already during our project.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會在專案進行期間即開始封存資料，以利長期保存。
 ~~~

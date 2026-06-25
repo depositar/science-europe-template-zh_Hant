@@ -17,5 +17,5 @@ We use a different legal base for collection of personal data rather than public
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們使用公共利益或同意以外的其他法律依據來蒐集個人資料：
 ~~~

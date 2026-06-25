@@ -17,5 +17,5 @@ Anyone in the institute can read data, only project members can request write ac
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+機構內任何人都可以讀取資料，但只有專案成員可以申請寫入權限。
 ~~~

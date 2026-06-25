@@ -17,5 +17,5 @@ We will need to (re-)made the data into computer readable form before their usin
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+使用前，我們需要將資料（重新）製作成電腦可讀形式，但不會將此電腦可讀形式提供給他人。
 ~~~

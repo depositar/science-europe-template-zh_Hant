@@ -17,5 +17,5 @@ The purpose of processing the personal data can be described as follows:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+處理個人資料的目的可描述如下：
 ~~~

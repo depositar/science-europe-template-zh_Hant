@@ -17,5 +17,5 @@ We estimate the storage space that the project will require for all data and sof
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們估計本專案所有資料與軟體（包含暫存空間）所需的儲存空間為 {size} GB。
 ~~~

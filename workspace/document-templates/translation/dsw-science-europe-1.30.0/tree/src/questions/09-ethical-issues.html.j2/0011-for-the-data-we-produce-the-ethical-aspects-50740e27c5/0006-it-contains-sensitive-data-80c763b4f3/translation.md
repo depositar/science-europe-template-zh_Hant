@@ -17,5 +17,5 @@ It contains sensitive data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+包含敏感資料。
 ~~~

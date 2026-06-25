@@ -17,5 +17,5 @@ We will have only a small amount of data stored in this format.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們只會以此格式儲存少量資料。
 ~~~

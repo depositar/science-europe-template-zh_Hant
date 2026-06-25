@@ -17,5 +17,5 @@ History of changes
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+變更紀錄
 ~~~

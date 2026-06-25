@@ -17,5 +17,5 @@ The following instrument datasets will be acquired in the project:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+本專案將取得以下儀器資料集：
 ~~~

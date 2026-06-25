@@ -17,5 +17,5 @@ calibrating measurements.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+校準量測。
 ~~~

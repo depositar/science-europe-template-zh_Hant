@@ -17,5 +17,5 @@ This data are freely available with obligation to quote the source.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料可自由取得，但使用時必須引用來源。
 ~~~

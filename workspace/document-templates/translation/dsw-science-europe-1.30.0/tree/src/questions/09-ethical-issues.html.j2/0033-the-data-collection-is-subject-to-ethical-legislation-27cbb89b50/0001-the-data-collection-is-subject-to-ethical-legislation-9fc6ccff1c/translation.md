@@ -17,5 +17,5 @@ The data collection is subject to ethical legislation.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料蒐集受倫理法規規範。
 ~~~

@@ -17,5 +17,5 @@ The stored data are psuedoanonymized.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+所儲存的資料已假名化。
 ~~~

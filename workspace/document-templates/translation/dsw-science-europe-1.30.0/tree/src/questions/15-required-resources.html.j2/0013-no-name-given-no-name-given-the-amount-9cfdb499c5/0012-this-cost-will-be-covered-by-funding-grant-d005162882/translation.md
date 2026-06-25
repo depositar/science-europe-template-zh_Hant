@@ -17,5 +17,5 @@ This cost will be covered by funding grant
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此費用將由補助經費支應
 ~~~

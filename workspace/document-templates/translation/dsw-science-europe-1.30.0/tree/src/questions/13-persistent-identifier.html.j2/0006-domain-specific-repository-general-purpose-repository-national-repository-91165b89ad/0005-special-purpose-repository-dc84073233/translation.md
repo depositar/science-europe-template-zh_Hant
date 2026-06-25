@@ -17,5 +17,5 @@ Special-purpose repository
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專用資料儲存庫
 ~~~

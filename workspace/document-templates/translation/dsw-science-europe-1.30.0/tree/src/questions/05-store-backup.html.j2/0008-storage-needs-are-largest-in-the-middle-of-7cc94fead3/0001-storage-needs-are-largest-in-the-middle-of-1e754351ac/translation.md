@@ -17,5 +17,5 @@ Storage needs are largest in the middle of the project.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案中期的儲存需求最大。
 ~~~

@@ -17,5 +17,5 @@ This cost will be covered as follows: {costCoverOtherHowReply}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此費用將以下列方式支應：{costCoverOtherHowReply}。
 ~~~

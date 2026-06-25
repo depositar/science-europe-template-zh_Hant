@@ -17,5 +17,5 @@ The archived data will be changing over time and needs re-archival.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+封存資料會隨時間變動，因此需要重新封存。
 ~~~

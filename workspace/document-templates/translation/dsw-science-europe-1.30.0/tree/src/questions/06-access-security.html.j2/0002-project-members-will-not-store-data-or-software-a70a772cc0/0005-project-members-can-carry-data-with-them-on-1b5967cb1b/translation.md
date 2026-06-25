@@ -17,5 +17,5 @@ Project members can carry data with them on encrypted data carriers and password
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案成員可以使用加密資料載體與受密碼保護的筆記型電腦隨身攜帶資料。
 ~~~

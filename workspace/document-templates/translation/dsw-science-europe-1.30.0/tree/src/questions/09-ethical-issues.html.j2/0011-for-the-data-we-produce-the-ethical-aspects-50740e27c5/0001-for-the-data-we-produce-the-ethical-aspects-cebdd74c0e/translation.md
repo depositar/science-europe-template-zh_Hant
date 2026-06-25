@@ -17,5 +17,5 @@ For the data we produce, the ethical aspects are as follows:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+關於我們產生的資料，倫理面向如下：
 ~~~

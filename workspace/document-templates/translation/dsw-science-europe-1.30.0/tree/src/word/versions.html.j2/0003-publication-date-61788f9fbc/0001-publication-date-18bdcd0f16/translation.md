@@ -17,5 +17,5 @@ Publication date
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+發布日期
 ~~~

@@ -17,5 +17,5 @@ The following project require ethical approval:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+以下專案需要倫理審查核准：
 ~~~

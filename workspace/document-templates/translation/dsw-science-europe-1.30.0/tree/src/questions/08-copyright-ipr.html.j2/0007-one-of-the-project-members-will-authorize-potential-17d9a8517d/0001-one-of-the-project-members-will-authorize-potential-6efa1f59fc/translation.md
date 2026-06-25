@@ -17,5 +17,5 @@ One of the project members will authorize potential users of the data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案成員之一將負責授權潛在資料使用者。
 ~~~

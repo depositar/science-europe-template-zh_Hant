@@ -17,5 +17,5 @@ ensuring accessibility
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+確保資料可被取用
 ~~~

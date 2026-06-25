@@ -17,5 +17,5 @@ To execute the DMP, additional specialist expertise is required. We will be hiri
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+執行資料管理方案需要額外的專業知識。我們將聘用具備相關專業的新成員。
 ~~~
