@@ -17,5 +17,5 @@ The equipment is very well described and known.
 ### Translation (zh_Hant)
 
 ~~~jinja
-此設備已有完整描述且廣為人知。
+此儀器設備已有完整描述且廣為人知。
 ~~~

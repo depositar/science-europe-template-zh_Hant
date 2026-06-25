@@ -17,5 +17,5 @@
 ### Translation (zh_Hant)
 
 ~~~jinja
-{names} 與 {lastName} 的職責：{responsibility}
+{names}、{lastName}{responsibility}
 ~~~
