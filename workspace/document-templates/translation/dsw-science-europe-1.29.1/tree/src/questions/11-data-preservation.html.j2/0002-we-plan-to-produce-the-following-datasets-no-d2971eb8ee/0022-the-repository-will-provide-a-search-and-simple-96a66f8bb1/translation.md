@@ -17,5 +17,5 @@ The repository will provide a search and simple access interface.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料儲存庫將提供搜尋與簡易取用介面。
 ~~~

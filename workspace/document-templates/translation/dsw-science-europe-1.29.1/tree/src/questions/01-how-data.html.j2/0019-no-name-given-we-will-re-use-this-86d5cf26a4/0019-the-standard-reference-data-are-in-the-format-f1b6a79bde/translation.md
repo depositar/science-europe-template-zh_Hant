@@ -17,5 +17,5 @@ The standard reference data are in the format that has to be transformed before 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此標準參考資料的格式在使用前需要先轉換。
 ~~~

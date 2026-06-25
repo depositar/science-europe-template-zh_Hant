@@ -21,7 +21,7 @@
           {%- endif -%}
         {%- endfor -%}
         {%- set nContacts = contacts|length -%}
-        {# __tr_branch_sentence_original:PGR0PkNvbnRhY3QgeyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0luQmxiM0JzWlNJZ2FXWWdLRzVEYjI1MFlXTjBjeUEtSURFcElHVnNjMlVnSW5CbGNuTnZiaUlnZlgwPSAjfXslIGlmIChuQ29udGFjdHMgPiAxKSAlfXt7ICJwZW9wbGUiIH19eyUgZWxzZSAlfXt7ICJwZXJzb24iIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI308L2R0Pg== #}{% if (nContacts > 1) %}{# __tr_block_0000:start #}<dt>Contact {# __tr_inline_if_original:e3sgInBlb3BsZSIgaWYgKG5Db250YWN0cyA-IDEpIGVsc2UgInBlcnNvbiIgfX0= #}{{ "people" }}{# __tr_inline_if_original:end #}</dt>{# __tr_block_0000:end #}{% else %}{# __tr_block_0001:start #}<dt>Contact {# __tr_inline_if_original:e3sgInBlb3BsZSIgaWYgKG5Db250YWN0cyA-IDEpIGVsc2UgInBlcnNvbiIgfX0= #}{{ "person" }}{# __tr_inline_if_original:end #}</dt>{# __tr_block_0001:end #}{% endif %}{# __tr_branch_sentence_original:end #}
+        {# __tr_branch_sentence_original:PGR0PkNvbnRhY3QgeyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0luQmxiM0JzWlNJZ2FXWWdLRzVEYjI1MFlXTjBjeUEtSURFcElHVnNjMlVnSW5CbGNuTnZiaUlnZlgwPSAjfXslIGlmIChuQ29udGFjdHMgPiAxKSAlfXt7ICJwZW9wbGUiIH19eyUgZWxzZSAlfXt7ICJwZXJzb24iIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI308L2R0Pg== #}{% if (nContacts > 1) %}{# __tr_block_0000:start #}<dt>聯絡人{# __tr_inline_if_original:end #}</dt>{# __tr_block_0000:end #}{% else %}{# __tr_block_0001:start #}<dt>聯絡人{# __tr_inline_if_original:end #}</dt>{# __tr_block_0001:end #}{% endif %}{# __tr_branch_sentence_original:end #}
         {# __tr_block_0002:start #}<dd>
           {%- if nContacts > 0 -%}
             <ul>
@@ -35,7 +35,7 @@
                   {%- if contributorName -%}
                     <span class="contact-name">{{ contributorName }}</span>
                   {%- else -%}
-                    <span class="contact-name missing">(name not given)</span>
+                    <span class="contact-name missing">（尚未提供姓名）</span>
                   {%- endif -%}
                   {%- if contributorEmail and contributorOrcid %}
                     <br>{{ macros.formatEmail(contributorEmail) }}, {{ macros.formatOrcid(contributorOrcid) }}
@@ -51,21 +51,21 @@
               {%- endfor -%}
             </ul>
           {%- else -%}
-            <span class="empty-value">There is no contact person specified yet</span>
+            <span class="empty-value">尚未指定聯絡人</span>
           {%- endif -%}
         </dd>{# __tr_block_0002:end #}
       {%- endif -%}
 
-      {# __tr_block_0003:start #}<dt>Based on</dt>{# __tr_block_0003:end #}
+      {# __tr_block_0003:start #}<dt>基於</dt>{# __tr_block_0003:end #}
       <dd>{{ ctx.package.name }}, {{ ctx.package.version }} (<span class="package-id"><span class="organization-id">{{ ctx.package.organizationId }}</span>:<span class="km-id">{{ ctx.package.kmId }}</span>:<span class="version">{{ ctx.package.version }}</span></span>)</dd>
 
       {%- if ctx.phaseUuid -%}
-      {# __tr_block_0004:start #}<dt>Project phase</dt>{# __tr_block_0004:end #}
+      {# __tr_block_0004:start #}<dt>專案階段</dt>{# __tr_block_0004:end #}
       <dd>{{ km.entities.phases[ctx.phaseUuid].title }}</dd>
       {%- endif -%}
 
       {%- set nCreators = creators|length -%}
-      {# __tr_block_0005:start #}<dt>Created by</dt>{# __tr_block_0005:end #}
+      {# __tr_block_0005:start #}<dt>創作者</dt>{# __tr_block_0005:end #}
         {# __tr_block_0006:start #}<dd>
           {%- if nCreators > 0 -%}
             <ul>
@@ -79,7 +79,7 @@
                     {%- if creatorName -%}
                       <span class="contact-name">{{ creatorName }}</span>
                     {%- else -%}
-                      <span class="contact-name missing">(name not given)</span>
+                      <span class="contact-name missing">（尚未提供姓名）</span>
                     {%- endif -%}
                     {%- if creatorEmail and creatorOrcid -%}
                       <br>{{ macros.formatEmail(creatorEmail) }}, {{ macros.formatOrcid(creatorOrcid) }}
@@ -95,21 +95,21 @@
                 {%- endfor -%}
               </ul>
             {%- else -%}
-              <span class="empty-value">There is no creator specified yet</span>
+              <span class="empty-value">尚未指定創作者</span>
           {%- endif -%}
         </dd>{# __tr_block_0006:end #}
       
 
       {% for version in ctx.questionnaire.versions if version.uuid == ctx.questionnaire.versionUuid %}
-      {# __tr_block_0007:start #}<dt>Version</dt>{# __tr_block_0007:end #}
+      {# __tr_block_0007:start #}<dt>版本</dt>{# __tr_block_0007:end #}
       <dd>{{version.name}} ({{ version.createdAt|datetime_format("%d %b %Y") }})</dd>
       {% endfor %}
 
-      {# __tr_block_0008:start #}<dt>Generated on</dt>{# __tr_block_0008:end #}
+      {# __tr_block_0008:start #}<dt>產生日期</dt>{# __tr_block_0008:end #}
       <dd>{{ ctx.document.createdAt|datetime_format("%d %b %Y") }}</dd>
     </dl>
     {# __tr_block_0009:start #}<p class="note">
-      Data Management Plan created in {{ dc.config.service_name }} &laquo;<a href="{{ dc.config.service_url }}" target="_blank">{{ dc.config.service_domain_name }}</a>&raquo;
+      在 {{ dc.config.service_name }} « <a href="{{ dc.config.service_url }}" target="_blank">{{ dc.config.service_domain_name }}</a> » 中建立的資料管理方案
     </p>{# __tr_block_0009:end #}
   </div>
 </header>

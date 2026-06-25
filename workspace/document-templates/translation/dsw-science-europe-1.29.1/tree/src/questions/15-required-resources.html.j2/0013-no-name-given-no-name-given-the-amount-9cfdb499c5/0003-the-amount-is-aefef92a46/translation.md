@@ -17,5 +17,5 @@ The amount is {projectCostItemAmountReply} {projectCostItemCurrencyReply}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+金額為 {projectCostItemAmountReply} {projectCostItemCurrencyReply}。
 ~~~

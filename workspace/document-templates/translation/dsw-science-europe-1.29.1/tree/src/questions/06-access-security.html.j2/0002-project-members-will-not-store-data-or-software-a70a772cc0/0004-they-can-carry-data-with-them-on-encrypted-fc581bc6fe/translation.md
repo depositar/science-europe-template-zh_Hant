@@ -17,5 +17,5 @@ They can carry data with them on encrypted data carriers and password-protected 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+他們可以使用加密資料載體與受密碼保護的筆記型電腦隨身攜帶資料。
 ~~~

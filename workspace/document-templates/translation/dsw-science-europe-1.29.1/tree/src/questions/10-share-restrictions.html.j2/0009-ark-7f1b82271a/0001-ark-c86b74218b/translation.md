@@ -17,5 +17,5 @@ ARK: {identifierValue}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+ARK：{identifierValue}
 ~~~

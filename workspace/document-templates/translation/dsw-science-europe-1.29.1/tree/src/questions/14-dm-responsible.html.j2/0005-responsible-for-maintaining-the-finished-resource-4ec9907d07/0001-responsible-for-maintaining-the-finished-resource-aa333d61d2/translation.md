@@ -17,5 +17,5 @@ responsible for maintaining the finished resource.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+負責維護完成後的資源。
 ~~~

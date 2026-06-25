@@ -17,5 +17,5 @@ There will be a (sub)folder for each step in the analysis workflow.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+分析工作流程中的每個步驟都會有一個（子）資料夾。
 ~~~

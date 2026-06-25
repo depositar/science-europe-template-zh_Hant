@@ -17,5 +17,5 @@ We have already contacted the repository.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們已聯絡資料儲存庫。
 ~~~

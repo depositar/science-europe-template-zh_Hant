@@ -17,5 +17,5 @@ We are not running the project in a collaboration between different groups nor i
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們的專案並非由不同群體或機構共同合作執行。因此，不需要與資料取用相關的合作協議。
 ~~~

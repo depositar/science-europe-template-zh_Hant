@@ -1,5 +1,5 @@
 <div id="q-ethical-issues" class="question">
-  {# __tr_block_0000:start #}<h3>8. How will other legal issues, such as intellectual property rights and ownership, be managed? What legislation is applicable?
+  {# __tr_block_0000:start #}<h3>8. 其他法律議題將如何管理，例如智慧財產權與所有權？適用哪些法規？
 </h3>{# __tr_block_0000:end #}
 
   <div class="answer">
@@ -7,14 +7,14 @@
     {%- set asOpenAsPossiblePath = [uuids.accessCUuid, uuids.asOpenAsPossibleQUuid]|reply_path -%}
     {%- set asOpenAsPossibleAUuid = repliesMap[asOpenAsPossiblePath]|reply_str_value -%}
     {%- if asOpenAsPossibleAUuid == uuids.asOpenAsPossibleYesAUuid -%}
-      {# __tr_block_0001:start #}<p>We will be working with the philosophy <em>as open as possible</em> for our data.</p>{# __tr_block_0001:end #}
+      {# __tr_block_0001:start #}<p>我們將以「盡可能開放」的理念處理資料。</p>{# __tr_block_0001:end #}
     {%- endif -%}
 
     {# Can open data #}
     {%- set openImmediatelyPath = [uuids.accessCUuid, uuids.openImmediatelyQUuid]|reply_path -%}
     {%- set openImmediatelyAUuid = repliesMap[openImmediatelyPath]|reply_str_value -%}
     {%- if openImmediatelyAUuid == uuids.openImmediatelyYesAUuid -%}
-      {# __tr_block_0002:start #}<p>All of our data can become completely open over time.</p>{# __tr_block_0002:end #}
+      {# __tr_block_0002:start #}<p>我們所有資料最終皆可完全開放。</p>{# __tr_block_0002:end #}
     {%- elif openImmediatelyAUuid == uuids.openImmediatelyNoAUuid -%}
       {%- set pathPrefix = [openImmediatelyPath, uuids.openImmediatelyNoAUuid]|reply_path -%}
       {%- set notOpenLegalReasonsPath = [pathPrefix, uuids.notOpenLegalReasonsQUuid]|reply_path -%}
@@ -54,22 +54,22 @@
           The data cannot become completely open because of:
           <ul>
             {%- if legalReasons %}
-              <li>legal reasons</li>
+              <li>法律因素。</li>
             {%- endif -%}
             {%- if businessReasonsPatents %}
-              <li>patent-related business reasons</li>
+              <li>與專利相關的商業因素。</li>
             {%- elif businessReasonsOther %}
               <li>non-patent business reasons{{ "：" ~ notOpenBusinessReasonsOther if notOpenBusinessReasonsOther else "" }}</li>
             {%- endif -%}
             {%- if otherReasonsPapers %}
-              <li>we want to publish a paper first</li>
+              <li>我們想先發表論文。</li>
             {%- elif otherReasonsOther -%}
               <li>we have other than paper-publishing reasons{{ "：" ~ notOpenOtherReasonsOther if notOpenOtherReasonsOther else "" }}</li>
             {%- endif -%}
           </ul>
         {%- endif -%}{# __tr_block_0003:end #}
 {# __tr_branch_sentence_original:end #}      {%- else -%}
-        {# __tr_block_0004:start #}<p>The data cannot become completely open.</p>{# __tr_block_0004:end #}
+        {# __tr_block_0004:start #}<p>資料無法完全開放。</p>{# __tr_block_0004:end #}
       {%- endif -%}
 
       {# Authentication and authorization of users #}
@@ -79,11 +79,11 @@
         {%- set legalReasonsAuthenticatedAUuid = repliesMap[legalReasonsAuthenticatedQUuid]|reply_str_value -%}
         
         {%- if legalReasonsAuthenticatedAUuid -%}
-          {# __tr_block_0005:start #}<h4>Authentication and Authorization of Users</h4>{# __tr_block_0005:end #}
+          {# __tr_block_0005:start #}<h4>使用者身分驗證與授權</h4>{# __tr_block_0005:end #}
           {%- if legalReasonsAuthenticatedAUuid == uuids.legalReasonsAuthorizeMemberAUuid -%}
-            {# __tr_block_0006:start #}<p>One of the project members will authorize potential users of the data.</p>{# __tr_block_0006:end #}
+            {# __tr_block_0006:start #}<p>專案成員之一將負責授權潛在資料使用者。</p>{# __tr_block_0006:end #}
           {%- elif legalReasonsAuthenticatedAUuid == uuids.legalReasonsAuthorizeNewCommitteeAUuid -%}
-            {# __tr_block_0007:start #}<p>We will set up a data access committee for authorization of potential users of the data.</p>{# __tr_block_0007:end #}
+            {# __tr_block_0007:start #}<p>我們將設立資料取用委員會，以授權潛在資料使用者。</p>{# __tr_block_0007:end #}
           {%- elif legalReasonsAuthenticatedAUuid == uuids.legalReasonsAuthorizeOldCommitteeAUuid -%}
             {%- set legalReasonsAuthenticatedCommitteeQUuid = [legalReasonsAuthenticatedQUuid, uuids.legalReasonsAuthorizeOldCommitteeAUuid, uuids.legalReasonsAuthorizeOldCommitteeQUuid]|reply_path -%}
             {%- set legalReasonsAuthenticatedCommitteeReply = repliesMap[legalReasonsAuthenticatedCommitteeQUuid]|reply_str_value -%}
@@ -91,7 +91,7 @@
             {%- if legalReasonsAuthenticatedCommitteeReply -%}
               {# __tr_block_0008:start #}<p>We will make use of an existing data committee - {{legalReasonsAuthenticatedCommitteeReply|dot}}</p>{# __tr_block_0008:end #}
             {%- else -%}
-              {# __tr_block_0009:start #}<p>We will make use of an existing data committee.</p>{# __tr_block_0009:end #}
+              {# __tr_block_0009:start #}<p>我們將使用既有資料委員會。</p>{# __tr_block_0009:end #}
             {%- endif -%}
 
           {%- elif legalReasonsAuthenticatedAUuid == uuids.legalReasonsAuthorizeOtherAUuid -%}
@@ -101,7 +101,7 @@
             {%- if legalReasonsAuthenticatedOtherReply  -%}
               {# __tr_block_0010:start #}<p>We will have following arrangements: {{legalReasonsAuthenticatedOtherReply|dot}}</p>{# __tr_block_0010:end #}
             {%- else -%}
-              {# __tr_block_0011:start #}<p>We will have not decided yet.</p>{# __tr_block_0011:end #}
+              {# __tr_block_0011:start #}<p>我們尚未決定。</p>{# __tr_block_0011:end #}
             {%- endif -%}
           {%- endif -%}
  
@@ -112,11 +112,11 @@
       {%- set notOpenLimitedEmbargoPath = [openImmediatelyPath, uuids.openImmediatelyNoAUuid, uuids.notOpenLimitedEmbargoQUuid]|reply_path -%}
       {%- set notOpenLimitedEmbargoAUuid = repliesMap[notOpenLimitedEmbargoPath]|reply_str_value -%}
       {%- if notOpenLimitedEmbargoAUuid == uuids.notOpenLimitedEmbargoIndefinitelyAUuid -%}
-        {# __tr_block_0012:start #}<p>Limited embargo cannot be used because some restricted data will be embargoed indefinitely.</p>{# __tr_block_0012:end #}
+        {# __tr_block_0012:start #}<p>無法使用有限限制公開期，因為部分受限制資料將無限期限制公開。</p>{# __tr_block_0012:end #}
       {%- elif notOpenLimitedEmbargoAUuid == uuids.notOpenLimitedEmbargoReleasedSoonAUuid -%}
-        {# __tr_block_0013:start #}<p>Data will be released only as soon as restrictions are falling away.</p>{# __tr_block_0013:end #}
+        {# __tr_block_0013:start #}<p>資料只會在限制解除後儘快釋出。</p>{# __tr_block_0013:end #}
       {%- elif notOpenLimitedEmbargoAUuid == uuids.notOpenLimitedEmbargoYesAUuid -%}
-        {# __tr_block_0014:start #}<p>Data that is not legally restrained will be released after a fixed time period, unconditionally.</p>{# __tr_block_0014:end #}
+        {# __tr_block_0014:start #}<p>不受法律限制的資料將在固定期間後無條件釋出。</p>{# __tr_block_0014:end #}
       {%- endif -%}
     {%- endif -%}
 
@@ -124,18 +124,18 @@
     {%- set embargoPath = [uuids.accessCUuid, uuids.limitedEmbargoQUuid]|reply_path -%}
     {%- set embargoAUuid = repliesMap[embargoPath]|reply_str_value -%}
     {%- if embargoAUuid == uuids.limitedEmbargoOpenAUuid -%}
-      {# __tr_block_0015:start #}<p>Limited embargo will not be used as all data will be opened.</p>{# __tr_block_0015:end #}
+      {# __tr_block_0015:start #}<p>由於所有資料都會開放，因此不會設定延後開放期限。</p>{# __tr_block_0015:end #}
     {%- elif embargoAUuid == uuids.limitedEmbargoIndefinitelyAUuid -%}
-      {# __tr_block_0016:start #}<p>Limited embargo cannot be used because some restricted data will be embargoed indefinitely.</p>{# __tr_block_0016:end #}
+      {# __tr_block_0016:start #}<p>無法使用有限限制公開期，因為部分受限制資料將無限期限制公開。</p>{# __tr_block_0016:end #}
     {%- elif embargoAUuid == uuids.limitedEmbargoReleasedSoonAUuid -%}
-      {# __tr_block_0017:start #}<p>Data will be released only as soon as restrictions are falling away.</p>{# __tr_block_0017:end #}
+      {# __tr_block_0017:start #}<p>資料只會在限制解除後儘快釋出。</p>{# __tr_block_0017:end #}
     {%- elif embargoAUuid == uuids.limitedEmbargoYesAUuid -%}
       {%- set embargoPeriodPath = [embargoPath, embargoAUuid, uuids.limitedEmbargoPeriodQUuid]|reply_path -%}
       {%- set embargoPeriod = repliesMap[embargoPeriodPath]|reply_str_value -%}
       {%- if embargoPeriod -%}
-        {# __tr_block_0018:start #}<p>Data that is not legally restrained will be released after a fixed time period ({{ embargoPeriod }}), unconditionally.</p>{# __tr_block_0018:end #}
+        {# __tr_block_0018:start #}<p>不受法律限制的資料將在固定期限（{{ embargoPeriod }}）後無條件釋出。</p>{# __tr_block_0018:end #}
       {%- else -%}
-        {# __tr_block_0019:start #}<p>Data that is not legally restrained will be released after a fixed time period, unconditionally.</p>{# __tr_block_0019:end #}
+        {# __tr_block_0019:start #}<p>不受法律限制的資料將在固定期間後無條件釋出。</p>{# __tr_block_0019:end #}
       {%- endif -%}
     {%- endif -%}
     
@@ -143,13 +143,13 @@
     {%- set ownershipPath = [uuids.creatingCUuid, uuids.ownershipQUuid]|reply_path -%}
     {%- set ownershipAUuid = repliesMap[ownershipPath]|reply_str_value -%}
     {%- if ownershipAUuid == uuids.ownershipNoOwnerAUuid -%}
-      {# __tr_block_0020:start #}<p>Our data is legally not copyrightable, there is no legal owner.</p>{# __tr_block_0020:end #}
+      {# __tr_block_0020:start #}<p>我們的資料在法律上不受著作權保護，因此沒有法律上的權利人。</p>{# __tr_block_0020:end #}
     {%- elif ownershipAUuid == uuids.ownershipPIAUuid -%}
-      {# __tr_block_0021:start #}<p>All data will be owned by the Principal Investigator.</p>{# __tr_block_0021:end #}
+      {# __tr_block_0021:start #}<p>所有資料將由計畫主持人擁有。</p>{# __tr_block_0021:end #}
     {%- elif ownershipAUuid == uuids.ownershipInstituteAUuid -%}
-      {# __tr_block_0022:start #}<p>All data will be owned by the institute.</p>{# __tr_block_0022:end #}
+      {# __tr_block_0022:start #}<p>所有資料將由本機構擁有。</p>{# __tr_block_0022:end #}
     {%- elif ownershipAUuid == uuids.ownershipConsortiumAUuid -%}
-      {# __tr_block_0023:start #}<p>We have a consortium agreement that arranges Intellectual Property.</p>{# __tr_block_0023:end #}
+      {# __tr_block_0023:start #}<p>我們已有聯盟協議書來安排智慧財產權。</p>{# __tr_block_0023:end #}
     {%- elif ownershipAUuid == uuids.ownershipOtherAUuid -%}
       {%- set ownershipOtherPath = [ownershipPath, uuids.ownershipOtherAUuid, uuids.ownershipOtherQUuid]|reply_path -%}
       {%- set ownershipOther = repliesMap[ownershipOtherPath]|reply_str_value -%}
@@ -183,7 +183,7 @@
         {%- endif -%}
       {%- endfor -%}
       {%- if (answeredRefData|length + answeredNRefData|length) > 0 -%}
-        {# __tr_block_0025:start #}<p>For the reference and non-reference data sets that we reuse, conditions are as follows:
+        {# __tr_block_0025:start #}<p>我們再次使用的參考與非參考資料集，其使用條件如下：
         <ul>
           {%- for i in answeredRefData -%}
             {%- set refDataPrefix = [refDataPath, i]|reply_path -%}
@@ -197,13 +197,7 @@
                 {%- if refDataNameReply -%}
                   <div>{{ refDataNameReply }}</div>
                 {%- else -%}
-                  <div>(no name given)</div>
-                {%- endif -%}
-                
-                {% if refDataConditionsAUuid == uuids.refDataConditionsCC0AUuid -%}
-                  It is freely available for any use (public domain or CC0).
-                {%- elif refDataConditionsAUuid == uuids.refDataConditionsCCBYAUuid -%}
-                  It is freely available with obligation to quote the source (e.g. CC-BY).
+                  <div>（尚未提供名稱）</div>{%- endif -%}{% if refDataConditionsAUuid == uuids.refDataConditionsCC0AUuid -%}可自由取得並用於任何用途（公眾領域或 CC0）。{%- elif refDataConditionsAUuid == uuids.refDataConditionsCCBYAUuid -%}可自由取得，但使用時必須引用來源（例如 CC BY）。
                 {%- elif refDataConditionsAUuid == uuids.refDataConditionsOtherAUuid -%}
                   {%- set refDataConditionsOtherPath = [refDataConditionsPath, uuids.refDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set refDataConditionsOther = repliesMap[refDataConditionsOtherPath]|reply_str_value -%}
@@ -224,12 +218,7 @@
                 {%- if nrefDataNameReply -%}
                   <div>{{ nrefDataNameReply }}</div>
                 {%- else -%}
-                  <div>(no name given)</div>
-                {%- endif -%}
-                {% if nrefDataConditionsAUuid == uuids.nrefDataConditionsCC0AUuid -%}
-                  It is freely available for any use (public domain or CC0).
-                {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsCCBYAUuid -%}
-                  It is freely available with obligation to quote the source (e.g. CC-BY).
+                  <div>（尚未提供名稱）</div>{%- endif -%}{% if nrefDataConditionsAUuid == uuids.nrefDataConditionsCC0AUuid -%}可自由取得並用於任何用途（公眾領域或 CC0）。{%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsCCBYAUuid -%}可自由取得，但使用時必須引用來源（例如 CC BY）。
                 {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsOtherAUuid -%}
                   {%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
                   {%- set nrefDataConditionsOther = repliesMap[nrefDataConditionsOtherPath]|reply_str_value -%}

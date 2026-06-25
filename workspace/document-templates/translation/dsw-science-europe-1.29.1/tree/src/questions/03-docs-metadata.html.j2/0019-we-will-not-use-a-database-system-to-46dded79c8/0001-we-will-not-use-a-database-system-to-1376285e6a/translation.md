@@ -17,5 +17,5 @@ We will not use a database system to store project data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不會使用資料庫系統儲存專案資料。
 ~~~

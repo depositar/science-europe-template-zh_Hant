@@ -1,5 +1,5 @@
 <div id="q-how-data" class="question">
-    {# __tr_block_0000:start #}<h3>4. What data quality control measures will be used?</h3>{# __tr_block_0000:end #}
+    {# __tr_block_0000:start #}<h3>4. 將使用哪些資料品質管控措施？</h3>{# __tr_block_0000:end #}
 
     <div class="answer">
         {%- set measuredPath = [uuids.creatingCUuid, uuids.measuredQUuid]|reply_path -%}
@@ -15,12 +15,12 @@
                 {# __tr_block_0001:start #}<li>
                     {%- set measuredDataNamePath = [pathPrefix, uuids.measuredDataNameQUuid]|reply_path -%}
                     {%- set measuredDataName = repliesMap[measuredDataNamePath]|reply_str_value -%}
-                    <strong>{# __tr_inline_if_original:e3sgbWVhc3VyZWREYXRhTmFtZSBpZiBtZWFzdXJlZERhdGFOYW1lIGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if measuredDataName %}{{ measuredDataName }}{% else %}{{ "(no name given)" }}{% endif %}{# __tr_block_0001:end #}{# __tr_inline_if_original:end #}</strong>
+                    <strong>{# __tr_inline_if_original:e3sgbWVhc3VyZWREYXRhTmFtZSBpZiBtZWFzdXJlZERhdGFOYW1lIGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if measuredDataName %}{{ measuredDataName }}{% else %}（尚未提供名稱）{% endif %}{# __tr_block_0001:end #}{# __tr_inline_if_original:end #}</strong>
                     {# Quality #}
                     {%- set measuredDataQualityPath = [pathPrefix, uuids.measuredDataQualityQUuid]|reply_path -%}
                     {%- set measuredDataQualityAUuid = repliesMap[measuredDataQualityPath]|reply_str_value -%}
                     {%- if measuredDataQualityAUuid == uuids.measuredDataQualityNoAUuid -%}
-                    {# __tr_block_0002:start #}<p>For this dataset we will not be using quality process for this dataset.</p>{# __tr_block_0002:end #}
+                    {# __tr_block_0002:start #}<p>針對此資料集，我們不會使用資料品質管控流程。</p>{# __tr_block_0002:end #}
                     {%- elif measuredDataQualityAUuid == uuids.measuredDataQualityYesAUuid -%}
                     {# Named quality processes #}
                     {%- set mdqPrefix = [measuredDataQualityPath, uuids.measuredDataQualityYesAUuid]|reply_path -%}
@@ -42,94 +42,49 @@
                     {%- set qualityCount = qualityProcesses|select("true")|list|length -%}
                     {%- if qualityCount == 1 -%}
                         {# __tr_branch_sentence_original:PHA-CiAgICAgICAgICAgICAgICAgICAgICAgIFdlIHdpbGwgYmUgdXNpbmcKICAgICAgICAgICAgICAgICAgICAgICAgeyUgaWYgY2FsaWJyYXRpbmcgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjYWxpYnJhdGluZyBtZWFzdXJlbWVudHMKICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgICAgICAgICAgICB7JS0gaWYgcmVwZXRpdGlvbiAtJX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlcGVhdCBzYW1wbGVzL21lYXN1cmVtZW50cwogICAgICAgICAgICAgICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBpZiBzdGFuZGFyZGl6ZWQgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdGFuZGFyZGl6ZWQgZGF0YSBjYXB0dXJlL3JlY29yZGluZwogICAgICAgICAgICAgICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBpZiB2YWxpZGF0aW9uIC0lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGVtPkRhdGEgRW50cnk8L2VtPiB2YWxpZGF0aW9uCiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGlmIHBlZXJSZXZpZXcgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhIHBlZXIgcmV2aWV3CiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgICAgICAgICAgICAgeyUtIGlmIHZvY2FidWxhcmllcyAtJX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRyb2xsZWQgdm9jYWJ1bGFyaWVzCiAgICAgICAgICAgICAgICAgICAgICAgIHslLSBlbmRpZiAlfQogICAgICAgICAgICAgICAgICAgICAgICB7JS0gaWYgY29uc2lzdGVuY3kgLSV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtZWFzdXJpbmcgc2FtcGxlcyBmb3Igd2hpY2ggdGhlIG91dGNvbWUgaXMga25vd24gaW4gb3JkZXIgdG8gbW9uaXRvciBjb25zaXN0ZW5jeQogICAgICAgICAgICAgICAgICAgICAgICB7JS0gZW5kaWYgJX0KICAgICAgICAgICAgICAgICAgICAgICAgYXMgcGFydCBvZiB0aGUgcXVhbGl0eSBwcm9jZXNzLgogICAgICAgICAgICAgICAgICAgICAgICA8L3A- #}{% if calibrating -%}{# __tr_block_0003:start #}<p>
-                        We will be using
-                        calibrating measurements
-                        
-                        
-                        
-                        
-                        
-                        as part of the quality process.
+                        我們會將校準量測作為資料品質管控流程的一部分。
                         </p>{# __tr_block_0003:end #}{%- endif -%}{%- if repetition -%}{# __tr_block_0004:start #}<p>
-                        We will be using{{" "}}
-                        repeat samples/measurements
-                        
-                        
-                        
-                        
-                        as part of the quality process.
+                        我們會將重複蒐集樣本／重複測量作為資料品質管控流程的一部分。
                         </p>{# __tr_block_0004:end #}{%- endif -%}{%- if standardized -%}{# __tr_block_0005:start #}<p>
-                        We will be using{{" "}}
-                        
-                        standardized data capture/recording
-                        
-                        
-                        
-                        as part of the quality process.
+                        我們會將標準化的資料擷取／記錄作為資料品質管控流程的一部分。
                         </p>{# __tr_block_0005:end #}{%- endif -%}{%- if validation -%}{# __tr_block_0006:start #}<p>
-                        We will be using{{" "}}
-                        
-                        
-                        <em>Data Entry</em> validation
-                        
-                        
-                        as part of the quality process.
+                        我們會將資料驗證作為資料品質管控流程的一部分。
                         </p>{# __tr_block_0006:end #}{%- endif -%}{%- if peerReview -%}{# __tr_block_0007:start #}<p>
-                        We will be using{{" "}}
-                        
-                        
-                        
-                        data peer review
-                        
-                        as part of the quality process.
+                        我們會將資料的同儕評審作為資料品質管控流程的一部分。
                         </p>{# __tr_block_0007:end #}{%- endif -%}{%- if vocabularies -%}{# __tr_block_0008:start #}<p>
-                        We will be using{{" "}}
-                        
-                        
-                        
-                        
-                        controlled vocabularies
-                        
-                        as part of the quality process.
+                        我們會將控制詞彙作為資料品質管控流程的一部分。
                         </p>{# __tr_block_0008:end #}{%- endif %}{%- if consistency -%}{# __tr_block_0009:start #}<p>
-                        We will be using{{" "}}
-                        
-                        
-                        
-                        
-                        
-                        measuring samples for which the outcome is known in order to monitor consistency
-                        as part of the quality process.
+                        我們會使用已知結果的樣本量測來監測一致性，作為資料品質管控流程的一部分。
                         </p>{# __tr_block_0009:end #}{%- endif %}{# __tr_branch_sentence_original:end #}
                     {%- elif qualityCount > 1 -%}
                         {# __tr_block_0010:start #}<p>
-                        We will be using the following quality processes for this dataset:
+                        針對此資料集，我們將使用以下資料品質管控流程：
                         <ul>
                         {%- if calibrating -%}
-                            <li>calibrating measurements</li>
+                            <li>校準量測。</li>
                         {%- endif -%}
                         {%- if repetition -%}
-                            <li>repeat samples/measurements</li>
+                            <li>重複蒐集樣本／重複測量。</li>
                         {%- endif -%}
                         {%- if standardized -%}
-                            <li>standardized data capture/recording</li>
+                            <li>標準化的資料擷取／記錄。</li>
                         {%- endif -%}
                         {%- if validation -%}
-                            <li><em>Data Entry</em> validation</li>
+                            <li>資料驗證。</li>
                         {%- endif -%}
                         {%- if peerReview -%}
-                            <li>data peer review</li>
+                            <li>資料的同儕評審。</li>
                         {%- endif -%}
                         {%- if vocabularies -%}
-                            <li>controlled vocabularies</li>
+                            <li>控制詞彙。</li>
                         {%- endif -%}
                         {%- if consistency -%}
-                            <li>measuring samples with known outcome (to monitor consistency)</li>
+                            <li>量測已知結果的樣本（用於監測一致性）。</li>
                         {%- endif %}{# __tr_block_0010:end #}
                         </ul>
                         </p>
                     {%- else -%}
-                        <p>{# __tr_block_0011:start #}We will be using quality processes.{# __tr_block_0011:end #}{# __tr_block_0012:start #}<p>
+                        <p>{# __tr_block_0011:start #}我們將使用資料品質管控流程。{# __tr_block_0011:end #}{# __tr_block_0012:start #}<p>
                     {%- endif -%}
                     {# Other quality processes #}
                     {%- set mdQualityOtherPath = [mdqPrefix, uuids.mdQualityOtherQUuid]|reply_path -%}
@@ -147,7 +102,7 @@
             </ul>
             {%- endif -%}
         {%- else -%}
-            {# __tr_block_0013:start #}<p>There will be no instrument dataset in this project.</p>{# __tr_block_0013:end #}
+            {# __tr_block_0013:start #}<p>本專案不會有儀器資料集。</p>{# __tr_block_0013:end #}
         {%- endif -%}
 
 

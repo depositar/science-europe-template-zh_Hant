@@ -17,5 +17,5 @@ DDI (Data Documentation Initiative)
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+DDI（Data Documentation Initiative）
 ~~~

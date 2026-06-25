@@ -17,5 +17,5 @@ This is not a suitable format for long-term archiving; however, we plan to conve
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+這不是適合長期保存的格式；不過，我們計畫在專案結束前將其轉換為適合的格式。
 ~~~

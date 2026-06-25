@@ -17,5 +17,5 @@ Data Management Plan created in {dc.config.service_name} « {dc.config.service_d
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+在 {dc.config.service_name} « {dc.config.service_domain_name} » 中建立的資料管理方案
 ~~~

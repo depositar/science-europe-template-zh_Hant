@@ -17,5 +17,5 @@
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+- 尚無個人資料或敏感資料相關資訊。
 ~~~

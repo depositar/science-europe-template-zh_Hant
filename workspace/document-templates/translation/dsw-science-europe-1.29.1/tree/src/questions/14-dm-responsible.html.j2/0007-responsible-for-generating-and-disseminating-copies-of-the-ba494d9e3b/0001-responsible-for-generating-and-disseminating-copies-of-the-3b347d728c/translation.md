@@ -17,5 +17,5 @@ responsible for generating and disseminating copies of the resource in either el
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+負責以電子或紙本形式產生並散布資源副本。
 ~~~

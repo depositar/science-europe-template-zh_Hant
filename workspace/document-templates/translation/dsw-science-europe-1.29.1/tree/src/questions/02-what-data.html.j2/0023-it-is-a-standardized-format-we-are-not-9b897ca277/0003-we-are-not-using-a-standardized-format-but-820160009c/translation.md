@@ -17,5 +17,5 @@ We are not using a standardized format but it is optimized for processing speed 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不使用標準化格式，但此格式已針對處理速度及／或資料量最佳化。
 ~~~

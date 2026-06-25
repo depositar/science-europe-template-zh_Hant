@@ -17,5 +17,5 @@ We collect personal data for the benefit of society, and this is more important 
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們基於社會公共利益蒐集個人資料，且該公共利益高於資料主體的隱私利益。
 ~~~

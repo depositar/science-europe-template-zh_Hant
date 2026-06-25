@@ -17,5 +17,5 @@ People can apply to one of the project members.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+可向其中一位專案成員申請。
 ~~~

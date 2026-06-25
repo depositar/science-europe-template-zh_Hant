@@ -17,5 +17,5 @@ And all the data that are stores elsewhere is adequately backed up.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+而且所有儲存在其他位置的資料都會妥善備份。
 ~~~

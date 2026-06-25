@@ -17,5 +17,5 @@ We will be using the following quality processes:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用以下資料品質管控流程：
 ~~~

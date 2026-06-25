@@ -17,5 +17,5 @@ Project members will not store data or software on computers in the lab or exter
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案成員不會將資料或軟體儲存在實驗室電腦，或連接至這些電腦的外接硬碟上。
 ~~~

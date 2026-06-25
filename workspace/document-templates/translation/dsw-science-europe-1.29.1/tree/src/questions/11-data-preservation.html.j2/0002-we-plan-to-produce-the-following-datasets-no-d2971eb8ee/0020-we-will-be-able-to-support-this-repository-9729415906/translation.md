@@ -17,5 +17,5 @@ We will be able to support this repository for a sufficiently long time.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將能在足夠長的時間內支援此資料儲存庫。
 ~~~

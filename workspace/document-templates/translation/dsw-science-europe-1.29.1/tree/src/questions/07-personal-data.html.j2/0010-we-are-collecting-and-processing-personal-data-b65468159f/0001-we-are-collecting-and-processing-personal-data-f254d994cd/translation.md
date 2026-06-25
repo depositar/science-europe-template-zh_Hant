@@ -17,5 +17,5 @@ We are collecting and processing personal data
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們正在蒐集與處理個人資料。
 ~~~

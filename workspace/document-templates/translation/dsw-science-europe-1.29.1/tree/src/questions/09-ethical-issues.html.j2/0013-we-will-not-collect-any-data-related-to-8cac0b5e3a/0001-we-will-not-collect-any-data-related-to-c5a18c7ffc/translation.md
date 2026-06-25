@@ -17,5 +17,5 @@ We will not collect any data related to individuals, i.e. "personal data".
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不會蒐集任何與個人相關的資料，即「個人資料」。
 ~~~

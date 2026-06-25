@@ -17,5 +17,5 @@ Data in the database will be read-only.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料庫中的資料將為唯讀。
 ~~~

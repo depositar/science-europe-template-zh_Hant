@@ -17,5 +17,5 @@ ORCID: {orcid}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+ORCID：{orcid}
 ~~~

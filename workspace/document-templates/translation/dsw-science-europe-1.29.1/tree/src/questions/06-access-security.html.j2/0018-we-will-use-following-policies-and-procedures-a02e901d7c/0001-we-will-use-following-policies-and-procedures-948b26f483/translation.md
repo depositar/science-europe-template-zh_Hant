@@ -17,5 +17,5 @@ We will use following policies and procedures:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將採用以下政策與程序：
 ~~~

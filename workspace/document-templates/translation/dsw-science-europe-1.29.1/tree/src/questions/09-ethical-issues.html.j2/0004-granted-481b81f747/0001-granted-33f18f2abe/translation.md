@@ -17,5 +17,5 @@ granted
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+已核准
 ~~~

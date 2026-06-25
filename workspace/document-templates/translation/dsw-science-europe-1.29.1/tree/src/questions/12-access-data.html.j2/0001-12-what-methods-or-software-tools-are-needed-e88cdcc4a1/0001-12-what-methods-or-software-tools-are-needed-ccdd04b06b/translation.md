@@ -17,5 +17,5 @@
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+12. 取用與使用資料需要哪些方法或軟體工具？
 ~~~

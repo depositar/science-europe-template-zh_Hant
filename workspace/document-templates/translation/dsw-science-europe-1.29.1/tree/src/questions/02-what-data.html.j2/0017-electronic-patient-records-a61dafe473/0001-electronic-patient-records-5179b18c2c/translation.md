@@ -17,5 +17,5 @@ electronic patient records
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+電子病歷
 ~~~

@@ -17,5 +17,5 @@ Data cannot be completely open due to legal reasons. But data that is not legall
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+基於法律因素，資料無法完全開放。但不受法律限制的資料將在固定期限後釋出。
 ~~~

@@ -17,5 +17,5 @@ N/A
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+不適用
 ~~~

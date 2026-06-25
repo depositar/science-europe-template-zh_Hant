@@ -17,5 +17,5 @@ rejected
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+未核准
 ~~~

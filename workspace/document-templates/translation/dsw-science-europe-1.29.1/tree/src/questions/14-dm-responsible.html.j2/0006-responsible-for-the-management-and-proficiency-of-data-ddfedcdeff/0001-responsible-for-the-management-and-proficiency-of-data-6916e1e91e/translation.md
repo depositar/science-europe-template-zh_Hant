@@ -17,5 +17,5 @@ responsible for the management and proficiency of data including data processing
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+負責資料的管理與完善，包括資料處理、資料政策、資料指引與資料可用性。
 ~~~
