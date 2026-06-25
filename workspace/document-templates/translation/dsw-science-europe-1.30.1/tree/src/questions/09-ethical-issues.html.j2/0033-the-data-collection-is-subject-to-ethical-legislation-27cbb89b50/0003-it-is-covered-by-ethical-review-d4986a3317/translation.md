@@ -17,5 +17,5 @@ It is covered by ethical review.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+屬於倫理審查範圍。
 ~~~

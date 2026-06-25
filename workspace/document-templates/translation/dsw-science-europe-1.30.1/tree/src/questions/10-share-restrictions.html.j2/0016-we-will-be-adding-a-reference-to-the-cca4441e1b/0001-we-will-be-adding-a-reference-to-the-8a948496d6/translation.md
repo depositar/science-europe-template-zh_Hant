@@ -17,5 +17,5 @@ We will be adding a reference to the published data to at least one data catalog
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會將已發布資料的參照加入至少一個資料目錄。
 ~~~

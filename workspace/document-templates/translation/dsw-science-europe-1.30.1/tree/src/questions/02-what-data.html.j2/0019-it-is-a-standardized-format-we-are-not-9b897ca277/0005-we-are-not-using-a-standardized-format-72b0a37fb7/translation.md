@@ -17,5 +17,5 @@ We are not using a standardized format.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們不使用標準化格式。
 ~~~

@@ -17,5 +17,5 @@
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+{swDisplayName}，可於 {swPIDReply} 取得。
 ~~~

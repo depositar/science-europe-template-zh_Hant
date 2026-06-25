@@ -17,5 +17,5 @@ We plan to transfer data outside the EU/EEA and these are measures we will place
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們計畫將資料傳輸至歐盟／歐洲經濟區以外，並將採取以下措施保護資料：{personalDataSafeguardTransferMeasuresReply}
 ~~~

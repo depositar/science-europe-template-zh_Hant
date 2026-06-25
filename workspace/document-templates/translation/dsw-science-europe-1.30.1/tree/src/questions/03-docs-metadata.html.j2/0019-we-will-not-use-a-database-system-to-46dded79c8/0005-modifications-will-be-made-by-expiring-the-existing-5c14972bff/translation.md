@@ -17,5 +17,5 @@ Modifications will be made by Expiring the existing data and Adding updated data
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+修改將透過使既有資料失效並新增更新後資料的方式進行。
 ~~~

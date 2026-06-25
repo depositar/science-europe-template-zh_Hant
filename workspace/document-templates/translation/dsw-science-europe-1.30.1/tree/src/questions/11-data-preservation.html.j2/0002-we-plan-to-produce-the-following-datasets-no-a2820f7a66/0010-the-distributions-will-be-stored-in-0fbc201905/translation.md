@@ -17,5 +17,5 @@ The distributions will be stored in:
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+發布版本將儲存在：
 ~~~

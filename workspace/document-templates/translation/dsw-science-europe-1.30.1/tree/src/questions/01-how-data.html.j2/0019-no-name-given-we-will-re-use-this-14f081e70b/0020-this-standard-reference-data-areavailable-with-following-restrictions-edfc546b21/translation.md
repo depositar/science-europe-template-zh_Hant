@@ -17,5 +17,5 @@ This standard reference data are available with following restrictions: {refData
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此標準參考資料可在以下限制下取得：{refDataConditionsOtherReply}。
 ~~~

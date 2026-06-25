@@ -17,5 +17,5 @@ This data set will be kept available until it needs to be deleted for legal, con
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料集將保持可取得，直到因法律、契約或法規原因需要刪除為止。
 ~~~

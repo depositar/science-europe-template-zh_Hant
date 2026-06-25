@@ -17,5 +17,5 @@ We expect to have {formatsVolumeFiles} files of average size {formatsVolumeFileG
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們預計會有 {formatsVolumeFiles} 個檔案，平均大小為 {formatsVolumeFileGB} GB（亦即總計約 {formatsVolumeApproxGB} GB）。
 ~~~

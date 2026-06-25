@@ -17,6 +17,7 @@ Actual translation work lives on version branches.
 
 Each supported upstream template tag has a dedicated branch:
 
+- `translation/v1.29.1`
 - `translation/v1.30.0`
 - `translation/v1.30.1`
 

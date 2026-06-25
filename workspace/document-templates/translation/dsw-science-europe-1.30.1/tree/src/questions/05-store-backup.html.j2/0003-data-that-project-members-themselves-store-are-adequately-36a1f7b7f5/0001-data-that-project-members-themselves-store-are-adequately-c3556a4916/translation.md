@@ -17,5 +17,5 @@ Data that project members themselves store are adequately backed up and traceabl
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案成員自行儲存的資料會妥善備份且可追蹤。因此，資料可受到保護，避免設備故障與人為錯誤造成損失。
 ~~~

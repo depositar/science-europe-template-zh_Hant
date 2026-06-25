@@ -17,5 +17,5 @@ We need to conduct a data protection impact assessment (DPIA).
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們需要進行資料保護影響評估（DPIA）。
 ~~~

@@ -17,5 +17,5 @@ DOI: {identifierValue}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+DOI：{identifierValue}
 ~~~

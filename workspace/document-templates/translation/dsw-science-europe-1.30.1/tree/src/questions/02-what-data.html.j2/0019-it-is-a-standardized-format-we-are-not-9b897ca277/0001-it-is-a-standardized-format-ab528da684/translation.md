@@ -17,5 +17,5 @@ It is a standardized format.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+這是標準化格式。
 ~~~

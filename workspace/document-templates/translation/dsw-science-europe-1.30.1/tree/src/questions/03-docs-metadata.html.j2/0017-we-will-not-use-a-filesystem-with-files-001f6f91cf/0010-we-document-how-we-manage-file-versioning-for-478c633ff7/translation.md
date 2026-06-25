@@ -17,5 +17,5 @@ We document how we manage file versioning for files and folders.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們會記錄如何管理檔案與資料夾的版本。
 ~~~

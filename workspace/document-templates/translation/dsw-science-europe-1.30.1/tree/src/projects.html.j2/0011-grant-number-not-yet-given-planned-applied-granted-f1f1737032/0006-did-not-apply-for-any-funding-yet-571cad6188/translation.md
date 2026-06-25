@@ -17,5 +17,5 @@ Did not apply for any funding yet.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+尚未申請任何經費。
 ~~~

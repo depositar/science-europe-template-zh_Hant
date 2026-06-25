@@ -17,5 +17,5 @@ People can apply to an existing data access committee.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+可向既有資料取用委員會申請。
 ~~~

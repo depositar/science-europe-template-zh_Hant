@@ -17,5 +17,5 @@ The provenance will be captured using W3C PROV.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料溯源將以 W3C PROV 記錄。
 ~~~

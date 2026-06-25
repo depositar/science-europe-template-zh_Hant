@@ -17,5 +17,5 @@ There is a procedure for users to access private data as follows: {personalDataM
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+使用者取用私有資料的程序如下：{personalDataManagedAccessReply}
 ~~~

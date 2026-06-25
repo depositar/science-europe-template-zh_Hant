@@ -17,5 +17,5 @@ We will be documenting the data with {metadataStandards_0} and {metadataStandard
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將使用 {metadataStandards_0} 與 {metadataStandards_1} 後設資料標準記錄資料。
 ~~~

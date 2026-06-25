@@ -17,5 +17,5 @@ To execute the DMP, no additional specialist expertise is required.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+執行資料管理方案不需要額外的專業知識。
 ~~~

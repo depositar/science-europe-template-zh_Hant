@@ -17,5 +17,5 @@ Metadata will not be available in a form that can be harvested and indexed.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+後設資料不會以可被擷取與索引的形式提供。
 ~~~

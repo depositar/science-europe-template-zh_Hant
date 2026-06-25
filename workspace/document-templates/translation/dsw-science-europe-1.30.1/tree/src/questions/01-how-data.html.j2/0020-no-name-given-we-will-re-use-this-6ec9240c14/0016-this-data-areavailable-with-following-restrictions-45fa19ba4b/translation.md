@@ -17,5 +17,5 @@ This data are available with following restrictions: {nrefDataConditionsOtherRep
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料可在以下限制下取得：{nrefDataConditionsOtherReply}。
 ~~~

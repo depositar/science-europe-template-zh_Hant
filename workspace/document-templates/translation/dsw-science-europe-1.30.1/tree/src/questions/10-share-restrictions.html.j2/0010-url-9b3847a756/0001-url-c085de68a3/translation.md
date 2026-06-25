@@ -17,5 +17,5 @@ URL: {identifierValue}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+URL：{identifierValue}
 ~~~

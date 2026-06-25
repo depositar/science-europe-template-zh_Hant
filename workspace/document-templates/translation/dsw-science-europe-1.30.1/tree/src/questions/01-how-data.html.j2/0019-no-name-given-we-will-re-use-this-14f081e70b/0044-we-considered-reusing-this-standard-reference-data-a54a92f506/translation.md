@@ -17,5 +17,5 @@ We considered reusing this standard reference data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們曾考慮再次使用此標準參考資料。
 ~~~

@@ -17,5 +17,5 @@ controlled vocabularies.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+控制詞彙。
 ~~~

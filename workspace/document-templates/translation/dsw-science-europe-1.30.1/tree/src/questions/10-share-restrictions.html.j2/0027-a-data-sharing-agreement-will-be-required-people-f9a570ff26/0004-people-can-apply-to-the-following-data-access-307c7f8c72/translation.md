@@ -17,5 +17,5 @@ People can apply to the following data access committee: {legalReasonsAuthorizeO
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+可向下列資料取用委員會申請：{legalReasonsAuthorizeOldCommittee}
 ~~~

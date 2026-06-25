@@ -17,5 +17,5 @@ The consent form will not be available for re-users.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+同意書不會提供給資料再次使用者。
 ~~~

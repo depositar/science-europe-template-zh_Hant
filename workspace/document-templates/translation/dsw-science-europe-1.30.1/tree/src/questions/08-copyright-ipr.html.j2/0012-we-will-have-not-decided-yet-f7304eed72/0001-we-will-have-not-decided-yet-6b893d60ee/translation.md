@@ -17,5 +17,5 @@ We will have not decided yet.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們尚未決定。
 ~~~

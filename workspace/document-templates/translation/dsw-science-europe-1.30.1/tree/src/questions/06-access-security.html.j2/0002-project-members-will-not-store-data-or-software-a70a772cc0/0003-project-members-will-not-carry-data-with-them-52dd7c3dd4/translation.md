@@ -17,5 +17,5 @@ Project members will not carry data with them (e.g. on laptops, USB sticks, or o
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+專案成員不會隨身攜帶資料（例如存放在筆記型電腦、USB 隨身碟或其他外接媒體）。
 ~~~

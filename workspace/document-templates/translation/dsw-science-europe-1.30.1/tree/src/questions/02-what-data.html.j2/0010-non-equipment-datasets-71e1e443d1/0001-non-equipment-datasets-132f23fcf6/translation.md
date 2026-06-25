@@ -17,5 +17,5 @@ Non-equipment datasets
 ### Translation (zh_Hant)
 
 ~~~jinja
-非設備資料集
+非儀器資料集
 ~~~

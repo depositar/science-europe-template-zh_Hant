@@ -17,5 +17,5 @@ data peer review.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料的同儕評審。
 ~~~

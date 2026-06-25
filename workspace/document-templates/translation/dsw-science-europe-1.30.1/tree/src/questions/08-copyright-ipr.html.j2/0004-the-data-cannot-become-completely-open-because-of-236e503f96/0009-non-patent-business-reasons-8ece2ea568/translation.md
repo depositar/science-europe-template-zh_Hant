@@ -17,5 +17,5 @@ non-patent business reasons{notOpenBusinessReasonsOther}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+非專利相關的商業因素{notOpenBusinessReasonsOther}。
 ~~~

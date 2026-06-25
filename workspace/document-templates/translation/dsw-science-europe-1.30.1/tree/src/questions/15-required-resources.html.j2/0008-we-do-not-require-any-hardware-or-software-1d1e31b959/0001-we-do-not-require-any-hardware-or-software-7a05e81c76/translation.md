@@ -17,5 +17,5 @@ We do not require any hardware or software in addition to what is usually availa
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+除機構通常提供的資源外，我們不需要其他硬體或軟體。
 ~~~

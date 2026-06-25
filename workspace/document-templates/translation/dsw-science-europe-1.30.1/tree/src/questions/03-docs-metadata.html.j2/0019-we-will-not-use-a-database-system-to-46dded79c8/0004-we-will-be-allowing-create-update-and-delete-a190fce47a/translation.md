@@ -17,5 +17,5 @@ We will be allowing Create, Update and Delete operations for data in the databas
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將允許對資料庫中的資料進行建立、更新與刪除操作。
 ~~~

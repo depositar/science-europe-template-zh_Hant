@@ -17,5 +17,5 @@ Data security protection is described in Section 3, Question 6.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+資料安全保護已於第 3 節第 6 題說明。
 ~~~

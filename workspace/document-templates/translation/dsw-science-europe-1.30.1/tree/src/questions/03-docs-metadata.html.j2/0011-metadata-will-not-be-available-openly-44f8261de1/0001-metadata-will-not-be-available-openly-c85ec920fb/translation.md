@@ -17,5 +17,5 @@ Metadata will not be available openly – {explanation}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+後設資料不會公開提供，原因是：{explanation}
 ~~~

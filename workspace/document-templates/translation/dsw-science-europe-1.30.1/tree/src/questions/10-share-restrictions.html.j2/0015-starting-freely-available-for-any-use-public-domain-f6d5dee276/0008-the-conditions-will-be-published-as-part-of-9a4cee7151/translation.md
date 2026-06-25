@@ -17,5 +17,5 @@ The conditions will be published as part of open metadata.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+這些條件將作為開放後設資料的一部分發布。
 ~~~
