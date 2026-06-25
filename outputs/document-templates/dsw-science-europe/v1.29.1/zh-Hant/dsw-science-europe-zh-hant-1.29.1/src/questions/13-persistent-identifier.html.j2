@@ -77,7 +77,7 @@
                                 {%- set publishedDataIdentifierSpecifyReply = repliesMap[publishedDataIdentifierSpecifyQUuid]|reply_str_value -%}
 
                                 {%- if publishedDataIdentifierSpecifyReply -%}
-                                    <p>The assigned persistent identifier is specified as follows: {{publishedDataIdentifierSpecifyReply|dot}}</p>
+                                    <p>The assigned persistent identifier is specified as follows: {{ publishedDataIdentifierSpecifyReply|trim }}</p>
                                 {%- endif -%}
                             </ul>
                             {%- else -%}
