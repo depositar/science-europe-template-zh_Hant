@@ -1,5 +1,5 @@
 <div id="q-data-preservation" class="question">
-  {# __tr_block_0000:start #}<h3>11. How will data for preservation be selected, and where data will be preserved long-term (for example a data repository or archive)?</h3>{# __tr_block_0000:end #}
+  {# __tr_block_0000:start #}<h3>11. 將如何選擇要保存的資料？資料將在哪裡長期保存（例如資料儲存庫或典藏庫）？</h3>{# __tr_block_0000:end #}
 
   <div class="answer">
     {# Produced datasets #}
@@ -7,20 +7,14 @@
     {%- set producedDataItems = repliesMap[producedDataPath]|reply_items -%}
     {%- if producedDataItems|length > 0 -%}
       {# __tr_block_0001:start #}<p>
-      We plan to produce the following datasets:
+      我們計畫產出以下資料集：
       <ul>
       {%- for i in producedDataItems -%}
         {%- set pathPrefix = [producedDataPath, i]|reply_path -%}
         {%- set producedDataName = repliesMap[[pathPrefix, uuids.producedDataNameQUuid]|reply_path]|reply_str_value -%}
         <li>
-          <strong>{# __tr_inline_if_original:e3sgcHJvZHVjZWREYXRhTmFtZSBpZiBwcm9kdWNlZERhdGFOYW1lIGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if producedDataName %}{{ producedDataName }}{% else %}{{ "(no name given)" }}{% endif %}{# __tr_inline_if_original:end #}</strong>
-          {# If will be published #}
-          {%- set isPublishedDataPath = [pathPrefix, uuids.isPublishedDataQUuid]|reply_path -%}
-          {%- set isPublishedDataAUuid = repliesMap[isPublishedDataPath]|reply_str_value -%}
-          {% if isPublishedDataAUuid == uuids.isPublishedDataNoAUuid %}
-            (not published)
-          {% elif isPublishedDataAUuid == uuids.isPublishedDataYesAUuid %}
-            (will be published)
+          <strong>{# __tr_inline_if_original:e3sgcHJvZHVjZWREYXRhTmFtZSBpZiBwcm9kdWNlZERhdGFOYW1lIGVsc2UgIihubyBuYW1lIGdpdmVuKSIgfX0= #}{% if producedDataName %}{{ producedDataName }}{% else %}（尚未提供名稱）{% endif %}{# __tr_inline_if_original:end #}</strong>{# If will be published #}{%- set isPublishedDataPath = [pathPrefix, uuids.isPublishedDataQUuid]|reply_path -%}{%- set isPublishedDataAUuid = repliesMap[isPublishedDataPath]|reply_str_value -%}{% if isPublishedDataAUuid == uuids.isPublishedDataNoAUuid %}（未發布）
+          {% elif isPublishedDataAUuid == uuids.isPublishedDataYesAUuid %}（將發布）
           {% endif -%}
           {# How long will be stored + Metadata FAIRness #}
           {%- set publishedDataHowLongPath = [pathPrefix, uuids.publishedDataHowLongQUuid]|reply_path -%}
@@ -29,20 +23,20 @@
           {%- set publishedDataMetadataPersistentAUuid = repliesMap[publishedDataMetadataPersistentPath]|reply_str_value -%}
           {%- if publishedDataHowLongAUuid or (publishedDataMetadataPersistentAUuid == uuids.publishedDataMetadataPersistentYesAUuid) %}
             {% if publishedDataHowLongAUuid == uuids.publishedDataHowLongTechnicalAUuid -%}
-              <p>This data set will be kept available as long as technically possible.</p>
+              <p>只要技術上可行，此資料集將持續保持可取得。</p>
             {%- elif publishedDataHowLongAUuid == uuids.publishedDataHowLongDeletedAUuid -%}
-              <p> This data set will be kept available until it needs to be deleted for legal, contractual or regulatory reasons.</p>{# __tr_branch_sentence_original:CiAgICAgICAgICAgIHslLSBlbGlmIHB1Ymxpc2hlZERhdGFIb3dMb25nQVV1aWQgPT0gdXVpZHMucHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZEFVdWlkIC0lfQogICAgICAgICAgICAgIHslLSBzZXQgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZFBhdGggPSBbcHVibGlzaGVkRGF0YUhvd0xvbmdQYXRoLCB1dWlkcy5wdWJsaXNoZWREYXRhSG93TG9uZ0ZpeGVkQVV1aWQsIHV1aWRzLnB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRRVXVpZF18cmVwbHlfcGF0aCAtJX0KICAgICAgICAgICAgICB7JS0gc2V0IHB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWQgPSByZXBsaWVzTWFwW3B1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRQYXRoXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgICAgICAgICAgPHA-VGhpcyBkYXRhIHNldCB3aWxsIGJlIGtlcHQgYXZhaWxhYmxlIGZvciBhIGZpeGVkIHBlcmlvZCAocHJlcGFpZCl7eyAiIG9mOiAiIH4gcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZHxkb3QgaWYgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZCBlbHNlICIuIiB9fTwvcD4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQo= #}
+              <p>此資料集將保持可取得，直到因法律、契約或法規原因需要刪除為止。</p>{# __tr_branch_sentence_original:CiAgICAgICAgICAgIHslLSBlbGlmIHB1Ymxpc2hlZERhdGFIb3dMb25nQVV1aWQgPT0gdXVpZHMucHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZEFVdWlkIC0lfQogICAgICAgICAgICAgIHslLSBzZXQgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZFBhdGggPSBbcHVibGlzaGVkRGF0YUhvd0xvbmdQYXRoLCB1dWlkcy5wdWJsaXNoZWREYXRhSG93TG9uZ0ZpeGVkQVV1aWQsIHV1aWRzLnB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRRVXVpZF18cmVwbHlfcGF0aCAtJX0KICAgICAgICAgICAgICB7JS0gc2V0IHB1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWQgPSByZXBsaWVzTWFwW3B1Ymxpc2hlZERhdGFIb3dMb25nRml4ZWRQYXRoXXxyZXBseV9zdHJfdmFsdWUgLSV9CiAgICAgICAgICAgICAgPHA-VGhpcyBkYXRhIHNldCB3aWxsIGJlIGtlcHQgYXZhaWxhYmxlIGZvciBhIGZpeGVkIHBlcmlvZCAocHJlcGFpZCl7eyAiIG9mOiAiIH4gcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZHxkb3QgaWYgcHVibGlzaGVkRGF0YUhvd0xvbmdGaXhlZCBlbHNlICIuIiB9fTwvcD4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQo= #}
             {%- elif publishedDataHowLongAUuid == uuids.publishedDataHowLongFixedAUuid -%}
               {%- set publishedDataHowLongFixedPath = [publishedDataHowLongPath, uuids.publishedDataHowLongFixedAUuid, uuids.publishedDataHowLongFixedQUuid]|reply_path -%}
               {%- set publishedDataHowLongFixed = repliesMap[publishedDataHowLongFixedPath]|reply_str_value -%}
               {%- if publishedDataHowLongFixed -%}
-                <p>This data set will be kept available for a fixed period (prepaid) of: {{ publishedDataHowLongFixed|dot }}</p>
+                <p>此資料集將在以下固定期間內保持可取得（已預付費用）：{{ publishedDataHowLongFixed|trim }}。</p>
               {%- else -%}
-                <p>This data set will be kept available for a fixed period (prepaid).</p>
+                <p>此資料集將在固定期間內保持可取得（已預付費用）。</p>
               {%- endif -%}
             {%- endif -%}
 {# __tr_branch_sentence_original:end #}            {%- if publishedDataMetadataPersistentAUuid == uuids.publishedDataMetadataPersistentYesAUuid %}
-              <p>The metadata will be available even when the data no longer exists.</p>
+              <p>即使資料本身不再可取得，後設資料仍將可取得。</p>
             {%- endif -%}
           {%- endif -%}
 
@@ -50,65 +44,27 @@
           {% set distrosPath = [isPublishedDataPath, uuids.isPublishedDataYesAUuid, uuids.publishedDistrosQUuid]|reply_path -%}
           {%- set distrosItems = repliesMap[distrosPath]|reply_items -%}
           {%- if distrosItems|length > 0 -%}
-            <p>The distributions will be stored in:</p>
+            <p>發布版本將儲存在：</p>
             <ul>
             {%- for j in distrosItems -%}
               {%- set distroPrefix = [distrosPath, j]|reply_path -%}
               {%- set distroRepositoryKindPath = [distroPrefix, uuids.publishedDataRepositoryKindQUuid]|reply_path -%}
               {%- set distroRepositoryKindAUuid = repliesMap[distroRepositoryKindPath]|reply_str_value -%}
               {%- if distroRepositoryKindAUuid -%}
-                <li>
-                  {%- if distroRepositoryKindAUuid == uuids.publishedDataRepositoryDomainSpecificAUuid %}
-                    Domain-specific repository
+                <li>{%- if distroRepositoryKindAUuid == uuids.publishedDataRepositoryDomainSpecificAUuid %}特定學科的資料儲存庫
                     {%- set domainSpecificRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoNameQUuid]|reply_path -%}
                     {%- set domainSpecificRepoNameReply = repliesMap[domainSpecificRepoNamePath] -%}
                     {%- if domainSpecificRepoNameReply -%}
                       ：{{ macros.integrationFairSharing(domainSpecificRepoNameReply) }}。
-                    {%- else -%}。
-                    {% endif -%}
-                    {# Contact the repository #}
-                    {%- set domainSpecificRepoContactBeforePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoContactBeforeQUuid]|reply_path -%}
-                    {%- set domainSpecificRepoContactBeforeAUuid = repliesMap[domainSpecificRepoContactBeforePath]|reply_str_value -%}
-                    {%- if domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeNoAUuid %}
-                      We don't need to contact the repository because it is a routine for us.
-                    {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeYesAlreadyAUuid %}
-                      We have already contacted the repository.
-                    {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeYesWillAUuid %}
-                      We are going to contact the repository.
-                    {%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}
-                      {%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}
-                      {%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}
-                      We have made other arrangements instead of contacting the repository directly{{ "：" ~ domainSpecificRepoContactBeforeOther|markdown if domainSpecificRepoContactBeforeOther else "。" }}
+                    {%- else -%}。{% endif -%}{# Contact the repository #}{%- set domainSpecificRepoContactBeforePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryDomainSpecificAUuid, uuids.domainSpecificRepoContactBeforeQUuid]|reply_path -%}{%- set domainSpecificRepoContactBeforeAUuid = repliesMap[domainSpecificRepoContactBeforePath]|reply_str_value -%}{%- if domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeNoAUuid %}我們不需要聯絡資料儲存庫，因為這對我們而言是例行作業。{%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeYesAlreadyAUuid %}我們已聯絡資料儲存庫。{%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeYesWillAUuid %}我們將聯絡資料儲存庫。{%- elif domainSpecificRepoContactBeforeAUuid == uuids.domainSpecificRepoContactBeforeOtherAUuid %}{%- set domainSpecificRepoContactBeforeOtherPath = [domainSpecificRepoContactBeforePath, uuids.domainSpecificRepoContactBeforeOtherAUuid, uuids.domainSpecificRepoContactBeforeOtherQUuid]|reply_path -%}{%- set domainSpecificRepoContactBeforeOther = repliesMap[domainSpecificRepoContactBeforeOtherPath]|reply_str_value %}我們已作出其他安排，而非直接聯絡資料儲存庫{{ "：" ~ domainSpecificRepoContactBeforeOther|markdown if domainSpecificRepoContactBeforeOther else "。" }}
                     {%- endif -%}
                   {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryGeneralPurposeAUuid %}
-                    <em>General-purpose repository</em>
+                    <em>通用型資料儲存庫</em>
                     {%- set generalPurposeRepoNamePath = [distroRepositoryKindPath, uuids.publishedDataRepositoryGeneralPurposeAUuid, uuids.generalPurposeRepoNameQUuid]|reply_path -%}
                     {%- set generalPurposeRepoNameReply = repliesMap[generalPurposeRepoNamePath] -%}
                     {%- if generalPurposeRepoNameReply -%}
                       ：{{ macros.integrationFairSharing(generalPurposeRepoNameReply) }}。
-                    {%- else -%}。
-                    {% endif -%}
-                  {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}
-                    Our national repository.
-                  {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryInstitutionalAUuid %}
-                    Our institutional repository.
-                  {%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositorySpecialAUuid %}
-                    Special-purpose repository for the project.
-                    {# Long-term support #}
-                    {%- set specialRepoLongTermSupportPath = [distroRepositoryKindPath, uuids.publishedDataRepositorySpecialAUuid, uuids.specialRepoLongTermSupportQUuid]|reply_path -%}
-                    {%- set specialRepoLongTermSupportAUuid = repliesMap[specialRepoLongTermSupportPath]|reply_str_value -%}
-                    {%- if specialRepoLongTermSupportAUuid == uuids.specialRepoLongTermSupportYesAUuid %}
-                      We will be able to support this repository for a sufficiently long time.
-                    {%- endif -%}
-                    {# Service level #}
-                    {%- set specialRepoServiceLevelPath = [distroRepositoryKindPath, uuids.publishedDataRepositorySpecialAUuid, uuids.specialRepoServiceLevelQUuid]|reply_path -%}
-                    {%- set specialRepoServiceLevelAUuid = repliesMap[specialRepoServiceLevelPath]|reply_str_value -%}
-                    {%- if specialRepoServiceLevelAUuid == uuids.specialRepoServiceLevelDownloadAUuid %}
-                      The repository will provide download-only service.
-                    {%- elif specialRepoServiceLevelAUuid == uuids.specialRepoServiceLevelSimpleAUuid %}
-                      The repository will provide a search and simple access interface.
-                    {%- elif specialRepoServiceLevelAUuid == uuids.specialRepoServiceLevelAdvancedAUuid %}
-                      The repository will provide an advanced processing service.
+                    {%- else -%}。{% endif -%}{%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryNationalAUuid %}我們的國家級資料儲存庫。{%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositoryInstitutionalAUuid %}我們的機構資料儲存庫。{%- elif distroRepositoryKindAUuid == uuids.publishedDataRepositorySpecialAUuid %}專案專用資料儲存庫。{# Long-term support #}{%- set specialRepoLongTermSupportPath = [distroRepositoryKindPath, uuids.publishedDataRepositorySpecialAUuid, uuids.specialRepoLongTermSupportQUuid]|reply_path -%}{%- set specialRepoLongTermSupportAUuid = repliesMap[specialRepoLongTermSupportPath]|reply_str_value -%}{%- if specialRepoLongTermSupportAUuid == uuids.specialRepoLongTermSupportYesAUuid %}我們將能在足夠長的時間內支援此資料儲存庫。{%- endif -%}{# Service level #}{%- set specialRepoServiceLevelPath = [distroRepositoryKindPath, uuids.publishedDataRepositorySpecialAUuid, uuids.specialRepoServiceLevelQUuid]|reply_path -%}{%- set specialRepoServiceLevelAUuid = repliesMap[specialRepoServiceLevelPath]|reply_str_value -%}{%- if specialRepoServiceLevelAUuid == uuids.specialRepoServiceLevelDownloadAUuid %}資料儲存庫將提供僅下載服務。{%- elif specialRepoServiceLevelAUuid == uuids.specialRepoServiceLevelSimpleAUuid %}資料儲存庫將提供搜尋與簡易取用介面。{%- elif specialRepoServiceLevelAUuid == uuids.specialRepoServiceLevelAdvancedAUuid %}資料儲存庫將提供進階處理服務。
                     {%- endif -%}
                   {%- endif -%}
                 </li>
@@ -120,7 +76,7 @@
           {%- set publishedDataCataloguePath = [isPublishedDataPath, uuids.isPublishedDataYesAUuid, uuids.publishedDataCatalogueQUuid]|reply_path -%}
           {%- set publishedDataCatalogueAUuid = repliesMap[publishedDataCataloguePath]|reply_str_value -%}
           {%- if publishedDataCatalogueAUuid == uuids.publishedDataCatalogueYesAUuid -%}
-            <br>We will be adding a reference to the published data to at least one data catalogue.
+            <br>我們會將已發布資料的參照加入至少一個資料目錄。
           {%- endif -%}
         </li>
         <br>
@@ -130,21 +86,21 @@
     {%- set repoChargesPath = [uuids.preservingCUuid, uuids.repoChargesQUuid]|reply_path -%}
     {%- set repoChargesAUuid = repliesMap[repoChargesPath]|reply_str_value -%}
     {%- if repoChargesAUuid == uuids.repoChargesNoAUuid -%}
-      {# __tr_block_0002:start #}<p>None of the used repositories charge for their services.</p>{# __tr_block_0002:end #}
+      {# __tr_block_0002:start #}<p>所使用的資料儲存庫皆不收取服務費。</p>{# __tr_block_0002:end #}
     {%- elif repoChargesAUuid == uuids.repoChargesYesAUuid -%}
       {%- set repoChargesHowPayPath = [repoChargesPath, uuids.repoChargesYesAUuid, uuids.repoChargesHowPayQUuid]|reply_path -%}
       {%- set repoChargesHowPayAUuid = repliesMap[repoChargesHowPayPath]|reply_str_value -%}
       {%- if repoChargesHowPayAUuid == uuids.repoChargesHowPayBudgetedAUuid -%}
-        {# __tr_block_0003:start #}<p>We have budgeted for the costs in the project to pay charges of the used repositories.</p>{# __tr_block_0003:end #}
+        {# __tr_block_0003:start #}<p>我們已在專案中編列預算，用於支付所使用資料儲存庫的費用。</p>{# __tr_block_0003:end #}
       {%- elif repoChargesHowPayAUuid == uuids.repoChargesHowPayDepartmentAUuid -%}
-        {# __tr_block_0004:start #}<p>The costs related to the used repositories will be carried by (one of) the departments involved in the project.</p>{# __tr_block_0004:end #}
+        {# __tr_block_0004:start #}<p>所使用資料儲存庫的相關費用將由參與專案的（其中一個）部門負擔。</p>{# __tr_block_0004:end #}
       {%- elif repoChargesHowPayAUuid == uuids.repoChargesHowPayInstituteAUuid -%}
-        {# __tr_block_0005:start #}<p>The costs related to the used repositories will be carried by (one of) the institutes involved in the project.</p>{# __tr_block_0005:end #}
+        {# __tr_block_0005:start #}<p>所使用資料儲存庫的相關費用將由參與專案的（其中一個）機構負擔。</p>{# __tr_block_0005:end #}
       {%- elif repoChargesHowPayAUuid == uuids.repoChargesHowPayOtherAUuid -%}
         {%- set repoChargesHowPayOtherPath = [repoChargesHowPayPath, uuids.repoChargesHowPayOtherAUuid, uuids.repoChargesHowPayOtherQUuid]|reply_path -%}
         {%- set repoChargesHowPayOther = repliesMap[repoChargesHowPayOtherPath]|reply_str_value -%}
         {%- if repoChargesHowPayOther -%}
-          {# __tr_block_0006:start #}<p>We will carry the costs related to the used repositories by: {{ repoChargesHowPayOther|markdown }}</p>{# __tr_block_0006:end #}
+          {# __tr_block_0006:start #}<p>我們將以下列方式負擔所使用資料儲存庫的相關費用：{{ repoChargesHowPayOther|markdown }}</p>{# __tr_block_0006:end #}
         {%- endif -%}
       {%- endif -%}
     {%- endif -%}
@@ -152,7 +108,7 @@
     {%- set budgetTimeEffortPath = [uuids.preservingCUuid, uuids.budgetTimeEffortQUuid]|reply_path -%}
     {%- set budgetTimeEffortAUuid = repliesMap[budgetTimeEffortPath]|reply_str_value -%}
     {%- if budgetTimeEffortAUuid == uuids.budgetTimeEffortYesAUuid -%}
-      {# __tr_block_0007:start #}<p>We have a reserved budget for the time and effort it will take to prepare the data for publication.</p>{# __tr_block_0007:end #}
+      {# __tr_block_0007:start #}<p>我們已預留預算，以支應準備資料發布所需的時間與人力。</p>{# __tr_block_0007:end #}
     {%- endif -%}
   {%- endif -%}
   </div>
