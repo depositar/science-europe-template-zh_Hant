@@ -17,5 +17,5 @@ The data cannot become completely open because we want to publish a paper first.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+因為我們希望先發表論文，資料無法完全開放。
 ~~~

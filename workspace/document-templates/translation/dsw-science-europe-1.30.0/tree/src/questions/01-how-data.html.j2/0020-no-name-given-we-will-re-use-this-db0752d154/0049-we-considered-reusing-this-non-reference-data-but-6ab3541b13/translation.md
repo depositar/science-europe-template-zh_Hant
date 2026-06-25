@@ -17,5 +17,5 @@ We considered reusing this non-reference data, but decided not to reuse it becau
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們曾考慮再次使用這筆非參考資料，但因為「{nrefDataUseNoOtherReasonReply}」，決定不再次使用。
 ~~~

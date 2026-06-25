@@ -17,5 +17,5 @@ The data cannot become completely open because of legal reasons.
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+基於法律理由，資料無法完全開放。
 ~~~

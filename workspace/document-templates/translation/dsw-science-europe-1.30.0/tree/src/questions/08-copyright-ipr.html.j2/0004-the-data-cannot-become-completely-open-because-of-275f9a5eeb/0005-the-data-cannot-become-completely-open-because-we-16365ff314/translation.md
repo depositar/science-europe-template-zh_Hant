@@ -17,5 +17,5 @@ The data cannot become completely open because we have other than paper-publishi
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+因為我們有發表論文以外的其他理由{notOpenOtherReasonsOther}，資料無法完全開放。
 ~~~

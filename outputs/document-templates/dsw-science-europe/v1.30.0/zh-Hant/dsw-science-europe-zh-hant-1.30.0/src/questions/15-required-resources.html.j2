@@ -11,8 +11,7 @@
       {# __tr_block_0002:start #}<p>執行資料管理方案需要額外的專業知識，且我們已有受過相關訓練的支援人員。</p>{# __tr_block_0002:end #}
     {%- elif expertiseAUuid == uuids.additionalExpertiseYesTrainAUuid -%}
       {# __tr_branch_sentence_original:PHA-CiAgICAgICAgVG8gZXhlY3V0ZSB0aGUgRE1QLCBhZGRpdGlvbmFsIHNwZWNpYWxpc3QgZXhwZXJ0aXNlIGlzIHJlcXVpcmVkLiBXZSB3aWxsIGJlIHRyYWluaW5nIGV4aXN0aW5nIHN0YWZmCiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VUcmFpblBhdGggPSBbZXhwZXJ0aXNlUGF0aCwgdXVpZHMuYWRkaXRpb25hbEV4cGVydGlzZVllc1RyYWluQVV1aWQsIHV1aWRzLmFkZGl0aW9uYWxFeHBlcnRpc2VZZXNUcmFpblRyYWluaW5nUVV1aWRdfHJlcGx5X3BhdGggLSV9CiAgICAgICAgeyUtIHNldCBleHBlcnRpc2VUcmFpblRleHQgPSByZXBsaWVzTWFwW2V4cGVydGlzZVRyYWluUGF0aF18cmVwbHlfc3RyX3ZhbHVlIC0lfQogICAgICAgIHslLSBpZiBleHBlcnRpc2VUcmFpblRleHQgJX0KICAgICAgICAgIHt7IiAifX1vbjoge3sgZXhwZXJ0aXNlVHJhaW5UZXh0fX0KICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgLgogICAgICA8L3A- #}{%- set expertiseTrainPath = [expertisePath, uuids.additionalExpertiseYesTrainAUuid, uuids.additionalExpertiseYesTrainTrainingQUuid]|reply_path -%}{%- set expertiseTrainText = repliesMap[expertiseTrainPath]|reply_str_value -%}{%- if expertiseTrainText %}{# __tr_block_0003:start #}<p>
-        To execute the DMP, additional specialist expertise is required. We will be training existing staff
-          {{" "}}on: {{ expertiseTrainText}}。
+        執行資料管理方案需要額外的專業知識。我們將針對以下內容訓練現有人員：{{ expertiseTrainText }}。
       </p>{# __tr_block_0003:end #}{% else %}{# __tr_block_0004:start #}<p>
         執行資料管理方案需要額外的專業知識。我們將培訓既有工作人員。
       </p>{# __tr_block_0004:end #}{%- endif -%}{# __tr_branch_sentence_original:end #}
@@ -32,7 +31,7 @@
       {%- set additionalHWSWWhatPath = [additionalHWSWPath, uuids.additionalHWSWYesAUuid, uuids.additionalHWSWYesWhatQUuid]|reply_path -%}
       {%- set additionalHWSWWhat = repliesMap[additionalHWSWWhatPath]|reply_str_value -%}
       {%- if additionalHWSWWhat -%}
-        {# __tr_block_0008:start #}<p>We require the following hardware or software in addition to what is usually available in the institute: {{ additionalHWSWWhat|dot }}</p>{# __tr_block_0008:end #}
+        {# __tr_block_0008:start #}<p>除機構通常提供的資源外，我們還需要以下硬體或軟體：{{ additionalHWSWWhat|dot }}</p>{# __tr_block_0008:end #}
       {%- else -%}
         {# __tr_block_0009:start #}<p>除機構通常提供的資源外，我們還需要其他硬體或軟體。</p>{# __tr_block_0009:end #}
       {%- endif -%}
