@@ -31,14 +31,14 @@
               {%- set mdExternalOwnershipPath = [measuredDataWhoPath, uuids.measuredDataWhoExternalAUuid, uuids.mdExternalOwnershipQUuid]|reply_path -%}
               {%- set mdExternalOwnershipAUuid = repliesMap[mdExternalOwnershipPath]|reply_str_value -%}{# __tr_branch_sentence_original:CiAgICAgICAgICAgICAgPHA-CiAgICAgICAgICAgICAgICBUaGlzIGRhdGFzZXQgd2lsbCBiZSBjb2xsZWN0ZWQgYnkgYW4gZXh0ZXJuYWwgcGFydHkuCiAgICAgICAgICAgICAgICB7JSBpZiBtZEV4dGVybmFsT3duZXJzaGlwQVV1aWQgPT0gdXVpZHMubWRFeHRlcm5hbE93bmVyc2hpcFBhcnR5QVV1aWQgLSV9CiAgICAgICAgICAgICAgICAgIFRoZSBvd25lcnNoaXAgb2YgdGhlIHJlc3VsdGluZyBkYXRhIHdpbGwgcmVtYWluIHdpdGggdGhlIGV4dGVybmFsIHBhcnR5LgogICAgICAgICAgICAgICAgeyUtIGVsaWYgbWRFeHRlcm5hbE93bmVyc2hpcEFVdWlkID09IHV1aWRzLm1kRXh0ZXJuYWxPd25lcnNoaXBQYXJ0bmVyc0FVdWlkIC0lfQogICAgICAgICAgICAgICAgICBUaGUgcHJvamVjdCBwYXJ0bmVycyBhY3F1aXJlIGZ1bGwgb3duZXJzaGlwIG9mIHRoZSBkYXRhLgogICAgICAgICAgICAgICAgeyUtIGVsaWYgbWRFeHRlcm5hbE93bmVyc2hpcEFVdWlkID09IHV1aWRzLm1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlckFVdWlkIC0lfQogICAgICAgICAgICAgICAgICB7JS0gc2V0IG1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlclBhdGggPSBbbWRFeHRlcm5hbE93bmVyc2hpcFBhdGgsIHV1aWRzLm1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlckFVdWlkLCB1dWlkcy5tZEV4dGVybmFsT3duZXJzaGlwT3RoZXJRVXVpZF18cmVwbHlfcGF0aCAtJX0KICAgICAgICAgICAgICAgICAgeyUtIHNldCBtZEV4dGVybmFsT3duZXJzaGlwT3RoZXIgPSByZXBsaWVzTWFwW21kRXh0ZXJuYWxPd25lcnNoaXBPdGhlclBhdGhdfHJlcGx5X3N0cl92YWx1ZSAtJX0KICAgICAgICAgICAgICAgICAgeyUtIGlmIG1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlciAtJX0KICAgICAgICAgICAgICAgICAgICBGb3IgdGhlIG93bmVyc2hpcCBvZiB0aGUgZGF0YSB3ZSBoYXZlIG1hZGUgdGhlIGZvbGxvd2luZyBhcnJhbmdlbWVudHM6IHt7IG1kRXh0ZXJuYWxPd25lcnNoaXBPdGhlcnxkb3QgfX0KICAgICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgIDwvcD4K #}
               {%- if mdExternalOwnershipAUuid == uuids.mdExternalOwnershipPartyAUuid -%}
-                {# __tr_block_0006:start #}<p>This dataset will be collected by an external party. The ownership of the resulting data will remain with the external party.</p>{# __tr_block_0006:end #}
+                {# __tr_block_0006:start #}<p>此資料集將由外部單位蒐集。產生資料的所有權將由該外部單位保留。</p>{# __tr_block_0006:end #}
               {%- elif mdExternalOwnershipAUuid == uuids.mdExternalOwnershipPartnersAUuid -%}
-                {# __tr_block_0007:start #}<p>This dataset will be collected by an external party. The project partners acquire full ownership of the data.</p>{# __tr_block_0007:end #}
+                {# __tr_block_0007:start #}<p>此資料集將由外部單位蒐集。計畫夥伴將取得該資料的完整所有權。</p>{# __tr_block_0007:end #}
               {%- elif mdExternalOwnershipAUuid == uuids.mdExternalOwnershipOtherAUuid -%}
                 {%- set mdExternalOwnershipOtherPath = [mdExternalOwnershipPath, uuids.mdExternalOwnershipOtherAUuid, uuids.mdExternalOwnershipOtherQUuid]|reply_path -%}
                 {%- set mdExternalOwnershipOther = repliesMap[mdExternalOwnershipOtherPath]|reply_str_value -%}
                 {%- if mdExternalOwnershipOther -%}
-                  {# __tr_block_0008:start #}<p>This dataset will be collected by an external party. For the ownership of the data we have made the following arrangements: {{ mdExternalOwnershipOther|dot }}</p>{# __tr_block_0008:end #}
+                  {# __tr_block_0008:start #}<p>此資料集將由外部單位蒐集。關於資料所有權，我們已做出以下安排：{{ mdExternalOwnershipOther|dot }}</p>{# __tr_block_0008:end #}
                 {%- else -%}
                   {# __tr_block_0009:start #}<p>此資料集將由外部單位蒐集。</p>{# __tr_block_0009:end #}
                 {%- endif -%}
@@ -92,7 +92,7 @@
             {%- set neqDataSetsName = repliesMap[[pathPrefix, uuids.neqDataSetsNameQUuid]|reply_path]|reply_str_value -%}
             {%- set neqDataSetsDesc = repliesMap[[pathPrefix, uuids.neqDataSetsDescQUuid]|reply_path]|reply_str_value -%}
             <li>
-              <strong>{# __tr_inline_if_original:e3sgbmVxRGF0YVNldHNOYW1lIGlmIG5lcURhdGFTZXRzTmFtZSBlbHNlICIobm8gbmFtZSBnaXZlbikiIH19 #}{% if neqDataSetsName %}{{ neqDataSetsName }}{% else %}{{ "(no name given)" }}{% endif %}{# __tr_inline_if_original:end #}</strong>
+              <strong>{# __tr_inline_if_original:e3sgbmVxRGF0YVNldHNOYW1lIGlmIG5lcURhdGFTZXRzTmFtZSBlbHNlICIobm8gbmFtZSBnaXZlbikiIH19 #}{% if neqDataSetsName %}{{ neqDataSetsName }}{% else %}（尚未提供名稱）{% endif %}{# __tr_inline_if_original:end #}</strong>
               {% if neqDataSetsDesc -%}<span class="separator">&ndash;</span> {{ neqDataSetsDesc }}{%- endif -%}
             </li>
           {%- endfor -%}

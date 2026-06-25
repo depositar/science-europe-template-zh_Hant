@@ -17,5 +17,5 @@ We will have following arrangements: {legalReasonsAuthenticatedOtherReply}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將採取以下安排：{legalReasonsAuthenticatedOtherReply}
 ~~~
