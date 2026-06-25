@@ -32,3 +32,8 @@ migration:
   auto_pr_enabled: true
   auto_pr_branch_prefix: automation/migrate
   auto_merge_when_clean: true
+
+publish:
+  enabled: true
+  target_repository: depositar/science-europe-template-zh_Hant
+  branch_prefix: sync/
