@@ -17,5 +17,5 @@ An extension of existing ethical approval under research ethics laws of this non
 ### Translation (zh_Hant)
 
 ~~~jinja
-需要延伸此非參考資料既有的研究倫理審查核准，才能涵蓋我們的使用。
+需要延伸此非參考資料集既有的研究倫理審查核准，才能涵蓋我們的使用。
 ~~~
