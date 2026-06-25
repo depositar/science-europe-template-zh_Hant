@@ -36,7 +36,7 @@
                                   {%- set swDisplayName = "(no name given)" -%}
                                 {%- endif -%}
                                 {%- if swPIDReply -%}
-                                <p><strong>{{ swDisplayName }}</strong>, available at {{swPIDReply|dot}}</p>
+                                <p><strong>{{ swDisplayName }}</strong>, available at {{ swPIDReply|trim }}</p>
                                 {%- else -%}
                                 <p><strong>{{ swDisplayName }}</strong>.</p>
                                 {%- endif -%}

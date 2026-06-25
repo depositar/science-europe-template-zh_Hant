@@ -36,7 +36,7 @@
               {%- set publishedDataHowLongFixedPath = [publishedDataHowLongPath, uuids.publishedDataHowLongFixedAUuid, uuids.publishedDataHowLongFixedQUuid]|reply_path -%}
               {%- set publishedDataHowLongFixed = repliesMap[publishedDataHowLongFixedPath]|reply_str_value -%}
               {%- if publishedDataHowLongFixed -%}
-                <p>This data set will be kept available for a fixed period (prepaid) of: {{ publishedDataHowLongFixed|dot }}</p>
+                <p>This data set will be kept available for a fixed period (prepaid) of: {{ publishedDataHowLongFixed|trim }}</p>
               {%- else -%}
                 <p>This data set will be kept available for a fixed period (prepaid).</p>
               {%- endif -%}

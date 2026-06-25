@@ -237,7 +237,7 @@
         {# __tr_block_0025:start #}<p>
           Data cannot be completely open due to legal reasons. But data that is not legally restrained will be released after a fixed time period.
           {%- if embargoPeriod %}
-            The embargo period will be {{ embargoPeriod|dot }}
+            The embargo period will be {{ embargoPeriod|trim }}
           {%- endif %}
         </p>{# __tr_block_0025:end #}
       {%- endif -%}

@@ -71,7 +71,7 @@
                         {%- set projectCostItemDescriptionQUuid = [projectCostItem, uuids.costDescriptionQUuid]|reply_path -%}
                         {%- set projectCostItemDescriptionReply = repliesMap[projectCostItemDescriptionQUuid]|reply_str_value  -%}
                         
-                        {{" - "+projectCostItemDescriptionReply|dot}}
+                        {%- set __tr_dot_value = projectCostItemDescriptionReply|trim -%}{%- if __tr_dot_value -%}{{ " - " + __tr_dot_value }}{{ "。" if __tr_dot_value[-1] not in ".。!！?？" else "" }}{%- endif -%}
 
                         {%- set projectCostItemCurrencyQUuid = [projectCostItem, uuids.costCurrencyQUuid]|reply_path  -%}
                         {%- set projectCostItemCurrencyReply = repliesMap[projectCostItemCurrencyQUuid] -%}
