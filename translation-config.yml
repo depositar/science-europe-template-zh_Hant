@@ -34,6 +34,6 @@ migration:
   auto_merge_when_clean: true
 
 publish:
-  enabled: true
+  enabled: false
   target_repository: depositar/science-europe-template-zh_Hant
   branch_prefix: sync/
