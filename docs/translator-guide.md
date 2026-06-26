@@ -1,0 +1,79 @@
+# Translator Guide
+
+This guide is for editing Traditional Chinese translations on a
+`translation/v*` branch.
+
+## Pick The Right Branch
+
+Each upstream Science Europe template version has a matching branch:
+
+- `translation/v1.29.1`
+- `translation/v1.30.0`
+- `translation/v1.30.1`
+
+Use the branch that matches the template version you want to translate. If you
+are unsure, use the newest branch unless a maintainer asks for a specific
+version.
+
+## Edit Translation Files
+
+Translation work happens in files named `translation.md` under:
+
+```text
+workspace/document-templates/translation/.../tree/
+```
+
+Each file is designed for humans:
+
+- Read `Sentence (en)` to understand the source text.
+- Edit only the `Translation (zh_Hant)` fenced block.
+- Leave collapsed machine metadata alone.
+
+Placeholder rules:
+
+- Keep every placeholder shown in the source sentence, such as `{name}`.
+- You may reorder placeholders to make Chinese grammar natural.
+- Do not write raw Jinja such as `{{ ... }}` or `{% ... %}` in translations.
+
+Blank translation blocks fall back to English in generated preview artifacts.
+That is useful while a branch is incomplete, but it is not a finished
+translation.
+
+## What CI Checks
+
+When you push to a `translation/v*` branch or open a PR into one, CI will:
+
+- refresh generated translation inputs from the checked-in workspace
+- repair missing metadata or broken translation block skeletons when safe
+- audit placeholders and unsafe Jinja
+- sync translations into a generated template
+- verify translated output did not break executable template structure
+- package the document template
+- render the shared demo project as a preview PDF artifact
+
+If CI pushes an auto-repair commit, include it in the branch before continuing.
+Auto-repair only fixes structure; it does not decide wording.
+
+## Review Artifacts
+
+Download the preview artifacts from the GitHub Actions run. The important files
+are:
+
+- translated document template zip
+- preview PDF
+- render JSON or failure status file
+- migration report, when the branch was created or refreshed by migration
+
+Review the PDF for missing English fallback, broken placeholders, awkward word
+order, and glossary consistency. If something looks like a structural issue,
+fix the translation tree or ask a maintainer before changing generated output by
+hand.
+
+## Glossary And Style
+
+Use the glossary and i10n wording prepared for this project. Prefer natural
+Traditional Chinese over literal English order, but keep DSW terms consistent
+across versions.
+
+Good translation branches are boring: small wording commits, green CI, and a PDF
+that looks predictable.
