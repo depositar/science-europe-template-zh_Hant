@@ -31,7 +31,7 @@
       {%- set additionalHWSWWhatPath = [additionalHWSWPath, uuids.additionalHWSWYesAUuid, uuids.additionalHWSWYesWhatQUuid]|reply_path -%}
       {%- set additionalHWSWWhat = repliesMap[additionalHWSWWhatPath]|reply_str_value -%}
       {%- if additionalHWSWWhat -%}
-        {# __tr_block_0008:start #}<p>除機構通常提供的資源外，我們還需要以下硬體或軟體：{{ additionalHWSWWhat|dot }}</p>{# __tr_block_0008:end #}
+        {# __tr_block_0008:start #}<p>除機構通常提供的資源外，我們還需要以下硬體或軟體：{{ additionalHWSWWhat|trim }}</p>{# __tr_block_0008:end #}
       {%- else -%}
         {# __tr_block_0009:start #}<p>除機構通常提供的資源外，我們還需要其他硬體或軟體。</p>{# __tr_block_0009:end #}
       {%- endif -%}

@@ -38,7 +38,7 @@
                 {%- set mdExternalOwnershipOtherPath = [mdExternalOwnershipPath, uuids.mdExternalOwnershipOtherAUuid, uuids.mdExternalOwnershipOtherQUuid]|reply_path -%}
                 {%- set mdExternalOwnershipOther = repliesMap[mdExternalOwnershipOtherPath]|reply_str_value -%}
                 {%- if mdExternalOwnershipOther -%}
-                  {# __tr_block_0008:start #}<p>此資料集將由外部單位蒐集。關於資料所有權，我們已做出以下安排：{{ mdExternalOwnershipOther|dot }}</p>{# __tr_block_0008:end #}
+                  {# __tr_block_0008:start #}<p>此資料集將由外部單位蒐集。關於資料所有權，我們已做出以下安排：{{ mdExternalOwnershipOther|trim }}</p>{# __tr_block_0008:end #}
                 {%- else -%}
                   {# __tr_block_0009:start #}<p>此資料集將由外部單位蒐集。</p>{# __tr_block_0009:end #}
                 {%- endif -%}

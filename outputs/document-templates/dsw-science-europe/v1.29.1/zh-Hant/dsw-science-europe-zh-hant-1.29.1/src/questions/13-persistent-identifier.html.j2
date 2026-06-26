@@ -123,7 +123,7 @@
                 {%- set measuredDataReuseOtherFieldHowReply = repliesMap[measuredDataReuseOtherFieldHowQUuid]|reply_str_value -%}
 {# __tr_branch_sentence_original:CiAgICAgICAgICAgICAgICA8cD5SZXNlYXJjaGVycyB3b3JraW5nIGluIG90aGVyIGZpZWxkcyB3aWxsIGJlIGludGVyZXN0ZWQgaW4gcmUtdXNpbmcgdGhpcyBkYXRhCiAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgIHslLSBpZiBtZWFzdXJlZERhdGFSZXVzZU90aGVyRmllbGRIb3dSZXBseSAtJX0KICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgIHt7IiAifX1iZWNhdXNlOiB7e21lYXN1cmVkRGF0YVJldXNlT3RoZXJGaWVsZEhvd1JlcGx5fGRvdH19PC9wPgogICAgICAgICAgICAgICAgeyUtIGVsc2UgLSV9CiAgICAgICAgICAgICAgICAuCiAgICAgICAgICAgICAgICB7JS0gZW5kaWYgLSV9Cg== #}
                 {%- if measuredDataReuseOtherFieldHowReply -%}
-                {# __tr_block_0011:start #}<p>其他領域的研究人員會有興趣再次使用這些資料，原因是：{{ measuredDataReuseOtherFieldHowReply|dot }}</p>{# __tr_block_0011:end #}
+                {# __tr_block_0011:start #}<p>其他領域的研究人員會有興趣再次使用這些資料，原因是：{{ measuredDataReuseOtherFieldHowReply|trim }}</p>{# __tr_block_0011:end #}
                 {%- else -%}
                 {# __tr_block_0012:start #}<p>其他領域的研究人員會有興趣再次使用這些資料。</p>{# __tr_block_0012:end #}
                 {%- endif -%}

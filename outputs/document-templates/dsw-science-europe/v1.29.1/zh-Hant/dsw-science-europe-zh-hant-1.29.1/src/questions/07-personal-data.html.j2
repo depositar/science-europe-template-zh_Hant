@@ -58,7 +58,7 @@
                     {%- set personalDataSafeguardElaborateQUuid = [personalDataSafeguardsQUuid, uuids.cpersGdprSafeguardsAUuid, uuids.cpersGdprSafeguardElaborateQUuid ]|reply_path  -%}
                     {%- set personalDataSafeguardElaborateReply = repliesMap[personalDataSafeguardElaborateQUuid]|reply_str_value -%}
                     {%- if personalDataSafeguardElaborateReply -%}
-                        {# __tr_block_0014:start #}<p>我們將採用以下技術與程序性防護措施：{{ personalDataSafeguardElaborateReply|dot }}</p>{# __tr_block_0014:end #}
+                        {# __tr_block_0014:start #}<p>我們將採用以下技術與程序性防護措施：{{ personalDataSafeguardElaborateReply|trim }}</p>{# __tr_block_0014:end #}
                    {%- endif -%}
 
                     {%- set personalDataSafeguardTransferQUuid = [personalDataSafeguardsQUuid, uuids.cpersGdprSafeguardsAUuid, uuids.cpersGdprSafeguardsTransferQUuid]|reply_path -%}
@@ -67,7 +67,7 @@
                     {%- set personalDataSafeguardTransferMeasuresReply = repliesMap[personalDataSafeguardTransferMeasuresQUuid]|reply_str_value -%}
 
                     {%- if (personalDataSafeguardTransferReply == uuids.cpersGdprSafeguardsTransferYesAUuid) and (personalDataSafeguardTransferMeasuresReply) -%}
-                        {# __tr_block_0015:start #}<p>我們計畫將資料傳輸至歐盟／歐洲經濟區以外，並將採取以下措施保護資料：{{ personalDataSafeguardTransferMeasuresReply|dot }}</p>{# __tr_block_0015:end #}
+                        {# __tr_block_0015:start #}<p>我們計畫將資料傳輸至歐盟／歐洲經濟區以外，並將採取以下措施保護資料：{{ personalDataSafeguardTransferMeasuresReply|trim }}</p>{# __tr_block_0015:end #}
                     {%- endif -%}
                 {%- endif -%}
             {%- endif -%}
