@@ -21,6 +21,11 @@ permissions:
   pull-requests: write
   actions: read
 
+env:
+  TOOLING_REPOSITORY: ThreeMonth03/DSW-document-template-tool
+  TOOLING_REF: master
+  TOOLING_WORKFLOW: headless_render_regression.yml
+
 concurrency:
   group: >-
     dsw-translation-control-plane-${{ github.event_name == 'workflow_run' &&
@@ -41,8 +46,8 @@ jobs:
       - name: Checkout DSW document-template tooling
         uses: actions/checkout@v4
         with:
-          repository: ThreeMonth03/DSW-document-template-tool
-          ref: master
+          repository: ${{ env.TOOLING_REPOSITORY }}
+          ref: ${{ env.TOOLING_REF }}
           path: tooling-repo
 
       - name: Set up Python
@@ -55,85 +60,12 @@ jobs:
         run: make install-dev BOOTSTRAP_PYTHON=python
 
       - name: Validate translation configuration
-        env:
-          CONFIG_PATH: translation-config.yml
         run: |
           set -euo pipefail
           tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
-
-          "$tooling_python" - <<'PY'
-          from __future__ import annotations
-
-          import os
-          import subprocess
-          from pathlib import Path
-
-          import yaml
-
-          config_path = Path(os.environ["CONFIG_PATH"])
-          config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
-
-          required_top_level = {
-              "schema_version",
-              "template",
-              "translation",
-              "branches",
-              "tooling",
-              "migration",
-          }
-          missing = sorted(required_top_level - set(config))
-          if missing:
-              raise SystemExit(f"Missing top-level config keys: {', '.join(missing)}")
-
-          template = config["template"]
-          branches = config["branches"]
-          migration = config["migration"]
-
-          upstream = template["upstream_repository"]
-          supported_versions = template["supported_versions"]
-          if not supported_versions:
-              raise SystemExit("template.supported_versions must not be empty")
-          if migration["mode"] != "exact-only":
-              raise SystemExit("Only exact-only migration is currently allowed")
-
-          def remote_ref_exists(*args: str) -> bool:
-              result = subprocess.run(
-                  ["git", "ls-remote", "--exit-code", *args],
-                  stdout=subprocess.DEVNULL,
-                  stderr=subprocess.DEVNULL,
-                  check=False,
-              )
-              return result.returncode == 0
-
-          missing_tags: list[str] = []
-          branch_prefix = branches["version_branch_prefix"]
-
-          for version in supported_versions:
-              if not remote_ref_exists("--tags", upstream, f"refs/tags/{version}"):
-                  missing_tags.append(version)
-
-          if missing_tags:
-              raise SystemExit("Missing upstream tags: " + ", ".join(missing_tags))
-
-          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
-          summary.write_text(
-              "\n".join(
-                  [
-                      "## Translation control plane",
-                      "",
-                      f"- Upstream repository: `{upstream}`",
-                      f"- Supported versions: `{', '.join(supported_versions)}`",
-                      f"- Version branch prefix: `{branch_prefix}`",
-                      f"- Migration mode: `{migration['mode']}`",
-                      "",
-                      "All configured upstream tags exist.",
-                      "Missing translation branches are created by the migration job.",
-                      "",
-                  ]
-              ),
-              encoding="utf-8",
-          )
-          PY
+          "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/validate_translation_config.py" \
+            --config translation-config.yml \
+            --summary "$GITHUB_STEP_SUMMARY"
 
   migrate-translations:
     needs: validate-control-plane
@@ -155,8 +87,8 @@ jobs:
       - name: Checkout DSW document-template tooling
         uses: actions/checkout@v4
         with:
-          repository: ThreeMonth03/DSW-document-template-tool
-          ref: master
+          repository: ${{ env.TOOLING_REPOSITORY }}
+          ref: ${{ env.TOOLING_REF }}
           path: tooling-repo
 
       - name: Set up Python
@@ -171,46 +103,13 @@ jobs:
       - name: Download clean scaffold artifacts from tooling CI
         env:
           GH_TOKEN: ${{ secrets.TOOLING_ARTIFACT_TOKEN || github.token }}
-          TOOLING_REPOSITORY: ThreeMonth03/DSW-document-template-tool
-          TOOLING_WORKFLOW: headless_render_regression.yml
         run: |
           set -euo pipefail
-
-          run_id="$(
-            gh run list \
-              --repo "$TOOLING_REPOSITORY" \
-              --workflow "$TOOLING_WORKFLOW" \
-              --branch master \
-              --status success \
-              --limit 1 \
-              --json databaseId \
-              --jq '.[0].databaseId // empty'
-          )"
-          if [ -z "$run_id" ]; then
-            echo "::error title=Clean scaffold artifacts unavailable::No successful tooling CI run found."
-            exit 1
-          fi
-
-          mkdir -p tooling-artifacts
-          artifact_names=(
-            clean-upstream-version-artifacts-metamodel-17-1
-            clean-upstream-version-artifacts-metamodel-18-0
-          )
-
-          for artifact_name in "${artifact_names[@]}"; do
-            echo "Downloading $artifact_name from tooling run $run_id"
-            if ! gh run download "$run_id" \
-              --repo "$TOOLING_REPOSITORY" \
-              --name "$artifact_name" \
-              --dir tooling-artifacts; then
-              echo "::error title=Clean scaffold artifact download failed::$artifact_name"
-              echo "If this repository cannot read cross-repository artifacts, add a"
-              echo "TOOLING_ARTIFACT_TOKEN secret with read access to $TOOLING_REPOSITORY."
-              exit 1
-            fi
-          done
-
-          test -d tooling-artifacts/upstream-workspaces/dsw-science-europe
+          tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/download_clean_scaffold_artifacts.py" \
+            --repo "$TOOLING_REPOSITORY" \
+            --workflow "$TOOLING_WORKFLOW" \
+            --output-dir tooling-artifacts
 
       - name: Sync supported versions and version branches
         id: version-sync
@@ -237,26 +136,14 @@ jobs:
           CURRENT_LATEST_VERSION: ${{ steps.version-sync.outputs.current_latest_version }}
         run: |
           set -euo pipefail
-          source_version="$MANUAL_SOURCE_VERSION"
-
-          if [ -z "$source_version" ] && [ "$EVENT_NAME" = "workflow_run" ]; then
-            case "$WORKFLOW_RUN_HEAD_BRANCH" in
-              translation/v*) source_version="${WORKFLOW_RUN_HEAD_BRANCH#translation/}" ;;
-              *)
-                echo "No translation version source branch found; skipping."
-                echo "skip=true" >> "$GITHUB_OUTPUT"
-                exit 0
-                ;;
-            esac
-          fi
-
-          if [ -z "$source_version" ]; then
-            source_version="${PREVIOUS_LATEST_VERSION:-$CURRENT_LATEST_VERSION}"
-          fi
-
-          echo "skip=false" >> "$GITHUB_OUTPUT"
-          echo "source_version=$source_version" >> "$GITHUB_OUTPUT"
-          echo "Using migration source version: $source_version"
+          tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/resolve_migration_source.py" \
+            --event-name "$EVENT_NAME" \
+            --manual-source-version "$MANUAL_SOURCE_VERSION" \
+            --workflow-run-head-branch "$WORKFLOW_RUN_HEAD_BRANCH" \
+            --previous-latest-version "$PREVIOUS_LATEST_VERSION" \
+            --current-latest-version "$CURRENT_LATEST_VERSION" \
+            --github-output "$GITHUB_OUTPUT"
 
       - name: Create or update migration PRs
         if: steps.source.outputs.skip != 'true'
