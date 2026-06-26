@@ -57,7 +57,7 @@
       <span class="name">{{ dc.qtn.created_by.first_name }} {{ dc.qtn.created_by.last_name }}</span>
       <br>{{ macros.formatEmail(dc.qtn.created_by.email) }}
       {%- if dc.qtn.created_by.affiliation %}
-      <br>Affiliation: <span class="affiliation">{{ dc.qtn.created_by.affiliation }}</span>
+      <br>所屬機構：<span class="affiliation">{{ dc.qtn.created_by.affiliation }}</span>
       {%- endif %}
     </li>{# __tr_block_0003:end #}
   </ul>
