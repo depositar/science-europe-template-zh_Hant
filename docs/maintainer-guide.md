@@ -30,14 +30,28 @@ scaffold artifacts produced by `ThreeMonth03/DSW-document-template-tool`.
 ## Updating Supported Versions
 
 1. Confirm the tool repo can build clean artifacts for the upstream tag.
-2. Update `translation-config.yml` on `master`.
-3. Let the control-plane workflow synchronize missing or changed
-   `translation/v*` branches.
+2. Let the control-plane workflow synchronize `translation-config.yml` and
+   missing or changed `translation/v*` branches from the downloaded artifacts.
+3. Review the config/branch sync commit if the supported version list changed.
 4. Review any migration PRs created by automation.
 5. Ask translators to finish units left empty by exact-only migration.
 
 Do not manually invent generated paths. The config and tool-repo artifact layout
 should derive those paths.
+
+The normal path is artifact-driven: tool CI packages every upstream tag covered
+by its artifact ref policy, and this repo unions those artifact versions into
+`translation-config.yml`. Manual config edits are only needed when intentionally
+changing the support policy or removing a version.
+
+If upstream publishes a tag that still uses a configured DSW metamodel/runtime,
+the daily tool CI should build its clean scaffold artifact automatically. The
+daily control workflow can then add the version to `translation-config.yml`,
+create or refresh the matching branch, and open migration PRs.
+
+If upstream introduces a new `metamodelVersion`, the tool repo must first gain a
+new `config/dsw-compat.yml` runtime row. That step is intentionally manual
+because DSW server, TDK, and API behavior need a real smoke test.
 
 ## Migration Policy
 

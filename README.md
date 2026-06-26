@@ -17,11 +17,11 @@ It is not the public template source. Public template updates are copied to
 The shared parser, scaffold builder, demo project fixture, and render tooling
 live in `ThreeMonth03/DSW-document-template-tool`.
 
-## Current Version Branches
+## Supported Versions
 
-- `translation/v1.29.1`
-- `translation/v1.30.0`
-- `translation/v1.30.1`
+Supported versions are declared in `translation-config.yml` and mirrored as
+`translation/v*` branches. The control workflow can update that list from clean
+tool-repo artifacts when upstream publishes a new supported tag.
 
 Open translation PRs against the matching `translation/v*` branch. Do not open
 translation-content PRs against `master`.

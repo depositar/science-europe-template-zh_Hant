@@ -5,15 +5,17 @@ This guide is for editing Traditional Chinese translations on a
 
 ## Pick The Right Branch
 
-Each upstream Science Europe template version has a matching branch:
+Each supported upstream Science Europe template version has a matching
+`translation/v*` branch. Use the branch that matches the template version you
+want to translate. If you are unsure, use the newest branch unless a maintainer
+asks for a specific version.
 
-- `translation/v1.29.1`
-- `translation/v1.30.0`
-- `translation/v1.30.1`
+To see available branches:
 
-Use the branch that matches the template version you want to translate. If you
-are unsure, use the newest branch unless a maintainer asks for a specific
-version.
+```bash
+git fetch origin
+git branch -r --list 'origin/translation/v*'
+```
 
 ## Edit Translation Files
 
