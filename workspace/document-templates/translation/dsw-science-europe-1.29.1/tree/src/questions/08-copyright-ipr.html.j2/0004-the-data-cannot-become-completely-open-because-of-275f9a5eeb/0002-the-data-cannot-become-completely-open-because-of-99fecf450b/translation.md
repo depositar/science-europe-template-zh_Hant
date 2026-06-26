@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/08-copyright-ipr.html.j2`
-- Wrapper Name: `__tr_block_0003`
-- Wrapper Order: `4`
-- Wrapper Key: `the-data-cannot-become-completely-open-because-of-275f9a5eeb`
-- Unit Key: `the-data-cannot-become-completely-open-because-of-99fecf450b`
-- Source Hash: `e3d148fa0a2021890dd8304a115481a5b03f77c6`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ The data cannot become completely open because of patent-related business reason
 ~~~jinja
 基於專利相關的商業理由，資料無法完全開放。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/08-copyright-ipr.html.j2`
+- Wrapper Name: `__tr_block_0003`
+- Wrapper Order: `4`
+- Wrapper Key: `the-data-cannot-become-completely-open-because-of-275f9a5eeb`
+- Unit Key: `the-data-cannot-become-completely-open-because-of-99fecf450b`
+- Source Hash: `e3d148fa0a2021890dd8304a115481a5b03f77c6`
+
+Do not edit this section manually.
+
+</details>

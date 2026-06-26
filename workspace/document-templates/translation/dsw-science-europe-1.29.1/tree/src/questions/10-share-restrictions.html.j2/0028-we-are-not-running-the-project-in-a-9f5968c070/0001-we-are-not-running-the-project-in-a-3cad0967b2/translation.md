@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/10-share-restrictions.html.j2`
-- Wrapper Name: `__tr_block_0027`
-- Wrapper Order: `28`
-- Wrapper Key: `we-are-not-running-the-project-in-a-9f5968c070`
-- Unit Key: `we-are-not-running-the-project-in-a-3cad0967b2`
-- Source Hash: `8c29b96b71fc7e6e34d075dbe23d456c3e4d9576`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ We are not running the project in a collaboration between different groups nor i
 ~~~jinja
 我們的專案並非由不同群體或機構共同合作執行。因此，不需要與資料取用相關的合作協議。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/10-share-restrictions.html.j2`
+- Wrapper Name: `__tr_block_0027`
+- Wrapper Order: `28`
+- Wrapper Key: `we-are-not-running-the-project-in-a-9f5968c070`
+- Unit Key: `we-are-not-running-the-project-in-a-3cad0967b2`
+- Source Hash: `8c29b96b71fc7e6e34d075dbe23d456c3e4d9576`
+
+Do not edit this section manually.
+
+</details>

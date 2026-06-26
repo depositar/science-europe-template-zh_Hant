@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/01-how-data.html.j2`
-- Wrapper Name: `__tr_block_0019`
-- Wrapper Order: `20`
-- Wrapper Key: `no-name-given-we-will-re-use-this-db0752d154`
-- Unit Key: `this-data-include-personal-data-legaly-based-onconsent-c7907df016`
-- Source Hash: `3f629801b5e8b8db758d1c5fe018006f436dcceb`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ This data include personal data, legally based on consent given by the research 
 ~~~jinja
 此資料包含個人資料，其處理依研究參與者依 GDPR 所給予的同意作為法律依據，但該同意未涵蓋我們的再次使用；因此需要取得新的同意。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/01-how-data.html.j2`
+- Wrapper Name: `__tr_block_0019`
+- Wrapper Order: `20`
+- Wrapper Key: `no-name-given-we-will-re-use-this-db0752d154`
+- Unit Key: `this-data-include-personal-data-legaly-based-onconsent-c7907df016`
+- Source Hash: `3f629801b5e8b8db758d1c5fe018006f436dcceb`
+
+Do not edit this section manually.
+
+</details>
