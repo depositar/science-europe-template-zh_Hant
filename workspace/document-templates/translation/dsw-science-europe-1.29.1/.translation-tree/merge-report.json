@@ -1,10 +1,10 @@
 {
   "total_units": 607,
-  "preserved_units": 521,
-  "migrated_units": 85,
-  "untranslated_units": 1,
+  "preserved_units": 0,
+  "migrated_units": 607,
+  "untranslated_units": 0,
   "skipped_unsafe_old_units": 0,
-  "exact_key_matches": 85,
+  "exact_key_matches": 607,
   "source_hash_matches": 0,
   "sentence_matches": 0
 }
