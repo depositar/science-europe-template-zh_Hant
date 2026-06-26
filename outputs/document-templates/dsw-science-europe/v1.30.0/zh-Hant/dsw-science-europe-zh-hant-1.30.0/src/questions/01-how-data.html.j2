@@ -119,7 +119,7 @@
                 {%- set mdQualityOtherYesPath = [mdQualityOtherPath, uuids.mdQualityOtherYesAUuid, uuids.mdQualityOtherWhatQUuid]|reply_path -%}
                 {%- set mdQualityOther = repliesMap[mdQualityOtherYesPath]|reply_str_value -%}
                 {%- if mdQualityOther -%}
-                  {# __tr_branch_sentence_original:PHA-eyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0lrRmtaR2wwYVc5dVlXd2lJR2xtSUhGMVlXeHBkSGxEYjNWdWRDQS1JREFnWld4elpTQWlUM1Z5SWlCOWZRPT0gI317JSBpZiBxdWFsaXR5Q291bnQgPiAwICV9e3sgIkFkZGl0aW9uYWwiIH19eyUgZWxzZSAlfXt7ICJPdXIiIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI30gcXVhbGl0eSBwcm9jZXNzZXMgYXJlOiB7eyBtZFF1YWxpdHlPdGhlcnxkb3QgfX08L3A- #}{% if qualityCount > 0 %}<p>{# __tr_inline_if_original:e3sgIkFkZGl0aW9uYWwiIGlmIHF1YWxpdHlDb3VudCA-IDAgZWxzZSAiT3VyIiB9fQ== #}{{ "Additional" }}{# __tr_inline_if_original:end #} quality processes are: {{ mdQualityOther|dot }}</p>{% else %}<p>{# __tr_inline_if_original:e3sgIkFkZGl0aW9uYWwiIGlmIHF1YWxpdHlDb3VudCA-IDAgZWxzZSAiT3VyIiB9fQ== #}{{ "Our" }}{# __tr_inline_if_original:end #} quality processes are: {{ mdQualityOther|dot }}</p>{% endif %}{# __tr_branch_sentence_original:end #}
+                  {# __tr_branch_sentence_original:PHA-eyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0lrRmtaR2wwYVc5dVlXd2lJR2xtSUhGMVlXeHBkSGxEYjNWdWRDQS1JREFnWld4elpTQWlUM1Z5SWlCOWZRPT0gI317JSBpZiBxdWFsaXR5Q291bnQgPiAwICV9e3sgIkFkZGl0aW9uYWwiIH19eyUgZWxzZSAlfXt7ICJPdXIiIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI30gcXVhbGl0eSBwcm9jZXNzZXMgYXJlOiB7eyBtZFF1YWxpdHlPdGhlcnxkb3QgfX08L3A- #}{% if qualityCount > 0 %}<p>其他資料品質管控流程包括：{{ mdQualityOther|dot }}。</p>{% else %}<p>我們的資料品質管控流程為：{{ mdQualityOther|dot }}。</p>{% endif %}{# __tr_branch_sentence_original:end #}
                 {%- endif -%}
               {%- endif -%}{# __tr_block_0015:end #}
             {%- endif -%}
@@ -171,19 +171,19 @@
             {%- if refDataWhere -%}
               {%- if refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://") -%}
                 {%- if refDataUsageReply -%}
-                  <p>We will re-use this standard reference data available via:{{" "}}<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>{{+" "}}in order to "{{ refDataUsageReply}}".</p>
+                  <p>我們將再次使用這筆標準參考資料；可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得，用途為：「{{ refDataUsageReply }}」。</p>
                 {%- else -%}
                   <p>我們將再次使用此標準參考資料，可透過以下位置取得：<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>。</p>
                 {%- endif -%}
               {%- else -%}
                 {%- if refDataUsageReply -%}
-                  <p>We will re-use this standard reference data available via:{{" "}}{{ refDataWhere }}{{+" "}}in order to "{{ refDataUsageReply}}".</p>
+                  <p>我們將再次使用這筆標準參考資料；可透過 {{ refDataWhere }} 取得，用途為：「{{ refDataUsageReply }}」。</p>
                 {%- else -%}
                   <p>我們將再次使用此標準參考資料，可透過以下位置取得：{{ refDataWhere }}。</p>
                 {%- endif -%}
               {%- endif -%}
             {%- elif refDataUsageReply -%}
-              <p>We will re-use this standard reference data in order to "{{ refDataUsageReply}}".</p>
+              <p>我們將再次使用這筆標準參考資料，用途為：「{{ refDataUsageReply }}」。</p>
             {%- else -%}
               <p>我們將再次使用此標準參考資料。</p>
             {%- endif -%}
@@ -197,16 +197,7 @@
               {%- set refDataVersionedChangePath = [refDataVersionedPath, uuids.refDataVersionedYesAUuid, uuids.refDataVersionedChangeQUuid]|reply_path -%}
               {%- set refDataVersionedChangeAUuid = repliesMap[refDataVersionedChangePath]|reply_str_value -%}
               {%- if refDataVersionedWhich or refDataVersionedChangeAUuid  %}
-                <p>
-                {% if refDataVersionedWhich -%}
-                  We will use version "{{ refDataVersionedWhich }}" of this dataset.
-                {%- endif -%}
-                {%- if refDataVersionedChangeAUuid == uuids.refDataVersionedChangeStayAUuid %}
-                  If a new version becomes available during the project, we will stay with the old version.
-                {%- elif refDataVersionedChangeAUuid == uuids.refDataVersionedChangeNewAUuid %}
-                  If a new version becomes available during the project, new analyses will be done with the new version.
-                {%- elif refDataVersionedChangeAUuid == uuids.refDataVersionedChangeAllAUuid %}
-                  If a new version becomes available during the project, all analyses will be redone with the new version.
+                <p>{% if refDataVersionedWhich -%}我們將使用此資料集的「{{ refDataVersionedWhich }}」版本。{%- endif -%}{%- if refDataVersionedChangeAUuid == uuids.refDataVersionedChangeStayAUuid %}若專案期間出現新版本，我們將維持使用舊版本。{%- elif refDataVersionedChangeAUuid == uuids.refDataVersionedChangeNewAUuid %}若專案期間出現新版本，新的分析將使用新版本進行。{%- elif refDataVersionedChangeAUuid == uuids.refDataVersionedChangeAllAUuid %}若專案期間出現新版本，所有分析都將使用新版本重新進行。
                 {%- endif -%}
                 </p>
               {%- endif -%}
@@ -231,7 +222,7 @@
                 <p>此標準參考資料可自由取得，但使用時必須引用來源。</p>
               {%- elif refDataConditionsReply == uuids.refDataConditionsOtherAUuid -%}
                 {%- if refDataConditionsOtherRepl -%}
-                  <p>This standard reference data are{{+" "}}available with following restrictions: "{{refDataConditionsOtherRepl}}".</p>
+                  <p>這筆標準參考資料可在下列取用限制下取得：「{{ refDataConditionsOtherRepl }}」。</p>
                 {%- else -%}
                   <p>此標準參考資料可在限制下取得，限制內容將另行說明。</p>
                 {%- endif -%}
@@ -253,44 +244,7 @@
             {%- set refDataUseNoOtherReasonReply = repliesMap[refDataUseNoOtherReason]|reply_str_value %}
           
             {# identification #}{# __tr_branch_sentence_original:CiAgICAgICAgICAgIDxwPiBXZSBjb25zaWRlcmVkIHJldXNpbmcgdGhpcyBzdGFuZGFyZCByZWZlcmVuY2UgZGF0YQogICAgICAgICAgICB7JS0gaWYgcmVmRGF0YVdoZXJlIC0lfQogICAgICAgICAgICB7eyIgIn19YXZhaWxhYmxlIHZpYTp7eyIgIn19CiAgICAgICAgICAgICAgeyUtIGlmIHJlZkRhdGFXaGVyZS5zdGFydHN3aXRoKCJodHRwOi8vIikgb3IgcmVmRGF0YVdoZXJlLnN0YXJ0c3dpdGgoImh0dHBzOi8vIikgb3IgcmVmRGF0YVdoZXJlLnN0YXJ0c3dpdGgoImZ0cDovLyIpIC0lfQogICAgICAgICAgICAgICAgPGEgaHJlZj0ie3sgcmVmRGF0YVdoZXJlIH19IiB0YXJnZXQ9Il9ibGFuayI-e3sgcmVmRGF0YVdoZXJlIH19IDwvYT4uCiAgICAgICAgICAgICAgeyUtIGVsc2UgLSV9CiAgICAgICAgICAgICAgICB7eyByZWZEYXRhV2hlcmV9fQogICAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQoKICAgICAgICAgICAgeyMgbm8gdXNhZ2UgcmVhc29uICN9CiAgICAgICAgICAgIHslLSBpZiByZWZEYXRhVXNlTm9SZXBseSAtJX0KICAgICAgICAgICAgICAsIGJ1dCBkZWNpZGVkIG5vdCB0byByZS11c2UgaXQKICAgICAgICAgICAgICB7JS0gaWYgcmVmRGF0YVVzZU5vUmVwbHkgPT0gdXVpZHMucmVmRGF0YVVzZU5vRGF0YUFVdWlkIC0lfQogICAgICAgICAgICAgICAge3siICJ9fWJlY2F1c2UgaXQgbWlzc2VzIGRhdGEgd2UgbmVlZAogICAgICAgICAgICAgIHslLSBlbGlmIHJlZkRhdGFVc2VOb1JlcGx5ID09IHV1aWRzLnJlZkRhdGFVc2VOb0FzcGVjdEFVdWlkIC0lfQogICAgICAgICAgICAgICAge3siICJ9fWJlY2F1c2UgaXQgbWlzc2VzIHJlcXVpcmVkIGFzcGVjdHMKICAgICAgICAgICAgICB7JS0gZWxpZiByZWZEYXRhVXNlTm9SZXBseSA9PSB1dWlkcy5yZWZEYXRhVXNlTm9RdWFsaXR5QVV1aWQgLSV9CiAgICAgICAgICAgICAgICB7eyIgIn19YmVjYXVzZSBpdCBpcyBub3Qgc3VmZmljaWVudCBxdWFsaXR5CiAgICAgICAgICAgICAgeyUtIGVsaWYgcmVmRGF0YVVzZU5vUmVwbHkgPT0gdXVpZHMucmVmRGF0YVVzZU5vQ29uZEFVdWlkIC0lfQogICAgICAgICAgICAgICAge3siICJ9fWJlY2F1c2UgaXRzIGNvbmRpdGlvbnMgb2YgdXNlIGRvIG5vdCBhbGxvdyB1cyB0byB1c2UgaXQKICAgICAgICAgICAgICB7JS0gZWxpZiByZWZEYXRhVXNlTm9SZXBseSA9PSB1dWlkcy5yZWZEYXRhVXNlTm9SZWFzb25BVXVpZCBhbmQgcmVmRGF0YVVzZU5vT3RoZXJSZWFzb25SZXBseSAtJX0KICAgICAgICAgICAgICAgIHt7IiAifX1iZWNhdXNlOiAie3tyZWZEYXRhVXNlTm9PdGhlclJlYXNvblJlcGx5fX0iCiAgICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICAgIC4KICAgICAgICAgICAgeyUtIGVsc2UgLSV9CiAgICAgICAgICAgIC4gPC9wPgogICAgICAgICAgICB7JS0gZW5kaWYgLSV9Cg== #}
-            <p>
-            {# no usage reason #}
-            {%- if refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>, but decided not to re-use it{{" "}}because it misses data we need.
-            {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>, but decided not to re-use it{{" "}}because it misses required aspects.
-            {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoQualityAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>, but decided not to re-use it{{" "}}because it is not sufficient quality.
-            {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoCondAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>, but decided not to re-use it{{" "}}because its conditions of use do not allow us to use it.
-            {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoReasonAUuid and refDataUseNoOtherReasonReply -%}
-              We considered reusing this standard reference data available via:{{" "}}<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>, but decided not to re-use it{{" "}}because: "{{refDataUseNoOtherReasonReply}}".
-            {%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply -%}
-              我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料，但決定不再次使用。{%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料。
-            {%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}, but decided not to re-use it{{" "}}because it misses data we need.
-            {%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}, but decided not to re-use it{{" "}}because it misses required aspects.
-            {%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoQualityAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}, but decided not to re-use it{{" "}}because it is not sufficient quality.
-            {%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoCondAUuid -%}
-              We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}, but decided not to re-use it{{" "}}because its conditions of use do not allow us to use it.
-            {%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoReasonAUuid and refDataUseNoOtherReasonReply -%}
-              We considered reusing this standard reference data available via:{{" "}}{{ refDataWhere}}, but decided not to re-use it{{" "}}because: "{{refDataUseNoOtherReasonReply}}".
-            {%- elif refDataWhere and refDataUseNoReply -%}
-              我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料，但決定不再次使用。{%- elif refDataWhere -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料。
-            {%- elif refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}
-              We considered reusing this standard reference data, but decided not to re-use it{{" "}}because it misses data we need.
-            {%- elif refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}
-              We considered reusing this standard reference data, but decided not to re-use it{{" "}}because it misses required aspects.
-            {%- elif refDataUseNoReply == uuids.refDataUseNoQualityAUuid -%}
-              We considered reusing this standard reference data, but decided not to re-use it{{" "}}because it is not sufficient quality.
-            {%- elif refDataUseNoReply == uuids.refDataUseNoCondAUuid -%}
-              We considered reusing this standard reference data, but decided not to re-use it{{" "}}because its conditions of use do not allow us to use it.
-            {%- elif refDataUseNoReply == uuids.refDataUseNoReasonAUuid and refDataUseNoOtherReasonReply -%}
-              We considered reusing this standard reference data, but decided not to re-use it{{" "}}because: "{{refDataUseNoOtherReasonReply}}".
-            {%- elif refDataUseNoReply -%}
-              我們曾考慮再次使用此標準參考資料，但決定不再次使用。{%- else -%}我們曾考慮再次使用此標準參考資料。
+            <p>{# no usage reason #}{%- if refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料，但決定不再次使用，因為其中缺少我們需要的資料。{%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料，但決定不再次使用，因為其中缺少必要面向。{%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoQualityAUuid -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料，但決定不再次使用，因為其品質不足。{%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoCondAUuid -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料，但決定不再次使用，因為其使用條件不允許我們使用。{%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply == uuids.refDataUseNoReasonAUuid and refDataUseNoOtherReasonReply -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的這筆標準參考資料，但因為「{{ refDataUseNoOtherReasonReply }}」，決定不再次使用。{%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) and refDataUseNoReply -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料，但決定不再次使用。{%- elif refDataWhere and (refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://")) -%}我們曾考慮再次使用可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得的此標準參考資料。{%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料，但決定不再次使用，因為其中缺少我們需要的資料。{%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料，但決定不再次使用，因為其中缺少必要面向。{%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoQualityAUuid -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料，但決定不再次使用，因為其品質不足。{%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoCondAUuid -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料，但決定不再次使用，因為其使用條件不允許我們使用。{%- elif refDataWhere and refDataUseNoReply == uuids.refDataUseNoReasonAUuid and refDataUseNoOtherReasonReply -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的這筆標準參考資料，但因為「{{ refDataUseNoOtherReasonReply }}」，決定不再次使用。{%- elif refDataWhere and refDataUseNoReply -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料，但決定不再次使用。{%- elif refDataWhere -%}我們曾考慮再次使用可透過 {{ refDataWhere }} 取得的此標準參考資料。{%- elif refDataUseNoReply == uuids.refDataUseNoDataAUuid -%}我們曾考慮再次使用此標準參考資料，但決定不再次使用，因為其中缺少我們需要的資料。{%- elif refDataUseNoReply == uuids.refDataUseNoAspectAUuid -%}我們曾考慮再次使用此標準參考資料，但決定不再次使用，因為其中缺少必要面向。{%- elif refDataUseNoReply == uuids.refDataUseNoQualityAUuid -%}我們曾考慮再次使用此標準參考資料，但決定不再次使用，因為其品質不足。{%- elif refDataUseNoReply == uuids.refDataUseNoCondAUuid -%}我們曾考慮再次使用此標準參考資料，但決定不再次使用，因為其使用條件不允許我們使用。{%- elif refDataUseNoReply == uuids.refDataUseNoReasonAUuid and refDataUseNoOtherReasonReply -%}我們曾考慮再次使用這筆標準參考資料，但因為「{{ refDataUseNoOtherReasonReply }}」，決定不再次使用。{%- elif refDataUseNoReply -%}我們曾考慮再次使用此標準參考資料，但決定不再次使用。{%- else -%}我們曾考慮再次使用此標準參考資料。
             {%- endif -%}
             </p>
 {# __tr_branch_sentence_original:end #}
@@ -326,19 +280,19 @@
           {%- if nrefDataWhere -%}
             {%- if nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://") -%}
               {%- if nrefDataUsageReply -%}
-                <p>We will re-use this non-referece data available via:{{" "}}<a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>{{+" "}}in order to "{{ nrefDataUsageReply}}".</p>
+                <p>我們將再次使用這筆非參考資料；可透過 <a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得，用途為：「{{ nrefDataUsageReply }}」。</p>
               {%- else -%}
                 <p>我們將再次使用此非參考資料集，可透過以下位置取得：<a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>。</p>
               {%- endif -%}
             {%- else -%}
               {%- if nrefDataUsageReply -%}
-                <p>We will re-use this non-referece data available via:{{" "}}{{ nrefDataWhere }}{{+" "}}in order to "{{ nrefDataUsageReply}}".</p>
+                <p>我們將再次使用這筆非參考資料；可透過 {{ nrefDataWhere }} 取得，用途為：「{{ nrefDataUsageReply }}」。</p>
               {%- else -%}
                 <p>我們將再次使用此非參考資料集，可透過以下位置取得：{{ nrefDataWhere }}。</p>
               {%- endif -%}
             {%- endif -%}
           {%- elif nrefDataUsageReply -%}
-            <p>We will re-use this non-referece data in order to "{{ nrefDataUsageReply}}".</p>
+            <p>我們將再次使用這筆非參考資料，用途為：「{{ nrefDataUsageReply }}」。</p>
           {%- else -%}
             <p>我們將再次使用此非參考資料集。</p>
           {%- endif -%}
@@ -382,7 +336,7 @@
               {%- set nrefDataConditionsOther = [nrefDataConditions, uuids.nrefDataConditionsOtherAUuid, uuids.nrefDataConditionsOtherQUuid]|reply_path -%}
               {%- set nrefDataConditionsOtherReply = repliesMap[nrefDataConditionsOther]|reply_str_value -%}
               {%- if nrefDataConditionsOtherReply -%}
-                <p>This data are{{+" "}}available with following restrictions: "{{nrefDataConditionsOtherReply}}".</p>
+                <p>這筆資料可在下列取用限制下取得：「{{ nrefDataConditionsOtherReply }}」。</p>
               {%- else -%}
                 <p>此資料可在限制下取得，限制內容將另行說明。</p>
               {%- endif -%}
@@ -445,44 +399,7 @@
           {# {%- set nrefDataUseNoOtherReasonReply = repliesMap[nrefDataUseNoOtherReason]|reply_str_value %} #}
           
           {# identification #}{# __tr_branch_sentence_original:CiAgICAgICAgICA8cD5XZSBjb25zaWRlcmVkIHJldXNpbmcgdGhpcyBub24tcmVmZXJlbmNlIGRhdGEgCiAgICAgICAgICB7JS0gaWYgbnJlZkRhdGFXaGVyZSAtJX0KICAgICAgICAgIHt7KyIgIn19YXZhaWxhYmxlIHZpYTp7eyIgIn19CiAgICAgICAgICAgIHslLSBpZiBucmVmRGF0YVdoZXJlLnN0YXJ0c3dpdGgoImh0dHA6Ly8iKSBvciBucmVmRGF0YVdoZXJlLnN0YXJ0c3dpdGgoImh0dHBzOi8vIikgb3IgbnJlZkRhdGFXaGVyZS5zdGFydHN3aXRoKCJmdHA6Ly8iKSAtJX0KICAgICAgICAgICAgICA8YSBocmVmPSJ7eyBybmVmRGF0YVdoZXJlIH19IiB0YXJnZXQ9Il9ibGFuayI-e3sgbnJlZkRhdGFXaGVyZSB9fSA8L2E-LgogICAgICAgICAgICB7JS0gZWxzZSAtJX0KICAgICAgICAgICAgICB7eyBucmVmRGF0YVdoZXJlIH19CiAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgIHslLSBlbmRpZiAtJX0KCiAgICAgICAgICB7IyBubyB1c2FnZSByZWFzb24gI30KICAgICAgICAgIHslLSBpZiBucmVmRGF0YVVzZU5vUmVwbHkgLSV9CiAgICAgICAgICAgICwgYnV0IGRlY2lkZWQgbm90IHRvIHJldXNlIGl0CiAgICAgICAgICAgIHslLSBpZiBucmVmRGF0YVVzZU5vUmVwbHkgPT0gdXVpZHMubnJlZkRhdGFVc2VOb0RhdGFBVXVpZCAtJX0KICAgICAgICAgICAgICB7eyIgIn19YmVjYXVzZSBpdCBtaXNzZXMgZGF0YSB3ZSBuZWVkCiAgICAgICAgICAgIHslLSBlbGlmIG5yZWZEYXRhVXNlTm9SZXBseSA9PSB1dWlkcy5ucmVmRGF0YVVzZU5vQXNwZWN0QVV1aWQgLSV9CiAgICAgICAgICAgICAge3siICJ9fWJlY2F1c2VpdCBtaXNzZXMgcmVxdWlyZWQgYXNwZWN0cwogICAgICAgICAgICB7JS0gZWxpZiBucmVmRGF0YVVzZU5vUmVwbHkgPT0gdXVpZHMubnJlZkRhdGFVc2VOb1F1YWxpdHlBVXVpZCAtJX0KICAgICAgICAgICAgICB7eyIgIn19YmVjYXVzZWl0IGlzIG5vdCBzdWZmaWNpZW50IHF1YWxpdHkKICAgICAgICAgICAgeyUtIGVsaWYgbnJlZkRhdGFVc2VOb1JlcGx5ID09IHV1aWRzLm5yZWZEYXRhVXNlTm9Db25kQVV1aWQgLSV9CiAgICAgICAgICAgICAge3siICJ9fWJlY2F1c2UgaXRzIGNvbmRpdGlvbnMgb2YgdXNlIGRvIG5vdCBhbGxvdyB1cyB0byB1c2UgaXQKICAgICAgICAgICAgeyUtIGVsaWYgbnJlZkRhdGFVc2VOb1JlcGx5ID09IHV1aWRzLm5yZWZEYXRhVXNlTm9SZWFzb25BVXVpZCBhbmQgbnJlZkRhdGFVc2VOb090aGVyUmVhc29uUmVwbHkgLSV9CiAgICAgICAgICAgICAge3siICJ9fWJlY2F1c2U6ICJ7e25yZWZEYXRhVXNlTm9PdGhlclJlYXNvblJlcGx5fX0iCiAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgLgogICAgICAgICAgeyUtIGVsc2UgLSV9CiAgICAgICAgICAuPC9wPgogICAgICAgICAgeyUtIGVuZGlmIC0lfQo= #}
-          <p>
-          {# no usage reason #}
-          {%- if nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>, but decided not to reuse it{{" "}}because it misses data we need.
-          {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>, but decided not to reuse it{{" "}}becauseit misses required aspects.
-          {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoQualityAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>, but decided not to reuse it{{" "}}becauseit is not sufficient quality.
-          {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoCondAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>, but decided not to reuse it{{" "}}because its conditions of use do not allow us to use it.
-          {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoReasonAUuid and nrefDataUseNoOtherReasonReply -%}
-            We considered reusing this non-reference data available via:{{" "}}<a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>, but decided not to reuse it{{" "}}because: "{{nrefDataUseNoOtherReasonReply}}".
-          {%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply -%}
-            我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集，但決定不再次使用。{%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集。
-          {%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}, but decided not to reuse it{{" "}}because it misses data we need.
-          {%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}, but decided not to reuse it{{" "}}becauseit misses required aspects.
-          {%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoQualityAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}, but decided not to reuse it{{" "}}becauseit is not sufficient quality.
-          {%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoCondAUuid -%}
-            We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}, but decided not to reuse it{{" "}}because its conditions of use do not allow us to use it.
-          {%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoReasonAUuid and nrefDataUseNoOtherReasonReply -%}
-            We considered reusing this non-reference data available via:{{" "}}{{ nrefDataWhere }}, but decided not to reuse it{{" "}}because: "{{nrefDataUseNoOtherReasonReply}}".
-          {%- elif nrefDataWhere and nrefDataUseNoReply -%}
-            我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集，但決定不再次使用。{%- elif nrefDataWhere -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集。
-          {%- elif nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}
-            We considered reusing this non-reference data, but decided not to reuse it{{" "}}because it misses data we need.
-          {%- elif nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}
-            We considered reusing this non-reference data, but decided not to reuse it{{" "}}becauseit misses required aspects.
-          {%- elif nrefDataUseNoReply == uuids.nrefDataUseNoQualityAUuid -%}
-            We considered reusing this non-reference data, but decided not to reuse it{{" "}}becauseit is not sufficient quality.
-          {%- elif nrefDataUseNoReply == uuids.nrefDataUseNoCondAUuid -%}
-            We considered reusing this non-reference data, but decided not to reuse it{{" "}}because its conditions of use do not allow us to use it.
-          {%- elif nrefDataUseNoReply == uuids.nrefDataUseNoReasonAUuid and nrefDataUseNoOtherReasonReply -%}
-            We considered reusing this non-reference data, but decided not to reuse it{{" "}}because: "{{nrefDataUseNoOtherReasonReply}}".
-          {%- elif nrefDataUseNoReply -%}
-            我們曾考慮再次使用此非參考資料集，但決定不再次使用。{%- else -%}我們曾考慮再次使用此非參考資料集。
+          <p>{# no usage reason #}{%- if nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集，但決定不再次使用，因為其中缺少我們需要的資料。{%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集，但決定不再次使用，因為其中缺少必要面向。{%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoQualityAUuid -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集，但決定不再次使用，因為其品質不足。{%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoCondAUuid -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集，但決定不再次使用，因為其使用條件不允許我們使用。{%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply == uuids.nrefDataUseNoReasonAUuid and nrefDataUseNoOtherReasonReply -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的這筆非參考資料，但因為「{{ nrefDataUseNoOtherReasonReply }}」，決定不再次使用。{%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) and nrefDataUseNoReply -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集，但決定不再次使用。{%- elif nrefDataWhere and (nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://")) -%}我們曾考慮再次使用可透過 <a href="{{ rnefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得的此非參考資料集。{%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集，但決定不再次使用，因為其中缺少我們需要的資料。{%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集，但決定不再次使用，因為其中缺少必要面向。{%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoQualityAUuid -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集，但決定不再次使用，因為其品質不足。{%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoCondAUuid -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集，但決定不再次使用，因為其使用條件不允許我們使用。{%- elif nrefDataWhere and nrefDataUseNoReply == uuids.nrefDataUseNoReasonAUuid and nrefDataUseNoOtherReasonReply -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的這筆非參考資料，但因為「{{ nrefDataUseNoOtherReasonReply }}」，決定不再次使用。{%- elif nrefDataWhere and nrefDataUseNoReply -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集，但決定不再次使用。{%- elif nrefDataWhere -%}我們曾考慮再次使用可透過 {{ nrefDataWhere }} 取得的此非參考資料集。{%- elif nrefDataUseNoReply == uuids.nrefDataUseNoDataAUuid -%}我們曾考慮再次使用此非參考資料集，但決定不再次使用，因為其中缺少我們需要的資料。{%- elif nrefDataUseNoReply == uuids.nrefDataUseNoAspectAUuid -%}我們曾考慮再次使用此非參考資料集，但決定不再次使用，因為其中缺少必要面向。{%- elif nrefDataUseNoReply == uuids.nrefDataUseNoQualityAUuid -%}我們曾考慮再次使用此非參考資料集，但決定不再次使用，因為其品質不足。{%- elif nrefDataUseNoReply == uuids.nrefDataUseNoCondAUuid -%}我們曾考慮再次使用此非參考資料集，但決定不再次使用，因為其使用條件不允許我們使用。{%- elif nrefDataUseNoReply == uuids.nrefDataUseNoReasonAUuid and nrefDataUseNoOtherReasonReply -%}我們曾考慮再次使用這筆非參考資料，但因為「{{ nrefDataUseNoOtherReasonReply }}」，決定不再次使用。{%- elif nrefDataUseNoReply -%}我們曾考慮再次使用此非參考資料集，但決定不再次使用。{%- else -%}我們曾考慮再次使用此非參考資料集。
           {%- endif -%}
           </p>
 {# __tr_branch_sentence_original:end #}
@@ -539,7 +456,7 @@
       {%- elif provenanceAUuid == uuids.provenanceOtherAUuid -%}
         {%- set provenanceOtherPath = [provenancePath, uuids.provenanceOtherAUuid, uuids.provenanceOtherQUuid]|reply_path -%}
         {%- set provenanceOther = repliesMap[provenanceOtherPath]|reply_str_value -%}
-        <p>{# __tr_block_0029:start #}We will use other solution than (electronic) lab notebooks to make sure that there is good provenance of the data analysis{{ "：" ~ provenanceOther|dot if provenanceOther else "。" }}
+        <p>{# __tr_block_0029:start #}我們將使用（電子）實驗室記錄本以外的其他方式，確保資料分析具有良好的資料溯源紀錄{{ "：" ~ provenanceOther|dot if provenanceOther else "。" }}
       {# __tr_block_0029:end #}{%- endif -%}
       {%- endif -%}
     {%- endif -%}

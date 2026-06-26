@@ -17,5 +17,5 @@ Each of those will use the following conventions: {scFSysSubjFoldersConvs}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+各資料夾將採用以下慣例：{scFSysSubjFoldersConvs}
 ~~~

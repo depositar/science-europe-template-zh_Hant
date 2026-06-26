@@ -17,5 +17,5 @@ If a new version becomes available during the project, we will stay with the old
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+若專案期間出現新版本，我們將維持使用舊版本。
 ~~~

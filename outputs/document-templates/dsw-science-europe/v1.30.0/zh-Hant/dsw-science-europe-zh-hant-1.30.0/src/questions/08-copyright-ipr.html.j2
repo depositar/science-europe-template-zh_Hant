@@ -37,21 +37,7 @@
       {%- set nReasons = reasons|select("true")|list|length -%}
 {# __tr_branch_sentence_original:CiAgICAgIHslLSBpZiBuUmVhc29ucyA-IDAgLSV9CiAgICAgICAgPHA-CiAgICAgICAgVGhlIGRhdGEgY2Fubm90IGJlY29tZSBjb21wbGV0ZWx5IG9wZW4gYmVjYXVzZSAKICAgICAgICB7JS0gaWYgblJlYXNvbnMgPT0gMSAtJX0KICAgICAgICAgIHslLSBpZiBsZWdhbFJlYXNvbnMgJX0KICAgICAgICAgICAgb2YgbGVnYWwgcmVhc29ucy4KICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc1BhdGVudHMgJX0KICAgICAgICAgICAgb2YgcGF0ZW50LXJlbGF0ZWQgYnVzaW5lc3MgcmVhc29ucy4KICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc090aGVyICV9CiAgICAgICAgICAgIG9mIG5vbi1wYXRlbnQgYnVzaW5lc3MgcmVhc29uc3t7ICAiOiAiIH4gbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyfGRvdCBpZiBub3RPcGVuQnVzaW5lc3NSZWFzb25zT3RoZXIgZWxzZSAiLiIgfX0KICAgICAgICAgIHslLSBlbGlmIG90aGVyUmVhc29uc1BhcGVycyAlfQogICAgICAgICAgICB3ZSB3YW50IHRvIHB1Ymxpc2ggYSBwYXBlciBmaXJzdC4KICAgICAgICAgIHslLSBlbGlmIG90aGVyUmVhc29uc090aGVyICV9CiAgICAgICAgICAgIHdlIGhhdmUgb3RoZXIgdGhhbiBwYXBlci1wdWJsaXNoaW5nIHJlYXNvbnN7eyAiOiAiIH4gbm90T3Blbk90aGVyUmVhc29uc090aGVyfGRvdCBpZiBub3RPcGVuT3RoZXJSZWFzb25zT3RoZXIgZWxzZSAiLiIgfX0KICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICB7JS0gZWxzZSAlfQogICAgICAgICAgb2Y6CiAgICAgICAgICA8dWw-CiAgICAgICAgICAgIHslLSBpZiBsZWdhbFJlYXNvbnMgJX0KICAgICAgICAgICAgICA8bGk-bGVnYWwgcmVhc29uczwvbGk-CiAgICAgICAgICAgIHslLSBlbmRpZiAtJX0KICAgICAgICAgICAgeyUtIGlmIGJ1c2luZXNzUmVhc29uc1BhdGVudHMgJX0KICAgICAgICAgICAgICA8bGk-cGF0ZW50LXJlbGF0ZWQgYnVzaW5lc3MgcmVhc29uczwvbGk-CiAgICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc090aGVyICV9CiAgICAgICAgICAgICAgPGxpPm5vbi1wYXRlbnQgYnVzaW5lc3MgcmVhc29uc3t7ICI6ICIgfiBub3RPcGVuQnVzaW5lc3NSZWFzb25zT3RoZXIgaWYgbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyIGVsc2UgIiIgfX08L2xpPgogICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAgIHslLSBpZiBvdGhlclJlYXNvbnNQYXBlcnMgJX0KICAgICAgICAgICAgICA8bGk-d2Ugd2FudCB0byBwdWJsaXNoIGEgcGFwZXIgZmlyc3Q8L2xpPgogICAgICAgICAgICB7JS0gZWxpZiBvdGhlclJlYXNvbnNPdGhlciAtJX0KICAgICAgICAgICAgICA8bGk-d2UgaGF2ZSBvdGhlciB0aGFuIHBhcGVyLXB1Ymxpc2hpbmcgcmVhc29uc3t7ICI6ICIgfiBub3RPcGVuT3RoZXJSZWFzb25zT3RoZXIgaWYgbm90T3Blbk90aGVyUmVhc29uc090aGVyIGVsc2UgIiIgfX08L2xpPgogICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICA8L3VsPgogICAgICAgIHslLSBlbmRpZiAtJX0K #}
       {%- if nReasons > 0 -%}
-        {# __tr_block_0003:start #}<p>
-        {%- if nReasons == 1 -%}
-          {%- if legalReasons %}
-            The data cannot become completely open because of legal reasons.
-          {%- elif businessReasonsPatents %}
-            The data cannot become completely open because of patent-related business reasons.
-          {%- elif businessReasonsOther %}
-            The data cannot become completely open because of non-patent business reasons{{ "：" ~ notOpenBusinessReasonsOther|dot if notOpenBusinessReasonsOther else "。" }}
-          {%- elif otherReasonsPapers %}
-            The data cannot become completely open because we want to publish a paper first.
-          {%- elif otherReasonsOther %}
-            The data cannot become completely open because we have other than paper-publishing reasons{{ "：" ~ notOpenOtherReasonsOther|dot if notOpenOtherReasonsOther else "。" }}
-          {%- endif -%}
-        {%- else %}
-          The data cannot become completely open because of:
+        {# __tr_block_0003:start #}<p>{%- if nReasons == 1 -%}{%- if legalReasons %}基於法律理由，資料無法完全開放。{%- elif businessReasonsPatents %}基於專利相關的商業理由，資料無法完全開放。{%- elif businessReasonsOther %}基於非專利的商業理由{{ "：" ~ notOpenBusinessReasonsOther|dot if notOpenBusinessReasonsOther else "。" }}，資料無法完全開放。{%- elif otherReasonsPapers %}因為我們希望先發表論文，資料無法完全開放。{%- elif otherReasonsOther %}因為我們有發表論文以外的其他理由{{ "：" ~ notOpenOtherReasonsOther|dot if notOpenOtherReasonsOther else "。" }}，資料無法完全開放。{%- endif -%}{%- else %}資料無法完全開放，原因如下：
           <ul>
             {%- if legalReasons %}
               <li>法律因素。</li>
@@ -59,12 +45,12 @@
             {%- if businessReasonsPatents %}
               <li>與專利相關的商業因素。</li>
             {%- elif businessReasonsOther %}
-              <li>non-patent business reasons{{ "：" ~ notOpenBusinessReasonsOther if notOpenBusinessReasonsOther else "" }}</li>
+              <li>非專利相關的商業因素{{ "：" ~ notOpenBusinessReasonsOther if notOpenBusinessReasonsOther else "" }}。</li>
             {%- endif -%}
             {%- if otherReasonsPapers %}
               <li>我們想先發表論文。</li>
             {%- elif otherReasonsOther -%}
-              <li>we have other than paper-publishing reasons{{ "：" ~ notOpenOtherReasonsOther if notOpenOtherReasonsOther else "" }}</li>
+              <li>我們有論文發表以外的其他原因{{ "：" ~ notOpenOtherReasonsOther if notOpenOtherReasonsOther else "" }}。</li>
             {%- endif -%}
           </ul>
         {%- endif -%}{# __tr_block_0003:end #}
@@ -89,7 +75,7 @@
             {%- set legalReasonsAuthenticatedCommitteeReply = repliesMap[legalReasonsAuthenticatedCommitteeQUuid]|reply_str_value -%}
             
             {%- if legalReasonsAuthenticatedCommitteeReply -%}
-              {# __tr_block_0008:start #}<p>We will make use of an existing data committee - {{legalReasonsAuthenticatedCommitteeReply|dot}}</p>{# __tr_block_0008:end #}
+              {# __tr_block_0008:start #}<p>我們將使用既有的資料委員會：{{ legalReasonsAuthenticatedCommitteeReply|dot }}</p>{# __tr_block_0008:end #}
             {%- else -%}
               {# __tr_block_0009:start #}<p>我們將使用既有資料委員會。</p>{# __tr_block_0009:end #}
             {%- endif -%}
@@ -99,7 +85,7 @@
             {%- set legalReasonsAuthenticatedOtherReply = repliesMap[legalReasonsAuthenticatedOtherQUuid]|reply_str_value -%}
 
             {%- if legalReasonsAuthenticatedOtherReply  -%}
-              {# __tr_block_0010:start #}<p>We will have following arrangements: {{legalReasonsAuthenticatedOtherReply|dot}}</p>{# __tr_block_0010:end #}
+              {# __tr_block_0010:start #}<p>我們將採取以下安排：{{ legalReasonsAuthenticatedOtherReply|dot }}</p>{# __tr_block_0010:end #}
             {%- else -%}
               {# __tr_block_0011:start #}<p>我們尚未決定。</p>{# __tr_block_0011:end #}
             {%- endif -%}
@@ -154,7 +140,7 @@
       {%- set ownershipOtherPath = [ownershipPath, uuids.ownershipOtherAUuid, uuids.ownershipOtherQUuid]|reply_path -%}
       {%- set ownershipOther = repliesMap[ownershipOtherPath]|reply_str_value -%}
       {%- if ownershipOther -%}
-        {# __tr_block_0024:start #}<p>We have made the following arrangements regarding the data ownership: {{ ownershipOther|dot }}</p>{# __tr_block_0024:end #}
+        {# __tr_block_0024:start #}<p>我們已就資料所有權作成以下安排：{{ ownershipOther|dot }}</p>{# __tr_block_0024:end #}
       {%- endif -%}
     {%- endif -%}
 
@@ -197,11 +183,7 @@
                 {%- if refDataNameReply -%}
                   <div>{{ refDataNameReply }}</div>
                 {%- else -%}
-                  <div>（尚未提供名稱）</div>{%- endif -%}{% if refDataConditionsAUuid == uuids.refDataConditionsCC0AUuid -%}可自由取得並用於任何用途（公眾領域或 CC0）。{%- elif refDataConditionsAUuid == uuids.refDataConditionsCCBYAUuid -%}可自由取得，但使用時必須引用來源（例如 CC BY）。
-                {%- elif refDataConditionsAUuid == uuids.refDataConditionsOtherAUuid -%}
-                  {%- set refDataConditionsOtherPath = [refDataConditionsPath, uuids.refDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
-                  {%- set refDataConditionsOther = repliesMap[refDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ "：" ~ refDataConditionsOther|dot if refDataConditionsOther else "。" }}
+                  <div>（尚未提供名稱）</div>{%- endif -%}{% if refDataConditionsAUuid == uuids.refDataConditionsCC0AUuid -%}可自由取得並用於任何用途（公眾領域或 CC0）。{%- elif refDataConditionsAUuid == uuids.refDataConditionsCCBYAUuid -%}可自由取得，但使用時必須引用來源（例如 CC BY）。{%- elif refDataConditionsAUuid == uuids.refDataConditionsOtherAUuid -%}{%- set refDataConditionsOtherPath = [refDataConditionsPath, uuids.refDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}{%- set refDataConditionsOther = repliesMap[refDataConditionsOtherPath]|reply_str_value -%}其可在特定限制下取得，我們將在專案中遵循這些限制{{ "：" ~ refDataConditionsOther|dot if refDataConditionsOther else "。" }}
                 {%- endif -%}
               </li>
             {%- endif -%}
@@ -218,11 +200,7 @@
                 {%- if nrefDataNameReply -%}
                   <div>{{ nrefDataNameReply }}</div>
                 {%- else -%}
-                  <div>（尚未提供名稱）</div>{%- endif -%}{% if nrefDataConditionsAUuid == uuids.nrefDataConditionsCC0AUuid -%}可自由取得並用於任何用途（公眾領域或 CC0）。{%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsCCBYAUuid -%}可自由取得，但使用時必須引用來源（例如 CC BY）。
-                {%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsOtherAUuid -%}
-                  {%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}
-                  {%- set nrefDataConditionsOther = repliesMap[nrefDataConditionsOtherPath]|reply_str_value -%}
-                  It is available under specific restrictions, which we will follow in our project{{ "：" ~ nrefDataConditionsOther|dot if nrefDataConditionsOther else "。" }}
+                  <div>（尚未提供名稱）</div>{%- endif -%}{% if nrefDataConditionsAUuid == uuids.nrefDataConditionsCC0AUuid -%}可自由取得並用於任何用途（公眾領域或 CC0）。{%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsCCBYAUuid -%}可自由取得，但使用時必須引用來源（例如 CC BY）。{%- elif nrefDataConditionsAUuid == uuids.nrefDataConditionsOtherAUuid -%}{%- set nrefDataConditionsOtherPath = [nrefDataConditionsPath, uuids.nrefDataConditionsOtherAUuid, uuids.refDataConditionsOtherQUuid]|reply_path -%}{%- set nrefDataConditionsOther = repliesMap[nrefDataConditionsOtherPath]|reply_str_value -%}其可在特定限制下取得，我們將在專案中遵循這些限制{{ "：" ~ nrefDataConditionsOther|dot if nrefDataConditionsOther else "。" }}
                 {%- endif -%}
               </li>
             {%- endif -%}

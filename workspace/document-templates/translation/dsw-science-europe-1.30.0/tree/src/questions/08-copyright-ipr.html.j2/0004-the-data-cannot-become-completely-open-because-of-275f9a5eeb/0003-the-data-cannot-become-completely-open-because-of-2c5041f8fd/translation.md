@@ -17,5 +17,5 @@ The data cannot become completely open because of non-patent business reasons{no
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+基於非專利的商業理由{notOpenBusinessReasonsOther}，資料無法完全開放。
 ~~~

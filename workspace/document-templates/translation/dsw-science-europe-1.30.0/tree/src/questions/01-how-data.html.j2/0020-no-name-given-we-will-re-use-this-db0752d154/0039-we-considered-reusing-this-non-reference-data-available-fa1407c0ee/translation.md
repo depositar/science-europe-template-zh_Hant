@@ -17,5 +17,5 @@ We considered reusing this non-reference data available via: {nrefDataWhere}, bu
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們曾考慮再次使用可透過 {nrefDataWhere} 取得的此非參考資料集，但決定不再次使用，因為其中缺少必要面向。
 ~~~
