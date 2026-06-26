@@ -17,5 +17,5 @@ We will re-use this standard reference data in order to {refDataUsageReply}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-此標準參考資料的再次使用目的：{refDataUsageReply}
+我們將再次使用此標準參考資料，用途為：{refDataUsageReply}。
 ~~~

@@ -17,5 +17,5 @@ Charges applied by data repositories (if any) are mentioned already in Section 4
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料儲存庫收取的費用（如有）已於第 4 節第 11 題說明。
+資料儲存庫收取的費用（如有）已於第 11 題說明。
 ~~~

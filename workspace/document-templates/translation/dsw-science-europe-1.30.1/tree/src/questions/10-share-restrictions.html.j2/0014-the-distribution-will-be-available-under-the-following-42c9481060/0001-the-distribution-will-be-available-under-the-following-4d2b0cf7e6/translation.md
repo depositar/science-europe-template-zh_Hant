@@ -17,5 +17,5 @@ The distribution will be available under the following license:
 ### Translation (zh_Hant)
 
 ~~~jinja
-此發行版本將依下列授權條款提供：
+此發布版本將依下列授權條款提供：
 ~~~
