@@ -17,6 +17,7 @@ Actual translation work lives on version branches.
 
 Each supported upstream template tag has a dedicated branch:
 
+- `translation/v1.29.1`
 - `translation/v1.30.0`
 - `translation/v1.30.1`
 
@@ -33,6 +34,27 @@ Open translation PRs against the matching `translation/v*` branch, not against
 
 Generated document template packages and demo renders should be published as
 GitHub Actions artifacts or release assets, not committed to `master`.
+
+## Release Assets
+
+CI publishes generated packages as GitHub Release assets on non-PR runs of each
+version branch. These releases are review/download buckets, not the formal
+public source of record.
+
+For a branch such as `translation/v1.30.0`, download assets from the matching
+release tag:
+
+- `science-europe-zh-hant-v1.30.0`
+
+Expected assets include:
+
+- `dsw-science-europe-zh-hant-v1.30.0.zip`: DSW import package
+- `test-project-v1.30.0.pdf`: demo render
+- `test-project-v1.30.0.pdf.json`: render metadata
+- `SHA256SUMS`: checksums
+
+After review, import the zip manually into the target DSW/depositar environment.
+Do not treat this repository's release asset as an automatic public publish.
 
 ## Migration Policy
 
