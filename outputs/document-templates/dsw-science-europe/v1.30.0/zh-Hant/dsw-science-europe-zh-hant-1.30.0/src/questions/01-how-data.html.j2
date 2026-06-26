@@ -119,7 +119,7 @@
                 {%- set mdQualityOtherYesPath = [mdQualityOtherPath, uuids.mdQualityOtherYesAUuid, uuids.mdQualityOtherWhatQUuid]|reply_path -%}
                 {%- set mdQualityOther = repliesMap[mdQualityOtherYesPath]|reply_str_value -%}
                 {%- if mdQualityOther -%}
-                  {# __tr_branch_sentence_original:PHA-eyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0lrRmtaR2wwYVc5dVlXd2lJR2xtSUhGMVlXeHBkSGxEYjNWdWRDQS1JREFnWld4elpTQWlUM1Z5SWlCOWZRPT0gI317JSBpZiBxdWFsaXR5Q291bnQgPiAwICV9e3sgIkFkZGl0aW9uYWwiIH19eyUgZWxzZSAlfXt7ICJPdXIiIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI30gcXVhbGl0eSBwcm9jZXNzZXMgYXJlOiB7eyBtZFF1YWxpdHlPdGhlcnxkb3QgfX08L3A- #}{% if qualityCount > 0 %}<p>其他資料品質管控流程包括：{{ mdQualityOther|dot }}。</p>{% else %}<p>我們的資料品質管控流程為：{{ mdQualityOther|dot }}。</p>{% endif %}{# __tr_branch_sentence_original:end #}
+                  {# __tr_branch_sentence_original:PHA-eyMgX190cl9pbmxpbmVfaWZfb3JpZ2luYWw6ZTNzZ0lrRmtaR2wwYVc5dVlXd2lJR2xtSUhGMVlXeHBkSGxEYjNWdWRDQS1JREFnWld4elpTQWlUM1Z5SWlCOWZRPT0gI317JSBpZiBxdWFsaXR5Q291bnQgPiAwICV9e3sgIkFkZGl0aW9uYWwiIH19eyUgZWxzZSAlfXt7ICJPdXIiIH19eyUgZW5kaWYgJX17IyBfX3RyX2lubGluZV9pZl9vcmlnaW5hbDplbmQgI30gcXVhbGl0eSBwcm9jZXNzZXMgYXJlOiB7eyBtZFF1YWxpdHlPdGhlcnxkb3QgfX08L3A- #}{% if qualityCount > 0 %}<p>其他資料品質管控流程包括：{{ mdQualityOther|trim }}。</p>{% else %}<p>我們的資料品質管控流程為：{{ mdQualityOther|trim }}。</p>{% endif %}{# __tr_branch_sentence_original:end #}
                 {%- endif -%}
               {%- endif -%}{# __tr_block_0015:end #}
             {%- endif -%}
@@ -171,19 +171,19 @@
             {%- if refDataWhere -%}
               {%- if refDataWhere.startswith("http://") or refDataWhere.startswith("https://") or refDataWhere.startswith("ftp://") -%}
                 {%- if refDataUsageReply -%}
-                  <p>我們將再次使用此標準參考資料，用途為：{{ refDataUsageReply }}。資料可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得。</p>
+                  <p>資料可透過 <a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a> 取得。我們將再次使用此標準參考資料，用途為：{{ refDataUsageReply }}</p>
                 {%- else -%}
                   <p>我們將再次使用此標準參考資料，可透過以下位置取得：<a href="{{ refDataWhere }}" target="_blank">{{ refDataWhere }} </a>。</p>
                 {%- endif -%}
               {%- else -%}
                 {%- if refDataUsageReply -%}
-                  <p>我們將再次使用此標準參考資料，用途為：{{ refDataUsageReply }}。資料可透過 {{ refDataWhere }} 取得。</p>
+                  <p>資料可透過 {{ refDataWhere }} 取得。我們將再次使用此標準參考資料，用途為：{{ refDataUsageReply }}</p>
                 {%- else -%}
                   <p>我們將再次使用此標準參考資料，可透過以下位置取得：{{ refDataWhere }}。</p>
                 {%- endif -%}
               {%- endif -%}
             {%- elif refDataUsageReply -%}
-              <p>我們將再次使用此標準參考資料，用途為：{{ refDataUsageReply }}。</p>
+              <p>我們將再次使用此標準參考資料，用途為：{{ refDataUsageReply }}</p>
             {%- else -%}
               <p>我們將再次使用此標準參考資料。</p>
             {%- endif -%}
@@ -280,19 +280,19 @@
           {%- if nrefDataWhere -%}
             {%- if nrefDataWhere.startswith("http://") or nrefDataWhere.startswith("https://") or nrefDataWhere.startswith("ftp://") -%}
               {%- if nrefDataUsageReply -%}
-                <p>我們將再次使用此非參考資料集，用途為：{{ nrefDataUsageReply }}。資料可透過 <a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得。</p>
+                <p>資料可透過 <a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a> 取得。我們將再次使用此非參考資料集，用途為：{{ nrefDataUsageReply }}</p>
               {%- else -%}
                 <p>我們將再次使用此非參考資料集，可透過以下位置取得：<a href="{{ nrefDataWhere }}" target="_blank">{{ nrefDataWhere }} </a>。</p>
               {%- endif -%}
             {%- else -%}
               {%- if nrefDataUsageReply -%}
-                <p>我們將再次使用此非參考資料集，用途為：{{ nrefDataUsageReply }}。資料可透過 {{ nrefDataWhere }} 取得。</p>
+                <p>資料可透過 {{ nrefDataWhere }} 取得。我們將再次使用此非參考資料集，用途為：{{ nrefDataUsageReply }}</p>
               {%- else -%}
                 <p>我們將再次使用此非參考資料集，可透過以下位置取得：{{ nrefDataWhere }}。</p>
               {%- endif -%}
             {%- endif -%}
           {%- elif nrefDataUsageReply -%}
-            <p>我們將再次使用此非參考資料集，用途為：{{ nrefDataUsageReply }}。</p>
+            <p>我們將再次使用此非參考資料集，用途為：{{ nrefDataUsageReply }}</p>
           {%- else -%}
             <p>我們將再次使用此非參考資料集。</p>
           {%- endif -%}
@@ -456,7 +456,7 @@
       {%- elif provenanceAUuid == uuids.provenanceOtherAUuid -%}
         {%- set provenanceOtherPath = [provenancePath, uuids.provenanceOtherAUuid, uuids.provenanceOtherQUuid]|reply_path -%}
         {%- set provenanceOther = repliesMap[provenanceOtherPath]|reply_str_value -%}
-        <p>{# __tr_block_0029:start #}我們將使用（電子）實驗室記錄本以外的其他方式，確保資料分析具有良好的資料溯源紀錄{{ "：" ~ provenanceOther|dot if provenanceOther else "。" }}
+        <p>{# __tr_block_0029:start #}我們將使用（電子）實驗室記錄本以外的其他方式，確保資料分析具有良好的資料溯源紀錄{{ "：" ~ provenanceOther|trim if provenanceOther else "。" }}
       {# __tr_block_0029:end #}{%- endif -%}
       {%- endif -%}
     {%- endif -%}

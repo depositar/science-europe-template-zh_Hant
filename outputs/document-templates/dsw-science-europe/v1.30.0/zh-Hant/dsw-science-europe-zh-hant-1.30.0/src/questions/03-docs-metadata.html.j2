@@ -26,7 +26,7 @@
     {%- if metadataOpenAUuid == uuids.metadataOpenNoAUuid %}
       {%- set explanation = repliesMap[[metadataOpenPath, metadataOpenAUuid, uuids.metadataOpenNoExplainQUuid]|reply_path]|reply_str_value -%}
       {%- if explanation -%}
-        {# __tr_block_0010:start #}<p>後設資料不會公開提供，原因是：{{ explanation|e|dot }}</p>{# __tr_block_0010:end #}
+        {# __tr_block_0010:start #}<p>後設資料不會公開提供，原因是：{{ explanation|e|trim }}</p>{# __tr_block_0010:end #}
       {%- else -%}
         {# __tr_block_0011:start #}<p>後設資料不會公開提供。</p>{# __tr_block_0011:end #}
       {%- endif -%}
@@ -68,30 +68,30 @@
             {%- if subjectFolders -%}
               {%- set scFSysSubjFoldersConvs = repliesMap[[scFSysSubjFoldersPath, uuids.scFSysSubjFoldersYesAUuid, uuids.scFSysSubjFoldersConvsQUuid]|reply_path]|reply_str_value -%}
               <li>
-                每個樣本／研究對象都會有一個資料夾。{% if scFSysSubjFoldersConvs %}各資料夾將採用以下慣例：{{ scFSysSubjFoldersConvs|dot }}
+                每個樣本／研究對象都會有一個資料夾。{% if scFSysSubjFoldersConvs %}各資料夾將採用以下慣例：{{ scFSysSubjFoldersConvs|trim }}
                 {%- endif -%}
               </li>
             {%- endif -%}
             {%- if analysisFolders -%}
               {%- set scFSysAnalysisFoldersConvs = repliesMap[[scFSysAnalysisFoldersPath, uuids.scFSysAnalysisFoldersYesAUuid, uuids.scFSysAnalysisFoldersConvsQUuid]|reply_path]|reply_str_value -%}
               <li>
-                每一次（重複）分析都會有一個（子）資料夾。{% if scFSysAnalysisFoldersConvs %}各資料夾將採用以下慣例：{{ scFSysAnalysisFoldersConvs|dot }}
+                每一次（重複）分析都會有一個（子）資料夾。{% if scFSysAnalysisFoldersConvs %}各資料夾將採用以下慣例：{{ scFSysAnalysisFoldersConvs|trim }}
                 {%- endif -%}
               </li>
             {%- endif -%}
             {%- if workflowStepFolders -%}
               {%- set scFSysWorkflowStepFoldersConvs = repliesMap[[scFSysWorkflowStepFoldersPath, uuids.scFSysWorkflowStepFoldersYesAUuid, uuids.scFSysWorkflowStepFoldersConvsQUuid]|reply_path]|reply_str_value -%}
               <li>
-                分析工作流程中的每個步驟都會有一個（子）資料夾。{% if scFSysWorkflowStepFoldersConvs %}各資料夾將採用以下慣例：{{ scFSysWorkflowStepFoldersConvs|dot }}
+                分析工作流程中的每個步驟都會有一個（子）資料夾。{% if scFSysWorkflowStepFoldersConvs %}各資料夾將採用以下慣例：{{ scFSysWorkflowStepFoldersConvs|trim }}
                 {%- endif -%}
               </li>
             {%- endif -%}
-          </ul>{%- else -%}我們將使用以檔案與資料夾組成的檔案系統。{%- endif -%}{# Versioning #}{%- set scDocumentVersioningPath = [scFSysPrefix, uuids.scDocumentVersioningQUuid]|reply_path -%}{%- set scDocumentVersioningAUuid = repliesMap[scDocumentVersioningPath]|reply_str_value -%}{%- if scDocumentVersioningAUuid == uuids.scDocumentVersioningYesAUuid %}我們會記錄如何管理檔案與資料夾的版本。{%- endif -%}{# Other appointments #}{%- set scFSysAppointmentsPath = [scFSysPrefix, uuids.scFSysAppointmentsQUuid]|reply_path -%}{%- set scFSysAppointments = repliesMap[scFSysAppointmentsPath]|reply_str_value -%}{%- if scFSysAppointments %}{% if folders|any %}{# __tr_inline_if_original:e3sgIk1vcmVvdmVyLCB3ZSIgaWYgZm9sZGVyc3xhbnkgZWxzZSAiV2UiIH19 #}此外，我們已就檔案命名作出約定。{{ appointmentsText|capitalize|dot }}{% else %}{# __tr_inline_if_original:e3sgIk1vcmVvdmVyLCB3ZSIgaWYgZm9sZGVyc3xhbnkgZWxzZSAiV2UiIH19 #}我們已就檔案命名作出約定。{{ appointmentsText|capitalize|dot }}
+          </ul>{%- else -%}我們將使用以檔案與資料夾組成的檔案系統。{%- endif -%}{# Versioning #}{%- set scDocumentVersioningPath = [scFSysPrefix, uuids.scDocumentVersioningQUuid]|reply_path -%}{%- set scDocumentVersioningAUuid = repliesMap[scDocumentVersioningPath]|reply_str_value -%}{%- if scDocumentVersioningAUuid == uuids.scDocumentVersioningYesAUuid %}我們會記錄如何管理檔案與資料夾的版本。{%- endif -%}{# Other appointments #}{%- set scFSysAppointmentsPath = [scFSysPrefix, uuids.scFSysAppointmentsQUuid]|reply_path -%}{%- set scFSysAppointments = repliesMap[scFSysAppointmentsPath]|reply_str_value -%}{%- if scFSysAppointments %}{% if folders|any %}{# __tr_inline_if_original:e3sgIk1vcmVvdmVyLCB3ZSIgaWYgZm9sZGVyc3xhbnkgZWxzZSAiV2UiIH19 #}此外，我們已就檔案命名作出約定。{{ appointmentsText|capitalize|trim }}{% else %}{# __tr_inline_if_original:e3sgIk1vcmVvdmVyLCB3ZSIgaWYgZm9sZGVyc3xhbnkgZWxzZSAiV2UiIH19 #}我們已就檔案命名作出約定。{{ appointmentsText|capitalize|trim }}
         {% endif %}{%- endif -%}
       {%- endif -%}
       </p>{# __tr_block_0016:end #}{# __tr_branch_sentence_original:end #}
       {# Object and Document Store #}
-      {# __tr_block_0017:start #}<p>{%- if storageConvObjStoreAUuid == uuids.storageConvObjStoreNoAUuid -%}我們不會將資料儲存在「物件／文件儲存」系統中。{%- elif storageConvObjStoreAUuid == uuids.storageConvObjStoreYesAUuid -%}{%- set scObjStoreNamingQUuid = [storageConvObjStorePath, uuids.storageConvObjStoreYesAUuid, uuids.scObjStoreNamingQUuid]|reply_path -%}{%- set scObjStoreNaming = repliesMap[scObjStoreNamingQUuid]|reply_str_value -%}{%- if scObjStoreNaming -%}我們將把資料儲存在「物件／文件儲存」系統中，並採用以下物件命名慣例：{{ scObjStoreNaming|dot }}{%- else -%}我們將把資料儲存在「物件／文件儲存」系統中。
+      {# __tr_block_0017:start #}<p>{%- if storageConvObjStoreAUuid == uuids.storageConvObjStoreNoAUuid -%}我們不會將資料儲存在「物件／文件儲存」系統中。{%- elif storageConvObjStoreAUuid == uuids.storageConvObjStoreYesAUuid -%}{%- set scObjStoreNamingQUuid = [storageConvObjStorePath, uuids.storageConvObjStoreYesAUuid, uuids.scObjStoreNamingQUuid]|reply_path -%}{%- set scObjStoreNaming = repliesMap[scObjStoreNamingQUuid]|reply_str_value -%}{%- if scObjStoreNaming -%}我們將把資料儲存在「物件／文件儲存」系統中，並採用以下物件命名慣例：{{ scObjStoreNaming|trim }}{%- else -%}我們將把資料儲存在「物件／文件儲存」系統中。
         {%- endif -%}
       {%- endif -%}
       </p>{# __tr_block_0017:end #}

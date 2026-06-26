@@ -149,7 +149,7 @@
             {%- set cpersExplainInformed = repliesMap[cpersExplainInformedPath]|reply_str_value -%}
             {%- if cpersExplainInformed -%}{# __tr_block_0020:start #}
               {%- do sentences.append('資料主體將透過以下方式獲得告知：') -%}
-              {# __tr_block_0020:end #}{%- do sentences.append(cpersExplainInformed|dot) -%}
+              {# __tr_block_0020:end #}{%- do sentences.append(cpersExplainInformed|trim) -%}
             {%- endif -%}
 
             {%- set cpersReusersPath = [legalBasePath, legalBaseAUuid, uuids.cpersReusersQUuid]|reply_path -%}
@@ -164,7 +164,7 @@
             {%- set cpersDescribeProcedure = repliesMap[cpersDescribeProcedurePath]|reply_str_value -%}
             {%- if cpersDescribeProcedure -%}{# __tr_block_0023:start #}
               {%- do sentences.append('取得資料主體同意的程序如下：') -%}
-              {# __tr_block_0023:end #}{%- do sentences.append(cpersDescribeProcedure|dot) -%}
+              {# __tr_block_0023:end #}{%- do sentences.append(cpersDescribeProcedure|trim) -%}
             {%- endif -%}
 
           {%- elif legalBaseAUuid == uuids.cpersGdprLegalBasisOtherAUuid -%}{# __tr_block_0024:start #}
@@ -189,7 +189,7 @@
           {%- set cpersGdprPurpose = repliesMap[cpersGdprPurposePath]|reply_str_value -%}
           {%- if cpersGdprPurpose -%}{# __tr_block_0029:start #}
             {%- do sentences.append('處理個人資料的目的可描述如下：') -%}
-            {# __tr_block_0029:end #}{%- do sentences.append(cpersGdprPurpose|dot) -%}
+            {# __tr_block_0029:end #}{%- do sentences.append(cpersGdprPurpose|trim) -%}
           {%- endif -%}
 
           {# DPIA #}
