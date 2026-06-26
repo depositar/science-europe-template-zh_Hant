@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/02-what-data.html.j2`
-- Wrapper Name: `__tr_block_0006`
-- Wrapper Order: `7`
-- Wrapper Key: `this-dataset-will-be-collected-by-an-external-a3fb9296b1`
-- Unit Key: `the-ownership-of-the-resulting-data-will-remain-0e1fc2f4f0`
-- Source Hash: `0599a9a1529f7a320ace02d688419529bf224af4`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ The ownership of the resulting data will remain with the external party.
 ~~~jinja
 產出資料的所有權將保留於外部單位。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/02-what-data.html.j2`
+- Wrapper Name: `__tr_block_0006`
+- Wrapper Order: `7`
+- Wrapper Key: `this-dataset-will-be-collected-by-an-external-a3fb9296b1`
+- Unit Key: `the-ownership-of-the-resulting-data-will-remain-0e1fc2f4f0`
+- Source Hash: `0599a9a1529f7a320ace02d688419529bf224af4`
+
+Do not edit this section manually.
+
+</details>

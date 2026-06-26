@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/02-what-data.html.j2`
-- Wrapper Name: `__tr_block_0012`
-- Wrapper Order: `13`
-- Wrapper Key: `electronic-patient-records-a61dafe473`
-- Unit Key: `electronic-patient-records-875875abee`
-- Source Hash: `b6abbf0f4fcad396c40da2e346166c3c9ff7ad44`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ electronic patient records
 ~~~jinja
 電子病歷
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/02-what-data.html.j2`
+- Wrapper Name: `__tr_block_0012`
+- Wrapper Order: `13`
+- Wrapper Key: `electronic-patient-records-a61dafe473`
+- Unit Key: `electronic-patient-records-875875abee`
+- Source Hash: `b6abbf0f4fcad396c40da2e346166c3c9ff7ad44`
+
+Do not edit this section manually.
+
+</details>
