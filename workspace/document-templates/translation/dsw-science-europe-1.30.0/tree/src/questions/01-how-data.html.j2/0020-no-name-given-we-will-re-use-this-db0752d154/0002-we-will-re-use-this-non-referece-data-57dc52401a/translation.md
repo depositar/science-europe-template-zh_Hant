@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/01-how-data.html.j2`
-- Wrapper Name: `__tr_block_0019`
-- Wrapper Order: `20`
-- Wrapper Key: `no-name-given-we-will-re-use-this-db0752d154`
-- Unit Key: `we-will-re-use-this-non-referece-data-57dc52401a`
-- Source Hash: `ae492ae6c1cf44c2dc6a7f0434779886d7f16127`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ We will re-use this non-referece data available via: {nrefDataWhere} in order to
 ~~~jinja
 我們將再次使用這筆非參考資料；可透過 {nrefDataWhere} 取得，用途為：「{nrefDataUsageReply}」。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/01-how-data.html.j2`
+- Wrapper Name: `__tr_block_0019`
+- Wrapper Order: `20`
+- Wrapper Key: `no-name-given-we-will-re-use-this-db0752d154`
+- Unit Key: `we-will-re-use-this-non-referece-data-57dc52401a`
+- Source Hash: `ae492ae6c1cf44c2dc6a7f0434779886d7f16127`
+
+Do not edit this section manually.
+
+</details>

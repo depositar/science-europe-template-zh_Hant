@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/01-how-data.html.j2`
-- Wrapper Name: `__tr_block_0019`
-- Wrapper Order: `20`
-- Wrapper Key: `no-name-given-we-will-re-use-this-db0752d154`
-- Unit Key: `this-data-include-personal-data-834d7d4448`
-- Source Hash: `ea86be7b1a86db8e5c3f8512b087df8ce08a0c4b`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ This data include personal data.
 ~~~jinja
 此資料包含個人資料。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/01-how-data.html.j2`
+- Wrapper Name: `__tr_block_0019`
+- Wrapper Order: `20`
+- Wrapper Key: `no-name-given-we-will-re-use-this-db0752d154`
+- Unit Key: `this-data-include-personal-data-834d7d4448`
+- Source Hash: `ea86be7b1a86db8e5c3f8512b087df8ce08a0c4b`
+
+Do not edit this section manually.
+
+</details>
