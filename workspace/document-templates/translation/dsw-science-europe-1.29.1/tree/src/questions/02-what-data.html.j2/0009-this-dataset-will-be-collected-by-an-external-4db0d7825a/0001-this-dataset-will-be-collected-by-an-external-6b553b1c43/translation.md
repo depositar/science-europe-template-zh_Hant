@@ -17,5 +17,5 @@ This dataset will be collected by an external party. For the ownership of the da
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此資料集將由外部單位蒐集。關於資料所有權，我們已做出以下安排：{mdExternalOwnershipOther}
 ~~~

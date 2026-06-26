@@ -17,5 +17,5 @@ We will re-use this non-referece data in order to "{nrefDataUsageReply}".
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將再次使用這筆非參考資料，用途為：「{nrefDataUsageReply}」。
 ~~~

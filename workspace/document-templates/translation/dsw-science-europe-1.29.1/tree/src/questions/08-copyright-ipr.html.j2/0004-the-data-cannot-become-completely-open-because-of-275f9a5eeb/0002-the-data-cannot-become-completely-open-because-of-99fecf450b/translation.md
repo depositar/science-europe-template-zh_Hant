@@ -17,5 +17,5 @@ The data cannot become completely open because of patent-related business reason
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+基於專利相關的商業理由，資料無法完全開放。
 ~~~

@@ -17,5 +17,5 @@ Available under some restrictions, which we will follow in our project{licenseRe
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+可在部分限制下取得，我們將在專案中遵循這些限制{licenseRestrictConditions}
 ~~~

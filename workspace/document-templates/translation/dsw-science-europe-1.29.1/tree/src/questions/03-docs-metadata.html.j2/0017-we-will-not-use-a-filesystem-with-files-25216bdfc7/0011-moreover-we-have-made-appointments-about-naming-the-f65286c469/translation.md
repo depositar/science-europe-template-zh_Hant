@@ -17,5 +17,5 @@ Moreover, we have made appointments about naming the files. {appointmentsText}
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+此外，我們已就檔案命名作出約定。{appointmentsText}
 ~~~

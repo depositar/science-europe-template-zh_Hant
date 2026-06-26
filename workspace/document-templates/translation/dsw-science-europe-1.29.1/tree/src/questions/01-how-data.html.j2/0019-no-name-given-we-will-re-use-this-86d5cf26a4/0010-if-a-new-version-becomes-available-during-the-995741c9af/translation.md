@@ -17,5 +17,5 @@ If a new version becomes available during the project, new analyses will be done
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+若專案期間出現新版本，新的分析將使用新版本進行。
 ~~~
