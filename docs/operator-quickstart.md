@@ -15,15 +15,21 @@ This repository owns:
 - manual import or public publication decisions
 
 The parser, clean upstream scaffold artifacts, DSW runtime matrix, and demo
-fixtures live in `ThreeMonth03/DSW-document-template-tool`.
+fixtures live in the tool repository declared by `translation-config.yml`.
 
 ## Daily Health Check
+
+Set the repository name once before copying commands:
+
+```shell
+TRANSLATION_REPO=owner/document-template-translation
+```
 
 1. Check the control workflow:
 
    ```shell
    gh run list \
-     --repo ThreeMonth03/DSW-document-template-translation \
+     --repo "$TRANSLATION_REPO" \
      --workflow document_template_translation_sync.yml \
      --limit 10
    ```
@@ -32,15 +38,15 @@ fixtures live in `ThreeMonth03/DSW-document-template-tool`.
 
    ```shell
    gh run list \
-     --repo ThreeMonth03/DSW-document-template-translation \
+     --repo "$TRANSLATION_REPO" \
      --branch translation/v1.29.1 \
      --limit 3
    gh run list \
-     --repo ThreeMonth03/DSW-document-template-translation \
+     --repo "$TRANSLATION_REPO" \
      --branch translation/v1.30.0 \
      --limit 3
    gh run list \
-     --repo ThreeMonth03/DSW-document-template-translation \
+     --repo "$TRANSLATION_REPO" \
      --branch translation/v1.30.1 \
      --limit 3
    ```
@@ -49,12 +55,42 @@ fixtures live in `ThreeMonth03/DSW-document-template-tool`.
 
    ```shell
    gh release view science-europe-zh-hant-v1.30.1 \
-     --repo ThreeMonth03/DSW-document-template-translation
+     --repo "$TRANSLATION_REPO"
    ```
 
 Expected assets are listed in [QA Checklist](qa-checklist.md).
 
 If all three checks pass, the translation control plane is healthy.
+
+## Manual Sync
+
+Use a manual sync when the tool repo has refreshed clean scaffold artifacts, the
+tooling workflow template changed, or you do not want to wait for the daily
+schedule:
+
+```shell
+gh workflow run document_template_translation_sync.yml \
+  --repo "$TRANSLATION_REPO" \
+  --ref master
+```
+
+This runs the control-plane workflow on `master`. It validates
+`translation-config.yml`, downloads the latest clean scaffold artifacts from
+the configured tool repository, refreshes supported
+`translation/v*` branches, and may open or update migration PRs.
+
+If you want migration PRs to fan out from a specific translated version, pass
+`source_version`:
+
+```shell
+gh workflow run document_template_translation_sync.yml \
+  --repo "$TRANSLATION_REPO" \
+  --ref master \
+  -f source_version=v1.30.1
+```
+
+After dispatching, inspect the Actions run and any migration PRs before asking
+translators to continue.
 
 ## When Reviewing a Translation PR
 

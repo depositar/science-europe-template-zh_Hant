@@ -18,8 +18,10 @@ For the target version:
 On non-PR branch runs, confirm the versioned release exists:
 
 ```bash
+TRANSLATION_REPO=owner/document-template-translation
+
 gh release view science-europe-zh-hant-vX.Y.Z \
-  --repo ThreeMonth03/DSW-document-template-translation
+  --repo "$TRANSLATION_REPO"
 ```
 
 Expected assets:
@@ -56,7 +58,7 @@ Open the preview PDF and inspect:
 
 Do not change generated template structure just to improve wording. If a
 sentence is hard to translate because the translation unit is broken, fix the
-tooling in `ThreeMonth03/DSW-document-template-tool` and regenerate.
+tooling in the configured tool repository and regenerate.
 
 ## Manual Import
 

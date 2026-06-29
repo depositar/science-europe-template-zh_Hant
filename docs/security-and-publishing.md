@@ -53,7 +53,9 @@ branch and never expose it to fork pull requests.
 After QA, a maintainer may run the explicit publish helper from the tooling repo:
 
 ```bash
-make -C ../DSW-document-template-tool publish-translated-template \
+TOOLING_ROOT=/path/to/document-template-tool
+
+make -C "$TOOLING_ROOT" publish-translated-template \
   TRANSLATION_REPO=$PWD \
   PUBLISH_VERSION=v1.30.1
 ```

@@ -12,6 +12,6 @@ to the work you are doing.
 | Understand release assets, manual import, and tokens | [Security and Publishing](security-and-publishing.md) |
 
 The shared parser, scaffold builder, migration helpers, demo fixtures, and DSW
-render tooling live in `ThreeMonth03/DSW-document-template-tool`. This repo
-should document how translators and maintainers use those outputs, not how the
-tool internals work.
+render tooling live in the tool repository declared by `translation-config.yml`.
+This repo should document how translators and maintainers use those outputs,
+not how the tool internals work.

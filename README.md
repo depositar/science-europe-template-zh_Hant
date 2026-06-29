@@ -4,8 +4,8 @@ This repository is the working control area for the Traditional Chinese
 translation of the Science Europe DSW document template. It coordinates
 translation branches, migration automation, CI checks, and reviewed artifacts.
 
-It is not the public template source. Public template updates are copied to
-`depositar/science-europe-template-zh_Hant` manually after review.
+It is not the public template source. Public template updates are copied to the
+configured public template repository manually after review.
 
 ## Repository Roles
 
@@ -15,7 +15,7 @@ It is not the public template source. Public template updates are copied to
 - Generated packages and preview PDFs are CI artifacts, not committed files.
 
 The shared parser, scaffold builder, demo project fixture, and render tooling
-live in `ThreeMonth03/DSW-document-template-tool`.
+live in the tool repository declared by `translation-config.yml`.
 
 ## Supported Versions
 

@@ -25,7 +25,8 @@ translation/v1.30.1
 
 Each branch carries the compact, expanded, and translator-facing workspace for
 one upstream template tag. The workflow refreshes these branches from clean
-scaffold artifacts produced by `ThreeMonth03/DSW-document-template-tool`.
+scaffold artifacts produced by the tool repository declared by
+`translation-config.yml`.
 
 The tool repo can prove that a clean upstream scaffold can be transformed and
 packaged. This repo still owns the translated branch, migration result, QA, and
@@ -52,6 +53,25 @@ If upstream publishes a tag that still uses a configured DSW metamodel/runtime,
 the daily tool CI should build its clean scaffold artifact automatically. The
 daily control workflow can then add the version to `translation-config.yml`,
 create or refresh the matching branch, and open migration PRs.
+
+To refresh immediately instead of waiting for the schedule:
+
+```bash
+TRANSLATION_REPO=owner/document-template-translation
+
+gh workflow run document_template_translation_sync.yml \
+  --repo "$TRANSLATION_REPO" \
+  --ref master
+```
+
+Optionally pin the migration source:
+
+```bash
+gh workflow run document_template_translation_sync.yml \
+  --repo "$TRANSLATION_REPO" \
+  --ref master \
+  -f source_version=v1.30.1
+```
 
 If upstream introduces a new `metamodelVersion`, the tool repo must first gain a
 new `config/dsw-compat.yml` runtime row. That step is intentionally manual
@@ -88,16 +108,18 @@ Before import or public publishing, follow [QA Checklist](qa-checklist.md).
 Before changing infra, verify:
 
 ```bash
-make -C ../DSW-document-template-tool format-check
-make -C ../DSW-document-template-tool lint
-make -C ../DSW-document-template-tool test
+TOOLING_ROOT=/path/to/document-template-tool
+
+make -C "$TOOLING_ROOT" format-check
+make -C "$TOOLING_ROOT" lint
+make -C "$TOOLING_ROOT" test
 ```
 
 For control-plane changes, also run:
 
 ```bash
-../DSW-document-template-tool/.venv/bin/python \
-  ../DSW-document-template-tool/scripts/ci/validate_translation_config.py \
+"$TOOLING_ROOT/.venv/bin/python" \
+  "$TOOLING_ROOT/scripts/ci/validate_translation_config.py" \
   --config translation-config.yml
 ```
 

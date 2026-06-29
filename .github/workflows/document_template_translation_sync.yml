@@ -22,8 +22,6 @@ permissions:
   actions: read
 
 env:
-  TOOLING_REPOSITORY: ThreeMonth03/DSW-document-template-tool
-  TOOLING_REF: master
   TOOLING_WORKFLOW: headless_render_regression.yml
 
 concurrency:
@@ -43,11 +41,40 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
 
+      - name: Resolve tooling checkout
+        id: tooling
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          config = Path("translation-config.yml").read_text(encoding="utf-8")
+          match = re.search(
+              r"(?ms)^tooling:\s*\n(?P<body>(?:^[ \t]+[^\n]*\n?)*)",
+              config,
+          )
+          if not match:
+              raise SystemExit("translation-config.yml is missing the tooling section")
+          body = match.group("body")
+
+          def field(name: str) -> str:
+              item = re.search(rf"(?m)^[ \t]+{name}:\s*(.+?)\s*$", body)
+              if not item:
+                  raise SystemExit(f"translation-config.yml tooling.{name} is missing")
+              return item.group(1).strip().strip("\"'")
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"repository={field('repository')}\n")
+              handle.write(f"ref={field('ref')}\n")
+          PY
+
       - name: Checkout DSW document-template tooling
         uses: actions/checkout@v4
         with:
-          repository: ${{ env.TOOLING_REPOSITORY }}
-          ref: ${{ env.TOOLING_REF }}
+          repository: ${{ steps.tooling.outputs.repository }}
+          ref: ${{ steps.tooling.outputs.ref }}
           path: tooling-repo
 
       - name: Set up Python
@@ -84,11 +111,40 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
 
+      - name: Resolve tooling checkout
+        id: tooling
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          config = Path("translation-config.yml").read_text(encoding="utf-8")
+          match = re.search(
+              r"(?ms)^tooling:\s*\n(?P<body>(?:^[ \t]+[^\n]*\n?)*)",
+              config,
+          )
+          if not match:
+              raise SystemExit("translation-config.yml is missing the tooling section")
+          body = match.group("body")
+
+          def field(name: str) -> str:
+              item = re.search(rf"(?m)^[ \t]+{name}:\s*(.+?)\s*$", body)
+              if not item:
+                  raise SystemExit(f"translation-config.yml tooling.{name} is missing")
+              return item.group(1).strip().strip("\"'")
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+              handle.write(f"repository={field('repository')}\n")
+              handle.write(f"ref={field('ref')}\n")
+          PY
+
       - name: Checkout DSW document-template tooling
         uses: actions/checkout@v4
         with:
-          repository: ${{ env.TOOLING_REPOSITORY }}
-          ref: ${{ env.TOOLING_REF }}
+          repository: ${{ steps.tooling.outputs.repository }}
+          ref: ${{ steps.tooling.outputs.ref }}
           path: tooling-repo
 
       - name: Set up Python
@@ -103,6 +159,7 @@ jobs:
       - name: Download clean scaffold artifacts from tooling CI
         env:
           GH_TOKEN: ${{ secrets.TOOLING_ARTIFACT_TOKEN || github.token }}
+          TOOLING_REPOSITORY: ${{ steps.tooling.outputs.repository }}
         run: |
           set -euo pipefail
           tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
