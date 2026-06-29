@@ -34,7 +34,8 @@ translation-content PRs against `master`.
 4. Push the branch and inspect the CI artifact preview PDF.
 5. If CI auto-repairs generated translation inputs, include that repair commit.
 
-See [Translator Guide](docs/translator-guide.md) for the detailed workflow.
+See [Translator Guide](docs/translator-guide.md) for the detailed workflow and
+[QA Checklist](docs/qa-checklist.md) before treating artifacts as ready.
 
 ## Maintainer Flow
 
@@ -42,8 +43,13 @@ Maintainers update `translation-config.yml`, synchronize supported version
 branches from clean tool-repo artifacts, review migration PRs, and manually
 publish reviewed template source.
 
-See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades, migration
-automation, credentials, and manual publishing.
+See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades and
+migration automation. See [Security And Publishing](docs/security-and-publishing.md)
+for release assets, credentials, and manual publishing.
+
+## Documentation
+
+Start with the [Documentation Index](docs/README.md).
 
 ## Configuration
 

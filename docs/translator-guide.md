@@ -67,9 +67,11 @@ are:
 - migration report, when the branch was created or refreshed by migration
 
 Review the PDF for missing English fallback, broken placeholders, awkward word
-order, and glossary consistency. If something looks like a structural issue,
-fix the translation tree or ask a maintainer before changing generated output by
-hand.
+order, and glossary consistency. Use [QA Checklist](qa-checklist.md) before
+asking a maintainer to import or publish the package.
+
+If something looks like a structural issue, fix the translation tree or ask a
+maintainer before changing generated output by hand.
 
 ## Glossary And Style
 

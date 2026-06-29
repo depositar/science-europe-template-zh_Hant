@@ -27,6 +27,10 @@ Each branch carries the compact, expanded, and translator-facing workspace for
 one upstream template tag. The workflow refreshes these branches from clean
 scaffold artifacts produced by `ThreeMonth03/DSW-document-template-tool`.
 
+The tool repo can prove that a clean upstream scaffold can be transformed and
+packaged. This repo still owns the translated branch, migration result, QA, and
+versioned release assets.
+
 ## Updating Supported Versions
 
 1. Confirm the tool repo can build clean artifacts for the upstream tag.
@@ -53,6 +57,12 @@ If upstream introduces a new `metamodelVersion`, the tool repo must first gain a
 new `config/dsw-compat.yml` runtime row. That step is intentionally manual
 because DSW server, TDK, and API behavior need a real smoke test.
 
+For each supported version, verify all three layers:
+
+- clean scaffold release exists in the tool repo
+- `translation/v*` branch exists and has migrated or empty review blocks
+- translated package/PDF release exists in this repo
+
 ## Migration Policy
 
 Migration is conservative:
@@ -65,38 +75,13 @@ existing target translations first and only fills exact-safe blank units. This
 keeps useful reuse without silently carrying stale text into changed upstream
 sentences.
 
-## Credentials
+## Release And Publishing
 
-Most operations use `github.token`.
+Version branches publish review/download assets after successful non-PR CI
+runs. Manual public publishing and optional token policy are documented in
+[Security And Publishing](security-and-publishing.md).
 
-Optional secrets:
-
-- `TRANSLATION_AUTOMATION_TOKEN`: push repaired commits, refresh version
-  branches, and open migration PRs when the default token is insufficient.
-- `TOOLING_ARTIFACT_TOKEN`: download tool-repo clean scaffold artifacts when the
-  default token cannot read cross-repository artifacts.
-
-Do not add `DOCUMENT_TEMPLATE_PUBLISH_TOKEN` for now. Public publishing is
-manual by design so intermediate translation work does not leak into the public
-template repository.
-
-## Manual Publishing
-
-After a translated version branch has green CI and reviewed artifacts, publish
-from the tooling repo:
-
-```bash
-make -C ../DSW-document-template-tool publish-translated-template \
-  TRANSLATION_REPO=$PWD \
-  PUBLISH_VERSION=v1.30.1
-```
-
-This reads `translation-config.yml`, checks out the matching translation branch
-in a temporary worktree, copies the generated translated template source to the
-configured downstream repository, commits it, and pushes to `sync/v*`.
-
-The current config keeps `publish.enabled: false`; that is intentional. The
-helper is an explicit operator action, not CI auto-publish.
+Before import or public publishing, follow [QA Checklist](qa-checklist.md).
 
 ## Maintenance Checks
 
@@ -119,3 +104,10 @@ For control-plane changes, also run:
 Then inspect a real Actions run. A healthy run validates config, downloads clean
 tool artifacts, refreshes version branches, creates migration PRs when needed,
 and leaves generated build products as artifacts.
+
+## Workflow Synchronization
+
+The workflow template in the tool repo is only a template. Existing
+`translation/v*` branches carry their own workflow files. When a workflow fix is
+needed, apply it to every supported version branch and confirm the branch CI
+refreshes its release assets.
