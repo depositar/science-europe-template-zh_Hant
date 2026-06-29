@@ -1,4 +1,4 @@
-# Security And Publishing
+# Security and Publishing
 
 This repository publishes reviewed artifacts for manual use. It does not
 automatically update the public downstream template source.

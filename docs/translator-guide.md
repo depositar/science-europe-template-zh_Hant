@@ -3,7 +3,7 @@
 This guide is for editing Traditional Chinese translations on a
 `translation/v*` branch.
 
-## Pick The Right Branch
+## Pick the Right Branch
 
 Each supported upstream Science Europe template version has a matching
 `translation/v*` branch. Use the branch that matches the template version you
@@ -73,7 +73,7 @@ asking a maintainer to import or publish the package.
 If something looks like a structural issue, fix the translation tree or ask a
 maintainer before changing generated output by hand.
 
-## Glossary And Style
+## Glossary and Style
 
 Use the glossary and i10n wording prepared for this project. Prefer natural
 Traditional Chinese over literal English order, but keep DSW terms consistent

@@ -28,7 +28,7 @@ translation-content PRs against `master`.
 
 ## Daily Translation Flow
 
-1. Checkout the target `translation/v*` branch.
+1. Check out the target `translation/v*` branch.
 2. Edit only the `Translation (zh_Hant)` block inside `translation.md` files.
 3. Keep every placeholder shown in the source sentence, such as `{name}`.
 4. Push the branch and inspect the CI artifact preview PDF.
@@ -44,12 +44,14 @@ branches from clean tool-repo artifacts, review migration PRs, and manually
 publish reviewed template source.
 
 See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades and
-migration automation. See [Security And Publishing](docs/security-and-publishing.md)
+migration automation. See [Security and Publishing](docs/security-and-publishing.md)
 for release assets, credentials, and manual publishing.
 
 ## Documentation
 
 Start with the [Documentation Index](docs/README.md).
+If you are taking over operations, start with
+[Operator Quickstart](docs/operator-quickstart.md).
 
 ## Configuration
 

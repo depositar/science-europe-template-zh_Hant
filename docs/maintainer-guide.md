@@ -75,11 +75,11 @@ existing target translations first and only fills exact-safe blank units. This
 keeps useful reuse without silently carrying stale text into changed upstream
 sentences.
 
-## Release And Publishing
+## Release and Publishing
 
 Version branches publish review/download assets after successful non-PR CI
 runs. Manual public publishing and optional token policy are documented in
-[Security And Publishing](security-and-publishing.md).
+[Security and Publishing](security-and-publishing.md).
 
 Before import or public publishing, follow [QA Checklist](qa-checklist.md).
 

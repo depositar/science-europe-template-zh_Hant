@@ -3,7 +3,7 @@
 Use this before importing a translated Science Europe document template into a
 DSW/depositar environment or publishing reviewed source downstream.
 
-## Branch And CI
+## Branch and CI
 
 For the target version:
 
@@ -69,4 +69,4 @@ Before importing into DSW/depositar:
 5. Only then import into the intended target environment.
 
 Do not import directly from local `outputs/` unless that output was intentionally
-built, reviewed, and checksumed for the same version.
+built, reviewed, and checksummed for the same version.
