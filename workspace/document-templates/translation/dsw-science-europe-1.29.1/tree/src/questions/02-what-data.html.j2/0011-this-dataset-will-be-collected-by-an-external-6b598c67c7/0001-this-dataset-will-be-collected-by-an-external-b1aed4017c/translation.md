@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/02-what-data.html.j2`
+- Wrapper Name: `__tr_block_0010`
+- Wrapper Order: `11`
+- Wrapper Key: `this-dataset-will-be-collected-by-an-external-6b598c67c7`
+- Unit Key: `this-dataset-will-be-collected-by-an-external-b1aed4017c`
+- Source Hash: `d6e251ac76a9d31f8dd4e7d84a2973559c22b7f7`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ This dataset will be collected by an external party.
 ~~~jinja
 此資料集將由外部單位蒐集。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/02-what-data.html.j2`
-- Wrapper Name: `__tr_block_0010`
-- Wrapper Order: `11`
-- Wrapper Key: `this-dataset-will-be-collected-by-an-external-6b598c67c7`
-- Unit Key: `this-dataset-will-be-collected-by-an-external-b1aed4017c`
-- Source Hash: `d6e251ac76a9d31f8dd4e7d84a2973559c22b7f7`
-
-Do not edit this section manually.
-
-</details>
