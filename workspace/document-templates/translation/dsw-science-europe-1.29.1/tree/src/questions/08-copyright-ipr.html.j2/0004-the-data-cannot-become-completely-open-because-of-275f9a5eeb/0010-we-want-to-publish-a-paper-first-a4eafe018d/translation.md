@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/08-copyright-ipr.html.j2`
+- Wrapper Name: `__tr_block_0003`
+- Wrapper Order: `4`
+- Wrapper Key: `the-data-cannot-become-completely-open-because-of-275f9a5eeb`
+- Unit Key: `we-want-to-publish-a-paper-first-a4eafe018d`
+- Source Hash: `11310236a1e2ba86f130924b3568e6647db12014`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ we want to publish a paper first.
 ~~~jinja
 我們想先發表論文。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/08-copyright-ipr.html.j2`
-- Wrapper Name: `__tr_block_0003`
-- Wrapper Order: `4`
-- Wrapper Key: `the-data-cannot-become-completely-open-because-of-275f9a5eeb`
-- Unit Key: `we-want-to-publish-a-paper-first-a4eafe018d`
-- Source Hash: `11310236a1e2ba86f130924b3568e6647db12014`
-
-Do not edit this section manually.
-
-</details>

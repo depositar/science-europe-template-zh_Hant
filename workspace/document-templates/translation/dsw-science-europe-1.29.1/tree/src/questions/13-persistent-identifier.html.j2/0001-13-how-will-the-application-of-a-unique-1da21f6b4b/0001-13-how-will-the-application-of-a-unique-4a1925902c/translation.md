@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/13-persistent-identifier.html.j2`
+- Wrapper Name: `__tr_block_0000`
+- Wrapper Order: `1`
+- Wrapper Key: `13-how-will-the-application-of-a-unique-1da21f6b4b`
+- Unit Key: `13-how-will-the-application-of-a-unique-4a1925902c`
+- Source Hash: `e717a8442b6f77985bb2189fb2cb81be989c9d2e`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ when the target language needs it.
 ~~~jinja
 13. 如何確保每個資料集都套用唯一且持續的識別碼（例如數位物件識別碼 DOI）？
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/13-persistent-identifier.html.j2`
-- Wrapper Name: `__tr_block_0000`
-- Wrapper Order: `1`
-- Wrapper Key: `13-how-will-the-application-of-a-unique-1da21f6b4b`
-- Unit Key: `13-how-will-the-application-of-a-unique-4a1925902c`
-- Source Hash: `e717a8442b6f77985bb2189fb2cb81be989c9d2e`
-
-Do not edit this section manually.
-
-</details>

@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/06-access-security.html.j2`
+- Wrapper Name: `__tr_block_0000`
+- Wrapper Order: `1`
+- Wrapper Key: `6-how-will-data-security-and-protection-of-aeaf885659`
+- Unit Key: `6-how-will-data-security-and-protection-of-e089d04591`
+- Source Hash: `83f85f11fd1df2126d73fc619871ab33a0a3a522`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ when the target language needs it.
 ~~~jinja
 6. 研究期間將如何處理資料安全與敏感資料保護？
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/06-access-security.html.j2`
-- Wrapper Name: `__tr_block_0000`
-- Wrapper Order: `1`
-- Wrapper Key: `6-how-will-data-security-and-protection-of-aeaf885659`
-- Unit Key: `6-how-will-data-security-and-protection-of-e089d04591`
-- Source Hash: `83f85f11fd1df2126d73fc619871ab33a0a3a522`
-
-Do not edit this section manually.
-
-</details>
