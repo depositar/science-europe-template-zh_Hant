@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/15-required-resources.html.j2`
+- Wrapper Name: `__tr_block_0007`
+- Wrapper Order: `8`
+- Wrapper Key: `we-do-not-require-any-hardware-or-software-1d1e31b959`
+- Unit Key: `we-do-not-require-any-hardware-or-software-7a05e81c76`
+- Source Hash: `53b5ece306990db0a8f098a434fb9fe8c380a431`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ We do not require any hardware or software in addition to what is usually availa
 ~~~jinja
 除機構通常提供的資源外，我們不需要其他硬體或軟體。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/15-required-resources.html.j2`
-- Wrapper Name: `__tr_block_0007`
-- Wrapper Order: `8`
-- Wrapper Key: `we-do-not-require-any-hardware-or-software-1d1e31b959`
-- Unit Key: `we-do-not-require-any-hardware-or-software-7a05e81c76`
-- Source Hash: `53b5ece306990db0a8f098a434fb9fe8c380a431`
-
-Do not edit this section manually.
-
-</details>

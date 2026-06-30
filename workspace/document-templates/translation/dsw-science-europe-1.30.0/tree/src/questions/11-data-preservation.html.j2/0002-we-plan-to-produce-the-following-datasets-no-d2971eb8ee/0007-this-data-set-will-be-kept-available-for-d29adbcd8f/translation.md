@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/11-data-preservation.html.j2`
+- Wrapper Name: `__tr_block_0001`
+- Wrapper Order: `2`
+- Wrapper Key: `we-plan-to-produce-the-following-datasets-no-d2971eb8ee`
+- Unit Key: `this-data-set-will-be-kept-available-for-d29adbcd8f`
+- Source Hash: `edd8b45039965b38e7f109f99b96d866c40fc6e2`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ This data set will be kept available for a fixed period (prepaid) of: {published
 ~~~jinja
 此資料集將在以下固定期間內保持可取得（已預付費用）：{publishedDataHowLongFixed}。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/11-data-preservation.html.j2`
-- Wrapper Name: `__tr_block_0001`
-- Wrapper Order: `2`
-- Wrapper Key: `we-plan-to-produce-the-following-datasets-no-d2971eb8ee`
-- Unit Key: `this-data-set-will-be-kept-available-for-d29adbcd8f`
-- Source Hash: `edd8b45039965b38e7f109f99b96d866c40fc6e2`
-
-Do not edit this section manually.
-
-</details>

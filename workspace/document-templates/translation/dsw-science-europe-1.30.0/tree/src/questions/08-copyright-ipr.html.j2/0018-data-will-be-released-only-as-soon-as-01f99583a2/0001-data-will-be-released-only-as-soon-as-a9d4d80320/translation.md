@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/08-copyright-ipr.html.j2`
+- Wrapper Name: `__tr_block_0017`
+- Wrapper Order: `18`
+- Wrapper Key: `data-will-be-released-only-as-soon-as-01f99583a2`
+- Unit Key: `data-will-be-released-only-as-soon-as-a9d4d80320`
+- Source Hash: `f00f9e44df44a374f02a71c1f220e5bf2e92132d`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ Data will be released only as soon as restrictions are falling away.
 ~~~jinja
 資料只會在限制解除後儘快釋出。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/08-copyright-ipr.html.j2`
-- Wrapper Name: `__tr_block_0017`
-- Wrapper Order: `18`
-- Wrapper Key: `data-will-be-released-only-as-soon-as-01f99583a2`
-- Unit Key: `data-will-be-released-only-as-soon-as-a9d4d80320`
-- Source Hash: `f00f9e44df44a374f02a71c1f220e5bf2e92132d`
-
-Do not edit this section manually.
-
-</details>
