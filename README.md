@@ -4,8 +4,10 @@ This repository is the working area for the Traditional Chinese
 translation of the Science Europe DSW document template. It coordinates
 translation branches, migration automation, CI checks, and reviewed artifacts.
 
-It is not the public template source. Public template updates are copied to the
-configured public template repository manually after review.
+It is not the public template source. After review, maintainers hand off
+generated source to the configured public template repository as a reviewable
+`sync/v*` branch; the public repository's default branch and DSW/depositar import
+remain manual decisions.
 
 ## Repository Roles
 
@@ -40,8 +42,8 @@ See [Translator Guide](docs/translator-guide.md) for the detailed workflow and
 ## Maintainer Flow
 
 Maintainers update `translation-config.yml`, synchronize supported version
-branches from clean tool-repo artifacts, review migration PRs, and manually
-publish reviewed template source.
+branches from clean tool-repo artifacts, review migration PRs, and hand off
+reviewed template source to the configured public repository.
 
 See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades and
 migration automation. See [Security and Publishing](docs/security-and-publishing.md)

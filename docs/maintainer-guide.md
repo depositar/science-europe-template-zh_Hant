@@ -97,10 +97,24 @@ existing target translations first and only fills exact-safe blank units. This
 keeps useful reuse without silently carrying stale text into changed upstream
 sentences.
 
+Successful non-refresh pushes to `translation/v*` branches dispatch the
+operations workflow so migration can fan out after the branch has passed
+translation CI. Commits with messages starting `chore: refresh ` are generated
+scaffold refreshes and intentionally do not dispatch migration; this keeps daily
+or manual scaffold syncs from creating loops.
+
 ## Release and Publishing
 
 Version branches publish review/download assets after successful non-PR CI
-runs. Manual public publishing and optional token policy are documented in
+runs. Those assets are for review, import, and provenance. They do not update
+the public template source repository by themselves.
+
+Manual public source handoff is a separate operator action. Use the tooling
+repo helper to copy reviewed generated source to the configured downstream
+repository as a `sync/v*` branch. Do not push generated source directly to the
+downstream default branch from this repository.
+
+Manual public publishing and optional token policy are documented in
 [Security and Publishing](security-and-publishing.md).
 
 Before import or public publishing, follow [QA Checklist](qa-checklist.md).

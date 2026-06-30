@@ -95,6 +95,19 @@ gh workflow run document_template_translation_sync.yml \
 After dispatching, inspect the Actions run and any migration PRs before asking
 translators to continue.
 
+## What Version Branch CI Does
+
+When a maintainer pushes to a `translation/v*` branch, or a translation PR runs
+against one, the branch workflow audits the translation tree, syncs the
+translated template, renders the demo preview, uploads Actions artifacts, and
+refreshes the versioned GitHub Release assets.
+
+For normal translation-content pushes, a successful branch run also dispatches
+the operations workflow on `master`. That operations run refreshes supported
+version branches and may open migration PRs so exact-safe changes can fan out to
+other supported versions. Scaffold refresh commits with messages starting
+`chore: refresh ` intentionally skip this dispatch to avoid migration loops.
+
 ## When Reviewing a Translation PR
 
 1. Confirm the PR targets the matching `translation/v*` branch, not `master`.
@@ -122,13 +135,15 @@ The tool repo proves that the upstream template can be transformed and
 packaged. This repo proves that the translated version exists, passes QA, and
 can be imported manually.
 
-## Before Manual Import
+## Before Public Source Handoff or Manual Import
 
 1. Download the versioned release zip.
 2. Verify `SHA256SUMS`.
 3. Import into a test DSW/depositar environment when possible.
 4. Render the demo project or a representative real project.
-5. Only then import into the intended target environment.
+5. If source must be handed to the public template repository, push or refresh
+   the configured `sync/v*` branch and review that branch.
+6. Only then merge/import into the intended target environment.
 
 Do not import from local `outputs/` unless that output was intentionally built,
 reviewed, and checksummed for the same version.

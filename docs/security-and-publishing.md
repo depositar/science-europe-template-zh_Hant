@@ -8,7 +8,8 @@ automatically update the public downstream template source.
 - GitHub Actions artifacts are run-scoped previews.
 - GitHub Release assets are versioned review/download buckets.
 - depositar/DSW import is manual.
-- Public downstream source updates are manual operator actions.
+- Public downstream source handoff is a manual operator action that pushes a
+  reviewable `sync/v*` branch.
 - `DOCUMENT_TEMPLATE_PUBLISH_TOKEN` is intentionally not required.
 
 This keeps intermediate translation work visible to maintainers without giving
@@ -61,5 +62,7 @@ make -C "$TOOLING_ROOT" publish-translated-template \
 ```
 
 The helper copies reviewed generated source to the configured downstream
-repository and pushes a `sync/v*` branch. Review that branch before merging or
-importing into the public environment.
+repository and pushes a `sync/v*` branch. It does not modify the downstream
+default branch and does not import anything into DSW/depositar. Review the
+`sync/v*` branch before merging, importing, or asking a downstream maintainer to
+take over.
