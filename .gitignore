@@ -2,9 +2,6 @@
 .cache/
 outputs/
 
-# Version-specific template workspaces belong on translation/v* branches.
-workspace/document-templates/
-
 # Local editor and OS noise.
 .DS_Store
 *.swp

@@ -74,11 +74,14 @@ version branches instead of editing generated paths by hand.
 
 ## Generated Files
 
-The operations branch intentionally keeps generated content out of git:
+The operations branch intentionally keeps generated build products out of git:
 
 - `outputs/`
 - `.cache/`
-- `workspace/document-templates/`
 
-Version-specific workspaces belong on `translation/v*` branches. Build products
-belong in GitHub Actions artifacts.
+Do not commit `workspace/document-templates/` to `master`. It is intentionally
+not ignored here because version-specific workspaces must be tracked on
+`translation/v*` branches, and accidental generated workspaces on `master`
+should be visible in `git status`.
+
+Build products belong in GitHub Actions artifacts.
