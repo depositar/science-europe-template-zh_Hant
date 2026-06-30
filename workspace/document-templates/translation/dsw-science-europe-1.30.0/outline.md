@@ -3280,7 +3280,7 @@
 
           [T] [translation](<tree/src/questions/12-access-data.html.j2/0003-there-are-no-published-data-to-access-or-a0870ba2e9/0001-there-are-no-published-data-to-access-or-5041e269c7/translation.md>)
 
-- [ ] [file] src/questions/13-persistent-identifier.html.j2 (23/25)
+- [x] [file] src/questions/13-persistent-identifier.html.j2 (25/25)
 
   [J2] `src/questions/13-persistent-identifier.html.j2`
 
@@ -3324,7 +3324,7 @@
 
           [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0005-this-data-will-be-distributed-in-following-repository-abd4ab6ba2/0001-this-data-will-be-distributed-in-following-repository-3020d1f04f/translation.md>)
 
-    - [ ] [wrapper] 0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad (12/13)
+    - [x] [wrapper] 0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad (13/13)
 
       [W] `0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad`
 
@@ -3376,7 +3376,7 @@
 
           [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0012-the-assigned-persistent-identifier-is-specified-as-follows-2600ff7209/translation.md>)
 
-        - [ ] [unit] 0013-within-this-repository-unique-and-persistent-identifiers-will-6618b5c726: Within this repository, unique and persistent identifiers will not be applied.
+        - [x] [unit] 0013-within-this-repository-unique-and-persistent-identifiers-will-6618b5c726: Within this repository, unique and persistent identifiers will not be applied.
 
           [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0006-domain-specific-repository-general-purpose-repository-national-repository-91165b89ad/0013-within-this-repository-unique-and-persistent-identifiers-will-6618b5c726/translation.md>)
 
@@ -3396,11 +3396,11 @@
 
           [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0008-explanation-of-how-the-collected-or-created-data-6392523019/0001-explanation-of-how-the-collected-or-created-data-d307c9c710/translation.md>)
 
-    - [ ] [wrapper] 0009-no-name-given-16a8ce22a9 (0/1)
+    - [x] [wrapper] 0009-no-name-given-16a8ce22a9 (1/1)
 
       [W] `0009-no-name-given-16a8ce22a9`
 
-        - [ ] [unit] 0001-no-name-given-500d0ad607: (no name given)
+        - [x] [unit] 0001-no-name-given-500d0ad607: (no name given)
 
           [T] [translation](<tree/src/questions/13-persistent-identifier.html.j2/0009-no-name-given-16a8ce22a9/0001-no-name-given-500d0ad607/translation.md>)
 
