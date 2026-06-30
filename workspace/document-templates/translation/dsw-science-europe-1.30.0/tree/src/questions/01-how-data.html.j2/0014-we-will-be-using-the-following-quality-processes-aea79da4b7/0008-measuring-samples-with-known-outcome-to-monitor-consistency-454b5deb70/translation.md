@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/01-how-data.html.j2`
+- Wrapper Name: `__tr_block_0013`
+- Wrapper Order: `14`
+- Wrapper Key: `we-will-be-using-the-following-quality-processes-aea79da4b7`
+- Unit Key: `measuring-samples-with-known-outcome-to-monitor-consistency-454b5deb70`
+- Source Hash: `4ac7edfeb409edebc44368b856ed1cce68a3c9a1`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ measuring samples with known outcome (to monitor consistency).
 ~~~jinja
 量測已知結果的樣本（用於監測一致性）。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/01-how-data.html.j2`
-- Wrapper Name: `__tr_block_0013`
-- Wrapper Order: `14`
-- Wrapper Key: `we-will-be-using-the-following-quality-processes-aea79da4b7`
-- Unit Key: `measuring-samples-with-known-outcome-to-monitor-consistency-454b5deb70`
-- Source Hash: `4ac7edfeb409edebc44368b856ed1cce68a3c9a1`
-
-Do not edit this section manually.
-
-</details>

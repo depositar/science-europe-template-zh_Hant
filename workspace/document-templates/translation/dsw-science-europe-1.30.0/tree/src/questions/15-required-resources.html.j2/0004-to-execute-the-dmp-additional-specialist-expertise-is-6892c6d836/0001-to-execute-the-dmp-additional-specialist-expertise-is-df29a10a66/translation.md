@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/15-required-resources.html.j2`
+- Wrapper Name: `__tr_block_0003`
+- Wrapper Order: `4`
+- Wrapper Key: `to-execute-the-dmp-additional-specialist-expertise-is-6892c6d836`
+- Unit Key: `to-execute-the-dmp-additional-specialist-expertise-is-df29a10a66`
+- Source Hash: `ec92feb971d27222e3e3173727683478b2ddf55f`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ To execute the DMP, additional specialist expertise is required. We will be trai
 ~~~jinja
 執行資料管理方案需要額外的專業知識。我們將針對以下內容訓練現有人員：{expertiseTrainText}。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/15-required-resources.html.j2`
-- Wrapper Name: `__tr_block_0003`
-- Wrapper Order: `4`
-- Wrapper Key: `to-execute-the-dmp-additional-specialist-expertise-is-6892c6d836`
-- Unit Key: `to-execute-the-dmp-additional-specialist-expertise-is-df29a10a66`
-- Source Hash: `ec92feb971d27222e3e3173727683478b2ddf55f`
-
-Do not edit this section manually.
-
-</details>

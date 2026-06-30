@@ -38,8 +38,8 @@ env:
   TRANSLATION_TARGET_LANG: "zh_Hant"
   TRANSLATED_TEMPLATE_DIR: "outputs/document-templates/dsw-science-europe/v1.30.0/zh-Hant/dsw-science-europe-zh-hant-1.30.0"
   TRANSLATED_TEMPLATE_PACKAGE: "outputs/document-templates/dsw-science-europe/v1.30.0/zh-Hant/dsw-science-europe-zh-hant-1.30.0.zip"
-  PROJECT_REF: tooling-repo/workspace/projects/test-project.json
-  PROJECT_RENDER_OUTPUT: "outputs/project-render/dsw-science-europe/v1.30.0/zh-Hant/test-project.pdf"
+  PROJECT_REF: tooling-repo/fixtures/projects/demo/test-project.json
+  PROJECT_RENDER_OUTPUT: outputs/project-render/dsw-science-europe/v1.30.0/zh-Hant/test-project.pdf
   PROJECT_RENDER_FORMAT_UUID: 68c26e34-5e77-4e15-9bf7-06ff92582257
   DSW_VERSION: "4.30"
   DSW_TDK_VERSION: "4.30.2"
@@ -150,7 +150,7 @@ jobs:
           git add "$EXPANDED_TEMPLATE_DIR" "$TRANSLATION_TREE_DIR/.translation-tree/manifest.json" "$TRANSLATION_TREE_DIR/tree"
           git commit -m "chore(sync): refresh document template translations"
           echo "repaired_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          git push origin "HEAD:$TARGET_REF"
+          git push origin "HEAD:refs/heads/$TARGET_REF"
 
           {
             echo "## Auto-committed translation repairs"
@@ -415,7 +415,7 @@ jobs:
             -f description="Auto-repaired translation inputs were validated." \
             -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
-      - name: Dispatch control-plane migration
+      - name: Dispatch operations migration
         if: >-
           github.event_name == 'push' &&
           github.actor != 'github-actions[bot]'
@@ -429,9 +429,9 @@ jobs:
             -f source_version="v$TRANSLATED_TEMPLATE_VERSION"
 
           {
-            echo "## Control-plane migration dispatched"
+            echo "## Operations migration dispatched"
             echo
-            echo "Requested master control-plane migration from"
+            echo "Requested master operations migration from"
             echo "\`v$TRANSLATED_TEMPLATE_VERSION\` after this version branch passed."
           } >> "$GITHUB_STEP_SUMMARY"
 

@@ -1,8 +1,12 @@
 # Translation Unit
 
-Edit only the `Translation (zh_Hant)` block. Keep every placeholder
-shown in the source sentence, such as `{name}`, but reorder placeholders
-when the target language needs it.
+- Source File: `src/questions/11-data-preservation.html.j2`
+- Wrapper Name: `__tr_block_0001`
+- Wrapper Order: `2`
+- Wrapper Key: `we-plan-to-produce-the-following-datasets-no-d2971eb8ee`
+- Unit Key: `we-will-be-able-to-support-this-repository-9729415906`
+- Source Hash: `3e3da0129df6e7c397d3fb089eadf8c18ccbd60e`
+- Edit only the `Translation (zh_Hant)` block below.
 
 ### Sentence (en)
 
@@ -15,17 +19,3 @@ We will be able to support this repository for a sufficiently long time.
 ~~~jinja
 我們將能在足夠長的時間內支援此資料儲存庫。
 ~~~
-
-<details>
-<summary>Machine metadata</summary>
-
-- Source File: `src/questions/11-data-preservation.html.j2`
-- Wrapper Name: `__tr_block_0001`
-- Wrapper Order: `2`
-- Wrapper Key: `we-plan-to-produce-the-following-datasets-no-d2971eb8ee`
-- Unit Key: `we-will-be-able-to-support-this-repository-9729415906`
-- Source Hash: `3e3da0129df6e7c397d3fb089eadf8c18ccbd60e`
-
-Do not edit this section manually.
-
-</details>
