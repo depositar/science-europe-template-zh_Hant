@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/09-ethical-issues.html.j2`
-- Wrapper Name: `__tr_block_0027`
-- Wrapper Order: `28`
-- Wrapper Key: `vital-interest-62dfb9ab6e`
-- Unit Key: `vital-interest-2ed60ea09e`
-- Source Hash: `a69186a861c5b91ab392f671a59f84fe9ddb5943`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ vital interest.
 ~~~jinja
 重大利益。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/09-ethical-issues.html.j2`
+- Wrapper Name: `__tr_block_0027`
+- Wrapper Order: `28`
+- Wrapper Key: `vital-interest-62dfb9ab6e`
+- Unit Key: `vital-interest-2ed60ea09e`
+- Source Hash: `a69186a861c5b91ab392f671a59f84fe9ddb5943`
+
+Do not edit this section manually.
+
+</details>

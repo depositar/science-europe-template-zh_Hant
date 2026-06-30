@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/12-access-data.html.j2`
-- Wrapper Name: `__tr_block_0000`
-- Wrapper Order: `1`
-- Wrapper Key: `12-what-methods-or-software-tools-are-needed-e88cdcc4a1`
-- Unit Key: `12-what-methods-or-software-tools-are-needed-ccdd04b06b`
-- Source Hash: `ff453a04e4089c08cf2c85a604138395287a26a4`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@
 ~~~jinja
 12. 取用與使用資料需要哪些方法或軟體工具？
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/12-access-data.html.j2`
+- Wrapper Name: `__tr_block_0000`
+- Wrapper Order: `1`
+- Wrapper Key: `12-what-methods-or-software-tools-are-needed-e88cdcc4a1`
+- Unit Key: `12-what-methods-or-software-tools-are-needed-ccdd04b06b`
+- Source Hash: `ff453a04e4089c08cf2c85a604138395287a26a4`
+
+Do not edit this section manually.
+
+</details>

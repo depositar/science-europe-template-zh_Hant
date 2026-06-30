@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/04-quality-control.html.j2`
-- Wrapper Name: `__tr_block_0012`
-- Wrapper Order: `13`
-- Wrapper Key: `additional-quality-processes-are-our-quality-processes-are-eb37715fdc`
-- Unit Key: `our-quality-processes-are-78ad033217`
-- Source Hash: `224b3b4dc635b3b4c3e7fcd411a3ef8763448c2f`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ Our quality processes are: {mdQualityOther}.
 ~~~jinja
 我們的資料品質管控流程為：{mdQualityOther}。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/04-quality-control.html.j2`
+- Wrapper Name: `__tr_block_0012`
+- Wrapper Order: `13`
+- Wrapper Key: `additional-quality-processes-are-our-quality-processes-are-eb37715fdc`
+- Unit Key: `our-quality-processes-are-78ad033217`
+- Source Hash: `224b3b4dc635b3b4c3e7fcd411a3ef8763448c2f`
+
+Do not edit this section manually.
+
+</details>
