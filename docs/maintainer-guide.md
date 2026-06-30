@@ -70,12 +70,14 @@ Optionally pin the migration source:
 gh workflow run document_template_translation_sync.yml \
   --repo "$TRANSLATION_REPO" \
   --ref master \
-  -f source_version=v1.30.1
+  -f source_version=vX.Y.Z
 ```
 
-If upstream introduces a new `metamodelVersion`, the tool repo must first gain a
-new `config/dsw-compat.yml` runtime row. That step is intentionally manual
-because DSW server, TDK, and API behavior need a real smoke test.
+If upstream introduces a new `metamodelVersion`, the tool repo handles that
+first. Scheduled/manual tool CI may open a DSW compatibility probe PR that adds
+an optimistic runtime row and lets CI test whether the closest previous DSW/TDK
+runtime still works. Do not sync this translation repo for that tag until the
+tool repo probe PR is reviewed, merged, and the clean scaffold release exists.
 
 For each supported version, verify all three layers:
 

@@ -57,7 +57,7 @@ TOOLING_ROOT=/path/to/document-template-tool
 
 make -C "$TOOLING_ROOT" publish-translated-template \
   TRANSLATION_REPO=$PWD \
-  PUBLISH_VERSION=v1.30.1
+  PUBLISH_VERSION=vX.Y.Z
 ```
 
 The helper copies reviewed generated source to the configured downstream

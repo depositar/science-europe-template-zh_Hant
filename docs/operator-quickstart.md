@@ -23,6 +23,12 @@ Set the repository name once before copying commands:
 
 ```shell
 TRANSLATION_REPO=owner/document-template-translation
+VERSION_BRANCH_PREFIX=$(awk '/version_branch_prefix:/ { print $2; exit }' translation-config.yml)
+SUPPORTED_VERSIONS=$(awk '
+  /supported_versions:/ { in_versions=1; next }
+  in_versions && /^    - / { print $2; next }
+  in_versions && /^[^ ]/ { in_versions=0 }
+' translation-config.yml)
 ```
 
 1. Check the control workflow:
@@ -37,30 +43,27 @@ TRANSLATION_REPO=owner/document-template-translation
 2. Check each supported version branch has a recent green run:
 
    ```shell
-   gh run list \
-     --repo "$TRANSLATION_REPO" \
-     --branch translation/v1.29.1 \
-     --limit 3
-   gh run list \
-     --repo "$TRANSLATION_REPO" \
-     --branch translation/v1.30.0 \
-     --limit 3
-   gh run list \
-     --repo "$TRANSLATION_REPO" \
-     --branch translation/v1.30.1 \
-     --limit 3
+   for version in $SUPPORTED_VERSIONS; do
+     gh run list \
+       --repo "$TRANSLATION_REPO" \
+       --branch "${VERSION_BRANCH_PREFIX}${version}" \
+       --limit 3
+   done
    ```
 
 3. Confirm each translated release has the expected assets:
 
    ```shell
-   gh release view science-europe-zh-hant-v1.30.1 \
-     --repo "$TRANSLATION_REPO"
+   for version in $SUPPORTED_VERSIONS; do
+     gh release view "science-europe-zh-hant-$version" --repo "$TRANSLATION_REPO"
+   done
    ```
 
 Expected assets are listed in [QA Checklist](qa-checklist.md).
 
-If all three checks pass, the translation control plane is healthy.
+If these checks pass for every supported version, the translation control plane
+is healthy for versions already listed in `translation-config.yml`. New upstream
+tags still need the upgrade flow below.
 
 ## Manual Sync
 
@@ -86,7 +89,7 @@ If you want migration PRs to fan out from a specific translated version, pass
 gh workflow run document_template_translation_sync.yml \
   --repo "$TRANSLATION_REPO" \
   --ref master \
-  -f source_version=v1.30.1
+  -f source_version=vX.Y.Z
 ```
 
 After dispatching, inspect the Actions run and any migration PRs before asking
@@ -106,7 +109,9 @@ Use [Translator Guide](translator-guide.md) for edit rules and
 
 ## When a New Upstream Tag Appears
 
-1. Confirm the tool repo published a clean scaffold release for the tag.
+1. Confirm the tool repo published a clean scaffold release for the tag. If the
+   tool repo opened a DSW compatibility probe PR instead, wait for that PR to be
+   reviewed and merged first.
 2. Let this repo's control workflow sync `translation-config.yml` and create or
    refresh the matching `translation/v*` branch.
 3. Review any migration PRs.

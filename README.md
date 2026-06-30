@@ -47,11 +47,17 @@ See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades and
 migration automation. See [Security and Publishing](docs/security-and-publishing.md)
 for release assets, credentials, and manual publishing.
 
-## Documentation
+## Start Here
 
-Start with the [Documentation Index](docs/README.md).
-If you are taking over operations, start with
-[Operator Quickstart](docs/operator-quickstart.md).
+| Role or task | Read |
+| --- | --- |
+| Taking over operations | [Operator Quickstart](docs/operator-quickstart.md) |
+| Editing translations | [Translator Guide](docs/translator-guide.md) |
+| Maintaining version branches and migration | [Maintainer Guide](docs/maintainer-guide.md) |
+| Reviewing packages and preview PDFs | [QA Checklist](docs/qa-checklist.md) |
+| Checking publishing policy or tokens | [Security and Publishing](docs/security-and-publishing.md) |
+
+The complete document map is in [docs/README.md](docs/README.md).
 
 ## Configuration
 
