@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/01-how-data.html.j2`
-- Wrapper Name: `__tr_block_0029`
-- Wrapper Order: `30`
-- Wrapper Key: `we-will-use-other-solution-than-electronic-lab-40df8f155d`
-- Unit Key: `we-will-use-other-solution-than-electronic-lab-904e47f57f`
-- Source Hash: `5e2b8cc5edbc827d0d2629d20d4524a3f5c28118`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ We will use other solution than (electronic) lab notebooks to make sure that the
 ~~~jinja
 我們將使用（電子）實驗室記錄本以外的其他方式，確保資料分析具有良好的資料溯源紀錄{provenanceOther}
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/01-how-data.html.j2`
+- Wrapper Name: `__tr_block_0029`
+- Wrapper Order: `30`
+- Wrapper Key: `we-will-use-other-solution-than-electronic-lab-40df8f155d`
+- Unit Key: `we-will-use-other-solution-than-electronic-lab-904e47f57f`
+- Source Hash: `5e2b8cc5edbc827d0d2629d20d4524a3f5c28118`
+
+Do not edit this section manually.
+
+</details>

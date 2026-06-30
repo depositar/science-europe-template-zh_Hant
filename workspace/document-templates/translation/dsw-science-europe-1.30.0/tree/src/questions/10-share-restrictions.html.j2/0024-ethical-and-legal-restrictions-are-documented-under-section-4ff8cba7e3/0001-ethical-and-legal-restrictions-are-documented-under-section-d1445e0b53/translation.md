@@ -1,12 +1,8 @@
 # Translation Unit
 
-- Source File: `src/questions/10-share-restrictions.html.j2`
-- Wrapper Name: `__tr_block_0023`
-- Wrapper Order: `24`
-- Wrapper Key: `ethical-and-legal-restrictions-are-documented-under-section-4ff8cba7e3`
-- Unit Key: `ethical-and-legal-restrictions-are-documented-under-section-d1445e0b53`
-- Source Hash: `e1978716502486c418af650480894f4a02f9352f`
-- Edit only the `Translation (zh_Hant)` block below.
+Edit only the `Translation (zh_Hant)` block. Keep every placeholder
+shown in the source sentence, such as `{name}`, but reorder placeholders
+when the target language needs it.
 
 ### Sentence (en)
 
@@ -19,3 +15,17 @@ Ethical and legal restrictions are documented under Section 4. We have used the 
 ~~~jinja
 我們已在第 4 節記錄倫理與法律限制，並使用 {dc.config.service_name} 了解可降低限制的可行選項。
 ~~~
+
+<details>
+<summary>Machine metadata</summary>
+
+- Source File: `src/questions/10-share-restrictions.html.j2`
+- Wrapper Name: `__tr_block_0023`
+- Wrapper Order: `24`
+- Wrapper Key: `ethical-and-legal-restrictions-are-documented-under-section-4ff8cba7e3`
+- Unit Key: `ethical-and-legal-restrictions-are-documented-under-section-d1445e0b53`
+- Source Hash: `e1978716502486c418af650480894f4a02f9352f`
+
+Do not edit this section manually.
+
+</details>
