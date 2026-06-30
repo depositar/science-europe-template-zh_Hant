@@ -1,4 +1,4 @@
-name: DSW Translation Control Plane
+name: DSW Document Template Translation Operations
 
 on:
   pull_request:
@@ -26,16 +26,16 @@ env:
 
 concurrency:
   group: >-
-    dsw-translation-control-plane-${{ github.event_name == 'workflow_run' &&
+    dsw-translation-operations-${{ github.event_name == 'workflow_run' &&
     github.event.workflow_run.head_branch || github.ref }}
   cancel-in-progress: false
 
 jobs:
-  validate-control-plane:
+  validate-translation-repo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout translation control repo
+      - name: Checkout translation repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -95,7 +95,7 @@ jobs:
             --summary "$GITHUB_STEP_SUMMARY"
 
   migrate-translations:
-    needs: validate-control-plane
+    needs: validate-translation-repo
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'schedule' ||
@@ -105,7 +105,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout translation control repo
+      - name: Checkout translation repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0

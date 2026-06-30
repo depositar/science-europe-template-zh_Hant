@@ -1,6 +1,6 @@
-# DSW Document Template Translation Control
+# DSW Document Template Translation
 
-This repository is the working control area for the Traditional Chinese
+This repository is the working area for the Traditional Chinese
 translation of the Science Europe DSW document template. It coordinates
 translation branches, migration automation, CI checks, and reviewed artifacts.
 
@@ -9,7 +9,7 @@ configured public template repository manually after review.
 
 ## Repository Roles
 
-- `master` is the control branch. It contains configuration, GitHub Actions, and
+- `master` is the operations branch. It contains configuration, GitHub Actions, and
   documentation only.
 - `translation/v*` branches contain one upstream template version each.
 - Generated packages and preview PDFs are CI artifacts, not committed files.
@@ -20,7 +20,7 @@ live in the tool repository declared by `translation-config.yml`.
 ## Supported Versions
 
 Supported versions are declared in `translation-config.yml` and mirrored as
-`translation/v*` branches. The control workflow can update that list from clean
+`translation/v*` branches. The operations workflow can update that list from clean
 tool-repo artifacts when upstream publishes a new supported tag.
 
 Open translation PRs against the matching `translation/v*` branch. Do not open
@@ -74,7 +74,7 @@ version branches instead of editing generated paths by hand.
 
 ## Generated Files
 
-The control branch intentionally keeps generated content out of git:
+The operations branch intentionally keeps generated content out of git:
 
 - `outputs/`
 - `.cache/`

@@ -1,6 +1,6 @@
 # Documentation Index
 
-This repository is the translation control plane. Use these documents according
+This repository manages the translation workflow. Use these documents according
 to the work you are doing.
 
 | Task | Read |

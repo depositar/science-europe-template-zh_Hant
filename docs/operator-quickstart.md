@@ -1,7 +1,7 @@
 # Operator Quickstart
 
 Use this page when you are taking over day-to-day operation of the translation
-control repository. It tells you what to check first and where to go next.
+repository. It tells you what to check first and where to go next.
 
 ## What This Repository Owns
 
@@ -31,7 +31,7 @@ SUPPORTED_VERSIONS=$(awk '
 ' translation-config.yml)
 ```
 
-1. Check the control workflow:
+1. Check the operations workflow:
 
    ```shell
    gh run list \
@@ -61,7 +61,7 @@ SUPPORTED_VERSIONS=$(awk '
 
 Expected assets are listed in [QA Checklist](qa-checklist.md).
 
-If these checks pass for every supported version, the translation control plane
+If these checks pass for every supported version, the translation workflow
 is healthy for versions already listed in `translation-config.yml`. New upstream
 tags still need the upgrade flow below.
 
@@ -77,7 +77,7 @@ gh workflow run document_template_translation_sync.yml \
   --ref master
 ```
 
-This runs the control-plane workflow on `master`. It validates
+This runs the operations workflow on `master`. It validates
 `translation-config.yml`, downloads the latest clean scaffold artifacts from
 the configured tool repository, refreshes supported
 `translation/v*` branches, and may open or update migration PRs.
@@ -112,7 +112,7 @@ Use [Translator Guide](translator-guide.md) for edit rules and
 1. Confirm the tool repo published a clean scaffold release for the tag. If the
    tool repo opened a DSW compatibility probe PR instead, wait for that PR to be
    reviewed and merged first.
-2. Let this repo's control workflow sync `translation-config.yml` and create or
+2. Let this repo's operations workflow sync `translation-config.yml` and create or
    refresh the matching `translation/v*` branch.
 3. Review any migration PRs.
 4. Ask translators to fill units left empty by exact-only migration.

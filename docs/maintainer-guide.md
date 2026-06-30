@@ -3,7 +3,7 @@
 This guide is for keeping the translation workflow maintainable across upstream
 template versions.
 
-## Control Branch
+## Operations Branch
 
 `master` is version-neutral. Keep it focused on:
 
@@ -35,7 +35,7 @@ versioned release assets.
 ## Updating Supported Versions
 
 1. Confirm the tool repo can build clean artifacts for the upstream tag.
-2. Let the control-plane workflow synchronize `translation-config.yml` and
+2. Let the operations workflow synchronize `translation-config.yml` and
    missing or changed `translation/v*` branches from the downloaded artifacts.
 3. Review the config/branch sync commit if the supported version list changed.
 4. Review any migration PRs created by automation.
@@ -51,7 +51,7 @@ changing the support policy or removing a version.
 
 If upstream publishes a tag that still uses a configured DSW metamodel/runtime,
 the daily tool CI should build its clean scaffold artifact automatically. The
-daily control workflow can then add the version to `translation-config.yml`,
+daily operations workflow can then add the version to `translation-config.yml`,
 create or refresh the matching branch, and open migration PRs.
 
 To refresh immediately instead of waiting for the schedule:
@@ -117,7 +117,7 @@ make -C "$TOOLING_ROOT" lint
 make -C "$TOOLING_ROOT" test
 ```
 
-For control-plane changes, also run:
+For operations workflow changes, also run:
 
 ```bash
 "$TOOLING_ROOT/.venv/bin/python" \
