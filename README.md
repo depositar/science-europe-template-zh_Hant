@@ -68,6 +68,7 @@ The complete document map is in [docs/README.md](docs/README.md).
 - upstream template repository and supported version tags
 - language and translated template IDs
 - version branch naming
+- the public README shown by DSW for generated template packages
 - migration policy
 - manual publish target
 
@@ -81,9 +82,13 @@ The operations branch intentionally keeps generated build products out of git:
 - `outputs/`
 - `.cache/`
 
-Do not commit `workspace/document-templates/` to `master`. It is intentionally
-not ignored here because version-specific workspaces must be tracked on
-`translation/v*` branches, and accidental generated workspaces on `master`
-should be visible in `git status`.
+Do not commit generated version workspaces such as compact, expanded, or
+translation trees to `master`. The only intentional `workspace/document-templates/`
+file on `master` is the configured public template README:
+`workspace/document-templates/public-readme/README.md`.
+
+That README is copied into active `translation/v*` branches during scaffold
+refreshes and becomes the package `README.md` shown by DSW. The original
+upstream README remains in generated packages as `UPSTREAM-README.md`.
 
 Build products belong in GitHub Actions artifacts.

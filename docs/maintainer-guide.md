@@ -11,9 +11,15 @@ template versions.
 - `.github/workflows/document_template_translation_sync.yml`
 - repository documentation
 - small workspace notes
+- the canonical public template README configured by `public_readme.path`
 
 Do not commit generated workspaces, packages, preview PDFs, or completed public
 template source to `master`.
+
+The public README is the user-facing README that generated DSW template
+packages expose as `README.md`. Keep it concise and aligned with the official
+Science Europe template README, but write it for Traditional Chinese users. Do
+not put tool-operation runbooks there; those belong in `docs/`.
 
 ## Version Branches
 
@@ -27,6 +33,10 @@ Each branch carries the compact, expanded, and translator-facing workspace for
 one upstream template tag. The workflow refreshes these branches from clean
 scaffold artifacts produced by the tool repository declared by
 `translation-config.yml`.
+
+Active branch refreshes also copy the canonical public README from `master`.
+Branches marked maintenance or archived by `version_policy` may receive safer
+workflow controls without refreshing translation content or public README text.
 
 The tool repo can prove that a clean upstream scaffold can be transformed and
 packaged. This repo still owns the translated branch, migration result, QA, and

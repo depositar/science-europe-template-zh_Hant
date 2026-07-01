@@ -8,6 +8,7 @@ to the work you are doing.
 | Take over day-to-day operation | [Operator Quickstart](operator-quickstart.md) |
 | Edit Traditional Chinese translations | [Translator Guide](translator-guide.md) |
 | Maintain version branches and migrations | [Maintainer Guide](maintainer-guide.md) |
+| Update the README shown by DSW | [Maintainer Guide](maintainer-guide.md) |
 | Freeze, maintain, or auto-refresh versions | [Version Lifecycle Policy](version-lifecycle-policy.md) |
 | Review translated packages and preview PDFs | [QA Checklist](qa-checklist.md) |
 | Understand release assets, manual import, and tokens | [Security and Publishing](security-and-publishing.md) |

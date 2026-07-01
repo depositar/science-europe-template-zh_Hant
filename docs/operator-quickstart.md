@@ -16,6 +16,8 @@ This repository owns:
 
 The parser, clean upstream scaffold artifacts, DSW runtime matrix, and demo
 fixtures live in the tool repository declared by `translation-config.yml`.
+The public template README shown by DSW is owned here at the path configured by
+`public_readme.path`.
 
 ## Daily Health Check
 
@@ -60,6 +62,22 @@ SUPPORTED_VERSIONS=$(awk '
    ```
 
 Expected assets are listed in [QA Checklist](qa-checklist.md).
+
+4. If public-facing package text changed, confirm the configured public README
+   is present on each active version branch:
+
+   ```shell
+   PUBLIC_README_PATH=workspace/document-templates/public-readme/README.md
+   git fetch origin
+
+   for version in $SUPPORTED_VERSIONS; do
+     git show \
+       "origin/${VERSION_BRANCH_PREFIX}${version}:$PUBLIC_README_PATH" \
+       >/dev/null
+   done
+   ```
+
+   The branch CI package should contain this README as package `README.md`.
 
 If these checks pass for every supported version, the translation workflow
 is healthy for versions already listed in `translation-config.yml`. New upstream

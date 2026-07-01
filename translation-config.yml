@@ -31,6 +31,9 @@ branches:
   version_branch_prefix: translation/
   archive_branch: archive/master-before-version-branches-20260622-135746
 
+public_readme:
+  path: workspace/document-templates/public-readme/README.md
+
 tooling:
   repository: ThreeMonth03/DSW-document-template-tool
   ref: master
