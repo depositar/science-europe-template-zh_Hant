@@ -12,7 +12,10 @@
 
 ## 來源與維護
 
-原始範本由 [ds-wizard/science-europe-template](https://github.com/ds-wizard/science-europe-template) 維護。本儲存庫維護繁體中文化內容與產出套件。原始 upstream README 會隨套件保留為 `UPSTREAM-README.md`，供查閱完整英文說明、貢獻者與 upstream changelog。
+原始範本由 [ds-wizard/science-europe-template](https://github.com/ds-wizard/science-europe-template)
+維護。本儲存庫維護繁體中文化內容與產出套件。完整英文說明、貢獻者與
+upstream changelog 請見
+[對應版本的 upstream README](https://github.com/ds-wizard/science-europe-template/blob/v{template_version}/README.md)。
 
 ## 問題回報
 
@@ -20,7 +23,9 @@
 
 ## 致謝
 
-本繁體中文化版本基於 Science Europe DMP Template 與 Data Stewardship Wizard 生態系製作。原始貢獻者、授權與完整版本紀錄請見 `UPSTREAM-README.md`。
+本繁體中文化版本基於 Science Europe DMP Template 與 Data Stewardship Wizard
+生態系製作。原始貢獻者、授權與完整版本紀錄請見
+[對應版本的 upstream README](https://github.com/ds-wizard/science-europe-template/blob/v{template_version}/README.md)。
 
 ## 版本紀錄
 

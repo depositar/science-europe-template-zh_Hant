@@ -88,7 +88,8 @@ file on `master` is the configured public template README:
 `workspace/document-templates/public-readme/README.md`.
 
 That README is copied into active `translation/v*` branches during scaffold
-refreshes and becomes the package `README.md` shown by DSW. The original
-upstream README remains in generated packages as `UPSTREAM-README.md`.
+refreshes and becomes the package `README.md` shown by DSW. Public package
+README text links to the corresponding upstream GitHub README instead of
+shipping transform-only workspace metadata.
 
 Build products belong in GitHub Actions artifacts.

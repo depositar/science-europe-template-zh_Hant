@@ -21,6 +21,10 @@ packages expose as `README.md`. Keep it concise and aligned with the official
 Science Europe template README, but write it for Traditional Chinese users. Do
 not put tool-operation runbooks there; those belong in `docs/`.
 
+The README may use lightweight placeholders supported by the tool repo, such as
+`{template_version}`. Use them when linking to version-specific upstream GitHub
+content.
+
 ## Version Branches
 
 Version branches are named with the configured prefix:
