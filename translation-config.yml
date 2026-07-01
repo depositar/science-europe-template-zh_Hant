@@ -10,6 +10,25 @@ template:
     - v1.30.0
     - v1.30.1
 
+version_policy:
+  defaults:
+    state: active
+    refresh: auto
+    migrate_into: auto
+    publish_release: true
+  rules:
+    - match: ">=v1.30.0"
+      state: active
+      refresh: auto
+      migrate_into: auto
+      publish_release: true
+    - match: ">=v1.29.1 <v1.30.0"
+      state: maintenance
+      refresh: manual
+      migrate_into: manual
+      publish_release: true
+  overrides: {}
+
 translation:
   source_language: en
   target_language: zh_Hant

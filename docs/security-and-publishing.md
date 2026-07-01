@@ -30,6 +30,12 @@ versioned release bucket. The Git tag commit is not the generated asset source
 of truth; use release notes, checksums, and workflow run metadata for
 provenance.
 
+If a version should no longer refresh release assets, set
+`publish_release: false` for that exact version in `translation-config.yml`.
+The version branch workflow will still run audits and preview checks, but the
+release upload steps are skipped. See
+[Version Lifecycle Policy](version-lifecycle-policy.md).
+
 If GitHub immutable releases are enabled, `--clobber` will fail. Either disable
 immutability for these review/download releases or switch to run-id-specific
 release tags.

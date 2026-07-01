@@ -172,6 +172,7 @@ jobs:
         id: version-sync
         env:
           GH_TOKEN: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
+          VERSION_POLICY_MODE: ${{ github.event_name == 'workflow_dispatch' && 'manual' || 'auto' }}
         run: |
           set -euo pipefail
           tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
@@ -180,6 +181,7 @@ jobs:
             --tooling-root "$GITHUB_WORKSPACE/tooling-repo" \
             --clean-artifact-root "$GITHUB_WORKSPACE/tooling-artifacts" \
             --github-output "$GITHUB_OUTPUT" \
+            --policy-mode "$VERSION_POLICY_MODE" \
             --refresh-existing \
             --push
 

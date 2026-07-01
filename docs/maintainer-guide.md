@@ -54,6 +54,13 @@ the daily tool CI should build its clean scaffold artifact automatically. The
 daily operations workflow can then add the version to `translation-config.yml`,
 create or refresh the matching branch, and open migration PRs.
 
+Version lifecycle is controlled by `version_policy` in `translation-config.yml`.
+Use it to keep old versions available without letting scheduled automation
+rewrite reviewed translation content. Active versions can refresh
+automatically; maintenance versions require a manual `workflow_dispatch`; an
+archived version can set `refresh: false`, `migrate_into: false`, and
+`publish_release: false`. See [Version Lifecycle Policy](version-lifecycle-policy.md).
+
 To refresh immediately instead of waiting for the schedule:
 
 ```bash

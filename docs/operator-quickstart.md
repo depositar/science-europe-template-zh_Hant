@@ -82,6 +82,11 @@ This runs the operations workflow on `master`. It validates
 the configured tool repository, refreshes supported
 `translation/v*` branches, and may open or update migration PRs.
 
+Manual syncs use the `manual` version-policy mode. Maintenance versions may
+refresh when their policy allows `refresh: manual`, while archived versions
+with `refresh: false` remain frozen except for generated control-file updates.
+See [Version Lifecycle Policy](version-lifecycle-policy.md).
+
 If you want migration PRs to fan out from a specific translated version, pass
 `source_version`:
 
@@ -108,6 +113,10 @@ version branches and may open migration PRs so exact-safe changes can fan out to
 other supported versions. Scaffold refresh commits with messages starting
 `chore: refresh ` intentionally skip this dispatch to avoid migration loops.
 
+Scheduled operations runs use the stricter `auto` version-policy mode. They
+refresh active versions, but do not refresh maintenance or archived versions
+unless their policy is changed.
+
 ## When Reviewing a Translation PR
 
 1. Confirm the PR targets the matching `translation/v*` branch, not `master`.
@@ -125,8 +134,9 @@ Use [Translator Guide](translator-guide.md) for edit rules and
 1. Confirm the tool repo published a clean scaffold release for the tag. If the
    tool repo opened a DSW compatibility probe PR instead, wait for that PR to be
    reviewed and merged first.
-2. Let this repo's operations workflow sync `translation-config.yml` and create or
-   refresh the matching `translation/v*` branch.
+2. Let this repo's operations workflow sync `translation-config.yml` and create
+   or refresh the matching `translation/v*` branch according to
+   [Version Lifecycle Policy](version-lifecycle-policy.md).
 3. Review any migration PRs.
 4. Ask translators to fill units left empty by exact-only migration.
 5. Confirm the translated release assets are refreshed.
