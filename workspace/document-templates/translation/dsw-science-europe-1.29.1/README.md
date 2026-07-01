@@ -13,7 +13,7 @@ template workspace.
   variables.
 - Machine metadata is collapsed at the bottom of each file and should not
   be edited manually.
-- If a translation file is deleted or its markdown block is broken, run
-  `make export-translation-tree` to rebuild the file skeleton.
-- Run `make sync-translation-tree` to apply translator edits back into a
-  generated template copy.
+- If a translation file is deleted or its markdown block is broken, ask a
+  maintainer to refresh the translation tree from the expanded template.
+- CI applies translator edits back into a generated template copy and
+  publishes review artifacts.
