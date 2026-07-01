@@ -167,3 +167,10 @@ The workflow template in the tool repo is only a template. Existing
 `translation/v*` branches carry their own workflow files. When a workflow fix is
 needed, apply it to every supported version branch and confirm the branch CI
 refreshes its release assets.
+
+GitHub's default `GITHUB_TOKEN` cannot push commits that create or update
+workflow files on another branch. If the operations workflow needs to refresh a
+version branch workflow, either configure `TRANSLATION_AUTOMATION_TOKEN` with
+workflow permission or have a maintainer run the branch sync locally and push the
+workflow update once. After the branch workflows are current, normal scaffold
+refreshes can run without touching workflow files.

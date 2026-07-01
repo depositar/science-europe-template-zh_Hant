@@ -48,6 +48,8 @@ Optional secrets:
 
 - `TRANSLATION_AUTOMATION_TOKEN`: push repaired commits, refresh version
   branches, or open migration PRs when the default token is insufficient.
+  If operations need to create or update files under `.github/workflows/` on
+  `translation/v*` branches, this token must include workflow permission.
 - `TOOLING_ARTIFACT_TOKEN`: download tool-repo clean scaffold artifacts when the
   default token cannot read cross-repository artifacts.
 
