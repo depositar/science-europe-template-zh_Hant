@@ -28,18 +28,24 @@ and exact `overrides`.
 
 ## Current Intended States
 
-Active versions follow the latest tool-repo scaffold automatically:
+The current repository policy keeps every supported version active. The config
+uses active defaults and no special rules:
 
 ```yaml
-- match: ">=v1.30.0"
-  state: active
-  refresh: auto
-  migrate_into: auto
-  publish_release: true
+version_policy:
+  defaults:
+    state: active
+    refresh: auto
+    migrate_into: auto
+    publish_release: true
+  rules: []
+  overrides: {}
 ```
 
-Maintenance versions remain supported, but schedule runs do not refresh their
-translation workspaces:
+## Freezing an Older Version
+
+Use a maintenance rule only when the team wants a version to remain supported
+but no longer follow scheduled scaffold refreshes:
 
 ```yaml
 - match: ">=v1.29.1 <v1.30.0"
@@ -49,7 +55,8 @@ translation workspaces:
   publish_release: true
 ```
 
-Archive a version with an exact override when the team wants to freeze it:
+Archive a version with an exact override when the team wants to freeze both its
+translation content and release assets:
 
 ```yaml
 overrides:

@@ -56,10 +56,11 @@ create or refresh the matching branch, and open migration PRs.
 
 Version lifecycle is controlled by `version_policy` in `translation-config.yml`.
 Use it to keep old versions available without letting scheduled automation
-rewrite reviewed translation content. Active versions can refresh
-automatically; maintenance versions require a manual `workflow_dispatch`; an
-archived version can set `refresh: false`, `migrate_into: false`, and
-`publish_release: false`. See [Version Lifecycle Policy](version-lifecycle-policy.md).
+rewrite reviewed translation content. The current policy keeps every supported
+version active, so scheduled automation may refresh each `translation/v*`
+branch. If the team later wants to slow down or freeze an older version, use a
+maintenance rule or an archived override. See
+[Version Lifecycle Policy](version-lifecycle-policy.md).
 
 To refresh immediately instead of waiting for the schedule:
 

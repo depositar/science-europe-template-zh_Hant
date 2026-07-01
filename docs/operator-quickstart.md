@@ -82,10 +82,11 @@ This runs the operations workflow on `master`. It validates
 the configured tool repository, refreshes supported
 `translation/v*` branches, and may open or update migration PRs.
 
-Manual syncs use the `manual` version-policy mode. Maintenance versions may
-refresh when their policy allows `refresh: manual`, while archived versions
-with `refresh: false` remain frozen except for generated control-file updates.
-See [Version Lifecycle Policy](version-lifecycle-policy.md).
+Manual syncs use the `manual` version-policy mode. The current configuration
+keeps every supported version active, so manual syncs may refresh all supported
+version branches. If the team later marks a version as maintenance or archived,
+that policy can limit refreshes or freeze translation content. See
+[Version Lifecycle Policy](version-lifecycle-policy.md).
 
 If you want migration PRs to fan out from a specific translated version, pass
 `source_version`:
@@ -113,9 +114,10 @@ version branches and may open migration PRs so exact-safe changes can fan out to
 other supported versions. Scaffold refresh commits with messages starting
 `chore: refresh ` intentionally skip this dispatch to avoid migration loops.
 
-Scheduled operations runs use the stricter `auto` version-policy mode. They
-refresh active versions, but do not refresh maintenance or archived versions
-unless their policy is changed.
+Scheduled operations runs use the stricter `auto` version-policy mode. With the
+current policy, all supported versions are active and may refresh. If the team
+later marks a version as maintenance or archived, scheduled runs respect that
+policy.
 
 ## When Reviewing a Translation PR
 
