@@ -4,7 +4,14 @@
 
 ## 使用方式
 
-請在 DSW 匯入或選用此文件模板，並搭配相容的 Knowledge Model 產生文件。正式產出的文件模板套件可從本儲存庫的版本 release assets 下載；公開部署或 depositar 匯入前，請先確認對應版本的 PDF 預覽與 `SHA256SUMS`。
+在 DSW 中完成資料管理計畫問卷後，可選用此文件模板產生繁體中文的
+Science Europe DMP。模板會依照專案回答帶入適用段落；若目前專案使用的
+Knowledge Model 不相容，DSW 可能不會顯示此模板，或無法用它產生文件。
+
+## 維護與匯入
+
+正式產出的文件模板套件可從本儲存庫的 release assets 下載。公開部署或
+匯入 depositar 前，請先確認對應版本的 PDF 預覽與 `SHA256SUMS`。
 
 ## 相容性
 
