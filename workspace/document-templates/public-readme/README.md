@@ -8,11 +8,6 @@
 Science Europe DMP。模板會依照專案回答帶入適用段落；若目前專案使用的
 Knowledge Model 不相容，DSW 可能不會顯示此模板，或無法用它產生文件。
 
-## 維護與匯入
-
-正式產出的文件模板套件可從本儲存庫的 release assets 下載。公開部署或
-匯入 depositar 前，請先確認對應版本的 PDF 預覽與 `SHA256SUMS`。
-
 ## 相容性
 
 此繁體中文版本對應官方 `dsw:science-europe` template 的同版 upstream release。相容 Knowledge Model 以 `template.json` 的 `allowedPackages` 為準；目前主要支援 `dsw:root`、`dsw:lifesciences`，以及繁體中文在地化的 `dsw:root-zh-hant`。
