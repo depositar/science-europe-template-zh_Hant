@@ -12,6 +12,14 @@ workspace/document-templates/translation/dsw-science-europe-1.30.1/tree/
 ```
 
 Keep source placeholders intact and open translation PRs against `translation/v1.30.1`.
+If you translate through Weblate, it should edit:
+
+```text
+weblate/dsw-science-europe.zh_Hant.xlf
+```
+
+CI imports that XLIFF back into the translation tree and exports a refreshed
+XLIFF file after every sync.
 
 ## Generated Outputs
 
