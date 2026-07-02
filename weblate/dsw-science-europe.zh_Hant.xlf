@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="tree/src/content.html.j2/0001-section-1-data-description-and-collection-or-re-1cfcc6913c/0001-section-1-data-description-and-collection-or-re-4085e55231/translation.md" resname="section-1-data-description-and-collection-or-re-4085e55231" xml:space="preserve">
         <source xml:space="preserve">Section 1: Data description and collection or re-use of existing data</source>
-        <target xml:space="preserve" state="translated">第 1 節：資料的描述與蒐集，或既有資料的再次使用（E2E2）</target>
+        <target xml:space="preserve" state="translated">第 1 節：資料的描述與蒐集，或既有資料的再次使用</target>
         <note from="source_file">src/content.html.j2</note>
         <note from="wrapper_key">section-1-data-description-and-collection-or-re-1cfcc6913c</note>
         <note from="unit_key">section-1-data-description-and-collection-or-re-4085e55231</note>
