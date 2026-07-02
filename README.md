@@ -18,8 +18,9 @@ If you translate through Weblate, it should edit:
 weblate/dsw-science-europe.zh_Hant.xlf
 ```
 
-CI imports that XLIFF back into the translation tree and exports a refreshed
-XLIFF file after every sync.
+Weblate changes are promoted by the branch's Weblate promotion workflow. Normal
+branch sync treats `translation.md` as the source of truth and exports a
+refreshed XLIFF file for the next Weblate edit.
 
 ## Generated Outputs
 
