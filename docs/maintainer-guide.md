@@ -38,6 +38,12 @@ one upstream template tag. The workflow refreshes these branches from clean
 scaffold artifacts produced by the tool repository declared by
 `translation-config.yml`.
 
+Each version branch also carries `weblate/dsw-science-europe.zh_Hant.xlf`.
+Treat it as a Weblate exchange file, not as a second source of truth. Branch CI
+imports XLIFF targets into `translation.md`, refreshes the tree, then exports a
+new XLIFF file. If Weblate edits arrive without matching `translation.md`
+changes, let CI produce the repair commit instead of hand-copying text.
+
 Active branch refreshes also copy the canonical public README from `master`.
 Branches marked maintenance or archived by `version_policy` may receive safer
 workflow controls without refreshing translation content or public README text.
@@ -178,3 +184,8 @@ version branch workflow, either configure `TRANSLATION_AUTOMATION_TOKEN` with
 workflow permission or have a maintainer run the branch sync locally and push the
 workflow update once. After the branch workflows are current, normal scaffold
 refreshes can run without touching workflow files.
+
+The same caveat applies when tool-repo changes first introduce Weblate XLIFF
+sync or any other workflow-file change. Once the maintainer has manually pushed
+the refreshed branch workflows, scheduled operations can keep the XLIFF files,
+translation trees, release assets, and migration PRs current.

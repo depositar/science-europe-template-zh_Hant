@@ -41,11 +41,29 @@ Blank translation blocks fall back to English in generated preview artifacts.
 That is useful while a branch is incomplete, but it is not a finished
 translation.
 
+## Weblate Editing
+
+Version branches also contain a Weblate exchange file:
+
+```text
+weblate/dsw-science-europe.zh_Hant.xlf
+```
+
+Weblate should edit that XLIFF file only. The Markdown translation tree remains
+the reviewable source in this repository: CI imports Weblate's XLIFF targets
+into `translation.md`, then exports a refreshed XLIFF file after the tree is
+regenerated.
+
+Do not edit generated compact, expanded, translated output, release assets, or
+public handoff branches in Weblate.
+
 ## What CI Checks
 
 When you push to a `translation/v*` branch or open a PR into one, CI will:
 
+- import Weblate XLIFF edits into the translation tree when the XLIFF exists
 - refresh generated translation inputs from the checked-in workspace
+- export a refreshed Weblate XLIFF file
 - repair missing metadata or broken translation block skeletons when safe
 - audit placeholders and unsafe Jinja
 - sync translations into a generated template
