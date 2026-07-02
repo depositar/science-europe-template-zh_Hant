@@ -43,25 +43,40 @@ translation.
 
 ## Weblate Editing
 
-Version branches also contain a Weblate exchange file:
+Version branches contain a Weblate exchange file:
 
 ```text
 weblate/dsw-science-europe.zh_Hant.xlf
 ```
 
-Weblate should edit that XLIFF file only. The Markdown translation tree remains
-the reviewable source in this repository: CI imports Weblate's XLIFF targets
-into `translation.md`, then exports a refreshed XLIFF file after the tree is
-regenerated.
+Weblate should edit that XLIFF file only, and it should push edits to the
+matching `weblate/v*` branch. For example, Weblate edits for
+`translation/v1.30.1` should land on `weblate/v1.30.1`.
+
+The Markdown translation tree remains the reviewable source in this repository.
+When Weblate pushes to `weblate/v*`, the generated promotion workflow:
+
+- checks out the matching `translation/v*` branch
+- copies only `weblate/dsw-science-europe.zh_Hant.xlf` from `weblate/v*`
+- imports XLIFF targets into `translation.md`
+- audits placeholders, source hashes, and unsafe Jinja
+- syncs the translated template output
+- pushes the validated result back to `translation/v*`
+
+After that, the normal version-branch workflow builds preview artifacts and
+release assets from `translation/v*`.
+
+Git users may still open PRs directly against `translation/v*`. The same
+translation tree and CI checks apply.
 
 Do not edit generated compact, expanded, translated output, release assets, or
-public handoff branches in Weblate.
+public handoff branches in Weblate. Do not treat `weblate/v*` as a release or
+review branch; it is only a write-back buffer for Weblate.
 
 ## What CI Checks
 
 When you push to a `translation/v*` branch or open a PR into one, CI will:
 
-- import Weblate XLIFF edits into the translation tree when the XLIFF exists
 - refresh generated translation inputs from the checked-in workspace
 - export a refreshed Weblate XLIFF file
 - repair missing metadata or broken translation block skeletons when safe
@@ -70,6 +85,12 @@ When you push to a `translation/v*` branch or open a PR into one, CI will:
 - verify translated output did not break executable template structure
 - package the document template
 - render the shared demo project as a preview PDF artifact
+
+When Weblate pushes to a `weblate/v*` branch, the promotion workflow first
+imports the XLIFF into `translation/v*`. If promotion succeeds, the normal
+`translation/v*` workflow then performs the checks above. If promotion fails,
+the XLIFF is probably stale, missing source hashes, or carrying unsafe
+placeholder changes.
 
 If CI pushes an auto-repair commit, include it in the branch before continuing.
 Auto-repair only fixes structure; it does not decide wording.

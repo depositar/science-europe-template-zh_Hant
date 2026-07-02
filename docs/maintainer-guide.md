@@ -39,10 +39,20 @@ scaffold artifacts produced by the tool repository declared by
 `translation-config.yml`.
 
 Each version branch also carries `weblate/dsw-science-europe.zh_Hant.xlf`.
-Treat it as a Weblate exchange file, not as a second source of truth. Branch CI
-imports XLIFF targets into `translation.md`, refreshes the tree, then exports a
-new XLIFF file. If Weblate edits arrive without matching `translation.md`
-changes, let CI produce the repair commit instead of hand-copying text.
+Treat it as a Weblate exchange file, not as a second source of truth.
+
+Weblate write-back branches are named `weblate/vX.Y.Z`. They are buffers, not
+review or release branches. The generated `weblate_translation_promote.yml`
+workflow copies only the XLIFF file from `weblate/v*`, imports it into the
+matching `translation/v*` tree, audits the result, syncs translated output, and
+pushes the validated commit to `translation/v*`. If source hashes or executable
+placeholders do not match, promotion fails instead of carrying stale
+translations forward.
+
+After promotion, the normal version branch workflow refreshes the exported
+XLIFF, preview PDF, package, and release assets. If Weblate edits arrive without
+matching `translation.md` changes, let CI produce the promotion or repair commit
+instead of hand-copying text.
 
 Active branch refreshes also copy the canonical public README from `master`.
 Branches marked maintenance or archived by `version_policy` may receive safer
@@ -131,6 +141,10 @@ translation CI. Commits with messages starting `chore: refresh ` are generated
 scaffold refreshes and intentionally do not dispatch migration; this keeps daily
 or manual scaffold syncs from creating loops.
 
+Weblate pushes to `weblate/v*` do not fan out directly. They first promote into
+the matching `translation/v*` branch. If that promoted commit passes the normal
+version branch workflow, the existing migration dispatch rules apply.
+
 ## Release and Publishing
 
 Version branches publish review/download assets after successful non-PR CI
@@ -173,10 +187,10 @@ and leaves generated build products as artifacts.
 
 ## Workflow Synchronization
 
-The workflow template in the tool repo is only a template. Existing
-`translation/v*` branches carry their own workflow files. When a workflow fix is
-needed, apply it to every supported version branch and confirm the branch CI
-refreshes its release assets.
+The workflow templates in the tool repo are only templates. Existing
+`translation/v*` branches carry their own sync and Weblate promotion workflow
+files. When a workflow fix is needed, apply it to every supported version branch
+and confirm the branch CI refreshes its release assets.
 
 GitHub's default `GITHUB_TOKEN` cannot push commits that create or update
 workflow files on another branch. If the operations workflow needs to refresh a
@@ -185,7 +199,8 @@ workflow permission or have a maintainer run the branch sync locally and push th
 workflow update once. After the branch workflows are current, normal scaffold
 refreshes can run without touching workflow files.
 
-The same caveat applies when tool-repo changes first introduce Weblate XLIFF
-sync or any other workflow-file change. Once the maintainer has manually pushed
-the refreshed branch workflows, scheduled operations can keep the XLIFF files,
-translation trees, release assets, and migration PRs current.
+The same caveat applies when tool-repo changes first introduce or update
+Weblate promotion, XLIFF sync, or any other workflow-file behavior. Once the
+maintainer has manually pushed the refreshed branch workflows, scheduled
+operations can keep XLIFF files, translation trees, release assets, and
+migration PRs current.

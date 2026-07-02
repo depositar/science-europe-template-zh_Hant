@@ -14,6 +14,8 @@ remain manual decisions.
 - `master` is the operations branch. It contains configuration, GitHub Actions, and
   documentation only.
 - `translation/v*` branches contain one upstream template version each.
+- `weblate/v*` branches are Weblate write-back buffers. CI promotes their XLIFF
+  edits into the matching `translation/v*` branch after validation.
 - Generated packages and preview PDFs are CI artifacts, not committed files.
 
 The shared parser, scaffold builder, demo project fixture, and render tooling
@@ -27,6 +29,11 @@ tool-repo artifacts when upstream publishes a new supported tag.
 
 Open translation PRs against the matching `translation/v*` branch. Do not open
 translation-content PRs against `master`.
+
+Weblate integrations should push to the matching `weblate/v*` branch instead of
+writing directly to `translation/v*`. The generated promotion workflow copies
+only the XLIFF file from `weblate/v*`, imports it into the Markdown translation
+tree, audits the result, and then updates `translation/v*`.
 
 ## Daily Translation Flow
 

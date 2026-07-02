@@ -9,6 +9,7 @@ This repository owns:
 
 - `translation-config.yml`
 - `translation/v*` version branches
+- `weblate/v*` Weblate write-back buffer branches
 - translator-facing `translation.md` files
 - translated package and preview PDF releases
 - migration PRs between supported versions
@@ -137,9 +138,25 @@ current policy, all supported versions are active and may refresh. If the team
 later marks a version as maintenance or archived, scheduled runs respect that
 policy.
 
+## What Weblate Pushes Do
+
+Weblate should push translation edits to a matching `weblate/v*` branch. That
+branch is only a write-back buffer. Its promotion workflow copies the XLIFF file
+into the matching `translation/v*` branch, imports it into `translation.md`,
+audits the result, syncs translated output, and pushes the validated commit.
+
+After that push lands on `translation/v*`, the normal version branch workflow
+builds the package, preview PDF, release assets, and migration dispatch. If the
+promotion workflow fails, inspect the run before asking translators to continue;
+common causes are stale XLIFF source hashes, missing placeholders, or a version
+branch whose generated promotion workflow has not been refreshed from the tool
+repo template.
+
 ## When Reviewing a Translation PR
 
 1. Confirm the PR targets the matching `translation/v*` branch, not `master`.
+   Weblate-generated edits should arrive through `weblate/v*` promotion and then
+   appear as a validated commit on `translation/v*`.
 2. Confirm CI is green.
 3. Download the preview PDF artifact.
 4. Review glossary/i10n wording, English fallback, punctuation, placeholders,
