@@ -433,7 +433,7 @@ jobs:
           set -euo pipefail
           gh workflow run document_template_translation_sync.yml \
             --repo "$GITHUB_REPOSITORY" \
-            --ref ops \
+            --ref master \
             -f source_version="v$TRANSLATED_TEMPLATE_VERSION"
 
           {

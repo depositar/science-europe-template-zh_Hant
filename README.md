@@ -22,5 +22,5 @@ pull requests and branch pushes. Those files are uploaded as GitHub Actions
 artifacts or release assets; they are not committed to this branch.
 
 Repository operations, supported-version policy, and migration automation live
-on `ops`. The repository `master` branch is not
-part of the automated translation or publish flow.
+on `master`. Keep translation edits on this version
+branch; do not use the control branch for translator-facing work.
