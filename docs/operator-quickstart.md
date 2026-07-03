@@ -127,6 +127,23 @@ gh workflow run document_template_translation_sync.yml \
 After dispatching, inspect the Actions run and any migration PRs before asking
 translators to continue.
 
+If no migration PR appears and you need to prove the migration queue is empty,
+run the tool repo status helper against the same clean scaffold artifacts:
+
+```shell
+TOOL_REPO_DIR=/path/to/document-template-tool
+TRANSLATION_REPO_DIR=/path/to/this-repository
+
+"$TOOL_REPO_DIR/.venv/bin/python" "$TOOL_REPO_DIR/scripts/ci/check_translation_migration_status.py" \
+  --repo "$TRANSLATION_REPO_DIR" \
+  --tooling-root "$TOOL_REPO_DIR" \
+  --clean-artifact-root /tmp/clean-scaffolds
+```
+
+`OK` means exact-only migration has nothing new to carry between active version
+branches. `PENDING` means a migration PR should be created or reviewed before
+translation work continues.
+
 Manual sync does not create, update, or delete workflow files on
 `translation/v*` branches. That is intentional: GitHub's default token cannot
 push workflow-file changes across branches, and routine scaffold refreshes

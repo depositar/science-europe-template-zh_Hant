@@ -125,6 +125,11 @@ existing target translations first and only fills exact-safe blank units. This
 keeps useful reuse without silently carrying stale text into changed upstream
 sentences.
 
+After a sync or parser/tooling update, confirm migration has actually settled.
+Either review and merge the generated migration PRs, or run the tool repo status
+helper. The settled state is `OK` for every active source version; a missing PR
+alone is not proof that migration was checked.
+
 Successful non-refresh pushes to `translation/v*` branches dispatch the
 operations workflow so migration can fan out after the branch has passed
 translation CI. Commits with messages starting `chore: refresh ` are generated
