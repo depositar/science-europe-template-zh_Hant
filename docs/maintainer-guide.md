@@ -38,22 +38,6 @@ one upstream template tag. The workflow refreshes these branches from clean
 scaffold artifacts produced by the tool repository declared by
 `translation-config.yml`.
 
-Each version branch also carries `weblate/dsw-science-europe.zh_Hant.xlf`.
-Treat it as a Weblate exchange file, not as a second source of truth.
-
-Weblate write-back branches are named `weblate/vX.Y.Z`. They are buffers, not
-review or release branches. The generated `weblate_translation_promote.yml`
-workflow copies only the XLIFF file from `weblate/v*`, imports it into the
-matching `translation/v*` tree, audits the result, syncs translated output, and
-pushes the validated commit to `translation/v*`. If source hashes or executable
-placeholders do not match, promotion fails instead of carrying stale
-translations forward.
-
-After promotion, the normal version branch workflow refreshes the exported
-XLIFF, preview PDF, package, and release assets. If Weblate edits arrive without
-matching `translation.md` changes, let CI produce the promotion or repair commit
-instead of hand-copying text.
-
 Active branch refreshes also copy the canonical public README from `master`.
 Branches marked maintenance or archived by `version_policy` may receive safer
 workflow controls without refreshing translation content or public README text.
@@ -77,19 +61,21 @@ should derive those paths.
 The normal path is artifact-driven: tool CI packages every upstream tag covered
 by its artifact ref policy, and this repo unions those artifact versions into
 `translation-config.yml`. Manual config edits are only needed when intentionally
-changing the support policy or removing a version.
+changing translation policy or removing a version.
 
 If upstream publishes a tag that still uses a configured DSW metamodel/runtime,
 the daily tool CI should build its clean scaffold artifact automatically. The
 daily operations workflow can then add the version to `translation-config.yml`,
-create or refresh the matching branch, and open migration PRs.
+but it does not automatically create a translation branch unless
+`version_policy` opts that version into refresh.
 
 Version lifecycle is controlled by `version_policy` in `translation-config.yml`.
 Use it to keep old versions available without letting scheduled automation
-rewrite reviewed translation content. The current policy keeps every supported
-version active, so scheduled automation may refresh each `translation/v*`
-branch. If the team later wants to slow down or freeze an older version, use a
-maintenance rule or an archived override. See
+rewrite reviewed translation content. The current policy keeps newly discovered
+future versions scaffold-only by default and opts currently translated versions
+in explicitly. If the team wants to translate a newly discovered version, add an
+active override or scoped rule. If the team later wants to slow down or freeze an
+older version, use a maintenance rule or an archived override. See
 [Version Lifecycle Policy](version-lifecycle-policy.md).
 
 To refresh immediately instead of waiting for the schedule:
@@ -117,9 +103,12 @@ an optimistic runtime row and lets CI test whether the closest previous DSW/TDK
 runtime still works. Do not sync this translation repo for that tag until the
 tool repo probe PR is reviewed, merged, and the clean scaffold release exists.
 
-For each supported version, verify all three layers:
+For each known scaffold version, verify the tool layer:
 
 - clean scaffold release exists in the tool repo
+
+For each active translation version, verify the downstream layers:
+
 - `translation/v*` branch exists and has migrated or empty review blocks
 - translated package/PDF release exists in this repo
 
@@ -140,10 +129,6 @@ operations workflow so migration can fan out after the branch has passed
 translation CI. Commits with messages starting `chore: refresh ` are generated
 scaffold refreshes and intentionally do not dispatch migration; this keeps daily
 or manual scaffold syncs from creating loops.
-
-Weblate pushes to `weblate/v*` do not fan out directly. They first promote into
-the matching `translation/v*` branch. If that promoted commit passes the normal
-version branch workflow, the existing migration dispatch rules apply.
 
 ## Release and Publishing
 
@@ -188,9 +173,9 @@ and leaves generated build products as artifacts.
 ## Workflow Synchronization
 
 The workflow templates in the tool repo are only templates. Existing
-`translation/v*` branches carry their own sync and Weblate promotion workflow
-files. When a workflow fix is needed, apply it to every supported version branch
-and confirm the branch CI refreshes its release assets.
+`translation/v*` branches carry their own sync workflow files. When a workflow
+fix is needed, apply it to every policy-enabled active version branch and
+confirm the branch CI refreshes its release assets.
 
 GitHub's default `GITHUB_TOKEN` cannot push commits that create or update
 workflow files on another branch. If the operations workflow needs to refresh a
@@ -199,8 +184,7 @@ workflow permission or have a maintainer run the branch sync locally and push th
 workflow update once. After the branch workflows are current, normal scaffold
 refreshes can run without touching workflow files.
 
-The same caveat applies when tool-repo changes first introduce or update
-Weblate promotion, XLIFF sync, or any other workflow-file behavior. Once the
-maintainer has manually pushed the refreshed branch workflows, scheduled
-operations can keep XLIFF files, translation trees, release assets, and
-migration PRs current.
+The same caveat applies when tool-repo changes first introduce or update any
+workflow-file behavior. Once the maintainer has manually pushed the refreshed
+branch workflows, scheduled operations can keep translation trees, release
+assets, and migration PRs current for policy-enabled versions.

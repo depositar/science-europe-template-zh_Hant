@@ -9,7 +9,6 @@ This repository owns:
 
 - `translation-config.yml`
 - `translation/v*` version branches
-- `weblate/v*` Weblate write-back buffer branches
 - translator-facing `translation.md` files
 - translated package and preview PDF releases
 - migration PRs between supported versions
@@ -27,12 +26,18 @@ Set the repository name once before copying commands:
 ```shell
 TRANSLATION_REPO=owner/document-template-translation
 VERSION_BRANCH_PREFIX=$(awk '/version_branch_prefix:/ { print $2; exit }' translation-config.yml)
-SUPPORTED_VERSIONS=$(awk '
+KNOWN_VERSIONS=$(awk '
   /supported_versions:/ { in_versions=1; next }
   in_versions && /^    - / { print $2; next }
   in_versions && /^[^ ]/ { in_versions=0 }
 ' translation-config.yml)
+ACTIVE_TRANSLATION_VERSIONS="v1.29.1 v1.30.0 v1.30.1"
 ```
+
+`KNOWN_VERSIONS` is the upstream scaffold ledger. Use
+`ACTIVE_TRANSLATION_VERSIONS` for branch, release, and PDF checks. Keep that
+list aligned with versions whose effective `version_policy.refresh` is `auto`
+or `manual`.
 
 1. Check the operations workflow:
 
@@ -43,10 +48,10 @@ SUPPORTED_VERSIONS=$(awk '
      --limit 10
    ```
 
-2. Check each supported version branch has a recent green run:
+2. Check each active translation version branch has a recent green run:
 
    ```shell
-   for version in $SUPPORTED_VERSIONS; do
+   for version in $ACTIVE_TRANSLATION_VERSIONS; do
      gh run list \
        --repo "$TRANSLATION_REPO" \
        --branch "${VERSION_BRANCH_PREFIX}${version}" \
@@ -54,10 +59,10 @@ SUPPORTED_VERSIONS=$(awk '
    done
    ```
 
-3. Confirm each translated release has the expected assets:
+3. Confirm each active translated release has the expected assets:
 
    ```shell
-   for version in $SUPPORTED_VERSIONS; do
+   for version in $ACTIVE_TRANSLATION_VERSIONS; do
      gh release view "science-europe-zh-hant-$version" --repo "$TRANSLATION_REPO"
    done
    ```
@@ -71,7 +76,7 @@ Expected assets are listed in [QA Checklist](qa-checklist.md).
    PUBLIC_README_PATH=workspace/document-templates/public-readme/README.md
    git fetch origin
 
-   for version in $SUPPORTED_VERSIONS; do
+   for version in $ACTIVE_TRANSLATION_VERSIONS; do
      git show \
        "origin/${VERSION_BRANCH_PREFIX}${version}:$PUBLIC_README_PATH" \
        >/dev/null
@@ -80,9 +85,10 @@ Expected assets are listed in [QA Checklist](qa-checklist.md).
 
    The branch CI package should contain this README as package `README.md`.
 
-If these checks pass for every supported version, the translation workflow
-is healthy for versions already listed in `translation-config.yml`. New upstream
-tags still need the upgrade flow below.
+If these checks pass for every active translation version, the translation
+workflow is healthy for the versions currently opted into translation. New
+upstream tags may be listed in `translation-config.yml` as scaffold-only until
+the team opts them into `version_policy`.
 
 ## Manual Sync
 
@@ -98,14 +104,14 @@ gh workflow run document_template_translation_sync.yml \
 
 This runs the operations workflow on `master`. It validates
 `translation-config.yml`, downloads the latest clean scaffold artifacts from
-the configured tool repository, refreshes supported
-`translation/v*` branches, and may open or update migration PRs.
+the configured tool repository, records newly available scaffold versions,
+refreshes policy-enabled `translation/v*` branches, and may open or update
+migration PRs.
 
 Manual syncs use the `manual` version-policy mode. The current configuration
-keeps every supported version active, so manual syncs may refresh all supported
-version branches. If the team later marks a version as maintenance or archived,
-that policy can limit refreshes or freeze translation content. See
-[Version Lifecycle Policy](version-lifecycle-policy.md).
+keeps discovered future versions scaffold-only until maintainers opt them in,
+while the currently active versions can refresh. See [Version Lifecycle
+Policy](version-lifecycle-policy.md).
 
 If you want migration PRs to fan out from a specific translated version, pass
 `source_version`:
@@ -129,34 +135,27 @@ refreshes the versioned GitHub Release assets.
 
 For normal translation-content pushes, a successful branch run also dispatches
 the operations workflow on `master`. That operations run refreshes supported
-version branches and may open migration PRs so exact-safe changes can fan out to
-other supported versions. Scaffold refresh commits with messages starting
+policy-enabled version branches and may open migration PRs so exact-safe changes
+can fan out to other active migration targets. Scaffold refresh commits with messages starting
 `chore: refresh ` intentionally skip this dispatch to avoid migration loops.
 
 Scheduled operations runs use the stricter `auto` version-policy mode. With the
-current policy, all supported versions are active and may refresh. If the team
-later marks a version as maintenance or archived, scheduled runs respect that
-policy.
+current policy, only explicitly active versions refresh. Scaffold-only versions
+remain recorded but do not get branches, migrations, or release refreshes until
+their policy changes.
 
-## What Weblate Pushes Do
+## Optional External Translation Tools
 
-Weblate should push translation edits to a matching `weblate/v*` branch. That
-branch is only a write-back buffer. Its promotion workflow copies the XLIFF file
-into the matching `translation/v*` branch, imports it into `translation.md`,
-audits the result, syncs translated output, and pushes the validated commit.
-
-After that push lands on `translation/v*`, the normal version branch workflow
-builds the package, preview PDF, release assets, and migration dispatch. If the
-promotion workflow fails, inspect the run before asking translators to continue;
-common causes are stale XLIFF source hashes, missing placeholders, or a version
-branch whose generated promotion workflow has not been refreshed from the tool
-repo template.
+The default workflow is direct Markdown editing on `translation/v*` branches.
+External platforms such as Weblate are optional. If the team enables one later,
+keep XLIFF as the exchange boundary and import validated XLIFF back into
+`translation.md` before review, packaging, or release.
 
 ## When Reviewing a Translation PR
 
 1. Confirm the PR targets the matching `translation/v*` branch, not `master`.
-   Weblate-generated edits should arrive through `weblate/v*` promotion and then
-   appear as a validated commit on `translation/v*`.
+   External translation tool output, if any, should already be imported into
+   `translation.md`.
 2. Confirm CI is green.
 3. Download the preview PDF artifact.
 4. Review glossary/i10n wording, English fallback, punctuation, placeholders,
@@ -171,12 +170,16 @@ Use [Translator Guide](translator-guide.md) for edit rules and
 1. Confirm the tool repo published a clean scaffold release for the tag. If the
    tool repo opened a DSW compatibility probe PR instead, wait for that PR to be
    reviewed and merged first.
-2. Let this repo's operations workflow sync `translation-config.yml` and create
-   or refresh the matching `translation/v*` branch according to
+2. Let this repo's operations workflow sync `translation-config.yml`. By
+   default, the new tag is recorded as scaffold-only.
+3. If the team wants to translate that tag, add a `version_policy` override or
+   rule that enables `refresh`, `migrate_into`, and `publish_release`, then run
+   the operations workflow again to create or refresh the matching
+   `translation/v*` branch according to
    [Version Lifecycle Policy](version-lifecycle-policy.md).
-3. Review any migration PRs.
-4. Ask translators to fill units left empty by exact-only migration.
-5. Confirm the translated release assets are refreshed.
+4. Review any migration PRs.
+5. Ask translators to fill units left empty by exact-only migration.
+6. Confirm the translated release assets are refreshed.
 
 The tool repo proves that the upstream template can be transformed and
 packaged. This repo proves that the translated version exists, passes QA, and

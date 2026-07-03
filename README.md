@@ -14,26 +14,28 @@ remain manual decisions.
 - `master` is the operations branch. It contains configuration, GitHub Actions, and
   documentation only.
 - `translation/v*` branches contain one upstream template version each.
-- `weblate/v*` branches are Weblate write-back buffers. CI promotes their XLIFF
-  edits into the matching `translation/v*` branch after validation.
 - Generated packages and preview PDFs are CI artifacts, not committed files.
 
 The shared parser, scaffold builder, demo project fixture, and render tooling
 live in the tool repository declared by `translation-config.yml`.
 
-## Supported Versions
+## Known and Active Versions
 
-Supported versions are declared in `translation-config.yml` and mirrored as
-`translation/v*` branches. The operations workflow can update that list from clean
-tool-repo artifacts when upstream publishes a new supported tag.
+Known upstream versions are declared in `translation-config.yml` under
+`template.supported_versions`. That list is a scaffold ledger; not every listed
+version needs a translation branch. The `version_policy` section decides which
+versions are actively translated, migrated, and published as release assets.
+
+The operations workflow can update the known version list from clean tool-repo
+artifacts when upstream publishes a compatible tag. New tags are scaffold-only
+until maintainers opt them into `version_policy`.
 
 Open translation PRs against the matching `translation/v*` branch. Do not open
 translation-content PRs against `master`.
 
-Weblate integrations should push to the matching `weblate/v*` branch instead of
-writing directly to `translation/v*`. The generated promotion workflow copies
-only the XLIFF file from `weblate/v*`, imports it into the Markdown translation
-tree, audits the result, and then updates `translation/v*`.
+External translation platforms such as Weblate are optional and are not part of
+the default workflow. If the team enables one later, use XLIFF as the exchange
+boundary and keep `translation.md` on `translation/v*` as the source of truth.
 
 ## Daily Translation Flow
 
@@ -49,8 +51,9 @@ See [Translator Guide](docs/translator-guide.md) for the detailed workflow and
 ## Maintainer Flow
 
 Maintainers update `translation-config.yml`, synchronize supported version
-branches from clean tool-repo artifacts, review migration PRs, and hand off
-reviewed template source to the configured public repository.
+records from clean tool-repo artifacts, opt versions into translation policy,
+review migration PRs, and hand off reviewed template source to the configured
+public repository.
 
 See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades and
 migration automation. See [Security and Publishing](docs/security-and-publishing.md)
@@ -76,7 +79,7 @@ The complete document map is in [docs/README.md](docs/README.md).
 - language and translated template IDs
 - version branch naming
 - the public README shown by DSW for generated template packages
-- migration policy
+- migration and version lifecycle policy
 - manual publish target
 
 Update the config first when the version policy changes. Let CI regenerate

@@ -28,19 +28,38 @@ and exact `overrides`.
 
 ## Current Intended States
 
-The current repository policy keeps every supported version active. The config
-uses active defaults and no special rules:
+The current repository policy separates the known upstream version ledger from
+the versions we actively translate. New upstream tags discovered from tool-repo
+clean scaffold artifacts are recorded as scaffold-only by default:
 
 ```yaml
 version_policy:
   defaults:
-    state: active
-    refresh: auto
-    migrate_into: auto
-    publish_release: true
+    state: available
+    refresh: false
+    migrate_into: false
+    publish_release: false
+    reason: scaffold available; translation not started
   rules: []
-  overrides: {}
 ```
+
+Versions that this repository actively maintains are opted in explicitly:
+
+```yaml
+version_policy:
+  overrides:
+    v1.30.1:
+      state: active
+      refresh: auto
+      migrate_into: auto
+      publish_release: true
+      reason: actively translated
+```
+
+This means a future upstream tag can appear in `template.supported_versions`
+without immediately creating translation work, release assets, or migration
+targets. Add an override, or a carefully scoped rule, when the team decides to
+translate that version.
 
 ## Freezing an Older Version
 
@@ -76,6 +95,10 @@ scaffold refreshes or migrated translation content.
 
 - Scheduled operations runs use `policy-mode=auto`.
 - Manual `workflow_dispatch` operations runs use `policy-mode=manual`.
+- `template.supported_versions` is the known upstream version ledger, not the
+  list of versions that must have translation branches.
+- A version becomes translator-facing only when `refresh` is `auto` or
+  `manual`.
 - Automatic migration targets only versions with `migrate_into: auto`.
 - Explicit migration targets may include `manual` versions, but not `false`
   versions.

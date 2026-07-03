@@ -8,8 +8,8 @@ DSW/depositar environment or publishing reviewed source downstream.
 For the target version:
 
 - the target branch is the matching `translation/v*` branch
-- Weblate edits, if any, were promoted from `weblate/v*` by a green promotion
-  workflow before review
+- external XLIFF edits, if any, were imported into `translation.md` and audited
+  before review
 - CI is green on the branch or PR head
 - auto-repair commits, if any, are included
 - the generated package artifact exists
