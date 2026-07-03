@@ -14,7 +14,7 @@ template versions.
 - the canonical public template README configured by `public_readme.path`
 
 Do not commit generated workspaces, packages, preview PDFs, or completed public
-template source to `master`.
+template source to the operations branch.
 
 The public README is the user-facing README that generated DSW template
 packages expose as `README.md`. Keep it concise and aligned with the official
@@ -38,10 +38,10 @@ one upstream template tag. The workflow refreshes these branches from clean
 scaffold artifacts produced by the tool repository declared by
 `translation-config.yml`.
 
-Active branch refreshes also copy the canonical public README from `master`.
-Branches marked maintenance or archived by `version_policy` may receive
-explicit workflow-control updates without refreshing translation content or
-public README text.
+Active branch refreshes also copy the canonical public README from the
+configured operations branch. Branches marked maintenance or archived by
+`version_policy` may receive explicit workflow-control updates without
+refreshing translation content or public README text.
 
 The tool repo can prove that a clean upstream scaffold can be transformed and
 packaged. This repo still owns the translated branch, migration result, QA, and
@@ -83,10 +83,11 @@ To refresh immediately instead of waiting for the schedule:
 
 ```bash
 TRANSLATION_REPO=owner/document-template-translation
+TRANSLATION_OPERATIONS_BRANCH=$(awk '/control_branch:/ { print $2; exit }' translation-config.yml)
 
 gh workflow run document_template_translation_sync.yml \
   --repo "$TRANSLATION_REPO" \
-  --ref master
+  --ref "$TRANSLATION_OPERATIONS_BRANCH"
 ```
 
 Optionally pin the migration source:
@@ -94,7 +95,7 @@ Optionally pin the migration source:
 ```bash
 gh workflow run document_template_translation_sync.yml \
   --repo "$TRANSLATION_REPO" \
-  --ref master \
+  --ref "$TRANSLATION_OPERATIONS_BRANCH" \
   -f source_version=vX.Y.Z
 ```
 

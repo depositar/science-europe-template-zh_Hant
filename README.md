@@ -31,7 +31,7 @@ artifacts when upstream publishes a compatible tag. New tags are scaffold-only
 until maintainers opt them into `version_policy`.
 
 Open translation PRs against the matching `translation/v*` branch. Do not open
-translation-content PRs against `master`.
+translation-content PRs against the operations branch.
 
 External translation platforms are not part of the default workflow. If the
 team enables one later, keep `translation.md` on `translation/v*` as the source
@@ -93,8 +93,9 @@ The operations branch intentionally keeps generated build products out of git:
 - `.cache/`
 
 Do not commit generated version workspaces such as compact, expanded, or
-translation trees to `master`. The only intentional `workspace/document-templates/`
-file on `master` is the configured public template README:
+translation trees to the operations branch. The only intentional
+`workspace/document-templates/` file there is the configured public template
+README:
 `workspace/document-templates/public-readme/README.md`.
 
 That README is copied into active `translation/v*` branches during scaffold

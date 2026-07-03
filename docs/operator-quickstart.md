@@ -25,6 +25,7 @@ Set the repository name once before copying commands:
 
 ```shell
 TRANSLATION_REPO=owner/document-template-translation
+TRANSLATION_OPERATIONS_BRANCH=$(awk '/control_branch:/ { print $2; exit }' translation-config.yml)
 VERSION_BRANCH_PREFIX=$(awk '/version_branch_prefix:/ { print $2; exit }' translation-config.yml)
 KNOWN_VERSIONS=$(awk '
   /supported_versions:/ { in_versions=1; next }
@@ -100,14 +101,14 @@ you do not want to wait for the daily schedule:
 ```shell
 gh workflow run document_template_translation_sync.yml \
   --repo "$TRANSLATION_REPO" \
-  --ref master
+  --ref "$TRANSLATION_OPERATIONS_BRANCH"
 ```
 
-This runs the operations workflow on `master`. It validates
-`translation-config.yml`, downloads the latest clean scaffold artifacts from
-the configured tool repository, records newly available scaffold versions,
-refreshes policy-enabled `translation/v*` branches, and may open or update
-migration PRs.
+This runs the operations workflow on the configured control branch. It
+validates `translation-config.yml`, downloads the latest clean scaffold
+artifacts from the configured tool repository, records newly available scaffold
+versions, refreshes policy-enabled `translation/v*` branches, and may open or
+update migration PRs.
 
 Manual syncs use the `manual` version-policy mode. The current configuration
 keeps discovered future versions scaffold-only until maintainers opt them in,
@@ -120,7 +121,7 @@ If you want migration PRs to fan out from a specific translated version, pass
 ```shell
 gh workflow run document_template_translation_sync.yml \
   --repo "$TRANSLATION_REPO" \
-  --ref master \
+  --ref "$TRANSLATION_OPERATIONS_BRANCH" \
   -f source_version=vX.Y.Z
 ```
 
@@ -159,10 +160,11 @@ translated template, renders the demo preview, uploads Actions artifacts, and
 refreshes the versioned GitHub Release assets.
 
 For normal translation-content pushes, a successful branch run also dispatches
-the operations workflow on `master`. That operations run refreshes supported
-policy-enabled version branches and may open migration PRs so exact-safe changes
-can fan out to other active migration targets. Scaffold refresh commits with messages starting
-`chore: refresh ` intentionally skip this dispatch to avoid migration loops.
+the operations workflow on the configured control branch. That operations run
+refreshes supported policy-enabled version branches and may open migration PRs
+so exact-safe changes can fan out to other active migration targets. Scaffold
+refresh commits with messages starting `chore: refresh ` intentionally skip
+this dispatch to avoid migration loops.
 
 Scheduled operations runs use the stricter `auto` version-policy mode. With the
 current policy, only explicitly active versions refresh. Scaffold-only versions
@@ -178,7 +180,8 @@ before review, packaging, or release.
 
 ## When Reviewing a Translation PR
 
-1. Confirm the PR targets the matching `translation/v*` branch, not `master`.
+1. Confirm the PR targets the matching `translation/v*` branch, not the
+   operations branch.
    External translation tool output, if any, should already be imported into
    `translation.md`.
 2. Confirm CI is green.
@@ -225,7 +228,7 @@ reviewed, and checksummed for the same version.
 
 ## Do Not
 
-- Do not put translation content on `master`.
+- Do not put translation content on the operations branch.
 - Do not commit generated `outputs/` to any branch.
 - Do not manually edit generated translated output to fix wording.
 - Do not add a publication token unless the team explicitly decides to automate
