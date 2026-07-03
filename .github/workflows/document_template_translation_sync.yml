@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Checkout translation repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
@@ -71,14 +71,14 @@ jobs:
           PY
 
       - name: Checkout DSW document-template tooling
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: ${{ steps.tooling.outputs.repository }}
           ref: ${{ steps.tooling.outputs.ref }}
           path: tooling-repo
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -106,7 +106,7 @@ jobs:
 
     steps:
       - name: Checkout translation repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           token: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
@@ -141,14 +141,14 @@ jobs:
           PY
 
       - name: Checkout DSW document-template tooling
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: ${{ steps.tooling.outputs.repository }}
           ref: ${{ steps.tooling.outputs.ref }}
           path: tooling-repo
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
