@@ -47,6 +47,7 @@ translation:
   translated_template_name: Science Europe DMP Template (zh-Hant)
 
 branches:
+  control_branch: master
   version_branch_prefix: translation/
   archive_branch: archive/master-before-version-branches-20260622-135746
 
