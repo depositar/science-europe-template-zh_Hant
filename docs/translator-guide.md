@@ -41,22 +41,24 @@ Blank translation blocks fall back to English in generated preview artifacts.
 That is useful while a branch is incomplete, but it is not a finished
 translation.
 
-## Optional XLIFF Exchange
+## Optional External Translation Tools
 
 The default workflow is Git/Markdown based. Edit `translation.md` directly on a
 `translation/v*` branch or through a pull request.
 
-The tool repo also supports XLIFF import/export for external translation
-platforms. If the team enables an external service later, use an explicit XLIFF
-file such as:
+The tool repo has optional import/export helpers for external translation
+platforms, but this repository does not enable them by default. If the team
+turns on an external service later, use an explicit exchange file such as:
 
 ```text
 xliff/dsw-science-europe.zh_Hant.xlf
 ```
 
 External platforms should never edit generated compact, expanded, translated
-output, release assets, or public handoff branches. The Markdown translation
-tree remains the reviewable source of truth in this repository.
+output, release assets, or public handoff branches. Imported results must land
+back in the Markdown translation tree before CI packaging or review. The
+Markdown translation tree remains the reviewable source of truth in this
+repository.
 
 ## What CI Checks
 

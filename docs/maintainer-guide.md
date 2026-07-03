@@ -39,8 +39,9 @@ scaffold artifacts produced by the tool repository declared by
 `translation-config.yml`.
 
 Active branch refreshes also copy the canonical public README from `master`.
-Branches marked maintenance or archived by `version_policy` may receive safer
-workflow controls without refreshing translation content or public README text.
+Branches marked maintenance or archived by `version_policy` may receive
+explicit workflow-control updates without refreshing translation content or
+public README text.
 
 The tool repo can prove that a clean upstream scaffold can be transformed and
 packaged. This repo still owns the translated branch, migration result, QA, and
@@ -173,9 +174,10 @@ and leaves generated build products as artifacts.
 ## Workflow Synchronization
 
 The workflow templates in the tool repo are only templates. Existing
-`translation/v*` branches carry their own sync workflow files. When a workflow
-fix is needed, apply it to every policy-enabled active version branch and
-confirm the branch CI refreshes its release assets.
+`translation/v*` branches carry their own sync workflow files. Routine
+operations sync preserves those files. When a workflow fix is needed, run an
+explicit workflow maintenance sync for every policy-enabled active version
+branch and confirm the branch CI refreshes its release assets.
 
 GitHub's default `GITHUB_TOKEN` cannot push commits that create or update
 workflow files on another branch. If the operations workflow needs to refresh a
@@ -185,6 +187,7 @@ workflow update once. After the branch workflows are current, normal scaffold
 refreshes can run without touching workflow files.
 
 The same caveat applies when tool-repo changes first introduce or update any
-workflow-file behavior. Once the maintainer has manually pushed the refreshed
-branch workflows, scheduled operations can keep translation trees, release
-assets, and migration PRs current for policy-enabled versions.
+workflow-file behavior. Once the maintainer has pushed the refreshed branch
+workflows, scheduled operations can keep translation trees, release assets, and
+migration PRs current for policy-enabled versions without elevated workflow
+permission.

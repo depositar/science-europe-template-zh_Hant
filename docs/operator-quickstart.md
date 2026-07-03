@@ -37,7 +37,9 @@ ACTIVE_TRANSLATION_VERSIONS="v1.29.1 v1.30.0 v1.30.1"
 `KNOWN_VERSIONS` is the upstream scaffold ledger. Use
 `ACTIVE_TRANSLATION_VERSIONS` for branch, release, and PDF checks. Keep that
 list aligned with versions whose effective `version_policy.refresh` is `auto`
-or `manual`.
+or `manual`. When in doubt, run the validation step in the operations workflow
+or the tool repo's `validate_translation_config.py`; its version lifecycle table
+shows which versions are active.
 
 1. Check the operations workflow:
 
@@ -92,9 +94,8 @@ the team opts them into `version_policy`.
 
 ## Manual Sync
 
-Use a manual sync when the tool repo has refreshed clean scaffold artifacts, the
-tooling workflow template changed, or you do not want to wait for the daily
-schedule:
+Use a manual sync when the tool repo has refreshed clean scaffold artifacts or
+you do not want to wait for the daily schedule:
 
 ```shell
 gh workflow run document_template_translation_sync.yml \
@@ -126,6 +127,13 @@ gh workflow run document_template_translation_sync.yml \
 After dispatching, inspect the Actions run and any migration PRs before asking
 translators to continue.
 
+Manual sync does not create, update, or delete workflow files on
+`translation/v*` branches. That is intentional: GitHub's default token cannot
+push workflow-file changes across branches, and routine scaffold refreshes
+should not require elevated workflow permission. If the branch workflow template
+itself changed, a maintainer must run the tool repo branch-sync helper with
+`--sync-workflows` and push the explicit workflow maintenance commits.
+
 ## What Version Branch CI Does
 
 When a maintainer pushes to a `translation/v*` branch, or a translation PR runs
@@ -147,9 +155,9 @@ their policy changes.
 ## Optional External Translation Tools
 
 The default workflow is direct Markdown editing on `translation/v*` branches.
-External platforms such as Weblate are optional. If the team enables one later,
-keep XLIFF as the exchange boundary and import validated XLIFF back into
-`translation.md` before review, packaging, or release.
+External translation platforms are optional and currently disabled. If the team
+enables one later, import validated exchange output back into `translation.md`
+before review, packaging, or release.
 
 ## When Reviewing a Translation PR
 

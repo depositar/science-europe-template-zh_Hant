@@ -33,9 +33,9 @@ until maintainers opt them into `version_policy`.
 Open translation PRs against the matching `translation/v*` branch. Do not open
 translation-content PRs against `master`.
 
-External translation platforms such as Weblate are optional and are not part of
-the default workflow. If the team enables one later, use XLIFF as the exchange
-boundary and keep `translation.md` on `translation/v*` as the source of truth.
+External translation platforms are not part of the default workflow. If the
+team enables one later, keep `translation.md` on `translation/v*` as the source
+of truth and treat any exchange format as an import/export boundary.
 
 ## Daily Translation Flow
 
