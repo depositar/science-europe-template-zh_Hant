@@ -2,7 +2,7 @@
 
 The `master` branch intentionally keeps this workspace nearly empty.
 
-Demo KM/project fixtures are maintained in
+Demo project fixtures and matching Knowledge Model bundles are maintained in
 the tool repository declared by `translation-config.yml`. They live under that
 repository's `fixtures/knowledge-models/` and `fixtures/projects/` directories.
 Keeping those fixtures in one place avoids stale preview PDFs when the sample

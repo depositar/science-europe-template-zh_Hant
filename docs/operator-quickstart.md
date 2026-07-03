@@ -27,20 +27,28 @@ Set the repository name once before copying commands:
 TRANSLATION_REPO=owner/document-template-translation
 TRANSLATION_OPERATIONS_BRANCH=$(awk '/control_branch:/ { print $2; exit }' translation-config.yml)
 VERSION_BRANCH_PREFIX=$(awk '/version_branch_prefix:/ { print $2; exit }' translation-config.yml)
-KNOWN_VERSIONS=$(awk '
-  /supported_versions:/ { in_versions=1; next }
-  in_versions && /^    - / { print $2; next }
-  in_versions && /^[^ ]/ { in_versions=0 }
-' translation-config.yml)
-ACTIVE_TRANSLATION_VERSIONS="v1.29.1 v1.30.0 v1.30.1"
+ACTIVE_TRANSLATION_VERSIONS=$(python - <<'PY'
+from pathlib import Path
+
+import yaml
+
+config = yaml.safe_load(Path("translation-config.yml").read_text(encoding="utf-8"))
+defaults = config.get("version_policy", {}).get("defaults", {})
+overrides = config.get("version_policy", {}).get("overrides", {})
+
+for version in config["template"]["supported_versions"]:
+    policy = {**defaults, **overrides.get(version, {})}
+    if policy.get("refresh") in {"auto", "manual"} or policy.get("publish_release") is True:
+        print(version)
+PY
+)
 ```
 
-`KNOWN_VERSIONS` is the upstream scaffold ledger. Use
-`ACTIVE_TRANSLATION_VERSIONS` for branch, release, and PDF checks. Keep that
-list aligned with versions whose effective `version_policy.refresh` is `auto`
-or `manual`. When in doubt, run the validation step in the operations workflow
-or the tool repo's `validate_translation_config.py`; its version lifecycle table
-shows which versions are active.
+`ACTIVE_TRANSLATION_VERSIONS` is derived from `translation-config.yml`, so daily
+checks follow the versions currently opted into branch refresh or release asset
+publishing. When in doubt, run the validation step in the operations workflow or
+the tool repo's `validate_translation_config.py`; its version lifecycle table
+shows which versions are active and which are scaffold-only.
 
 1. Check the operations workflow:
 
@@ -217,7 +225,7 @@ can be imported manually.
 
 1. Download the versioned release zip.
 2. Verify `SHA256SUMS`.
-3. Import into a test DSW/depositar environment when possible.
+3. Import into a test DSW environment when possible.
 4. Render the demo project or a representative real project.
 5. If source must be handed to the public template repository, push or refresh
    the configured `sync/v*` branch and review that branch.

@@ -1,7 +1,7 @@
 # QA Checklist
 
 Use this before importing a translated Science Europe document template into a
-DSW/depositar environment or publishing reviewed source downstream.
+public DSW environment or publishing reviewed source downstream.
 
 ## Branch and CI
 
@@ -64,7 +64,7 @@ tooling in the configured tool repository and regenerate.
 
 ## Manual Import
 
-Before importing into DSW/depositar:
+Before importing into a public DSW environment:
 
 1. Download the versioned zip from the translation release.
 2. Verify `SHA256SUMS`.

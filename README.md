@@ -6,7 +6,7 @@ translation branches, migration automation, CI checks, and reviewed artifacts.
 
 It is not the public template source. After review, maintainers hand off
 generated source to the configured public template repository as a reviewable
-`sync/v*` branch; the public repository's default branch and DSW/depositar import
+`sync/v*` branch; the public repository's default branch and public DSW import
 remain manual decisions.
 
 ## Repository Roles

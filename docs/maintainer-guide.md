@@ -160,9 +160,7 @@ Before changing infra, verify:
 ```bash
 TOOLING_ROOT=/path/to/document-template-tool
 
-make -C "$TOOLING_ROOT" format-check
-make -C "$TOOLING_ROOT" lint
-make -C "$TOOLING_ROOT" test
+make -C "$TOOLING_ROOT" check
 ```
 
 For operations workflow changes, also run:
