@@ -12,15 +12,8 @@ workspace/document-templates/translation/dsw-science-europe-1.29.1/tree/
 ```
 
 Keep source placeholders intact and open translation PRs against `translation/v1.29.1`.
-If you translate through Weblate, it should edit:
-
-```text
-weblate/dsw-science-europe.zh_Hant.xlf
-```
-
-Weblate changes are promoted by the branch's Weblate promotion workflow. Normal
-branch sync treats `translation.md` as the source of truth and exports a
-refreshed XLIFF file for the next Weblate edit.
+The canonical translation state is the checked-in `translation.md` files.
+Optional XLIFF exchange is a tooling feature, not the default branch workflow.
 
 ## Generated Outputs
 
@@ -29,4 +22,5 @@ pull requests and branch pushes. Those files are uploaded as GitHub Actions
 artifacts or release assets; they are not committed to this branch.
 
 Repository operations, supported-version policy, and migration automation live
-on `master`.
+on `ops`. The repository `master` branch is not
+part of the automated translation or publish flow.
