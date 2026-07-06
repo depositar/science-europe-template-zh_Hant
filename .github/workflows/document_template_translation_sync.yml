@@ -2,9 +2,9 @@ name: DSW Document Template Translation Sync
 
 on:
   pull_request:
-    branches: ["translation/v1.29.1"]
+    branches: ["sync/v1.29.1"]
   push:
-    branches: ["translation/v1.29.1"]
+    branches: ["sync/v1.29.1"]
   workflow_dispatch:
 
 permissions:
@@ -15,7 +15,7 @@ permissions:
 concurrency:
   group: >-
     document-template-translation-sync-${{ github.event_name == 'pull_request' &&
-    github.event.pull_request.head.ref || 'translation/v1.29.1' }}
+    github.event.pull_request.head.ref || 'sync/v1.29.1' }}
   cancel-in-progress: false
 
 env:
@@ -63,7 +63,7 @@ jobs:
             github.event.pull_request.head.repo.full_name || github.repository }}
           ref: >-
             ${{ github.event_name == 'pull_request' &&
-            github.event.pull_request.head.ref || 'translation/v1.29.1' }}
+            github.event.pull_request.head.ref || 'sync/v1.29.1' }}
           path: template-repo
           fetch-depth: 0
 
@@ -127,7 +127,7 @@ jobs:
         env:
           TARGET_REF: >-
             ${{ github.event_name == 'pull_request' &&
-            github.event.pull_request.head.ref || 'translation/v1.29.1' }}
+            github.event.pull_request.head.ref || 'sync/v1.29.1' }}
         run: |
           set -euo pipefail
           required_paths=(
