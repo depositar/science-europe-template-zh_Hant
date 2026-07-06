@@ -5,7 +5,7 @@ template versions.
 
 ## Operations Branch
 
-`master` is version-neutral. Keep it focused on:
+`operations` is version-neutral. Keep it focused on:
 
 - `translation-config.yml`
 - `.github/workflows/document_template_translation_sync.yml`

@@ -2,7 +2,7 @@ name: DSW Document Template Translation Operations
 
 on:
   pull_request:
-    branches: ["master"]
+    branches: ["operations"]
   workflow_dispatch:
     inputs:
       source_version:

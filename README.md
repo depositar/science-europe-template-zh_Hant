@@ -11,8 +11,8 @@ remain manual decisions.
 
 ## Repository Roles
 
-- `master` is the operations branch. It contains configuration, GitHub Actions, and
-  documentation only.
+- `operations` is the operations branch. It contains configuration, GitHub
+  Actions, and documentation only.
 - `translation/v*` branches contain one upstream template version each.
 - Generated packages and preview PDFs are CI artifacts, not committed files.
 
