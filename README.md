@@ -104,3 +104,8 @@ README text links to the corresponding upstream GitHub README instead of
 shipping transform-only workspace metadata.
 
 Build products belong in GitHub Actions artifacts.
+
+## License
+
+This repository is distributed under the [Apache License 2.0](LICENSE), matching
+the public translated template repository.
