@@ -7,7 +7,7 @@ public DSW environment or publishing reviewed source downstream.
 
 For the target version:
 
-- the target branch is the matching `translation/v*` branch
+- the target branch is the matching `sync/v*` branch
 - external XLIFF edits, if any, were imported into `translation.md` and audited
   before review
 - CI is green on the branch or PR head

@@ -101,7 +101,7 @@ jobs:
       github.event_name == 'schedule' ||
       (github.event_name == 'workflow_run' &&
       github.event.workflow_run.conclusion == 'success' &&
-      startsWith(github.event.workflow_run.head_branch, 'translation/v'))
+      startsWith(github.event.workflow_run.head_branch, 'sync/v'))
     runs-on: ubuntu-latest
 
     steps:

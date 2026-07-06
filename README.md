@@ -6,14 +6,14 @@ translation branches, migration automation, CI checks, and reviewed artifacts.
 
 It is not the public template source. After review, maintainers hand off
 generated source to the configured public template repository as a reviewable
-`sync/v*` branch; the public repository's default branch and public DSW import
+`publish/v*` branch; the public repository's default branch and public DSW import
 remain manual decisions.
 
 ## Repository Roles
 
 - `operations` is the operations branch. It contains configuration, GitHub
   Actions, and documentation only.
-- `translation/v*` branches contain one upstream template version each.
+- `sync/v*` branches contain one upstream template version each.
 - Generated packages and preview PDFs are CI artifacts, not committed files.
 
 The shared parser, scaffold builder, demo project fixture, and render tooling
@@ -30,16 +30,16 @@ The operations workflow can update the known version list from clean tool-repo
 artifacts when upstream publishes a compatible tag. New tags are scaffold-only
 until maintainers opt them into `version_policy`.
 
-Open translation PRs against the matching `translation/v*` branch. Do not open
+Open translation PRs against the matching `sync/v*` branch. Do not open
 translation-content PRs against the operations branch.
 
 External translation platforms are not part of the default workflow. If the
-team enables one later, keep `translation.md` on `translation/v*` as the source
+team enables one later, keep `translation.md` on `sync/v*` as the source
 of truth and treat any exchange format as an import/export boundary.
 
 ## Daily Translation Flow
 
-1. Check out the target `translation/v*` branch.
+1. Check out the target `sync/v*` branch.
 2. Edit only the `Translation (zh_Hant)` block inside `translation.md` files.
 3. Keep every placeholder shown in the source sentence, such as `{name}`.
 4. Push the branch and inspect the CI artifact preview PDF.
@@ -98,7 +98,7 @@ translation trees to the operations branch. The only intentional
 README:
 `workspace/document-templates/public-readme/README.md`.
 
-That README is copied into active `translation/v*` branches during scaffold
+That README is copied into active `sync/v*` branches during scaffold
 refreshes and becomes the package `README.md` shown by DSW. Public package
 README text links to the corresponding upstream GitHub README instead of
 shipping transform-only workspace metadata.

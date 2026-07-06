@@ -1,12 +1,12 @@
 # Translator Guide
 
 This guide is for editing Traditional Chinese translations on a
-`translation/v*` branch.
+`sync/v*` branch.
 
 ## Pick the Right Branch
 
 Each actively translated upstream Science Europe template version has a
-matching `translation/v*` branch. Use the branch that matches the template
+matching `sync/v*` branch. Use the branch that matches the template
 version you want to translate. If you are unsure, use the newest active branch
 unless a maintainer asks for a specific version.
 
@@ -14,7 +14,7 @@ To see available branches:
 
 ```bash
 git fetch origin
-git branch -r --list 'origin/translation/v*'
+git branch -r --list 'origin/sync/v*'
 ```
 
 ## Edit Translation Files
@@ -44,7 +44,7 @@ translation.
 ## Optional External Translation Tools
 
 The default workflow is Git/Markdown based. Edit `translation.md` directly on a
-`translation/v*` branch or through a pull request.
+`sync/v*` branch or through a pull request.
 
 The tool repo has optional import/export helpers for external translation
 platforms, but this repository does not enable them by default. If the team
@@ -62,7 +62,7 @@ repository.
 
 ## What CI Checks
 
-When you push to a `translation/v*` branch or open a PR into one, CI will:
+When you push to a `sync/v*` branch or open a PR into one, CI will:
 
 - refresh generated translation inputs from the checked-in workspace
 - repair missing metadata or broken translation block skeletons when safe

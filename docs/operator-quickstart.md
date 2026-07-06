@@ -8,7 +8,7 @@ repository. It tells you what to check first and where to go next.
 This repository owns:
 
 - `translation-config.yml`
-- `translation/v*` version branches
+- `sync/v*` version branches
 - translator-facing `translation.md` files
 - translated package and preview PDF releases
 - migration PRs between supported versions
@@ -115,7 +115,7 @@ gh workflow run document_template_translation_sync.yml \
 This runs the operations workflow on the configured control branch. It
 validates `translation-config.yml`, downloads the latest clean scaffold
 artifacts from the configured tool repository, records newly available scaffold
-versions, refreshes policy-enabled `translation/v*` branches, and may open or
+versions, refreshes policy-enabled `sync/v*` branches, and may open or
 update migration PRs.
 
 Manual syncs use the `manual` version-policy mode. The current configuration
@@ -154,7 +154,7 @@ branches. `PENDING` means a migration PR should be created or reviewed before
 translation work continues.
 
 Manual sync does not create, update, or delete workflow files on
-`translation/v*` branches. That is intentional: GitHub's default token cannot
+`sync/v*` branches. That is intentional: GitHub's default token cannot
 push workflow-file changes across branches, and routine scaffold refreshes
 should not require elevated workflow permission. If the branch workflow template
 itself changed, a maintainer must run the tool repo branch-sync helper with
@@ -162,7 +162,7 @@ itself changed, a maintainer must run the tool repo branch-sync helper with
 
 ## What Version Branch CI Does
 
-When a maintainer pushes to a `translation/v*` branch, or a translation PR runs
+When a maintainer pushes to a `sync/v*` branch, or a translation PR runs
 against one, the branch workflow audits the translation tree, syncs the
 translated template, renders the demo preview, uploads Actions artifacts, and
 refreshes the versioned GitHub Release assets.
@@ -181,14 +181,14 @@ their policy changes.
 
 ## Optional External Translation Tools
 
-The default workflow is direct Markdown editing on `translation/v*` branches.
+The default workflow is direct Markdown editing on `sync/v*` branches.
 External translation platforms are optional and currently disabled. If the team
 enables one later, import validated exchange output back into `translation.md`
 before review, packaging, or release.
 
 ## When Reviewing a Translation PR
 
-1. Confirm the PR targets the matching `translation/v*` branch, not the
+1. Confirm the PR targets the matching `sync/v*` branch, not the
    operations branch.
    External translation tool output, if any, should already be imported into
    `translation.md`.
@@ -211,7 +211,7 @@ Use [Translator Guide](translator-guide.md) for edit rules and
 3. If the team wants to translate that tag, add a `version_policy` override or
    rule that enables `refresh`, `migrate_into`, and `publish_release`, then run
    the operations workflow again to create or refresh the matching
-   `translation/v*` branch according to
+   `sync/v*` branch according to
    [Version Lifecycle Policy](version-lifecycle-policy.md).
 4. Review any migration PRs.
 5. Ask translators to fill units left empty by exact-only migration.
@@ -228,7 +228,7 @@ can be imported manually.
 3. Import into a test DSW environment when possible.
 4. Render the demo project or a representative real project.
 5. If source must be handed to the public template repository, push or refresh
-   the configured `sync/v*` branch and review that branch.
+   the configured `publish/v*` branch and review that branch.
 6. Only then merge/import into the intended target environment.
 
 Do not import from local `outputs/` unless that output was intentionally built,

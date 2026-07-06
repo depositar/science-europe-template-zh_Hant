@@ -48,7 +48,7 @@ translation:
 
 branches:
   control_branch: operations
-  version_branch_prefix: translation/
+  version_branch_prefix: sync/
   archive_branch: archive/master-before-version-branches-20260622-135746
 
 public_readme:
@@ -68,4 +68,4 @@ migration:
 publish:
   enabled: false
   target_repository: depositar/science-europe-template-zh_Hant
-  branch_prefix: sync/
+  branch_prefix: publish/

@@ -30,7 +30,7 @@ content.
 Version branches are named with the configured prefix:
 
 ```text
-translation/v1.30.1
+sync/v1.30.1
 ```
 
 Each branch carries the compact, expanded, and translator-facing workspace for
@@ -51,7 +51,7 @@ versioned release assets.
 
 1. Confirm the tool repo can build clean artifacts for the upstream tag.
 2. Let the operations workflow synchronize `translation-config.yml` and
-   missing or changed `translation/v*` branches from the downloaded artifacts.
+   missing or changed `sync/v*` branches from the downloaded artifacts.
 3. Review the config/branch sync commit if the supported version list changed.
 4. Review any migration PRs created by automation.
 5. Ask translators to finish units left empty by exact-only migration.
@@ -111,7 +111,7 @@ For each known scaffold version, verify the tool layer:
 
 For each active translation version, verify the downstream layers:
 
-- `translation/v*` branch exists and has migrated or empty review blocks
+- `sync/v*` branch exists and has migrated or empty review blocks
 - translated package/PDF release exists in this repo
 
 ## Migration Policy
@@ -131,7 +131,7 @@ Either review and merge the generated migration PRs, or run the tool repo status
 helper. The settled state is `OK` for every active source version; a missing PR
 alone is not proof that migration was checked.
 
-Successful non-refresh pushes to `translation/v*` branches dispatch the
+Successful non-refresh pushes to `sync/v*` branches dispatch the
 operations workflow so migration can fan out after the branch has passed
 translation CI. Commits with messages starting `chore: refresh ` are generated
 scaffold refreshes and intentionally do not dispatch migration; this keeps daily
@@ -145,7 +145,7 @@ the public template source repository by themselves.
 
 Manual public source handoff is a separate operator action. Use the tooling
 repo helper to copy reviewed generated source to the configured downstream
-repository as a `sync/v*` branch. Do not push generated source directly to the
+repository as a `publish/v*` branch. Do not push generated source directly to the
 downstream default branch from this repository.
 
 Manual public publishing and optional token policy are documented in
@@ -178,7 +178,7 @@ and leaves generated build products as artifacts.
 ## Workflow Synchronization
 
 The workflow templates in the tool repo are only templates. Existing
-`translation/v*` branches carry their own sync workflow files. Routine
+`sync/v*` branches carry their own sync workflow files. Routine
 operations sync preserves those files. When a workflow fix is needed, run an
 explicit workflow maintenance sync for every policy-enabled active version
 branch and confirm the branch CI refreshes its release assets.
