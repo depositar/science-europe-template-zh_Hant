@@ -53,6 +53,17 @@ Optional secrets:
 - `TOOLING_ARTIFACT_TOKEN`: download tool-repo clean scaffold artifacts when the
   default token cannot read cross-repository artifacts.
 
+For workflow synchronization, create a PAT that is limited to this repository
+when possible. A fine-grained token needs `Contents: Read and write` and
+`Workflows: Read and write`; a classic token needs `repo` and `workflow`.
+Set it as an Actions secret without printing the token:
+
+```shell
+gh auth refresh -h github.com -s repo -s workflow
+gh auth token | gh secret set TRANSLATION_AUTOMATION_TOKEN \
+  --repo depositar/science-europe-template-zh_Hant
+```
+
 Do not add a broad publication token unless the team decides to automate public
 publishing. If that changes, restrict the token to the intended repository or
 branch and never expose it to fork pull requests.

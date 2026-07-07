@@ -160,6 +160,19 @@ pushes unless the token has workflow scope. If the tool repo workflow template
 changed and those branch workflow files must be regenerated, configure
 `TRANSLATION_AUTOMATION_TOKEN` with workflow scope and rerun operations.
 
+For a trusted maintainer machine, the current `gh` token can be installed as the
+repository secret after ensuring it has the needed scopes:
+
+```shell
+gh auth refresh -h github.com -s repo -s workflow
+gh auth token | gh secret set TRANSLATION_AUTOMATION_TOKEN \
+  --repo "$TRANSLATION_REPO"
+```
+
+After the secret exists, rerun operations once. The workflow will pass
+`--sync-workflows` automatically and regenerate version-branch workflow files
+from the tool repo template.
+
 ## What Version Branch CI Does
 
 When a maintainer pushes to a `sync/v*` branch, or a translation PR runs

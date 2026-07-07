@@ -187,3 +187,14 @@ receive the fix, configure `TRANSLATION_AUTOMATION_TOKEN` with workflow scope an
 rerun the operations workflow. With that token present, operations also syncs
 generated branch workflow files while refreshing scaffold content, release
 assets, and migration PRs for policy-enabled versions.
+
+Use a repository-limited token when possible. A fine-grained PAT needs
+`Contents: Read and write` and `Workflows: Read and write`; a classic PAT needs
+`repo` and `workflow`. On a trusted maintainer machine, this is the shortest safe
+setup path:
+
+```shell
+gh auth refresh -h github.com -s repo -s workflow
+gh auth token | gh secret set TRANSLATION_AUTOMATION_TOKEN \
+  --repo depositar/science-europe-template-zh_Hant
+```
