@@ -94,6 +94,13 @@ jobs:
             --config translation-config.yml \
             --summary "$GITHUB_STEP_SUMMARY"
 
+      - name: Check operations documentation coverage
+        run: |
+          set -euo pipefail
+          tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/check_translation_repository_docs.py" \
+            --repo "$GITHUB_WORKSPACE"
+
   migrate-translations:
     needs: validate-translation-repo
     if: >-

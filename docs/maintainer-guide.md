@@ -169,11 +169,15 @@ For operations workflow changes, also run:
 "$TOOLING_ROOT/.venv/bin/python" \
   "$TOOLING_ROOT/scripts/ci/validate_translation_config.py" \
   --config translation-config.yml
+
+make -C "$TOOLING_ROOT" check-translation-repository-docs \
+  TRANSLATION_DOCS_REPO="$PWD"
 ```
 
-Then inspect a real Actions run. A healthy run validates config, downloads clean
-tool artifacts, refreshes version branches, creates migration PRs when needed,
-and leaves generated build products as artifacts.
+Then inspect a real Actions run. A healthy run validates config, checks
+operations documentation coverage, downloads clean tool artifacts, refreshes
+version branches, creates migration PRs when needed, and leaves generated build
+products as artifacts.
 
 ## Workflow Synchronization
 

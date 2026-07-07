@@ -46,9 +46,9 @@ PY
 
 `ACTIVE_TRANSLATION_VERSIONS` is derived from `translation-config.yml`, so daily
 checks follow the versions currently opted into branch refresh or release asset
-publishing. When in doubt, run the validation step in the operations workflow or
-the tool repo's `validate_translation_config.py`; its version lifecycle table
-shows which versions are active and which are scaffold-only.
+publishing. When in doubt, run the validation job in the operations workflow. It
+checks both `translation-config.yml` and whether the operations documentation
+still covers the required maintenance topics.
 
 1. Check the operations workflow:
 
