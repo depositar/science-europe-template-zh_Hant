@@ -1,7 +1,7 @@
 # Security and Publishing
 
 This repository publishes reviewed artifacts for manual use. It does not
-automatically update the public downstream template source.
+automatically import anything into DSW.
 
 ## Current Policy
 
@@ -12,9 +12,8 @@ automatically update the public downstream template source.
   before use.
 - `DOCUMENT_TEMPLATE_PUBLISH_TOKEN` is intentionally not required.
 
-This keeps intermediate translation work visible to maintainers without giving
-CI permission to publish directly to the public template repository or DSW
-instance.
+This keeps intermediate translation work reviewable without giving CI
+permission to import directly into a DSW instance.
 
 ## Release Asset Permissions
 
@@ -70,18 +69,15 @@ branch and never expose it to fork pull requests.
 
 ## Optional Source Handoff
 
-After QA, a maintainer may enable and run the explicit handoff helper from the
-tooling repo if a downstream process needs a reviewable source branch:
+The current policy uses versioned release assets for manual import. Source
+branch handoff remains disabled in `translation-config.yml`:
 
-```bash
-TOOLING_ROOT=/path/to/document-template-tool
-
-make -C "$TOOLING_ROOT" publish-translated-template \
-  TRANSLATION_REPO=$PWD \
-  PUBLISH_VERSION=vX.Y.Z
+```yaml
+publish:
+  enabled: false
 ```
 
-The helper copies reviewed generated source to the configured target repository
-and pushes the configured branch prefix. It does not modify the downstream
-default branch and does not import anything into DSW. Review that staged branch
-before merging, importing, or asking a downstream maintainer to take over.
+Only enable source handoff if the team decides that a reviewable source branch
+is needed in addition to release assets. When that policy changes, update this
+document and the operator guide in the same commit so maintainers do not have
+to infer the new publication path from CI logs.

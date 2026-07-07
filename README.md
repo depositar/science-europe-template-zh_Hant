@@ -1,13 +1,14 @@
 # DSW Document Template Translation
 
-This repository is the working area for the Traditional Chinese
-translation of the Science Europe DSW document template. It coordinates
-translation branches, migration automation, CI checks, and reviewed artifacts.
+This repository is the working area and public review channel for the
+Traditional Chinese translation of the Science Europe DSW document template. It
+coordinates translation branches, migration automation, CI checks, and reviewed
+release assets.
 
-It is not the final import target for DSW. After review, maintainers use the
-versioned release assets for manual import or downstream handoff. Source branch
-publishing is disabled by default and should only be enabled by an explicit
-policy change.
+The `operations` branch is not imported into DSW. After review, maintainers use
+the versioned release assets from the matching `sync/v*` branch for manual DSW
+import. Source branch handoff is disabled by default and should only be enabled
+by an explicit policy change.
 
 ## Repository Roles
 
@@ -52,8 +53,7 @@ See [Translator Guide](docs/translator-guide.md) for the detailed workflow and
 
 Maintainers update `translation-config.yml`, synchronize supported version
 records from clean tool-repo artifacts, opt versions into translation policy,
-review migration PRs, and verify reviewed release assets before manual import
-or downstream handoff.
+review migration PRs, and verify reviewed release assets before manual import.
 
 See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades and
 migration automation. See [Security and Publishing](docs/security-and-publishing.md)
@@ -80,7 +80,7 @@ The complete document map is in [docs/README.md](docs/README.md).
 - version branch naming
 - the public README shown by DSW for generated template packages
 - migration and version lifecycle policy
-- optional source handoff target
+- optional source handoff settings, currently disabled by policy
 
 Update the config first when the version policy changes. Let CI regenerate
 version branches instead of editing generated paths by hand.
