@@ -153,11 +153,12 @@ TRANSLATION_REPO_DIR=/path/to/this-repository
 branches. `PENDING` means a migration PR should be created or reviewed before
 translation work continues.
 
-Operations sync also refreshes generated workflow files on `sync/v*` branches.
-That keeps branch CI aligned with the tool repo template when parser, release,
-or lifecycle policy behavior changes. The workflow therefore requests
-`actions: write`; if GitHub rejects workflow-file pushes in your repository,
-rerun operations with a `TRANSLATION_AUTOMATION_TOKEN` that has workflow scope.
+Operations sync refreshes branch content from clean scaffold artifacts by
+default, but it does not modify generated workflow files on `sync/v*` branches
+when the run uses the default GitHub Actions token. GitHub rejects workflow-file
+pushes unless the token has workflow scope. If the tool repo workflow template
+changed and those branch workflow files must be regenerated, configure
+`TRANSLATION_AUTOMATION_TOKEN` with workflow scope and rerun operations.
 
 ## What Version Branch CI Does
 

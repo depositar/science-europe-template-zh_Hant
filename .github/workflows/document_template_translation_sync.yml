@@ -171,11 +171,27 @@ jobs:
       - name: Sync supported versions and version branches
         id: version-sync
         env:
+          HAS_WORKFLOW_TOKEN: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN != '' }}
           GH_TOKEN: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
           VERSION_POLICY_MODE: ${{ github.event_name == 'workflow_dispatch' && 'manual' || 'auto' }}
         run: |
           set -euo pipefail
           tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          workflow_args=()
+          if [ "$HAS_WORKFLOW_TOKEN" = "true" ]; then
+            workflow_args+=(--sync-workflows)
+          else
+            {
+              echo "## Workflow template sync skipped"
+              echo
+              echo "Version branches were refreshed without modifying files under"
+              echo "\`.github/workflows/\` because this run is using the default"
+              echo "GitHub Actions token. Configure \`TRANSLATION_AUTOMATION_TOKEN\`"
+              echo "with workflow scope and rerun operations when workflow-template"
+              echo "changes must be propagated to version branches."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
           "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/sync_translation_version_branches.py" \
             --repo "$GITHUB_WORKSPACE" \
             --tooling-root "$GITHUB_WORKSPACE/tooling-repo" \
@@ -183,7 +199,7 @@ jobs:
             --github-output "$GITHUB_OUTPUT" \
             --policy-mode "$VERSION_POLICY_MODE" \
             --refresh-existing \
-            --sync-workflows \
+            "${workflow_args[@]}" \
             --push
 
       - name: Resolve migration source version

@@ -178,13 +178,12 @@ and leaves generated build products as artifacts.
 ## Workflow Synchronization
 
 The workflow templates in the tool repo are only templates. Existing
-`sync/v*` branches carry generated copies. Operations sync passes
-`--sync-workflows`, so active version branches receive workflow-template fixes
-alongside scaffold refreshes.
+`sync/v*` branches carry generated copies. Routine operations sync leaves those
+workflow files alone when it runs with the default GitHub Actions token, because
+GitHub rejects workflow-file pushes unless the token has workflow scope.
 
-The operations workflow requests `actions: write` for those workflow-file
-updates. If repository policy rejects workflow-file pushes from the default
-token, configure `TRANSLATION_AUTOMATION_TOKEN` with workflow scope and rerun the
-operations workflow. After that, scheduled operations can keep translation
-trees, release assets, migration PRs, and branch workflows current for
-policy-enabled versions.
+If the tool repo workflow template changed and active version branches must
+receive the fix, configure `TRANSLATION_AUTOMATION_TOKEN` with workflow scope and
+rerun the operations workflow. With that token present, operations also syncs
+generated branch workflow files while refreshing scaffold content, release
+assets, and migration PRs for policy-enabled versions.
