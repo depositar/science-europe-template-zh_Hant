@@ -19,7 +19,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  actions: read
+  actions: write
 
 env:
   TOOLING_WORKFLOW: headless_render_regression.yml
@@ -183,6 +183,7 @@ jobs:
             --github-output "$GITHUB_OUTPUT" \
             --policy-mode "$VERSION_POLICY_MODE" \
             --refresh-existing \
+            --sync-workflows \
             --push
 
       - name: Resolve migration source version

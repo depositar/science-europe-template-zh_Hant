@@ -38,7 +38,7 @@ overrides = config.get("version_policy", {}).get("overrides", {})
 
 for version in config["template"]["supported_versions"]:
     policy = {**defaults, **overrides.get(version, {})}
-    if policy.get("refresh") in {"auto", "manual"} or policy.get("publish_release") is True:
+    if policy.get("refresh") in {"artifact", "manual"} or policy.get("publish_release") is True:
         print(version)
 PY
 )
@@ -153,12 +153,11 @@ TRANSLATION_REPO_DIR=/path/to/this-repository
 branches. `PENDING` means a migration PR should be created or reviewed before
 translation work continues.
 
-Manual sync does not create, update, or delete workflow files on
-`sync/v*` branches. That is intentional: GitHub's default token cannot
-push workflow-file changes across branches, and routine scaffold refreshes
-should not require elevated workflow permission. If the branch workflow template
-itself changed, a maintainer must run the tool repo branch-sync helper with
-`--sync-workflows` and push the explicit workflow maintenance commits.
+Operations sync also refreshes generated workflow files on `sync/v*` branches.
+That keeps branch CI aligned with the tool repo template when parser, release,
+or lifecycle policy behavior changes. The workflow therefore requests
+`actions: write`; if GitHub rejects workflow-file pushes in your repository,
+rerun operations with a `TRANSLATION_AUTOMATION_TOKEN` that has workflow scope.
 
 ## What Version Branch CI Does
 
