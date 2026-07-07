@@ -22,5 +22,5 @@ pull requests and branch pushes. Those files are uploaded as GitHub Actions
 artifacts or release assets; they are not committed to this branch.
 
 Repository operations, supported-version policy, and migration automation live
-on `operations`. Keep translation edits on this version branch; do not use the
-operations branch for translator-facing work.
+on `operations`. Keep translation edits on this version
+branch; do not use the control branch for translator-facing work.
