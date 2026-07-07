@@ -143,10 +143,10 @@ Version branches publish review/download assets after successful non-PR CI
 runs. Those assets are for review, import, and provenance. They do not update
 the public template source repository by themselves.
 
-Manual public source handoff is a separate operator action. Use the tooling
-repo helper to copy reviewed generated source to the configured downstream
-repository as a `publish/v*` branch. Do not push generated source directly to the
-downstream default branch from this repository.
+Manual source handoff is optional and disabled by default. The normal reviewed
+output is the versioned release asset produced by the version branch workflow.
+Only enable the explicit source handoff helper when the team has decided that a
+reviewable branch is needed for a downstream import process.
 
 Manual public publishing and optional token policy are documented in
 [Security and Publishing](security-and-publishing.md).

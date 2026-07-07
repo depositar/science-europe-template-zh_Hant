@@ -8,8 +8,8 @@ automatically update the public downstream template source.
 - GitHub Actions artifacts are run-scoped previews.
 - GitHub Release assets are versioned review/download buckets.
 - Public DSW import is manual.
-- Public downstream source handoff is a manual operator action that pushes a
-  reviewable `publish/v*` branch.
+- Source branch handoff is disabled by default and must be explicitly enabled
+  before use.
 - `DOCUMENT_TEMPLATE_PUBLISH_TOKEN` is intentionally not required.
 
 This keeps intermediate translation work visible to maintainers without giving
@@ -57,9 +57,10 @@ Do not add a broad publication token unless the team decides to automate public
 publishing. If that changes, restrict the token to the intended repository or
 branch and never expose it to fork pull requests.
 
-## Manual Public Publishing
+## Optional Source Handoff
 
-After QA, a maintainer may run the explicit publish helper from the tooling repo:
+After QA, a maintainer may enable and run the explicit handoff helper from the
+tooling repo if a downstream process needs a reviewable source branch:
 
 ```bash
 TOOLING_ROOT=/path/to/document-template-tool
@@ -69,8 +70,7 @@ make -C "$TOOLING_ROOT" publish-translated-template \
   PUBLISH_VERSION=vX.Y.Z
 ```
 
-The helper copies reviewed generated source to the configured downstream
-repository and pushes a `publish/v*` branch. It does not modify the downstream
-default branch and does not import anything into DSW. Review the
-`publish/v*` branch before merging, importing, or asking a downstream maintainer to
-take over.
+The helper copies reviewed generated source to the configured target repository
+and pushes the configured branch prefix. It does not modify the downstream
+default branch and does not import anything into DSW. Review that staged branch
+before merging, importing, or asking a downstream maintainer to take over.

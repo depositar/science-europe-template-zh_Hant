@@ -227,9 +227,9 @@ can be imported manually.
 2. Verify `SHA256SUMS`.
 3. Import into a test DSW environment when possible.
 4. Render the demo project or a representative real project.
-5. If source must be handed to the public template repository, push or refresh
-   the configured `publish/v*` branch and review that branch.
-6. Only then merge/import into the intended target environment.
+5. If source branch handoff has been explicitly enabled, stage and review that
+   branch separately.
+6. Only then import into the intended target environment.
 
 Do not import from local `outputs/` unless that output was intentionally built,
 reviewed, and checksummed for the same version.
