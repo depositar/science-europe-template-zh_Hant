@@ -11,7 +11,7 @@ Edit only translator-facing files under:
 workspace/document-templates/translation/dsw-science-europe-1.29.1/tree/
 ```
 
-Keep source placeholders intact and open translation PRs against `translation/v1.29.1`.
+Keep source placeholders intact and open translation PRs against `sync/v1.29.1`.
 The canonical translation state is the checked-in `translation.md` files.
 Optional XLIFF exchange is a tooling feature, not the default branch workflow.
 
@@ -22,5 +22,5 @@ pull requests and branch pushes. Those files are uploaded as GitHub Actions
 artifacts or release assets; they are not committed to this branch.
 
 Repository operations, supported-version policy, and migration automation live
-on `master`. Keep translation edits on this version
-branch; do not use the control branch for translator-facing work.
+on `operations`. Keep translation edits on this version branch; do not use the
+operations branch for translator-facing work.

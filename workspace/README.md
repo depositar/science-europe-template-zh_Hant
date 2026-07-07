@@ -1,10 +1,12 @@
-# Shared Workspace Assets
+# Version Workspace
 
-The `master` branch keeps only shared assets that are not tied to one document
-template version:
+This branch contains version-specific document-template workspaces for the
+matching `sync/v*` branch.
 
-- `knowledge-models/` stores KM bundles used by CI render fixtures.
-- `projects/` stores replayable sample project fixtures.
+Demo project fixtures and matching Knowledge Model bundles are maintained in
+the tool repository declared by the operations branch configuration. They live
+under that repository's `fixtures/knowledge-models/` and `fixtures/projects/`
+directories.
 
-Document template workspaces are version-specific and live on
-`translation/v*` branches or in GitHub Actions artifacts.
+Do not copy demo fixtures into this branch. CI reads them from the tool
+repository so preview PDFs stay consistent across versions.
