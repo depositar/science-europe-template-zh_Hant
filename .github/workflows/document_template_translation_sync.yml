@@ -33,6 +33,9 @@ concurrency:
 jobs:
   validate-translation-repo:
     runs-on: ubuntu-latest
+    outputs:
+      tooling_repository: ${{ steps.tooling.outputs.repository }}
+      tooling_ref: ${{ steps.tooling.outputs.ref }}
 
     steps:
       - name: Checkout translation repository
@@ -118,40 +121,11 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
 
-      - name: Resolve tooling checkout
-        id: tooling
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          import os
-          import re
-          from pathlib import Path
-
-          config = Path("translation-config.yml").read_text(encoding="utf-8")
-          match = re.search(
-              r"(?ms)^tooling:\s*\n(?P<body>(?:^[ \t]+[^\n]*\n?)*)",
-              config,
-          )
-          if not match:
-              raise SystemExit("translation-config.yml is missing the tooling section")
-          body = match.group("body")
-
-          def field(name: str) -> str:
-              item = re.search(rf"(?m)^[ \t]+{name}:\s*(.+?)\s*$", body)
-              if not item:
-                  raise SystemExit(f"translation-config.yml tooling.{name} is missing")
-              return item.group(1).strip().strip("\"'")
-
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
-              handle.write(f"repository={field('repository')}\n")
-              handle.write(f"ref={field('ref')}\n")
-          PY
-
       - name: Checkout DSW document-template tooling
         uses: actions/checkout@v7
         with:
-          repository: ${{ steps.tooling.outputs.repository }}
-          ref: ${{ steps.tooling.outputs.ref }}
+          repository: ${{ needs.validate-translation-repo.outputs.tooling_repository }}
+          ref: ${{ needs.validate-translation-repo.outputs.tooling_ref }}
           path: tooling-repo
 
       - name: Set up Python
@@ -166,7 +140,7 @@ jobs:
       - name: Download clean scaffold artifacts from tooling CI
         env:
           GH_TOKEN: ${{ secrets.TOOLING_ARTIFACT_TOKEN || github.token }}
-          TOOLING_REPOSITORY: ${{ steps.tooling.outputs.repository }}
+          TOOLING_REPOSITORY: ${{ needs.validate-translation-repo.outputs.tooling_repository }}
         run: |
           set -euo pipefail
           tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"

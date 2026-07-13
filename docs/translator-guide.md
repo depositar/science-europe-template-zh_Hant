@@ -55,7 +55,7 @@ xliff/dsw-science-europe.zh_Hant.xlf
 ```
 
 External platforms should never edit generated compact, expanded, translated
-output, release assets, or public handoff branches. Imported results must land
+output, or release assets. Imported results must land
 back in the Markdown translation tree before CI packaging or review. The
 Markdown translation tree remains the reviewable source of truth in this
 repository.

@@ -1,7 +1,7 @@
 # QA Checklist
 
 Use this before importing a translated Science Europe document template into a
-public DSW environment or publishing reviewed source downstream.
+DSW environment.
 
 ## Branch and CI
 
@@ -20,7 +20,7 @@ For the target version:
 On non-PR branch runs, confirm the versioned release exists:
 
 ```bash
-TRANSLATION_REPO=owner/document-template-translation
+TRANSLATION_REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
 
 gh release view science-europe-zh-hant-vX.Y.Z \
   --repo "$TRANSLATION_REPO"

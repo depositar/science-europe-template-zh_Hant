@@ -97,7 +97,7 @@ overrides:
     refresh: false
     migrate_into: false
     publish_release: false
-    reason: frozen after public handoff
+    reason: frozen after reviewed release
 ```
 
 Published and archived branches may still receive generated control-file

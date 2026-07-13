@@ -8,8 +8,6 @@ automatically import anything into DSW.
 - GitHub Actions artifacts are run-scoped previews.
 - GitHub Release assets are versioned review/download buckets.
 - Public DSW import is manual.
-- Source branch handoff is disabled by default and must be explicitly enabled
-  before use.
 - `DOCUMENT_TEMPLATE_PUBLISH_TOKEN` is intentionally not required.
 
 This keeps intermediate translation work reviewable without giving CI
@@ -59,25 +57,10 @@ Set it as an Actions secret without printing the token:
 
 ```shell
 gh auth refresh -h github.com -s repo -s workflow
+TRANSLATION_REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
 gh auth token | gh secret set TRANSLATION_AUTOMATION_TOKEN \
-  --repo depositar/science-europe-template-zh_Hant
+  --repo "$TRANSLATION_REPO"
 ```
 
-Do not add a broad publication token unless the team decides to automate public
-publishing. If that changes, restrict the token to the intended repository or
-branch and never expose it to fork pull requests.
-
-## Optional Source Handoff
-
-The current policy uses versioned release assets for manual import. Source
-branch handoff remains disabled in `translation-config.yml`:
-
-```yaml
-publish:
-  enabled: false
-```
-
-Only enable source handoff if the team decides that a reviewable source branch
-is needed in addition to release assets. When that policy changes, update this
-document and the operator guide in the same commit so maintainers do not have
-to infer the new publication path from CI logs.
+Do not add a broad publication token unless the team explicitly designs and
+documents automated DSW import. Never expose such a token to fork pull requests.

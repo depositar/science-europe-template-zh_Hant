@@ -7,8 +7,7 @@ release assets.
 
 The `operations` branch is not imported into DSW. After review, maintainers use
 the versioned release assets from the matching `sync/v*` branch for manual DSW
-import. Source branch handoff is disabled by default and should only be enabled
-by an explicit policy change.
+import.
 
 ## Repository Roles
 
@@ -80,7 +79,9 @@ The complete document map is in [docs/README.md](docs/README.md).
 - version branch naming
 - the public README shown by DSW for generated template packages
 - migration and version lifecycle policy
-- optional source handoff settings, currently disabled by policy
+
+The current config uses `schema_version: 2`. Validation rejects unknown fields,
+so retired options and spelling mistakes fail visibly instead of being ignored.
 
 Update the config first when the version policy changes. Let CI regenerate
 version branches instead of editing generated paths by hand.

@@ -82,7 +82,7 @@ older version, use a maintenance rule or an archived override. See
 To refresh immediately instead of waiting for the schedule:
 
 ```bash
-TRANSLATION_REPO=owner/document-template-translation
+TRANSLATION_REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
 TRANSLATION_OPERATIONS_BRANCH=$(awk '/control_branch:/ { print $2; exit }' translation-config.yml)
 
 gh workflow run document_template_translation_sync.yml \
@@ -140,18 +140,13 @@ or manual scaffold syncs from creating loops.
 ## Release and Publishing
 
 Version branches publish review/download assets after successful non-PR CI
-runs. Those assets are for review, import, and provenance. They do not update
-the public template source repository by themselves.
+runs. Those assets are for review, import, and provenance. They do not import
+the template into DSW by themselves.
 
-Manual source handoff is optional and disabled by default. The normal reviewed
-output is the versioned release asset produced by the version branch workflow.
-Only enable the explicit source handoff helper when the team has decided that a
-reviewable branch is needed for a downstream import process.
-
-Manual public publishing and optional token policy are documented in
+Release permissions and manual import policy are documented in
 [Security and Publishing](security-and-publishing.md).
 
-Before import or public publishing, follow [QA Checklist](qa-checklist.md).
+Before import, follow [QA Checklist](qa-checklist.md).
 
 ## Maintenance Checks
 
@@ -199,6 +194,7 @@ setup path:
 
 ```shell
 gh auth refresh -h github.com -s repo -s workflow
+TRANSLATION_REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
 gh auth token | gh secret set TRANSLATION_AUTOMATION_TOKEN \
-  --repo depositar/science-europe-template-zh_Hant
+  --repo "$TRANSLATION_REPO"
 ```

@@ -12,7 +12,7 @@ This repository owns:
 - translator-facing `translation.md` files
 - translated package and preview PDF releases
 - migration PRs between supported versions
-- manual import or public publication decisions
+- manual DSW import decisions
 
 The parser, clean upstream scaffold artifacts, DSW runtime matrix, and demo
 fixtures live in the tool repository declared by `translation-config.yml`.
@@ -24,7 +24,7 @@ The public template README shown by DSW is owned here at the path configured by
 Set the repository name once before copying commands:
 
 ```shell
-TRANSLATION_REPO=owner/document-template-translation
+TRANSLATION_REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
 TRANSLATION_OPERATIONS_BRANCH=$(awk '/control_branch:/ { print $2; exit }' translation-config.yml)
 VERSION_BRANCH_PREFIX=$(awk '/version_branch_prefix:/ { print $2; exit }' translation-config.yml)
 ACTIVE_TRANSLATION_VERSIONS=$(python - <<'PY'
@@ -234,15 +234,13 @@ The tool repo proves that the upstream template can be transformed and
 packaged. This repo proves that the translated version exists, passes QA, and
 can be imported manually.
 
-## Before Public Source Handoff or Manual Import
+## Before Manual Import
 
 1. Download the versioned release zip.
 2. Verify `SHA256SUMS`.
 3. Import into a test DSW environment when possible.
 4. Render the demo project or a representative real project.
-5. If source branch handoff has been explicitly enabled, stage and review that
-   branch separately.
-6. Only then import into the intended target environment.
+5. Only then import into the intended target environment.
 
 Do not import from local `outputs/` unless that output was intentionally built,
 reviewed, and checksummed for the same version.
@@ -252,5 +250,5 @@ reviewed, and checksummed for the same version.
 - Do not put translation content on the operations branch.
 - Do not commit generated `outputs/` to any branch.
 - Do not manually edit generated translated output to fix wording.
-- Do not add a publication token unless the team explicitly decides to automate
-  public publishing and updates [Security and Publishing](security-and-publishing.md).
+- Do not add a DSW import token unless the team explicitly decides to automate
+  import and updates [Security and Publishing](security-and-publishing.md).
