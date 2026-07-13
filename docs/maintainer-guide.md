@@ -21,6 +21,11 @@ packages expose as `README.md`. Keep it concise and aligned with the official
 Science Europe template README, but write it for Traditional Chinese users. Do
 not put tool-operation runbooks there; those belong in `docs/`.
 
+Keep `tooling.repository` and `tooling.ref` in `translation-config.yml` as
+ordinary one-line YAML scalars. The operations workflow reads only these two
+values to bootstrap the tool checkout; the checked-out tool immediately applies
+the complete schema and duplicate-key validation to the whole config.
+
 The README may use lightweight placeholders supported by the tool repo, such as
 `{template_version}`. Use them when linking to version-specific upstream GitHub
 content.

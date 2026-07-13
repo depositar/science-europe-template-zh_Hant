@@ -44,6 +44,11 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
       - name: Resolve tooling checkout
         id: tooling
         run: |
@@ -53,6 +58,8 @@ jobs:
           import re
           from pathlib import Path
 
+          # This minimal parser only locates the tool checkout. The checked-out
+          # tool then performs complete schema and duplicate-key validation.
           config = Path("translation-config.yml").read_text(encoding="utf-8")
           match = re.search(
               r"(?ms)^tooling:\s*\n(?P<body>(?:^[ \t]+[^\n]*\n?)*)",
@@ -63,10 +70,17 @@ jobs:
           body = match.group("body")
 
           def field(name: str) -> str:
-              item = re.search(rf"(?m)^[ \t]+{name}:\s*(.+?)\s*$", body)
-              if not item:
-                  raise SystemExit(f"translation-config.yml tooling.{name} is missing")
-              return item.group(1).strip().strip("\"'")
+              items = re.findall(rf"(?m)^[ \t]+{name}:\s*(.+?)\s*$", body)
+              if len(items) != 1:
+                  raise SystemExit(
+                      f"translation-config.yml tooling.{name} must appear exactly once"
+                  )
+              value = items[0].strip().strip("\"'")
+              if not value:
+                  raise SystemExit(
+                      f"translation-config.yml tooling.{name} must not be empty"
+                  )
+              return value
 
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
               handle.write(f"repository={field('repository')}\n")
@@ -79,11 +93,6 @@ jobs:
           repository: ${{ steps.tooling.outputs.repository }}
           ref: ${{ steps.tooling.outputs.ref }}
           path: tooling-repo
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
 
       - name: Install tooling dependencies
         working-directory: tooling-repo

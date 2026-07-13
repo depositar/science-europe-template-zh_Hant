@@ -10,9 +10,15 @@ clean scaffold artifacts.
 Each version has an effective policy built from `defaults`, matching `rules`,
 and exact `overrides`.
 
+The layers are applied in that order. Matching rules are applied in file order,
+then the exact override is applied last. Each layer changes only fields it
+explicitly declares, so a reason-only override preserves refresh, migration,
+and release behavior inherited from a rule. Use `artifact` and `auto` explicitly
+when enabling automation; `true` is intentionally rejected as ambiguous.
+
 | Field | Meaning |
 | --- | --- |
-| `state` | Human label such as `active`, `maintenance`, `published`, or `archived`. |
+| `state` | Lifecycle label: `available`, `active`, `maintenance`, `published`, or `archived`. Other values fail validation. |
 | `refresh` | Whether branch scaffold/content refresh is allowed. |
 | `migrate_into` | Whether exact-safe translations may be migrated into the version. |
 | `publish_release` | Whether version-branch CI may overwrite GitHub Release assets. |
