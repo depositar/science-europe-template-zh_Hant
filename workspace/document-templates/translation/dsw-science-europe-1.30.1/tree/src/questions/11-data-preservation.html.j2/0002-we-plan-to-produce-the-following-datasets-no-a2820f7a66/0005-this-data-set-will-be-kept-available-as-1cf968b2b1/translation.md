@@ -13,7 +13,7 @@ This data set will be kept available as long as technically possible.
 ### Translation (zh_Hant)
 
 ~~~jinja
-只要技術上可行，此資料集將持續保持可取得。
+只要技術上可行，此資料集就會持續提供。
 ~~~
 
 <details>

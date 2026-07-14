@@ -13,7 +13,7 @@ Each of those will use the following conventions: {scFSysAnalysisFoldersConvs}
 ### Translation (zh_Hant)
 
 ~~~jinja
-各資料夾將採用以下慣例：{scFSysAnalysisFoldersConvs}
+各資料夾將採用以下規則：{scFSysAnalysisFoldersConvs}
 ~~~
 
 <details>

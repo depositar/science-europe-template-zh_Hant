@@ -13,7 +13,7 @@ This data include personal data, legally based on public interest for processing
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資料包含個人資料，其處理依 GDPR 下的公共利益作為法律依據。
+此資料包含個人資料，其處理係以 GDPR 所定的公共利益為法律依據。
 ~~~
 
 <details>

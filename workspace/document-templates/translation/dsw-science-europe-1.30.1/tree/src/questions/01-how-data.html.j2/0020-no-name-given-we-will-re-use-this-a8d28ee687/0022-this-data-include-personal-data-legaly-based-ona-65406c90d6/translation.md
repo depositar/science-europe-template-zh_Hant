@@ -13,7 +13,7 @@ This data include personal data, legally based on a legal requirement (meaning a
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資料包含個人資料，其處理依法律要求（亦即執行此資料處理的法律義務）作為法律依據。
+此資料包含個人資料，其處理係以法律要求為依據（亦即負有進行此資料處理的法律義務）。
 ~~~
 
 <details>

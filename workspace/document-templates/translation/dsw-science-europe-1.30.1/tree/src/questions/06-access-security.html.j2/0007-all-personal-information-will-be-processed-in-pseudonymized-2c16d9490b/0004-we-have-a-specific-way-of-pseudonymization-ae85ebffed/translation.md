@@ -13,7 +13,7 @@ We have a specific way of pseudonymization{risksPseudonymizationAnother}
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們有特定的假名化方式{risksPseudonymizationAnother}
+我們有特定的擬匿名化方式{risksPseudonymizationAnother}
 ~~~
 
 <details>

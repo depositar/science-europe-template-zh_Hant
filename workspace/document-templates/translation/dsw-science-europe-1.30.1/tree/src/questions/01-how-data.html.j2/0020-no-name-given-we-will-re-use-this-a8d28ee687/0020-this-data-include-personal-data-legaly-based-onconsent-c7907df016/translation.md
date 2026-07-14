@@ -13,7 +13,7 @@ This data include personal data, legally based on consent given by the research 
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資料包含個人資料，其處理依研究參與者依 GDPR 所給予的同意作為法律依據，但該同意未涵蓋我們的再次使用；因此需要取得新的同意。
+此資料包含個人資料，其處理係以研究參與者依 GDPR 所給予的同意為法律依據；該同意未涵蓋我們的再次使用，因此需要另行取得同意。
 ~~~
 
 <details>

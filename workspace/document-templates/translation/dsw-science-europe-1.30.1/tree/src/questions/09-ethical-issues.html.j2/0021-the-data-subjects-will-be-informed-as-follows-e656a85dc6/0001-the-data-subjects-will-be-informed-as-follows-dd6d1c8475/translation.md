@@ -13,7 +13,7 @@ The data subjects will be informed as follows:
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料主體將透過以下方式獲得告知：
+我們將以下列方式告知資料主體：
 ~~~
 
 <details>
