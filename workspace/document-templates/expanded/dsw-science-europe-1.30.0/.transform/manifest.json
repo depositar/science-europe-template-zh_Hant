@@ -35,6 +35,7 @@
   "post_expand_patches": [
     "zh_hant_allowed_package",
     "zh_hant_globals",
+    "zh_hant_html_lang",
     "cjk_font_face"
   ],
   "post_expand_patch_state": {
