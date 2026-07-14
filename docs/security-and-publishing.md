@@ -41,6 +41,12 @@ release tags.
 
 Most workflows can use `github.token`.
 
+Cross-version synchronization is gated by pull-request CI. Local translation
+tree audits are not sufficient to merge: when GitHub-native auto-merge is
+unavailable, operations waits for `translation-sync` and every other reported
+check. Failed or timed-out checks leave the PR open instead of bypassing
+validation.
+
 Optional secrets:
 
 - `TRANSLATION_AUTOMATION_TOKEN`: push repaired commits, refresh version

@@ -141,6 +141,12 @@ Either review and merge the generated synchronization PRs, or run the tool repo
 status helper. The settled state is `OK` for every active source version; a missing PR
 alone is not proof that migration was checked.
 
+Synchronization PRs do not merge from local audits alone. If repository-native
+auto-merge is unavailable, the operations workflow waits for the PR's
+`translation-sync` check and all other reported checks to pass, then performs a
+head-SHA-guarded merge. A failed or timed-out check leaves the PR open and does
+not change the target `sync/v*` branch.
+
 Successful non-refresh pushes to `sync/v*` branches dispatch the
 operations workflow so translation changes can fan out after the branch has
 passed translation CI. Commits with messages starting `chore: refresh ` are generated
