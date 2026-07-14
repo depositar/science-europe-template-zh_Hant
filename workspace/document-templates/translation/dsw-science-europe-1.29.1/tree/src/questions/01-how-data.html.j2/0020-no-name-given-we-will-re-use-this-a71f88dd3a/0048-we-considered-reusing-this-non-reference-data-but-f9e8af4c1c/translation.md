@@ -13,7 +13,7 @@ We considered reusing this non-reference data, but decided not to reuse it becau
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們曾考慮再次使用此非參考資料集，但決定不再次使用，因為其使用條件不允許我們使用。
 ~~~
 
 <details>
