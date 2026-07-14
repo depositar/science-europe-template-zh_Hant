@@ -13,7 +13,7 @@ All personal information will be processed in pseudonymized form only.
 ### Translation (zh_Hant)
 
 ~~~jinja
-所有個人資料都只會以假名化形式處理。
+所有個人資料都只會以擬匿名化形式處理。
 ~~~
 
 <details>
