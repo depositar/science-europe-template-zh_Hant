@@ -13,7 +13,7 @@ when the target language needs it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-2. 將蒐集或產製哪些資料（種類、格式、容量）？
+2. 將蒐集或產生哪些資料（種類、格式、資料量）？
 ~~~
 
 <details>

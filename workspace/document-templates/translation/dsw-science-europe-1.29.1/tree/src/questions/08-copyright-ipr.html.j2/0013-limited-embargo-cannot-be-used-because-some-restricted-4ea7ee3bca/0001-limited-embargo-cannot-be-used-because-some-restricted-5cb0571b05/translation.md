@@ -13,7 +13,7 @@ Limited embargo cannot be used because some restricted data will be embargoed in
 ### Translation (zh_Hant)
 
 ~~~jinja
-無法使用有限限制公開期，因為部分受限制資料將無限期限制公開。
+無法設定有限的延後開放期限，因為部分受限制資料將無限期延後開放。
 ~~~
 
 <details>
