@@ -40,5 +40,107 @@
   ],
   "post_expand_patch_state": {
     "template_json_trailing_newline": true
+  },
+  "template_id": "dsw:science-europe:1.30.0",
+  "rewrite_trace": {
+    "profile": "science-europe",
+    "applications": [
+      {
+        "group_id": "science-europe.balanced.computer-readable",
+        "rationale": "Expose complete computer-readable format statements.",
+        "source_file": "src/questions/01-how-data.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.balanced.conditions",
+        "rationale": "Keep data-condition alternatives as complete translator-facing sentences.",
+        "source_file": "src/questions/01-how-data.html.j2",
+        "match_count": 2
+      },
+      {
+        "group_id": "science-europe.balanced.governance",
+        "rationale": "Keep ownership and legal-basis branches structurally reversible.",
+        "source_file": "src/questions/01-how-data.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.balanced.governance",
+        "rationale": "Keep ownership and legal-basis branches structurally reversible.",
+        "source_file": "src/questions/02-what-data.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.balanced.nonreuse",
+        "rationale": "Keep non-reuse reasons as complete conditional sentences.",
+        "source_file": "src/questions/01-how-data.html.j2",
+        "match_count": 2
+      },
+      {
+        "group_id": "science-europe.balanced.publication",
+        "rationale": "Keep sharing, volume, licensing, and publication statements complete.",
+        "source_file": "src/questions/02-what-data.html.j2",
+        "match_count": 2
+      },
+      {
+        "group_id": "science-europe.balanced.publication",
+        "rationale": "Keep sharing, volume, licensing, and publication statements complete.",
+        "source_file": "src/questions/06-access-security.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.balanced.publication",
+        "rationale": "Keep sharing, volume, licensing, and publication statements complete.",
+        "source_file": "src/questions/10-share-restrictions.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.balanced.publication",
+        "rationale": "Keep sharing, volume, licensing, and publication statements complete.",
+        "source_file": "src/questions/11-data-preservation.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.balanced.publication",
+        "rationale": "Keep sharing, volume, licensing, and publication statements complete.",
+        "source_file": "src/questions/12-access-data.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.balanced.reuse",
+        "rationale": "Keep reused-data identification and availability sentences together.",
+        "source_file": "src/questions/01-how-data.html.j2",
+        "match_count": 4
+      },
+      {
+        "group_id": "science-europe.unbalanced.localization",
+        "rationale": "Apply reversible zh-Hant output fixes that require branch restructuring.",
+        "source_file": "src/questions/06-access-security.html.j2",
+        "match_count": 5
+      },
+      {
+        "group_id": "science-europe.unbalanced.localization",
+        "rationale": "Apply reversible zh-Hant output fixes that require branch restructuring.",
+        "source_file": "src/questions/13-persistent-identifier.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.unbalanced.structure",
+        "rationale": "Repair sentence boundaries hidden inside unbalanced HTML/Jinja flows.",
+        "source_file": "src/questions/07-personal-data.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.unbalanced.structure",
+        "rationale": "Repair sentence boundaries hidden inside unbalanced HTML/Jinja flows.",
+        "source_file": "src/questions/08-copyright-ipr.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.unbalanced.structure",
+        "rationale": "Repair sentence boundaries hidden inside unbalanced HTML/Jinja flows.",
+        "source_file": "src/questions/13-persistent-identifier.html.j2",
+        "match_count": 1
+      }
+    ]
   }
 }
