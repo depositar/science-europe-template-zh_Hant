@@ -49,7 +49,7 @@ configured operations branch. Branches marked maintenance or archived by
 refreshing translation content or public README text.
 
 The tool repo can prove that a clean upstream scaffold can be transformed and
-packaged. This repo still owns the translated branch, migration result, QA, and
+packaged. This repo still owns the translated branch, synchronization result, QA, and
 versioned release assets.
 
 ## Updating Supported Versions
@@ -58,8 +58,9 @@ versioned release assets.
 2. Let the operations workflow synchronize `translation-config.yml` and
    missing or changed `sync/v*` branches from the downloaded artifacts.
 3. Review the config/branch sync commit if the supported version list changed.
-4. Review any migration PRs created by automation.
-5. Ask translators to finish units left empty by exact-only migration.
+4. Review any synchronization PRs created by automation.
+5. Ask translators to handle units whose source structure differs from the
+   synchronization source.
 
 Do not manually invent generated paths. The config and tool-repo artifact layout
 should derive those paths.
@@ -116,30 +117,34 @@ For each known scaffold version, verify the tool layer:
 
 For each active translation version, verify the downstream layers:
 
-- `sync/v*` branch exists and has migrated or empty review blocks
+- `sync/v*` branch exists and has synchronized or version-specific review blocks
 - translated package/PDF release exists in this repo
 
-## Migration Policy
+## Cross-Version Synchronization
 
-Migration is conservative:
+Versions with `migrate_into: auto` receive translation changes from the source
+version selected by the operations workflow. The source branch is authoritative
+for that run:
 
-- Exact source hash and executable placeholders: copy the translation.
-- Anything else: leave the target translation empty for human review.
+- Exact source hash and executable placeholders: fill a blank translation or
+  update an existing translation.
+- Anything else: keep the target unit unchanged for version-specific review.
 
-The migration job may open or update PRs between version branches. It preserves
-existing target translations first and only fills exact-safe blank units. This
-keeps useful reuse without silently carrying stale text into changed upstream
-sentences.
+Artifact refresh and cross-version synchronization are separate. Refresh first
+rebuilds the target scaffold while preserving that branch's translator edits;
+the synchronization phase then updates only structurally identical units. The
+operations workflow serializes fan-out runs so multiple active source branches
+cannot update the same target concurrently.
 
-After a sync or parser/tooling update, confirm migration has actually settled.
-Either review and merge the generated migration PRs, or run the tool repo status
-helper. The settled state is `OK` for every active source version; a missing PR
+After a sync or parser/tooling update, confirm synchronization has settled.
+Either review and merge the generated synchronization PRs, or run the tool repo
+status helper. The settled state is `OK` for every active source version; a missing PR
 alone is not proof that migration was checked.
 
 Successful non-refresh pushes to `sync/v*` branches dispatch the
-operations workflow so migration can fan out after the branch has passed
-translation CI. Commits with messages starting `chore: refresh ` are generated
-scaffold refreshes and intentionally do not dispatch migration; this keeps daily
+operations workflow so translation changes can fan out after the branch has
+passed translation CI. Commits with messages starting `chore: refresh ` are generated
+scaffold refreshes and intentionally do not dispatch fan-out; this keeps daily
 or manual scaffold syncs from creating loops.
 
 ## Release and Publishing
@@ -176,7 +181,7 @@ make -C "$TOOLING_ROOT" check-translation-repository-docs \
 
 Then inspect a real Actions run. A healthy run validates config, checks
 operations documentation coverage, downloads clean tool artifacts, refreshes
-version branches, creates migration PRs when needed, and leaves generated build
+version branches, creates synchronization PRs when needed, and leaves generated build
 products as artifacts.
 
 ## Workflow Synchronization
@@ -190,7 +195,7 @@ If the tool repo workflow template changed and active version branches must
 receive the fix, configure `TRANSLATION_AUTOMATION_TOKEN` with workflow scope and
 rerun the operations workflow. With that token present, operations also syncs
 generated branch workflow files while refreshing scaffold content, release
-assets, and migration PRs for policy-enabled versions.
+assets, and synchronization PRs for policy-enabled versions.
 
 Use a repository-limited token when possible. A fine-grained PAT needs
 `Contents: Read and write` and `Workflows: Read and write`; a classic PAT needs

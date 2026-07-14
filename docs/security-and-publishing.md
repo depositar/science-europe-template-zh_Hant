@@ -44,7 +44,7 @@ Most workflows can use `github.token`.
 Optional secrets:
 
 - `TRANSLATION_AUTOMATION_TOKEN`: push repaired commits, refresh version
-  branches, or open migration PRs when the default token is insufficient.
+  branches, or open synchronization PRs when the default token is insufficient.
   If operations need to create or update files under `.github/workflows/` on
   `sync/v*` branches, this token must include workflow permission.
 - `TOOLING_ARTIFACT_TOKEN`: download tool-repo clean scaffold artifacts when the

@@ -11,7 +11,7 @@ This repository owns:
 - `sync/v*` version branches
 - translator-facing `translation.md` files
 - translated package and preview PDF releases
-- migration PRs between supported versions
+- cross-version synchronization PRs between supported versions
 - manual DSW import decisions
 
 The parser, clean upstream scaffold artifacts, DSW runtime matrix, and demo
@@ -116,14 +116,14 @@ This runs the operations workflow on the configured control branch. It
 validates `translation-config.yml`, downloads the latest clean scaffold
 artifacts from the configured tool repository, records newly available scaffold
 versions, refreshes policy-enabled `sync/v*` branches, and may open or
-update migration PRs.
+update synchronization PRs.
 
 Manual syncs use the `manual` version-policy mode. The current configuration
 keeps discovered future versions scaffold-only until maintainers opt them in,
 while the currently active versions can refresh. See [Version Lifecycle
 Policy](version-lifecycle-policy.md).
 
-If you want migration PRs to fan out from a specific translated version, pass
+If you want synchronization PRs to fan out from a specific translated version, pass
 `source_version`:
 
 ```shell
@@ -133,10 +133,10 @@ gh workflow run document_template_translation_sync.yml \
   -f source_version=vX.Y.Z
 ```
 
-After dispatching, inspect the Actions run and any migration PRs before asking
+After dispatching, inspect the Actions run and any synchronization PRs before asking
 translators to continue.
 
-If no migration PR appears and you need to prove the migration queue is empty,
+If no synchronization PR appears and you need to prove the queue is empty,
 run the tool repo status helper against the same clean scaffold artifacts:
 
 ```shell
@@ -149,9 +149,9 @@ TRANSLATION_REPO_DIR=/path/to/this-repository
   --clean-artifact-root /tmp/clean-scaffolds
 ```
 
-`OK` means exact-only migration has nothing new to carry between active version
-branches. `PENDING` means a migration PR should be created or reviewed before
-translation work continues.
+`OK` means exact-source synchronization has nothing to fill or update between
+active version branches. `PENDING` means a synchronization PR should be created
+or reviewed before translation work continues.
 
 Operations sync refreshes branch content from clean scaffold artifacts by
 default, but it does not modify generated workflow files on `sync/v*` branches
@@ -182,8 +182,8 @@ refreshes the versioned GitHub Release assets.
 
 For normal translation-content pushes, a successful branch run also dispatches
 the operations workflow on the configured control branch. That operations run
-refreshes supported policy-enabled version branches and may open migration PRs
-so exact-safe changes can fan out to other active migration targets. Scaffold
+refreshes supported policy-enabled version branches and may open synchronization
+PRs so exact-source changes can fan out to other automatic targets. Scaffold
 refresh commits with messages starting `chore: refresh ` intentionally skip
 this dispatch to avoid migration loops.
 
@@ -226,8 +226,9 @@ Use [Translator Guide](translator-guide.md) for edit rules and
    the operations workflow again to create or refresh the matching
    `sync/v*` branch according to
    [Version Lifecycle Policy](version-lifecycle-policy.md).
-4. Review any migration PRs.
-5. Ask translators to fill units left empty by exact-only migration.
+4. Review any synchronization PRs.
+5. Ask translators to handle units left unchanged because their source structure
+   differs from the synchronization source.
 6. Confirm the translated release assets are refreshed.
 
 The tool repo proves that the upstream template can be transformed and

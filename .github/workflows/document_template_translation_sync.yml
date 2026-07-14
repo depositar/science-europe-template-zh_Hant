@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       source_version:
-        description: "Source version to migrate from, e.g. v1.30.1. Defaults to latest supported version."
+        description: "Source version to synchronize from, e.g. v1.30.1. Defaults to latest supported version."
         required: false
         type: string
   workflow_run:
@@ -25,9 +25,9 @@ env:
   TOOLING_WORKFLOW: headless_render_regression.yml
 
 concurrency:
-  group: >-
-    dsw-translation-operations-${{ github.event_name == 'workflow_run' &&
-    github.event.workflow_run.head_branch || github.ref }}
+  # Serialize fan-out from every sync/v* branch so two translated versions
+  # cannot update the same target branch concurrently.
+  group: dsw-translation-operations
   cancel-in-progress: false
 
 jobs:
@@ -113,7 +113,7 @@ jobs:
           "$tooling_python" "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/check_translation_repository_docs.py" \
             --repo "$GITHUB_WORKSPACE"
 
-  migrate-translations:
+  sync-translations:
     needs: validate-translation-repo
     if: >-
       github.event_name == 'workflow_dispatch' ||
@@ -192,7 +192,7 @@ jobs:
             "${workflow_args[@]}" \
             --push
 
-      - name: Resolve migration source version
+      - name: Resolve synchronization source version
         id: source
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -211,10 +211,11 @@ jobs:
             --current-latest-version "$CURRENT_LATEST_VERSION" \
             --github-output "$GITHUB_OUTPUT"
 
-      - name: Create or update migration PRs
+      - name: Create or update synchronization PRs
         if: steps.source.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.TRANSLATION_AUTOMATION_TOKEN || github.token }}
+          SYNC_POLICY_MODE: ${{ github.event_name == 'workflow_dispatch' && 'manual' || 'auto' }}
         run: |
           set -euo pipefail
           tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
@@ -222,6 +223,7 @@ jobs:
             --repo "$GITHUB_WORKSPACE" \
             --tooling-root "$GITHUB_WORKSPACE/tooling-repo" \
             --source-version "${{ steps.source.outputs.source_version }}" \
+            --policy-mode "$SYNC_POLICY_MODE" \
             --clean-artifact-root "$GITHUB_WORKSPACE/tooling-artifacts" \
             --push \
             --create-pr

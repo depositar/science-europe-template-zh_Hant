@@ -20,7 +20,7 @@ when enabling automation; `true` is intentionally rejected as ambiguous.
 | --- | --- |
 | `state` | Lifecycle label: `available`, `active`, `maintenance`, `published`, or `archived`. Other values fail validation. |
 | `refresh` | Whether branch scaffold/content refresh is allowed. |
-| `migrate_into` | Whether exact-safe translations may be migrated into the version. |
+| `migrate_into` | Whether exact-source translations may synchronize into the version. |
 | `publish_release` | Whether version-branch CI may overwrite GitHub Release assets. |
 | `reason` | Optional note explaining an override. |
 
@@ -30,7 +30,12 @@ when enabling automation; `true` is intentionally rejected as ambiguous.
 | --- | --- |
 | `artifact` | Scheduled automation and manual runs may rebuild the version from clean tool artifacts. |
 | `manual` | Only `workflow_dispatch` runs may act on the version. |
-| `false` | Automation must not refresh or migrate into the version. |
+| `false` | Automation must not refresh or synchronize into the version. |
+
+For cross-version synchronization, `auto` versions form a group and may act as
+both source and target. `manual` versions participate only in an
+operator-dispatched run. The source branch selected for a run is authoritative
+for exact-source units; structurally different units remain unchanged.
 
 ## Current Intended States
 
@@ -108,7 +113,7 @@ overrides:
 
 Published and archived branches may still receive generated control-file
 updates, such as a workflow change that disables input refresh. They must not
-receive clean scaffold refreshes or migrated translation content.
+receive clean scaffold refreshes or synchronized translation content.
 
 ## Operating Rules
 
@@ -118,10 +123,11 @@ receive clean scaffold refreshes or migrated translation content.
   list of versions that must have translation branches.
 - A version becomes translator-facing only when `refresh` is `artifact` or
   `manual`.
-- Published and archived versions must use `refresh: false`; the tooling rejects
-  frozen versions that could still be rebuilt from artifacts.
-- Automatic migration targets only versions with `migrate_into: auto`.
-- Explicit migration targets may include `manual` versions, but not `false`
+- Published and archived versions must use `refresh: false` and
+  `migrate_into: false`; the tooling rejects frozen versions that could still
+  change.
+- Automatic synchronization targets only versions with `migrate_into: auto`.
+- Explicit synchronization targets may include `manual` versions, but not `false`
   versions.
 - `publish_release: false` stops version-branch CI from clobbering release
   assets for that version.

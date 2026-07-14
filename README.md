@@ -52,7 +52,8 @@ See [Translator Guide](docs/translator-guide.md) for the detailed workflow and
 
 Maintainers update `translation-config.yml`, synchronize supported version
 records from clean tool-repo artifacts, opt versions into translation policy,
-review migration PRs, and verify reviewed release assets before manual import.
+review cross-version synchronization PRs, and verify reviewed release assets
+before manual import.
 
 See [Maintainer Guide](docs/maintainer-guide.md) for version upgrades and
 migration automation. See [Security and Publishing](docs/security-and-publishing.md)
