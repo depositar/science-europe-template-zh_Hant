@@ -13,7 +13,7 @@ We will use a filesystem with files and folders with the following folder conven
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將使用以檔案與資料夾組成的檔案系統，並採用以下資料夾慣例：
+我們將使用以檔案與資料夾組成的檔案系統，並採用以下資料夾規則：
 ~~~
 
 <details>

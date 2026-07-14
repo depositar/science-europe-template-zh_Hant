@@ -13,7 +13,7 @@ New ethical approval under research ethics laws of this non-reference data will 
 ### Translation (zh_Hant)
 
 ~~~jinja
-需要取得新的研究倫理審查核准，才能涵蓋我們對此非參考資料集的使用。
+需要取得新的倫理審查核准，才能涵蓋我們對此非參考資料集的使用。
 ~~~
 
 <details>

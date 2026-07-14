@@ -13,7 +13,7 @@ Section 2: Documentation and data quality
 ### Translation (zh_Hant)
 
 ~~~jinja
-第 2 節：文件紀錄與資料品質
+第 2 節：文件與資料品質
 ~~~
 
 <details>
