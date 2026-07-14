@@ -13,7 +13,7 @@ Based on
 ### Translation (zh_Hant)
 
 ~~~jinja
-基於
+依據
 ~~~
 
 <details>

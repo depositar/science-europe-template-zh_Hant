@@ -13,7 +13,7 @@ when the target language needs it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-1. 新資料將如何蒐集或產製？既有資料又將如何再使用？
+1. 新資料將如何蒐集或產生？既有資料又將如何被再次使用？
 ~~~
 
 <details>
