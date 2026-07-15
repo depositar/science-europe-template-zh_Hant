@@ -13,7 +13,7 @@ when the target language needs it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-13. 如何確保為每個資料集提供具唯一性及持續性的識別碼，例如數位物件識別碼（DOI）？
+13. 如何確保為每個資料集指派具唯一性的持續識別碼（例如數位物件識別碼（DOI））？
 ~~~
 
 <details>
