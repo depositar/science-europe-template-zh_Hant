@@ -13,7 +13,7 @@ This data set will be kept available for a fixed period (prepaid) of: {published
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資料集將在以下固定期間內持續提供（費用已預付）：{publishedDataHowLongFixed}。
+此資料集將持續提供 {publishedDataHowLongFixed}（費用已預付）。
 ~~~
 
 <details>
