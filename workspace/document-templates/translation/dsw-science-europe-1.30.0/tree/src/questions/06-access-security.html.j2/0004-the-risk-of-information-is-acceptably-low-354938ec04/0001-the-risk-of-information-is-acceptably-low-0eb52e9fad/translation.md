@@ -13,7 +13,7 @@ The risk of information {risks} is acceptably low
 ### Translation (zh_Hant)
 
 ~~~jinja
-{risks}的風險低至可接受程度
+{risks}的風險已降至可接受程度
 ~~~
 
 <details>
