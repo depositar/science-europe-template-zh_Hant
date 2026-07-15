@@ -13,7 +13,7 @@ There will be a (sub)folder for each (repeated) analysis.
 ### Translation (zh_Hant)
 
 ~~~jinja
-每一次（重複）分析都會有一個（子）資料夾。
+每次分析（包括重新分析）都會使用一個子資料夾。
 ~~~
 
 <details>

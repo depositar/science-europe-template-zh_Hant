@@ -13,7 +13,7 @@ We will use other solution than (electronic) lab notebooks to make sure that the
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將使用（電子）實驗室記錄本以外的其他方式，確保資料分析具有良好的資料溯源紀錄{provenanceOther}
+我們將採用實驗室記錄本（含電子記錄本）以外的方式，確保資料分析具有良好的資料溯源紀錄{provenanceOther}
 ~~~
 
 <details>
