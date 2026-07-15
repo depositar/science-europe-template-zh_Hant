@@ -136,6 +136,13 @@ the synchronization phase then updates only structurally identical units. The
 operations workflow serializes fan-out runs so multiple active source branches
 cannot update the same target concurrently.
 
+Synchronization PRs are intentionally narrow. They may contain matching
+`translation.md` updates and an updated `outline.md`; template structure,
+manifests, README files, packages, and diagnostic reports are rejected. Review
+the merge report in the PR body or Actions summary instead. Once an automation
+PR merges, the target branch validates and republishes its assets without
+starting a redundant reverse fan-out.
+
 After a sync or parser/tooling update, confirm synchronization has settled.
 Either review and merge the generated synchronization PRs, or run the tool repo
 status helper. The settled state is `OK` for every active source version; a missing PR

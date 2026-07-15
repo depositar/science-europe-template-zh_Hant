@@ -118,6 +118,12 @@ artifacts from the configured tool repository, records newly available scaffold
 versions, refreshes policy-enabled `sync/v*` branches, and may open or
 update synchronization PRs.
 
+Those synchronization PRs contain only exact-source `translation.md` changes
+and an updated `outline.md` when progress changes. The detailed report appears
+in the PR body and Actions summary rather than in the version branch. Their
+merge validates and republishes the target version but does not launch another
+reverse synchronization run.
+
 Manual syncs use the `manual` version-policy mode. The current configuration
 keeps discovered future versions scaffold-only until maintainers opt them in,
 while the currently active versions can refresh. See [Version Lifecycle
