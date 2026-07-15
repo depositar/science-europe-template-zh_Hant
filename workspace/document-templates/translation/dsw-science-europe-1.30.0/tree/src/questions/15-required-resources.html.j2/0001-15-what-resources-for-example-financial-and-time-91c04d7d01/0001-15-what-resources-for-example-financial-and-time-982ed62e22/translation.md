@@ -13,7 +13,7 @@ when the target language needs it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-15. 將投入哪些資源（例如經費與時間）於資料管理，並確保資料符合 FAIR（可被找到、可被取用、可相互操作、可再次使用）原則？
+15. 將投入哪些資源（例如經費與時間）進行資料管理，並確保資料符合 FAIR（可被找到、可被取用、可相互操作、可再次使用）原則？
 ~~~
 
 <details>
