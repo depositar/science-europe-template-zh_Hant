@@ -13,7 +13,7 @@ The following qualified references to other data sets will be included:
 ### Translation (zh_Hant)
 
 ~~~jinja
-將納入下列指向其他資料集的限定參照：
+將納入下列指向其他資料集、具明確關係語意的參照：
 ~~~
 
 <details>
