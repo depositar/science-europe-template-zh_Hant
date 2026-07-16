@@ -13,7 +13,7 @@ Only we will be interested in re-using this data.
 ### Translation (zh_Hant)
 
 ~~~jinja
-只有我們會有興趣再次使用這份資料。
+只有我們有意再次使用這份資料。
 ~~~
 
 <details>
