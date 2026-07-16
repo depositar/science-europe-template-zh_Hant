@@ -13,7 +13,7 @@ responsible for maintaining the finished resource.
 ### Translation (zh_Hant)
 
 ~~~jinja
-負責維護完成後的資源。
+負責維護已完成的資源。
 ~~~
 
 <details>
