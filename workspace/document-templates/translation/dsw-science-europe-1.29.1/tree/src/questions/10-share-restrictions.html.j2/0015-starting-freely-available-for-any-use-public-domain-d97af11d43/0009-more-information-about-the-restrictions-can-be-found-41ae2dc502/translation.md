@@ -13,7 +13,7 @@ More information about the restrictions can be found here: {licenseRestrictLink}
 ### Translation (zh_Hant)
 
 ~~~jinja
-關於限制的更多資訊可見於：{licenseRestrictLink}。
+如需了解限制的詳細資訊，請參閱：{licenseRestrictLink}。
 ~~~
 
 <details>
