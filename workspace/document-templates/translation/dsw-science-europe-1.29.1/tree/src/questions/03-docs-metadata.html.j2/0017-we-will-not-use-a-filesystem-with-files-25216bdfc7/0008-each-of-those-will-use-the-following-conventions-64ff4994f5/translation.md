@@ -13,7 +13,7 @@ Each of those will use the following conventions: {scFSysWorkflowStepFoldersConv
 ### Translation (zh_Hant)
 
 ~~~jinja
-各資料夾將採用以下慣例：{scFSysWorkflowStepFoldersConvs}
+各資料夾將採用以下規則：{scFSysWorkflowStepFoldersConvs}
 ~~~
 
 <details>
