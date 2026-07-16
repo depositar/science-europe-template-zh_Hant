@@ -116,7 +116,9 @@ This runs the operations workflow on the configured control branch. It
 validates `translation-config.yml`, downloads the latest clean scaffold
 artifacts from the configured tool repository, records newly available scaffold
 versions, refreshes policy-enabled `sync/v*` branches, and may open or
-update synchronization PRs.
+update synchronization PRs. It also uploads a
+`translation-consistency-report` artifact comparing active and maintenance
+versions without changing their translation text.
 
 Those synchronization PRs contain only exact-source `translation.md` changes
 and an updated `outline.md` when progress changes. The detailed report appears
@@ -158,6 +160,10 @@ TRANSLATION_REPO_DIR=/path/to/this-repository
 `OK` means exact-source synchronization has nothing to fill or update between
 active version branches. `PENDING` means a synchronization PR should be created
 or reviewed before translation work continues.
+
+The consistency report answers a different question: whether identical visible
+English has blank or different Chinese wording across versions. Its findings do
+not fail CI and do not authorize migration when Jinja/HTML source hashes differ.
 
 Operations sync refreshes branch content from clean scaffold artifacts by
 default, but it does not modify generated workflow files on `sync/v*` branches

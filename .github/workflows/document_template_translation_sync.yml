@@ -192,6 +192,27 @@ jobs:
             "${workflow_args[@]}" \
             --push
 
+      - name: Report cross-version translation consistency
+        run: |
+          set -euo pipefail
+          report_dir="$RUNNER_TEMP/translation-consistency"
+          tooling_python="$GITHUB_WORKSPACE/tooling-repo/.venv/bin/python"
+          "$tooling_python" \
+            "$GITHUB_WORKSPACE/tooling-repo/scripts/ci/report_translation_consistency.py" \
+            --repo "$GITHUB_WORKSPACE" \
+            --fetch \
+            --json-report "$report_dir/report.json" \
+            --markdown-report "$report_dir/report.md" \
+            --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload cross-version translation consistency report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: translation-consistency-report
+          path: ${{ runner.temp }}/translation-consistency/
+          if-no-files-found: warn
+
       - name: Resolve synchronization source version
         id: source
         env:

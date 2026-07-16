@@ -154,6 +154,14 @@ checks to pass, then performs a head-SHA-guarded merge. This does not depend on
 repository-native auto-merge settings. A failed or timed-out check leaves the
 PR open and does not change the target `sync/v*` branch.
 
+Each scheduled, manual, or version-triggered operations sync also uploads
+`translation-consistency-report`. This
+read-only report compares identical visible English sentences across active and
+maintenance branches. Translation gaps and wording drift are review prompts,
+not automatic edits or CI failures. Treat `exact-source` findings as stronger
+signals; `visible-source-only` findings may legitimately differ because their
+Jinja or HTML source hashes do not match.
+
 Successful non-refresh pushes to `sync/v*` branches dispatch the
 operations workflow so translation changes can fan out after the branch has
 passed translation CI. Commits with messages starting `chore: refresh ` are generated
@@ -194,8 +202,9 @@ make -C "$TOOLING_ROOT" check-translation-repository-docs \
 
 Then inspect a real Actions run. A healthy run validates config, checks
 operations documentation coverage, downloads clean tool artifacts, refreshes
-version branches, creates synchronization PRs when needed, and leaves generated build
-products as artifacts.
+version branches, creates synchronization PRs when needed, publishes the
+cross-version consistency report, and leaves generated build products as
+artifacts.
 
 ## Workflow Synchronization
 

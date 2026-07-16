@@ -14,6 +14,8 @@ For the target version:
 - auto-repair commits, if any, are included
 - the generated package artifact exists
 - the demo preview artifact exists
+- the latest operations `translation-consistency-report` has no unexplained
+  exact-source gap or wording drift for the target version
 
 ## Release Assets
 
