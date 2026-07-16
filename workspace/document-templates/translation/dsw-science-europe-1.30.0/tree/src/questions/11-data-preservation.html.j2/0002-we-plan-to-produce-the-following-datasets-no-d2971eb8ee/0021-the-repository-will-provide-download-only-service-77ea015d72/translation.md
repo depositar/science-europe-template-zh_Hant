@@ -13,7 +13,7 @@ The repository will provide download-only service.
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料儲存庫將提供僅下載服務。
+資料儲存庫將僅提供下載服務。
 ~~~
 
 <details>
