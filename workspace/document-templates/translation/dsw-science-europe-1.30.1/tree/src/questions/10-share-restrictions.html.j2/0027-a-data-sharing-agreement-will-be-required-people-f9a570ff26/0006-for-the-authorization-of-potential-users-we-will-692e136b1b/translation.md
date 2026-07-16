@@ -13,7 +13,7 @@ For the authorization of potential users, we will make special arrangements{lega
 ### Translation (zh_Hant)
 
 ~~~jinja
-關於潛在使用者的授權，我們將作成特別安排{legalReasonsAuthorizeOther}
+對於潛在使用者的授權，我們將另作安排{legalReasonsAuthorizeOther}
 ~~~
 
 <details>

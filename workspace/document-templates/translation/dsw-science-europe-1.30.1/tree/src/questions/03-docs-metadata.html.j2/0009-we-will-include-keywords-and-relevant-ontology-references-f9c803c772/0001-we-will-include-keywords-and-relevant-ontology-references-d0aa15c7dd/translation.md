@@ -13,7 +13,7 @@ We will include keywords and relevant ontology references to optimize the possib
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將納入關鍵字與相關本體參照，以提升資料探索與潛在再次使用的可能性。
+我們將納入關鍵字與相關本體參照，以提高資料被找到及再次使用的可能性。
 ~~~
 
 <details>
