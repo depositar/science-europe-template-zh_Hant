@@ -86,7 +86,8 @@ are:
 - migration report, when the branch was created or refreshed by migration
 
 Review the PDF for missing English fallback, broken placeholders, awkward word
-order, and glossary consistency. Use [QA Checklist](qa-checklist.md) before
+order, and glossary consistency. Use [Translation Terminology and
+Style](translation-style.md) and the [QA Checklist](qa-checklist.md) before
 asking a maintainer to import or publish the package.
 
 If something looks like a structural issue, fix the translation tree or ask a
@@ -94,9 +95,11 @@ maintainer before changing generated output by hand.
 
 ## Glossary and Style
 
-Use the glossary and i10n wording prepared for this project. Prefer natural
-Traditional Chinese over literal English order, but keep DSW terms consistent
-across versions.
+Use the version-controlled [project glossary](../glossary/zh-Hant.csv) and
+[translation style guide](translation-style.md). Prefer natural Traditional
+Chinese over literal English order, but keep DSW terms consistent across
+versions. When the glossary and sentence context appear to disagree, record the
+decision instead of applying a silent one-off translation.
 
 Good translation branches are boring: small wording commits, green CI, and a PDF
 that looks predictable.

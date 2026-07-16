@@ -54,7 +54,7 @@ Open the preview PDF and inspect:
 - table and list rendering
 - representative conditional sections
 - punctuation around optional sentences
-- glossary and i10n wording
+- terminology and i10n wording follow the [translation style guide](translation-style.md)
 - obvious fallback English text
 - heading/body font hierarchy and readability
 

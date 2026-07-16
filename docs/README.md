@@ -7,6 +7,7 @@ to the work you are doing.
 | --- | --- |
 | Take over day-to-day operation | [Operator Quickstart](operator-quickstart.md) |
 | Edit Traditional Chinese translations | [Translator Guide](translator-guide.md) |
+| Resolve terminology or style decisions | [Translation Terminology and Style](translation-style.md) |
 | Use optional XLIFF exchange | [Translator Guide](translator-guide.md) |
 | Maintain version branches and migrations | [Maintainer Guide](maintainer-guide.md) |
 | Update the README shown by DSW | [Maintainer Guide](maintainer-guide.md) |
