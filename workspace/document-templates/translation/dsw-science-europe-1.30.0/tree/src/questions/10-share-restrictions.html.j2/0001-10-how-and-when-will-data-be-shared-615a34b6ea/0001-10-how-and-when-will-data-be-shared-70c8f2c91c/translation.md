@@ -13,7 +13,7 @@ when the target language needs it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-10. 資料將如何及何時共享？資料共享是否可能受到限制，或是否有延後開放的理由？
+10. 資料該在何時、以何種方式共享？資料共享是否可能受限，或有任何需要延後開放的理由？
 ~~~
 
 <details>

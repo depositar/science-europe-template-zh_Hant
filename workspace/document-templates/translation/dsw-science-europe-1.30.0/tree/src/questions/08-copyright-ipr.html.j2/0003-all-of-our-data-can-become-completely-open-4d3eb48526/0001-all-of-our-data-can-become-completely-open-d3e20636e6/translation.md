@@ -13,7 +13,7 @@ All of our data can become completely open over time.
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們所有資料最終皆可完全開放。
+我們的所有資料最終皆可完全開放。
 ~~~
 
 <details>
