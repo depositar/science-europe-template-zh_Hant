@@ -13,7 +13,7 @@ We have made other arrangements{domainSpecificRepoContactBeforeOther}
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們已作成其他安排{domainSpecificRepoContactBeforeOther}
+我們另有安排{domainSpecificRepoContactBeforeOther}
 ~~~
 
 <details>
