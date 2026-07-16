@@ -13,7 +13,7 @@ Closed (not meant for sharing)
 ### Translation (zh_Hant)
 
 ~~~jinja
-關閉（不打算共享）
+不開放（不供共享）
 ~~~
 
 <details>
