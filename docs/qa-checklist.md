@@ -14,6 +14,8 @@ For the target version:
 - auto-repair commits, if any, are included
 - the generated package artifact exists
 - the demo preview artifact exists
+- the translated-package regression reports `render_success`, passes, and has
+  complete generated-fixture branch coverage
 - the latest operations `translation-consistency-report` has no unexplained
   exact-source gap or wording drift for the target version
 
@@ -33,6 +35,8 @@ Expected assets:
 - `dsw-science-europe-zh-hant-vX.Y.Z.zip`
 - `test-project-vX.Y.Z.pdf`
 - `test-project-vX.Y.Z.pdf.json`
+- `regression-report-vX.Y.Z.json`
+- `regression-coverage-vX.Y.Z.json`
 - `SHA256SUMS`
 - `release-notes.md`
 
@@ -47,6 +51,8 @@ Confirm CI or local checks covered:
 - raw Jinja is not introduced in translation text
 - translated output keeps the executable Jinja and HTML structure
 - blank blocks are intentional and not accidental English fallback
+- the actual package ZIP renders the complete selected fixture set; the demo
+  PDF alone is not the full package gate
 
 ## PDF Review
 

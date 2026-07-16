@@ -10,7 +10,7 @@ This repository owns:
 - `translation-config.yml`
 - `sync/v*` version branches
 - translator-facing `translation.md` files
-- translated package and preview PDF releases
+- translated package, preview PDF, and package-regression evidence releases
 - cross-version synchronization PRs between supported versions
 - manual DSW import decisions
 
@@ -189,7 +189,8 @@ from the tool repo template.
 
 When a maintainer pushes to a `sync/v*` branch, or a translation PR runs
 against one, the branch workflow audits the translation tree, syncs the
-translated template, renders the demo preview, uploads Actions artifacts, and
+translated template, renders the demo preview, runs complete generated-fixture
+regression against the actual package ZIP, uploads Actions artifacts, and
 refreshes the versioned GitHub Release assets.
 
 For normal translation-content pushes, a successful branch run also dispatches

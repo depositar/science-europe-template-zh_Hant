@@ -174,6 +174,12 @@ Version branches publish review/download assets after successful non-PR CI
 runs. Those assets are for review, import, and provenance. They do not import
 the template into DSW by themselves.
 
+Version validation first renders the representative demo PDF, then imports the
+same package ZIP for complete generated-fixture render regression. The first is
+for human wording/layout review; the second is the executable package gate.
+Release assets include the regression report and coverage JSON so this evidence
+remains available after Actions artifacts expire.
+
 Release permissions and manual import policy are documented in
 [Security and Publishing](security-and-publishing.md).
 
