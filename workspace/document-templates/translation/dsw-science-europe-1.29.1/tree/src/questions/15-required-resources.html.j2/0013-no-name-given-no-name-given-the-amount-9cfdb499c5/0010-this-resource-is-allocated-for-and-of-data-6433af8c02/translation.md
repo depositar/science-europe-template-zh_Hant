@@ -13,7 +13,7 @@ This resource is allocated for {projectCostItemAllocations_0} and {projectCostIt
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資源分配用於{projectCostItemAllocations_0}與{projectCostItemAllocations_1}。
+此資源分配的用途包括{projectCostItemAllocations_0}與{projectCostItemAllocations_1}。
 ~~~
 
 <details>

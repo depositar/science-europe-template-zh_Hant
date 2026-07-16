@@ -13,7 +13,7 @@ We will set up a data access committee for authorization of potential users of t
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將設立資料取用委員會，以授權潛在資料使用者。
+我們將設立資料取用委員會，負責核准潛在使用者取用資料。
 ~~~
 
 <details>
