@@ -64,6 +64,12 @@
         "match_count": 1
       },
       {
+        "group_id": "science-europe.balanced.governance",
+        "rationale": "Keep ownership and legal-basis branches structurally reversible.",
+        "source_file": "src/questions/02-what-data.html.j2",
+        "match_count": 1
+      },
+      {
         "group_id": "science-europe.balanced.nonreuse",
         "rationale": "Keep non-reuse reasons as complete conditional sentences.",
         "source_file": "src/questions/01-how-data.html.j2",
