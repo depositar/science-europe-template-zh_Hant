@@ -13,7 +13,7 @@ The costs related to the used repositories will be carried by (one of) the depar
 ### Translation (zh_Hant)
 
 ~~~jinja
-所使用資料儲存庫的相關費用將由參與專案的（其中一個）部門負擔。
+所使用資料儲存庫的相關費用將由參與專案的某個部門負擔。
 ~~~
 
 <details>
