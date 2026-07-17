@@ -13,7 +13,7 @@ It involves human subjects.
 ### Translation (zh_Hant)
 
 ~~~jinja
-涉及人體研究參與者。
+此資料蒐集涉及人體研究參與者。
 ~~~
 
 <details>
