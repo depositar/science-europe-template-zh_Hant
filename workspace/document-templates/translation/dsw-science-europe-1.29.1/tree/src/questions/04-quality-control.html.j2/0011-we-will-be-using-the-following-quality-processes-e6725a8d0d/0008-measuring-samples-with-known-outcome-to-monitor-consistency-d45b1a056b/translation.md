@@ -13,7 +13,7 @@ measuring samples with known outcome (to monitor consistency).
 ### Translation (zh_Hant)
 
 ~~~jinja
-量測已知結果的樣本（用於監測一致性）。
+量測結果已知的樣本（用於監測一致性）。
 ~~~
 
 <details>
