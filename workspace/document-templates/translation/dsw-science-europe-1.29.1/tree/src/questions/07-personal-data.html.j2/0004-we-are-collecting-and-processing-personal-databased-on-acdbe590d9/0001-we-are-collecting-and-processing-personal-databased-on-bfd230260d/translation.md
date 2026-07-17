@@ -13,7 +13,7 @@ We are collecting and processing personal data based on public interest.
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們依公共利益蒐集與處理個人資料。
+我們基於公共利益蒐集與處理個人資料。
 ~~~
 
 <details>

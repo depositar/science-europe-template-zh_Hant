@@ -13,7 +13,7 @@ The data collection is not subject to ethical legislation.
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料蒐集不受倫理法規約束。
+研究倫理相關法規不適用於此資料蒐集。
 ~~~
 
 <details>

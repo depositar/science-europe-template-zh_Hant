@@ -13,7 +13,7 @@ We are collecting and processing personal data based on subject's consent.
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們依資料主體的同意蒐集與處理個人資料。
+我們基於資料主體的同意蒐集與處理個人資料。
 ~~~
 
 <details>

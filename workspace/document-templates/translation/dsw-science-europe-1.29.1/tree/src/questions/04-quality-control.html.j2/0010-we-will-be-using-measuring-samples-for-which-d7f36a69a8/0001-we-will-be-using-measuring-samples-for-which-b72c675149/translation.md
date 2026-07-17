@@ -13,7 +13,7 @@ We will be using measuring samples for which the outcome is known in order to mo
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們會使用已知結果的樣本量測來監測一致性，作為資料品質管控流程的一部分。
+我們會量測結果已知的樣本，以監測一致性，作為資料品質管控流程的一部分。
 ~~~
 
 <details>
