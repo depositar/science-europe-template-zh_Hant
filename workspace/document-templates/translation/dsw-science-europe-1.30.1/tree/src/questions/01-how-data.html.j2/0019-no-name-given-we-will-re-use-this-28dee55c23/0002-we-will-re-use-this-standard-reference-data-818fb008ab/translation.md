@@ -13,7 +13,7 @@ We will re-use this standard reference data available via: {refDataWhere}. in or
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料可透過 {refDataWhere} 取得。我們將再次使用此標準參考資料，用途為：{refDataUsageReply}
+資料可透過 {refDataWhere} 取得。我們將再次使用此標準參考資料，用途如下：{refDataUsageReply}
 ~~~
 
 <details>

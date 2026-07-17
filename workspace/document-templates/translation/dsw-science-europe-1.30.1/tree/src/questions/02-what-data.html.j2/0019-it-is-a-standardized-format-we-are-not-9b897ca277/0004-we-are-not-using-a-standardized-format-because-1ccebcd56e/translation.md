@@ -13,7 +13,7 @@ We are not using a standardized format, because: {formatsWhyNSAnotherReason}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們不使用標準化格式，原因是：{formatsWhyNSAnotherReason}。
+我們不使用標準化格式，原因如下：{formatsWhyNSAnotherReason}。
 ~~~
 
 <details>

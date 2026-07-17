@@ -13,7 +13,7 @@ We will use the following technical and procedural safeguards: {personalDataSafe
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們將採用以下技術與程序性防護措施：{personalDataSafeguardElaborateReply}
+我們將採用以下技術與程序防護措施：{personalDataSafeguardElaborateReply}
 ~~~
 
 <details>
