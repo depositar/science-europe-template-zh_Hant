@@ -13,7 +13,7 @@ Our quality processes are: {mdQualityOther}.
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們的資料品質管控流程為：{mdQualityOther}。
+我們採用的資料品質管控流程如下：{mdQualityOther}。
 ~~~
 
 <details>

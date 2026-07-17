@@ -13,7 +13,7 @@ when the target language needs it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-9. 有哪些倫理議題與行為準則，將如何納入考量？
+9. 有哪些倫理議題與行為準則？將如何納入考量？
 ~~~
 
 <details>

@@ -13,7 +13,7 @@ We considered reusing this standard reference data, but decided not to re-use it
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們曾考慮再次使用此標準參考資料，但決定不再次使用，原因是：{refDataUseNoOtherReasonReply}
+我們曾考慮再次使用此標準參考資料，但決定不再次使用，原因如下：{refDataUseNoOtherReasonReply}
 ~~~
 
 <details>
