@@ -13,7 +13,7 @@ Possible re-use of created data in other contexts
 ### Translation (zh_Hant)
 
 ~~~jinja
-所產生的資料在其他情境中的再次使用可能性
+所產生資料在其他情境下再次使用的可能性
 ~~~
 
 <details>
