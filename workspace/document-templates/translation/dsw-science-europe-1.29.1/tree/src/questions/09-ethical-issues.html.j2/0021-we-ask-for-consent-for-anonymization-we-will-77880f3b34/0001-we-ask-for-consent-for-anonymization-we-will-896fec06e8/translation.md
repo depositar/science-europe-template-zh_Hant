@@ -13,7 +13,7 @@ We ask for consent for anonymization; We will anonymize first and all further pr
 ### Translation (zh_Hant)
 
 ~~~jinja
-我們會請求匿名化的同意；我們會先將資料匿名化，後續處理都會以匿名資料進行。
+我們會為匿名化取得同意；我們會先將資料匿名化，後續所有處理都會針對匿名資料進行。
 ~~~
 
 <details>

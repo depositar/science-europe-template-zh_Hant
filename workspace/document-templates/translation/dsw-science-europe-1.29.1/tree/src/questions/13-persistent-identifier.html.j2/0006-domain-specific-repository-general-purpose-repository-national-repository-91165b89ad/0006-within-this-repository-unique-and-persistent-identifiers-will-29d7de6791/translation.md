@@ -13,7 +13,7 @@ Within this repository, unique and persistent identifiers will be applied as fol
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資料儲存庫將透過以下方式指派具唯一性及持續性的識別碼：
+此資料儲存庫將透過以下方式編配具唯一性及持續性的識別碼：
 ~~~
 
 <details>
