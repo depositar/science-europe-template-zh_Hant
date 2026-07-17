@@ -13,7 +13,7 @@ It does not involve human subjects.
 ### Translation (zh_Hant)
 
 ~~~jinja
-不涉及人體研究參與者。
+此資料蒐集不涉及人體研究參與者。
 ~~~
 
 <details>

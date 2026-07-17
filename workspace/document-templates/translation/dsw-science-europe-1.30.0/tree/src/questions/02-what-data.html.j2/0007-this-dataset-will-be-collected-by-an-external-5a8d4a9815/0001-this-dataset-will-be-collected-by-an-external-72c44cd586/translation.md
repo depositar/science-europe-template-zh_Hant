@@ -13,7 +13,7 @@ This dataset will be collected by an external party. The ownership of the result
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資料集將由外部單位蒐集。產生資料的所有權將由該外部單位保留。
+此資料集將由外部單位蒐集。產出資料的所有權仍歸外部單位所有。
 ~~~
 
 <details>

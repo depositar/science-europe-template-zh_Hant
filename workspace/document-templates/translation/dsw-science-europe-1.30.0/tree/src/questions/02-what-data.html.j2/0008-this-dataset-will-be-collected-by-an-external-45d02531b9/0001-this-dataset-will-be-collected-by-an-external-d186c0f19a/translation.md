@@ -13,7 +13,7 @@ This dataset will be collected by an external party. The project partners acquir
 ### Translation (zh_Hant)
 
 ~~~jinja
-此資料集將由外部單位蒐集。計畫夥伴將取得該資料的完整所有權。
+此資料集將由外部單位蒐集。專案合作夥伴將取得資料的完整所有權。
 ~~~
 
 <details>

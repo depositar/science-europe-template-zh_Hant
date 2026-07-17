@@ -13,7 +13,7 @@ List of data to be published is given in Section 5, Question 10 and 11. This als
 ### Translation (zh_Hant)
 
 ~~~jinja
-將發布的資料清單列於第 5 節第 10 題與第 11 題；其中也包含可找到資料的目錄資訊。使用的資料類型資訊列於第 1 節第 2 題。
+將發布的資料清單列於第 5 節第 10 題與第 11 題；其中也包含可查得資料的目錄資訊。使用的資料類型資訊列於第 1 節第 2 題。
 ~~~
 
 <details>
