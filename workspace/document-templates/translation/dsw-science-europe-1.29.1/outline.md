@@ -2420,7 +2420,7 @@
 
           [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0026-for-the-reference-and-non-reference-data-sets-bb97395b96/0009-it-is-available-under-specific-restrictions-which-we-f53435b12a/translation.md>)
 
-- [x] [file] src/questions/09-ethical-issues.html.j2 (43/43)
+- [ ] [file] src/questions/09-ethical-issues.html.j2 (43/44)
 
   [J2] `src/questions/09-ethical-issues.html.j2`
 
@@ -2552,181 +2552,189 @@
 
           [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0013-we-will-not-collect-any-data-related-to-8cac0b5e3a/0001-we-will-not-collect-any-data-related-to-c5a18c7ffc/translation.md>)
 
-    - [x] [wrapper] 0014-we-explored-general-data-protection-regulation-gdpr-considerations-02e43fbbe5 (1/1)
+    - [ ] [wrapper] 0014-we-will-collect-data-related-to-individuals-i-08bb9eb9f9 (0/1)
 
-      [W] `0014-we-explored-general-data-protection-regulation-gdpr-considerations-02e43fbbe5`
+      [W] `0014-we-will-collect-data-related-to-individuals-i-08bb9eb9f9`
 
-        - [x] [unit] 0001-we-explored-general-data-protection-regulation-gdpr-considerations-7209fbe285: We explored General Data Protection Regulation (GDPR) considerations and relevant materials.
+        - [ ] [unit] 0001-we-will-collect-data-related-to-individuals-i-5ed01d425e: We will collect data related to individuals, i.e. "personal data".
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0014-we-explored-general-data-protection-regulation-gdpr-considerations-02e43fbbe5/0001-we-explored-general-data-protection-regulation-gdpr-considerations-7209fbe285/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0014-we-will-collect-data-related-to-individuals-i-08bb9eb9f9/0001-we-will-collect-data-related-to-individuals-i-5ed01d425e/translation.md>)
 
-    - [x] [wrapper] 0015-we-collect-personal-data-for-the-benefit-of-8ef9f0147e (1/1)
+    - [x] [wrapper] 0015-we-explored-general-data-protection-regulation-gdpr-considerations-02e43fbbe5 (1/1)
 
-      [W] `0015-we-collect-personal-data-for-the-benefit-of-8ef9f0147e`
+      [W] `0015-we-explored-general-data-protection-regulation-gdpr-considerations-02e43fbbe5`
 
-        - [x] [unit] 0001-we-collect-personal-data-for-the-benefit-of-73aab6b539: We collect personal data for the benefit of society, and this is more important than the privacy of the subjects (i.e. public interest).
+        - [x] [unit] 0001-we-explored-general-data-protection-regulation-gdpr-considerations-7b18d4135a: We explored General Data Protection Regulation (GDPR) considerations and relevant materials.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0015-we-collect-personal-data-for-the-benefit-of-8ef9f0147e/0001-we-collect-personal-data-for-the-benefit-of-73aab6b539/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0015-we-explored-general-data-protection-regulation-gdpr-considerations-02e43fbbe5/0001-we-explored-general-data-protection-regulation-gdpr-considerations-7b18d4135a/translation.md>)
 
-    - [x] [wrapper] 0016-we-ask-the-data-subjects-for-their-consent-0d5a4714fd (1/1)
+    - [x] [wrapper] 0016-we-collect-personal-data-for-the-benefit-of-8ef9f0147e (1/1)
 
-      [W] `0016-we-ask-the-data-subjects-for-their-consent-0d5a4714fd`
+      [W] `0016-we-collect-personal-data-for-the-benefit-of-8ef9f0147e`
 
-        - [x] [unit] 0001-we-ask-the-data-subjects-for-their-consent-9bad45cc66: We ask the data subjects for their consent.
+        - [x] [unit] 0001-we-collect-personal-data-for-the-benefit-of-58f2f59cec: We collect personal data for the benefit of society, and this is more important than the privacy of the subjects (i.e. public interest).
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0016-we-ask-the-data-subjects-for-their-consent-0d5a4714fd/0001-we-ask-the-data-subjects-for-their-consent-9bad45cc66/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0016-we-collect-personal-data-for-the-benefit-of-8ef9f0147e/0001-we-collect-personal-data-for-the-benefit-of-58f2f59cec/translation.md>)
 
-    - [x] [wrapper] 0017-we-collect-consent-for-our-specific-use-of-d832e6504b (1/1)
+    - [x] [wrapper] 0017-we-ask-the-data-subjects-for-their-consent-0d5a4714fd (1/1)
 
-      [W] `0017-we-collect-consent-for-our-specific-use-of-d832e6504b`
+      [W] `0017-we-ask-the-data-subjects-for-their-consent-0d5a4714fd`
 
-        - [x] [unit] 0001-we-collect-consent-for-our-specific-use-of-ab81b73174: We collect consent for our specific use of the data.
+        - [x] [unit] 0001-we-ask-the-data-subjects-for-their-consent-5665190703: We ask the data subjects for their consent.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0017-we-collect-consent-for-our-specific-use-of-d832e6504b/0001-we-collect-consent-for-our-specific-use-of-ab81b73174/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0017-we-ask-the-data-subjects-for-their-consent-0d5a4714fd/0001-we-ask-the-data-subjects-for-their-consent-5665190703/translation.md>)
 
-    - [x] [wrapper] 0018-we-collect-consent-for-our-use-as-well-336d20d57d (1/1)
+    - [x] [wrapper] 0018-we-collect-consent-for-our-specific-use-of-d832e6504b (1/1)
 
-      [W] `0018-we-collect-consent-for-our-use-as-well-336d20d57d`
+      [W] `0018-we-collect-consent-for-our-specific-use-of-d832e6504b`
 
-        - [x] [unit] 0001-we-collect-consent-for-our-use-as-well-afbf3d9af5: We collect consent for our use as well as for reuse of the data.
+        - [x] [unit] 0001-we-collect-consent-for-our-specific-use-of-00776fd945: We collect consent for our specific use of the data.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0018-we-collect-consent-for-our-use-as-well-336d20d57d/0001-we-collect-consent-for-our-use-as-well-afbf3d9af5/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0018-we-collect-consent-for-our-specific-use-of-d832e6504b/0001-we-collect-consent-for-our-specific-use-of-00776fd945/translation.md>)
 
-    - [x] [wrapper] 0019-we-will-collect-consent-for-our-use-of-6beeb016c1 (1/1)
+    - [x] [wrapper] 0019-we-collect-consent-for-our-use-as-well-336d20d57d (1/1)
 
-      [W] `0019-we-will-collect-consent-for-our-use-of-6beeb016c1`
+      [W] `0019-we-collect-consent-for-our-use-as-well-336d20d57d`
 
-        - [x] [unit] 0001-we-will-collect-consent-for-our-use-of-817ffcd80c: We will collect consent for our use of the data and for anonymization; We will anonymize the data afterwards for reuse.
+        - [x] [unit] 0001-we-collect-consent-for-our-use-as-well-90e4534e19: We collect consent for our use as well as for reuse of the data.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0019-we-will-collect-consent-for-our-use-of-6beeb016c1/0001-we-will-collect-consent-for-our-use-of-817ffcd80c/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0019-we-collect-consent-for-our-use-as-well-336d20d57d/0001-we-collect-consent-for-our-use-as-well-90e4534e19/translation.md>)
 
-    - [x] [wrapper] 0020-we-ask-for-consent-for-anonymization-we-will-77880f3b34 (1/1)
+    - [x] [wrapper] 0020-we-will-collect-consent-for-our-use-of-6beeb016c1 (1/1)
 
-      [W] `0020-we-ask-for-consent-for-anonymization-we-will-77880f3b34`
+      [W] `0020-we-will-collect-consent-for-our-use-of-6beeb016c1`
 
-        - [x] [unit] 0001-we-ask-for-consent-for-anonymization-we-will-934a9d7000: We ask for consent for anonymization; We will anonymize first and all further processing is on the anonymous data.
+        - [x] [unit] 0001-we-will-collect-consent-for-our-use-of-303d841f26: We will collect consent for our use of the data and for anonymization; We will anonymize the data afterwards for reuse.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0020-we-ask-for-consent-for-anonymization-we-will-77880f3b34/0001-we-ask-for-consent-for-anonymization-we-will-934a9d7000/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0020-we-will-collect-consent-for-our-use-of-6beeb016c1/0001-we-will-collect-consent-for-our-use-of-303d841f26/translation.md>)
 
-    - [x] [wrapper] 0021-the-data-subjects-will-be-informed-as-follows-e656a85dc6 (1/1)
+    - [x] [wrapper] 0021-we-ask-for-consent-for-anonymization-we-will-77880f3b34 (1/1)
 
-      [W] `0021-the-data-subjects-will-be-informed-as-follows-e656a85dc6`
+      [W] `0021-we-ask-for-consent-for-anonymization-we-will-77880f3b34`
 
-        - [x] [unit] 0001-the-data-subjects-will-be-informed-as-follows-dd6d1c8475: The data subjects will be informed as follows:
+        - [x] [unit] 0001-we-ask-for-consent-for-anonymization-we-will-896fec06e8: We ask for consent for anonymization; We will anonymize first and all further processing is on the anonymous data.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0021-the-data-subjects-will-be-informed-as-follows-e656a85dc6/0001-the-data-subjects-will-be-informed-as-follows-dd6d1c8475/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0021-we-ask-for-consent-for-anonymization-we-will-77880f3b34/0001-we-ask-for-consent-for-anonymization-we-will-896fec06e8/translation.md>)
 
-    - [x] [wrapper] 0022-the-consent-form-will-not-be-available-for-c3fe2b26ef (1/1)
+    - [x] [wrapper] 0022-the-data-subjects-will-be-informed-as-follows-e656a85dc6 (1/1)
 
-      [W] `0022-the-consent-form-will-not-be-available-for-c3fe2b26ef`
+      [W] `0022-the-data-subjects-will-be-informed-as-follows-e656a85dc6`
 
-        - [x] [unit] 0001-the-consent-form-will-not-be-available-for-a2cb925468: The consent form will not be available for re-users.
+        - [x] [unit] 0001-the-data-subjects-will-be-informed-as-follows-4f4a773b7c: The data subjects will be informed as follows:
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0022-the-consent-form-will-not-be-available-for-c3fe2b26ef/0001-the-consent-form-will-not-be-available-for-a2cb925468/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0022-the-data-subjects-will-be-informed-as-follows-e656a85dc6/0001-the-data-subjects-will-be-informed-as-follows-4f4a773b7c/translation.md>)
 
-    - [x] [wrapper] 0023-the-consent-form-will-be-available-for-re-b6e99d5427 (1/1)
+    - [x] [wrapper] 0023-the-consent-form-will-not-be-available-for-c3fe2b26ef (1/1)
 
-      [W] `0023-the-consent-form-will-be-available-for-re-b6e99d5427`
+      [W] `0023-the-consent-form-will-not-be-available-for-c3fe2b26ef`
 
-        - [x] [unit] 0001-the-consent-form-will-be-available-for-re-c854eb0272: The consent form will be available for re-users.
+        - [x] [unit] 0001-the-consent-form-will-not-be-available-for-7233f5d021: The consent form will not be available for re-users.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0023-the-consent-form-will-be-available-for-re-b6e99d5427/0001-the-consent-form-will-be-available-for-re-c854eb0272/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0023-the-consent-form-will-not-be-available-for-c3fe2b26ef/0001-the-consent-form-will-not-be-available-for-7233f5d021/translation.md>)
 
-    - [x] [wrapper] 0024-the-procedure-for-obtaining-consent-from-data-subjects-5de93a0075 (1/1)
+    - [x] [wrapper] 0024-the-consent-form-will-be-available-for-re-b6e99d5427 (1/1)
 
-      [W] `0024-the-procedure-for-obtaining-consent-from-data-subjects-5de93a0075`
+      [W] `0024-the-consent-form-will-be-available-for-re-b6e99d5427`
 
-        - [x] [unit] 0001-the-procedure-for-obtaining-consent-from-data-subjects-799bb31d39: The procedure for obtaining consent from data subjects is set as follows:
+        - [x] [unit] 0001-the-consent-form-will-be-available-for-re-ea97ecdfa7: The consent form will be available for re-users.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0024-the-procedure-for-obtaining-consent-from-data-subjects-5de93a0075/0001-the-procedure-for-obtaining-consent-from-data-subjects-799bb31d39/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0024-the-consent-form-will-be-available-for-re-b6e99d5427/0001-the-consent-form-will-be-available-for-re-ea97ecdfa7/translation.md>)
 
-    - [x] [wrapper] 0025-we-use-a-different-legal-base-for-collection-7d905e7660 (1/1)
+    - [x] [wrapper] 0025-the-procedure-for-obtaining-consent-from-data-subjects-5de93a0075 (1/1)
 
-      [W] `0025-we-use-a-different-legal-base-for-collection-7d905e7660`
+      [W] `0025-the-procedure-for-obtaining-consent-from-data-subjects-5de93a0075`
 
-        - [x] [unit] 0001-we-use-a-different-legal-base-for-collection-9b2faee789: We use a different legal base for collection of personal data rather than public interest or consent-based:
+        - [x] [unit] 0001-the-procedure-for-obtaining-consent-from-data-subjects-185b57f13d: The procedure for obtaining consent from data subjects is set as follows:
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0025-we-use-a-different-legal-base-for-collection-7d905e7660/0001-we-use-a-different-legal-base-for-collection-9b2faee789/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0025-the-procedure-for-obtaining-consent-from-data-subjects-5de93a0075/0001-the-procedure-for-obtaining-consent-from-data-subjects-185b57f13d/translation.md>)
 
-    - [x] [wrapper] 0026-to-fulfil-a-contract-9844b04880 (1/1)
+    - [x] [wrapper] 0026-we-use-a-different-legal-base-for-collection-7d905e7660 (1/1)
 
-      [W] `0026-to-fulfil-a-contract-9844b04880`
+      [W] `0026-we-use-a-different-legal-base-for-collection-7d905e7660`
 
-        - [x] [unit] 0001-to-fulfil-a-contract-bd44d15ab4: to fulfil a contract.
+        - [x] [unit] 0001-we-use-a-different-legal-base-for-collection-8e93b60f3b: We use a different legal base for collection of personal data rather than public interest or consent-based:
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0026-to-fulfil-a-contract-9844b04880/0001-to-fulfil-a-contract-bd44d15ab4/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0026-we-use-a-different-legal-base-for-collection-7d905e7660/0001-we-use-a-different-legal-base-for-collection-8e93b60f3b/translation.md>)
 
-    - [x] [wrapper] 0027-legitimate-interest-df910d94a6 (1/1)
+    - [x] [wrapper] 0027-to-fulfil-a-contract-9844b04880 (1/1)
 
-      [W] `0027-legitimate-interest-df910d94a6`
+      [W] `0027-to-fulfil-a-contract-9844b04880`
 
-        - [x] [unit] 0001-legitimate-interest-af15462951: legitimate interest.
+        - [x] [unit] 0001-to-fulfil-a-contract-3ba8a51638: to fulfil a contract.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0027-legitimate-interest-df910d94a6/0001-legitimate-interest-af15462951/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0027-to-fulfil-a-contract-9844b04880/0001-to-fulfil-a-contract-3ba8a51638/translation.md>)
 
-    - [x] [wrapper] 0028-vital-interest-62dfb9ab6e (1/1)
+    - [x] [wrapper] 0028-legitimate-interest-df910d94a6 (1/1)
 
-      [W] `0028-vital-interest-62dfb9ab6e`
+      [W] `0028-legitimate-interest-df910d94a6`
 
-        - [x] [unit] 0001-vital-interest-2ed60ea09e: vital interest.
+        - [x] [unit] 0001-legitimate-interest-fdb8c0199a: legitimate interest.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0028-vital-interest-62dfb9ab6e/0001-vital-interest-2ed60ea09e/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0028-legitimate-interest-df910d94a6/0001-legitimate-interest-fdb8c0199a/translation.md>)
 
-    - [x] [wrapper] 0029-legal-requirement-f8f46cb242 (1/1)
+    - [x] [wrapper] 0029-vital-interest-62dfb9ab6e (1/1)
 
-      [W] `0029-legal-requirement-f8f46cb242`
+      [W] `0029-vital-interest-62dfb9ab6e`
 
-        - [x] [unit] 0001-legal-requirement-d125d2c433: legal requirement.
+        - [x] [unit] 0001-vital-interest-6b065ed703: vital interest.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0029-legal-requirement-f8f46cb242/0001-legal-requirement-d125d2c433/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0029-vital-interest-62dfb9ab6e/0001-vital-interest-6b065ed703/translation.md>)
 
-    - [x] [wrapper] 0030-the-purpose-of-processing-the-personal-data-can-bdf6778c2d (1/1)
+    - [x] [wrapper] 0030-legal-requirement-f8f46cb242 (1/1)
 
-      [W] `0030-the-purpose-of-processing-the-personal-data-can-bdf6778c2d`
+      [W] `0030-legal-requirement-f8f46cb242`
 
-        - [x] [unit] 0001-the-purpose-of-processing-the-personal-data-can-d446e18bfe: The purpose of processing the personal data can be described as follows:
+        - [x] [unit] 0001-legal-requirement-16480f6fe1: legal requirement.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0030-the-purpose-of-processing-the-personal-data-can-bdf6778c2d/0001-the-purpose-of-processing-the-personal-data-can-d446e18bfe/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0030-legal-requirement-f8f46cb242/0001-legal-requirement-16480f6fe1/translation.md>)
 
-    - [x] [wrapper] 0031-we-need-to-conduct-a-data-protection-impact-ff63f188f7 (1/1)
+    - [x] [wrapper] 0031-the-purpose-of-processing-the-personal-data-can-bdf6778c2d (1/1)
 
-      [W] `0031-we-need-to-conduct-a-data-protection-impact-ff63f188f7`
+      [W] `0031-the-purpose-of-processing-the-personal-data-can-bdf6778c2d`
 
-        - [x] [unit] 0001-we-need-to-conduct-a-data-protection-impact-5c9d715240: We need to conduct a data protection impact assessment (DPIA).
+        - [x] [unit] 0001-the-purpose-of-processing-the-personal-data-can-4a90857072: The purpose of processing the personal data can be described as follows:
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0031-we-need-to-conduct-a-data-protection-impact-ff63f188f7/0001-we-need-to-conduct-a-data-protection-impact-5c9d715240/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0031-the-purpose-of-processing-the-personal-data-can-bdf6778c2d/0001-the-purpose-of-processing-the-personal-data-can-4a90857072/translation.md>)
 
-    - [x] [wrapper] 0032-the-data-collection-is-not-subject-to-ethical-2e23b75895 (1/1)
+    - [x] [wrapper] 0032-we-need-to-conduct-a-data-protection-impact-ff63f188f7 (1/1)
 
-      [W] `0032-the-data-collection-is-not-subject-to-ethical-2e23b75895`
+      [W] `0032-we-need-to-conduct-a-data-protection-impact-ff63f188f7`
 
-        - [x] [unit] 0001-the-data-collection-is-not-subject-to-ethical-782eea306d: The data collection is not subject to ethical legislation.
+        - [x] [unit] 0001-we-need-to-conduct-a-data-protection-impact-5bc0f303f5: We need to conduct a data protection impact assessment (DPIA).
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0032-the-data-collection-is-not-subject-to-ethical-2e23b75895/0001-the-data-collection-is-not-subject-to-ethical-782eea306d/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0032-we-need-to-conduct-a-data-protection-impact-ff63f188f7/0001-we-need-to-conduct-a-data-protection-impact-5bc0f303f5/translation.md>)
 
-    - [x] [wrapper] 0033-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50 (5/5)
+    - [x] [wrapper] 0033-the-data-collection-is-not-subject-to-ethical-2e23b75895 (1/1)
 
-      [W] `0033-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50`
+      [W] `0033-the-data-collection-is-not-subject-to-ethical-2e23b75895`
 
-        - [x] [unit] 0001-the-data-collection-is-subject-to-ethical-legislation-9fc6ccff1c: The data collection is subject to ethical legislation.
+        - [x] [unit] 0001-the-data-collection-is-not-subject-to-ethical-a4129eba17: The data collection is not subject to ethical legislation.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0033-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0001-the-data-collection-is-subject-to-ethical-legislation-9fc6ccff1c/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0033-the-data-collection-is-not-subject-to-ethical-2e23b75895/0001-the-data-collection-is-not-subject-to-ethical-a4129eba17/translation.md>)
 
-        - [x] [unit] 0002-it-is-not-covered-by-ethical-review-55f4092e0d: It is not covered by ethical review.
+    - [x] [wrapper] 0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50 (5/5)
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0033-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0002-it-is-not-covered-by-ethical-review-55f4092e0d/translation.md>)
+      [W] `0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50`
 
-        - [x] [unit] 0003-it-is-covered-by-ethical-review-d4986a3317: It is covered by ethical review.
+        - [x] [unit] 0001-the-data-collection-is-subject-to-ethical-legislation-ff8a918cda: The data collection is subject to ethical legislation.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0033-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0003-it-is-covered-by-ethical-review-d4986a3317/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0001-the-data-collection-is-subject-to-ethical-legislation-ff8a918cda/translation.md>)
 
-        - [x] [unit] 0004-it-does-not-involve-human-subjects-5dc348fd8a: It does not involve human subjects.
+        - [x] [unit] 0002-it-is-not-covered-by-ethical-review-f41742d038: It is not covered by ethical review.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0033-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0004-it-does-not-involve-human-subjects-5dc348fd8a/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0002-it-is-not-covered-by-ethical-review-f41742d038/translation.md>)
 
-        - [x] [unit] 0005-it-involves-human-subjects-fcbd24eb32: It involves human subjects.
+        - [x] [unit] 0003-it-is-covered-by-ethical-review-072328cb13: It is covered by ethical review.
 
-          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0033-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0005-it-involves-human-subjects-fcbd24eb32/translation.md>)
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0003-it-is-covered-by-ethical-review-072328cb13/translation.md>)
+
+        - [x] [unit] 0004-it-does-not-involve-human-subjects-6ac738738e: It does not involve human subjects.
+
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0004-it-does-not-involve-human-subjects-6ac738738e/translation.md>)
+
+        - [x] [unit] 0005-it-involves-human-subjects-c07d086818: It involves human subjects.
+
+          [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0034-the-data-collection-is-subject-to-ethical-legislation-27cbb89b50/0005-it-involves-human-subjects-c07d086818/translation.md>)
 
 - [x] [file] src/questions/10-share-restrictions.html.j2 (55/55)
 
