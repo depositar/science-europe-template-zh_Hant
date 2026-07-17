@@ -13,7 +13,7 @@ when the target language needs it.
 ### Translation (zh_Hant)
 
 ~~~jinja
-7. 若處理個人資料，將如何確保符合個人資料與安全相關法規？
+7. 若處理個人資料，將如何確保遵循個人資料保護與資料安全相關法規？
 ~~~
 
 <details>
