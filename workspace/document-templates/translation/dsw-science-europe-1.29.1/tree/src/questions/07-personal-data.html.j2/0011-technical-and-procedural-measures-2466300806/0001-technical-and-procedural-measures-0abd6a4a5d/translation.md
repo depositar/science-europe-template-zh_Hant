@@ -13,7 +13,7 @@ Technical and procedural measures
 ### Translation (zh_Hant)
 
 ~~~jinja
-技術與程序性措施
+技術與程序措施
 ~~~
 
 <details>
