@@ -13,7 +13,7 @@ We will collect data related to individuals, i.e. "personal data".
 ### Translation (zh_Hant)
 
 ~~~jinja
-
+我們將蒐集與個人相關的資料，即「個人資料」。
 ~~~
 
 <details>
