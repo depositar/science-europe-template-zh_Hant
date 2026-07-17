@@ -13,7 +13,7 @@ It is covered by ethical review.
 ### Translation (zh_Hant)
 
 ~~~jinja
-屬於倫理審查範圍。
+此資料蒐集屬於倫理審查範圍。
 ~~~
 
 <details>
