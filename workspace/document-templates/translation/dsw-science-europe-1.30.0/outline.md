@@ -2420,7 +2420,7 @@
 
           [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0026-for-the-reference-and-non-reference-data-sets-bb97395b96/0009-it-is-available-under-specific-restrictions-which-we-f53435b12a/translation.md>)
 
-- [ ] [file] src/questions/09-ethical-issues.html.j2 (43/44)
+- [x] [file] src/questions/09-ethical-issues.html.j2 (44/44)
 
   [J2] `src/questions/09-ethical-issues.html.j2`
 
@@ -2552,11 +2552,11 @@
 
           [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0013-we-will-not-collect-any-data-related-to-8cac0b5e3a/0001-we-will-not-collect-any-data-related-to-c5a18c7ffc/translation.md>)
 
-    - [ ] [wrapper] 0014-we-will-collect-data-related-to-individuals-i-08bb9eb9f9 (0/1)
+    - [x] [wrapper] 0014-we-will-collect-data-related-to-individuals-i-08bb9eb9f9 (1/1)
 
       [W] `0014-we-will-collect-data-related-to-individuals-i-08bb9eb9f9`
 
-        - [ ] [unit] 0001-we-will-collect-data-related-to-individuals-i-5ed01d425e: We will collect data related to individuals, i.e. "personal data".
+        - [x] [unit] 0001-we-will-collect-data-related-to-individuals-i-5ed01d425e: We will collect data related to individuals, i.e. "personal data".
 
           [T] [translation](<tree/src/questions/09-ethical-issues.html.j2/0014-we-will-collect-data-related-to-individuals-i-08bb9eb9f9/0001-we-will-collect-data-related-to-individuals-i-5ed01d425e/translation.md>)
 

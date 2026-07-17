@@ -13,7 +13,7 @@ The repository will assign the persistent identifier.
 ### Translation (zh_Hant)
 
 ~~~jinja
-資料儲存庫將指派持續識別碼。
+資料儲存庫將編配持續識別碼。
 ~~~
 
 <details>
