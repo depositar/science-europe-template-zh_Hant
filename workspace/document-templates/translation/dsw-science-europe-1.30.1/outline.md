@@ -2152,53 +2152,53 @@
 
           [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0003-all-of-our-data-can-become-completely-open-4d3eb48526/0001-all-of-our-data-can-become-completely-open-d3e20636e6/translation.md>)
 
-    - [x] [wrapper] 0004-the-data-cannot-become-completely-open-because-of-236e503f96 (11/11)
+    - [x] [wrapper] 0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6 (11/11)
 
-      [W] `0004-the-data-cannot-become-completely-open-because-of-236e503f96`
+      [W] `0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6`
 
-        - [x] [unit] 0001-the-data-cannot-become-completely-open-because-aa7ff2609c: The data cannot become completely open because
+        - [x] [unit] 0001-the-data-cannot-become-completely-open-because-of-f798456a29: The data cannot become completely open because of legal reasons.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0001-the-data-cannot-become-completely-open-because-aa7ff2609c/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0001-the-data-cannot-become-completely-open-because-of-f798456a29/translation.md>)
 
-        - [x] [unit] 0002-of-legal-reasons-523e971fa9: of legal reasons.
+        - [x] [unit] 0002-the-data-cannot-become-completely-open-because-of-99fecf450b: The data cannot become completely open because of patent-related business reasons.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0002-of-legal-reasons-523e971fa9/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0002-the-data-cannot-become-completely-open-because-of-99fecf450b/translation.md>)
 
-        - [x] [unit] 0003-of-patent-related-business-reasons-1b7f143698: of patent-related business reasons.
+        - [x] [unit] 0003-the-data-cannot-become-completely-open-because-of-02d4889759: The data cannot become completely open because of non-patent business reasons{notOpenBusinessReasonsOther}
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0003-of-patent-related-business-reasons-1b7f143698/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0003-the-data-cannot-become-completely-open-because-of-02d4889759/translation.md>)
 
-        - [x] [unit] 0004-of-non-patent-business-reasons-d8252bf59b: of non-patent business reasons{notOpenBusinessReasonsOther}
+        - [x] [unit] 0004-the-data-cannot-become-completely-open-because-we-576002cb94: The data cannot become completely open because we want to publish a paper first.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0004-of-non-patent-business-reasons-d8252bf59b/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0004-the-data-cannot-become-completely-open-because-we-576002cb94/translation.md>)
 
-        - [x] [unit] 0005-we-want-to-publish-a-paper-first-4df0625a9a: we want to publish a paper first.
+        - [x] [unit] 0005-the-data-cannot-become-completely-open-because-we-035c799da2: The data cannot become completely open because we have other than paper-publishing reasons{notOpenOtherReasonsOther}
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0005-we-want-to-publish-a-paper-first-4df0625a9a/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0005-the-data-cannot-become-completely-open-because-we-035c799da2/translation.md>)
 
-        - [x] [unit] 0006-we-have-other-than-paper-publishing-reasons-10a59d580d: we have other than paper-publishing reasons{notOpenOtherReasonsOther}
+        - [x] [unit] 0006-the-data-cannot-become-completely-open-because-of-75322890e7: The data cannot become completely open because of:
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0006-we-have-other-than-paper-publishing-reasons-10a59d580d/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0006-the-data-cannot-become-completely-open-because-of-75322890e7/translation.md>)
 
         - [x] [unit] 0007-legal-reasons-be3cdc62f3: legal reasons.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0007-legal-reasons-be3cdc62f3/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0007-legal-reasons-be3cdc62f3/translation.md>)
 
         - [x] [unit] 0008-patent-related-business-reasons-7ad0a48152: patent-related business reasons.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0008-patent-related-business-reasons-7ad0a48152/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0008-patent-related-business-reasons-7ad0a48152/translation.md>)
 
         - [x] [unit] 0009-non-patent-business-reasons-8ece2ea568: non-patent business reasons{notOpenBusinessReasonsOther}.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0009-non-patent-business-reasons-8ece2ea568/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0009-non-patent-business-reasons-8ece2ea568/translation.md>)
 
         - [x] [unit] 0010-we-want-to-publish-a-paper-first-a4eafe018d: we want to publish a paper first.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0010-we-want-to-publish-a-paper-first-a4eafe018d/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0010-we-want-to-publish-a-paper-first-a4eafe018d/translation.md>)
 
         - [x] [unit] 0011-we-have-other-than-paper-publishing-reasons-d393520523: we have other than paper-publishing reasons{notOpenOtherReasonsOther}.
 
-          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-236e503f96/0011-we-have-other-than-paper-publishing-reasons-d393520523/translation.md>)
+          [T] [translation](<tree/src/questions/08-copyright-ipr.html.j2/0004-the-data-cannot-become-completely-open-because-of-dc66b49ee6/0011-we-have-other-than-paper-publishing-reasons-d393520523/translation.md>)
 
     - [x] [wrapper] 0005-the-data-cannot-become-completely-open-0f1d3ff96b (1/1)
 

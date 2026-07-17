@@ -132,6 +132,12 @@
       {
         "group_id": "science-europe.unbalanced.structure",
         "rationale": "Repair sentence boundaries hidden inside unbalanced HTML/Jinja flows.",
+        "source_file": "src/questions/08-copyright-ipr.html.j2",
+        "match_count": 1
+      },
+      {
+        "group_id": "science-europe.unbalanced.structure",
+        "rationale": "Repair sentence boundaries hidden inside unbalanced HTML/Jinja flows.",
         "source_file": "src/questions/15-required-resources.html.j2",
         "match_count": 1
       }
