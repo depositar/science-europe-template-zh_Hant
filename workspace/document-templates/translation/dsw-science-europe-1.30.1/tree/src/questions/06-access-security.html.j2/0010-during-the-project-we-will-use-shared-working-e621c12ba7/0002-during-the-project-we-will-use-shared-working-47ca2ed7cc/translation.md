@@ -13,7 +13,7 @@ During the project we will use shared working space to work with our data but we
 ### Translation (zh_Hant)
 
 ~~~jinja
-專案期間，我們將使用共享工作區處理資料，但所有重要資料也會另存於其他位置。
+專案期間，我們將使用共享工作空間處理資料，但所有重要資料也會另存於其他位置。
 ~~~
 
 <details>

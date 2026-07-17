@@ -7,13 +7,13 @@ when the target language needs it.
 ### Sentence (en)
 
 ```text
-of non-patent business reasons{notOpenBusinessReasonsOther}
+we have other than paper-publishing reasons{notOpenOtherReasonsOther}.
 ```
 
 ### Translation (zh_Hant)
 
 ~~~jinja
-非專利相關的商業因素{notOpenBusinessReasonsOther}
+我們有論文發表以外的其他原因{notOpenOtherReasonsOther}。
 ~~~
 
 <details>
@@ -22,9 +22,9 @@ of non-patent business reasons{notOpenBusinessReasonsOther}
 - Source File: `src/questions/08-copyright-ipr.html.j2`
 - Wrapper Name: `__tr_block_0003`
 - Wrapper Order: `4`
-- Wrapper Key: `the-data-cannot-become-completely-open-because-of-236e503f96`
-- Unit Key: `of-non-patent-business-reasons-d8252bf59b`
-- Source Hash: `1199e6f648ff85588d3905bf7991f28f28d39380`
+- Wrapper Key: `the-data-cannot-become-completely-open-because-of-dc66b49ee6`
+- Unit Key: `we-have-other-than-paper-publishing-reasons-d393520523`
+- Source Hash: `90c301aa3fc415a6e68c2b0d7b4f2fb5549ebbcd`
 
 Do not edit this section manually.
 

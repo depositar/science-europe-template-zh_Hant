@@ -35,24 +35,23 @@
       {%- set otherReasonsOther = notOpenOtherReasonsAUuid == uuids.notOpenOtherReasonsOtherAUuid -%}
       {%- set reasons = [legalReasons, businessReasonsPatents, businessReasonsOther, otherReasonsPapers, otherReasonsOther] -%}
       {%- set nReasons = reasons|select("true")|list|length -%}
-
+{# __tr_branch_sentence_original:CiAgICAgIHslLSBpZiBuUmVhc29ucyA-IDAgLSV9CiAgICAgICAgPHA-CiAgICAgICAgVGhlIGRhdGEgY2Fubm90IGJlY29tZSBjb21wbGV0ZWx5IG9wZW4gYmVjYXVzZSAKICAgICAgICB7JS0gaWYgblJlYXNvbnMgPT0gMSAtJX0KICAgICAgICAgIHslLSBpZiBsZWdhbFJlYXNvbnMgJX0KICAgICAgICAgICAgb2YgbGVnYWwgcmVhc29ucy4KICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc1BhdGVudHMgJX0KICAgICAgICAgICAgb2YgcGF0ZW50LXJlbGF0ZWQgYnVzaW5lc3MgcmVhc29ucy4KICAgICAgICAgIHslLSBlbGlmIGJ1c2luZXNzUmVhc29uc090aGVyICV9CiAgICAgICAgICAgIG9mIG5vbi1wYXRlbnQgYnVzaW5lc3MgcmVhc29uc3t7ICAiOiAiIH4gbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyfG1hcmtkb3duIGlmIG5vdE9wZW5CdXNpbmVzc1JlYXNvbnNPdGhlciBlbHNlICIuIiB9fQogICAgICAgICAgeyUtIGVsaWYgb3RoZXJSZWFzb25zUGFwZXJzICV9CiAgICAgICAgICAgIHdlIHdhbnQgdG8gcHVibGlzaCBhIHBhcGVyIGZpcnN0LgogICAgICAgICAgeyUtIGVsaWYgb3RoZXJSZWFzb25zT3RoZXIgJX0KICAgICAgICAgICAgd2UgaGF2ZSBvdGhlciB0aGFuIHBhcGVyLXB1Ymxpc2hpbmcgcmVhc29uc3t7ICI6ICIgfiBub3RPcGVuT3RoZXJSZWFzb25zT3RoZXJ8bWFya2Rvd24gaWYgbm90T3Blbk90aGVyUmVhc29uc090aGVyIGVsc2UgIi4iIH19CiAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgeyUtIGVsc2UgJX0KICAgICAgICAgIG9mOgogICAgICAgICAgPHVsPgogICAgICAgICAgICB7JS0gaWYgbGVnYWxSZWFzb25zICV9CiAgICAgICAgICAgICAgPGxpPmxlZ2FsIHJlYXNvbnM8L2xpPgogICAgICAgICAgICB7JS0gZW5kaWYgLSV9CiAgICAgICAgICAgIHslLSBpZiBidXNpbmVzc1JlYXNvbnNQYXRlbnRzICV9CiAgICAgICAgICAgICAgPGxpPnBhdGVudC1yZWxhdGVkIGJ1c2luZXNzIHJlYXNvbnM8L2xpPgogICAgICAgICAgICB7JS0gZWxpZiBidXNpbmVzc1JlYXNvbnNPdGhlciAlfQogICAgICAgICAgICAgIDxsaT5ub24tcGF0ZW50IGJ1c2luZXNzIHJlYXNvbnN7eyAiOiAiIH4gbm90T3BlbkJ1c2luZXNzUmVhc29uc090aGVyfG1hcmtkb3duIGlmIG5vdE9wZW5CdXNpbmVzc1JlYXNvbnNPdGhlciBlbHNlICIiIH19PC9saT4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgICB7JS0gaWYgb3RoZXJSZWFzb25zUGFwZXJzICV9CiAgICAgICAgICAgICAgPGxpPndlIHdhbnQgdG8gcHVibGlzaCBhIHBhcGVyIGZpcnN0PC9saT4KICAgICAgICAgICAgeyUtIGVsaWYgb3RoZXJSZWFzb25zT3RoZXIgLSV9CiAgICAgICAgICAgICAgPGxpPndlIGhhdmUgb3RoZXIgdGhhbiBwYXBlci1wdWJsaXNoaW5nIHJlYXNvbnN7eyAiOiAiIH4gbm90T3Blbk90aGVyUmVhc29uc090aGVyfG1hcmtkb3duIGlmIG5vdE9wZW5PdGhlclJlYXNvbnNPdGhlciBlbHNlICIiIH19PC9saT4KICAgICAgICAgICAgeyUtIGVuZGlmIC0lfQogICAgICAgICAgPC91bD4KICAgICAgICB7JS0gZW5kaWYgLSV9Cg== #}
       {%- if nReasons > 0 -%}
         {# __tr_block_0003:start #}<p>
-        The data cannot become completely open because 
         {%- if nReasons == 1 -%}
           {%- if legalReasons %}
-            of legal reasons.
+            The data cannot become completely open because of legal reasons.
           {%- elif businessReasonsPatents %}
-            of patent-related business reasons.
+            The data cannot become completely open because of patent-related business reasons.
           {%- elif businessReasonsOther %}
-            of non-patent business reasons{{  ": " ~ notOpenBusinessReasonsOther|markdown if notOpenBusinessReasonsOther else "." }}
+            The data cannot become completely open because of non-patent business reasons{{  ": " ~ notOpenBusinessReasonsOther|markdown if notOpenBusinessReasonsOther else "." }}
           {%- elif otherReasonsPapers %}
-            we want to publish a paper first.
+            The data cannot become completely open because we want to publish a paper first.
           {%- elif otherReasonsOther %}
-            we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther|markdown if notOpenOtherReasonsOther else "." }}
+            The data cannot become completely open because we have other than paper-publishing reasons{{ ": " ~ notOpenOtherReasonsOther|markdown if notOpenOtherReasonsOther else "." }}
           {%- endif -%}
         {%- else %}
-          of:
+          The data cannot become completely open because of:
           <ul>
             {%- if legalReasons %}
               <li>legal reasons</li>
@@ -69,7 +68,7 @@
             {%- endif -%}
           </ul>
         {%- endif -%}{# __tr_block_0003:end #}
-      {%- else -%}
+{# __tr_branch_sentence_original:end #}      {%- else -%}
         {# __tr_block_0004:start #}<p>The data cannot become completely open.</p>{# __tr_block_0004:end #}
       {%- endif -%}
 

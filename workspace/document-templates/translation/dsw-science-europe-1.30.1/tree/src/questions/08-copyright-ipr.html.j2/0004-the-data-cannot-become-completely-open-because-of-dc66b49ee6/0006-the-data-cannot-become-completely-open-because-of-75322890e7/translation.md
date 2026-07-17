@@ -7,13 +7,13 @@ when the target language needs it.
 ### Sentence (en)
 
 ```text
-patent-related business reasons.
+The data cannot become completely open because of:
 ```
 
 ### Translation (zh_Hant)
 
 ~~~jinja
-與專利相關的商業因素。
+資料無法完全開放，原因如下：
 ~~~
 
 <details>
@@ -22,9 +22,9 @@ patent-related business reasons.
 - Source File: `src/questions/08-copyright-ipr.html.j2`
 - Wrapper Name: `__tr_block_0003`
 - Wrapper Order: `4`
-- Wrapper Key: `the-data-cannot-become-completely-open-because-of-236e503f96`
-- Unit Key: `patent-related-business-reasons-7ad0a48152`
-- Source Hash: `4834b0c3b4479ae147b575a89634cda7c9d5d5ce`
+- Wrapper Key: `the-data-cannot-become-completely-open-because-of-dc66b49ee6`
+- Unit Key: `the-data-cannot-become-completely-open-because-of-75322890e7`
+- Source Hash: `f5887669c6cb267ac68908d312b43b772c5e9400`
 
 Do not edit this section manually.
 
