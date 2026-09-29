@@ -28,7 +28,7 @@ when enabling automation; `true` is intentionally rejected as ambiguous.
 
 | Value | Behavior |
 | --- | --- |
-| `artifact` | Scheduled automation and manual runs may rebuild the version from clean tool artifacts. |
+| `artifact` | Operations dispatches may rebuild the version from clean tool artifacts. |
 | `manual` | Only `workflow_dispatch` runs may act on the version. |
 | `false` | Automation must not refresh or synchronize into the version. |
 
@@ -75,7 +75,7 @@ translate that version.
 ## Freezing an Older Version
 
 Use a maintenance rule only when the team wants a version to remain supported
-but no longer follow scheduled scaffold refreshes:
+but no longer follow automatic scaffold refreshes:
 
 ```yaml
 - match: ">=v1.29.1 <v1.30.0"
@@ -117,8 +117,7 @@ receive clean scaffold refreshes or synchronized translation content.
 
 ## Operating Rules
 
-- Scheduled operations runs use `policy-mode=auto`.
-- Manual `workflow_dispatch` operations runs use `policy-mode=manual`.
+- Operations uses `workflow_dispatch` with `policy-mode=manual`; no default-branch schedule is required.
 - `template.supported_versions` is the known upstream version ledger, not the
   list of versions that must have translation branches.
 - A version becomes translator-facing only when `refresh` is `artifact` or
