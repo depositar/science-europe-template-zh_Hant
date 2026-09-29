@@ -172,10 +172,16 @@ not automatic edits or CI failures. Treat `exact-source` findings as stronger
 signals; `visible-source-only` findings may legitimately differ because their
 Jinja or HTML source hashes do not match.
 
-The consistency report expires after 7 days. Version-branch package and preview
-artifacts expire after 7 days, or 14 days for pull-request review. Completed PR
-artifacts are removed earlier after their PRs merge. Download review evidence
-before merging or before it expires; GitHub Release assets are not affected.
+The consistency report expires after 7 days. Generated version workflows retain
+package and preview artifacts for 7 days, or 14 days for pull-request review.
+To apply updated retention settings to existing version branches, run operations
+with `TRANSLATION_AUTOMATION_TOKEN` configured for workflow updates. Updating the
+tool alone does not rewrite existing workflows or shorten the lifetime of
+previously uploaded artifacts.
+
+Completed PR artifacts are removed earlier after their PRs merge. Download
+review evidence before merging or before it expires; GitHub Release assets are
+not affected.
 
 **Clean merged PR artifacts** checks ownership using GitHub metadata and skips
 running jobs, unmerged PRs, and artifacts with unknown ownership. It runs after
