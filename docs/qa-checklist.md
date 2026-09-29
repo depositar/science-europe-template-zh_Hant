@@ -1,0 +1,84 @@
+# QA Checklist
+
+Use this before importing a translated Science Europe document template into a
+DSW environment.
+
+## Branch and CI
+
+For the target version:
+
+- the target branch is the matching `sync/v*` branch
+- external XLIFF edits, if any, were imported into `translation.md` and audited
+  before review
+- CI is green on the branch or PR head
+- auto-repair commits, if any, are included
+- the generated package artifact exists
+- the demo preview artifact exists
+- the translated-package regression reports `render_success`, passes, and has
+  complete generated-fixture branch coverage
+- the latest operations `translation-consistency-report` has no unexplained
+  exact-source gap or wording drift for the target version
+
+## Release Assets
+
+On non-PR branch runs, confirm the versioned release exists:
+
+```bash
+TRANSLATION_REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
+
+gh release view science-europe-zh-hant-vX.Y.Z \
+  --repo "$TRANSLATION_REPO"
+```
+
+Expected assets:
+
+- `dsw-science-europe-zh-hant-vX.Y.Z.zip`
+- `test-project-vX.Y.Z.pdf`
+- `test-project-vX.Y.Z.pdf.json`
+- `regression-report-vX.Y.Z.json`
+- `regression-coverage-vX.Y.Z.json`
+- `SHA256SUMS`
+- `release-notes.md`
+
+Download the assets and verify the checksum before manual import.
+
+## Translation Structure
+
+Confirm CI or local checks covered:
+
+- translation block format is valid
+- placeholders such as `{name}` are preserved
+- raw Jinja is not introduced in translation text
+- translated output keeps the executable Jinja and HTML structure
+- blank blocks are intentional and not accidental English fallback
+- the actual package ZIP renders the complete selected fixture set; the demo
+  PDF alone is not the full package gate
+
+## PDF Review
+
+Open the preview PDF and inspect:
+
+- cover page title, project name, and metadata
+- table and list rendering
+- representative conditional sections
+- punctuation around optional sentences
+- terminology and i10n wording follow the [translation style guide](translation-style.md)
+- obvious fallback English text
+- heading/body font hierarchy and readability
+
+Do not change generated template structure just to improve wording. If a
+sentence is hard to translate because the translation unit is broken, fix the
+tooling in the configured tool repository and regenerate.
+
+## Manual Import
+
+Before importing into a public DSW environment:
+
+1. Download the versioned zip from the translation release.
+2. Verify `SHA256SUMS`.
+3. Import into a test DSW environment when possible.
+4. Render the demo project or a representative real project.
+5. Only then import into the intended target environment.
+
+Do not import directly from local `outputs/` unless that output was intentionally
+built, reviewed, and checksummed for the same version.
