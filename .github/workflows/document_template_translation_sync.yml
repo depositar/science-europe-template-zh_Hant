@@ -210,6 +210,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: translation-consistency-report
+          retention-days: 7
           path: ${{ runner.temp }}/translation-consistency/
           if-no-files-found: warn
 

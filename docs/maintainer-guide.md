@@ -5,6 +5,11 @@ template versions.
 
 ## Operations Branch
 
+Set the GitHub repository's default branch to `operations`, matching
+`branches.control_branch` in `translation-config.yml`. GitHub schedules run only
+from the default branch. Changing this repository setting requires an
+administrator; the upstream `main` branch can remain unchanged.
+
 `operations` is version-neutral. Keep it focused on:
 
 - `translation-config.yml`
@@ -161,6 +166,10 @@ maintenance branches. Translation gaps and wording drift are review prompts,
 not automatic edits or CI failures. Treat `exact-source` findings as stronger
 signals; `visible-source-only` findings may legitimately differ because their
 Jinja or HTML source hashes do not match.
+
+The consistency report expires after 7 days. Version-branch package and preview
+artifacts expire after 7 days, or 14 days for pull-request review. Download review
+evidence before it expires; GitHub Release assets are not affected.
 
 Successful non-refresh pushes to `sync/v*` branches dispatch the
 operations workflow so translation changes can fan out after the branch has
