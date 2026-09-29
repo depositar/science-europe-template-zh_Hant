@@ -288,6 +288,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: document-template-package-${{ env.TRANSLATED_TEMPLATE_VERSION }}
+          retention-days: ${{ github.event_name == 'pull_request' && 14 || 7 }}
           path: |
             template-repo/${{ env.TRANSLATED_TEMPLATE_DIR }}
             template-repo/${{ env.TRANSLATED_TEMPLATE_PACKAGE }}
@@ -391,6 +392,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: document-template-preview-${{ env.TRANSLATED_TEMPLATE_VERSION }}
+          retention-days: ${{ github.event_name == 'pull_request' && 14 || 7 }}
           path: |
             template-repo/outputs/project-render/
             template-repo/outputs/translated-regression/
