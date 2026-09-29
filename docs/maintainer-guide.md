@@ -5,10 +5,10 @@ template versions.
 
 ## Operations Branch
 
-Set the GitHub repository's default branch to `operations`, matching
-`branches.control_branch` in `translation-config.yml`. GitHub schedules run only
-from the default branch. Changing this repository setting requires an
-administrator; the upstream `main` branch can remain unchanged.
+Keep operations on `branches.control_branch` (`operations`) without changing
+the repository's default branch (`main`). Operations runs through explicit
+dispatch to that branch; artifact cleanup runs when a PR merges. Neither
+requires a scheduled workflow or changes to `main`.
 
 `operations` is version-neutral. Keep it focused on:
 
@@ -77,12 +77,12 @@ changing translation policy or removing a version.
 
 If upstream publishes a tag that still uses a configured DSW metamodel/runtime,
 the daily tool CI should build its clean scaffold artifact automatically. The
-daily operations workflow can then add the version to `translation-config.yml`,
+next operations dispatch can then add the version to `translation-config.yml`,
 but it does not automatically create a translation branch unless
 `version_policy` opts that version into refresh.
 
 Version lifecycle is controlled by `version_policy` in `translation-config.yml`.
-Use it to keep old versions available without letting scheduled automation
+Use it to keep old versions available without letting synchronization
 rewrite reviewed translation content. The current policy keeps newly discovered
 future versions scaffold-only by default and opts currently translated versions
 in explicitly. If the team wants to translate a newly discovered version, add an
@@ -90,11 +90,11 @@ active override or scoped rule. If the team later wants to slow down or freeze a
 older version, use a maintenance rule or an archived override. See
 [Version Lifecycle Policy](version-lifecycle-policy.md).
 
-To refresh immediately instead of waiting for the schedule:
+To refresh from the latest successful tool build:
 
 For configuration checks without translation changes, enable `validate_only` in
-the manual workflow form. A full synchronization verifies that the default branch
-matches `branches.control_branch` and downloads scaffold artifacts from a
+the manual workflow form. A full synchronization verifies that the selected
+dispatch branch matches `branches.control_branch` and downloads scaffold artifacts from a
 successful trusted CI run of the exact checked-out tool commit.
 
 ```bash
@@ -164,7 +164,7 @@ checks to pass, then performs a head-SHA-guarded merge. This does not depend on
 repository-native auto-merge settings. A failed or timed-out check leaves the
 PR open and does not change the target `sync/v*` branch.
 
-Each scheduled, manual, or version-triggered operations sync also uploads
+Each manual or version-triggered operations sync also uploads
 `translation-consistency-report`. This
 read-only report compares identical visible English sentences across active and
 maintenance branches. Translation gaps and wording drift are review prompts,
@@ -184,11 +184,13 @@ review evidence before merging or before it expires; GitHub Release assets are
 not affected.
 
 **Clean merged PR artifacts** checks ownership using GitHub metadata and skips
-running jobs, unmerged PRs, and artifacts with unknown ownership. It runs after
-merges, completed validation runs, and twice daily. Manual runs default to a
-dry-run plan; enable `apply` to delete up to 100 eligible artifacts. Later runs
-continue a larger backlog. Results stay in job logs and summaries; workflow runs
-and logs are not deleted.
+running jobs, unmerged PRs, and artifacts with unknown ownership. It runs only
+when a same-repository PR merges. The hook belongs on `operations` and each
+`sync/v*` target branch, so the default branch can remain `main`. Each merge
+cleans up to 100 eligible artifacts, including older merged PRs. Later merges
+continue a larger backlog. Artifacts from still-running CI or fork PRs wait for
+a later eligible merge or their retention expiry. Results stay in job logs and
+summaries; workflow runs and logs are not deleted.
 
 Successful non-refresh pushes to `sync/v*` branches dispatch the
 operations workflow so translation changes can fan out after the branch has

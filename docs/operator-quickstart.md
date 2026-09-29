@@ -103,8 +103,8 @@ the team opts them into `version_policy`.
 
 ## Manual Sync
 
-Use a manual sync when the tool repo has refreshed clean scaffold artifacts or
-you do not want to wait for the daily schedule:
+Dispatch operations when the tool repo has refreshed clean scaffold artifacts.
+Keep the repository default branch unchanged and select the control branch:
 
 ```shell
 gh workflow run document_template_translation_sync.yml \
@@ -200,8 +200,8 @@ PRs so exact-source changes can fan out to other automatic targets. Scaffold
 refresh commits with messages starting `chore: refresh ` intentionally skip
 this dispatch to avoid migration loops.
 
-Scheduled operations runs use the stricter `auto` version-policy mode. With the
-current policy, only explicitly active versions refresh. Scaffold-only versions
+Operations dispatches use `manual` version-policy mode. With the current policy,
+only explicitly active versions refresh. Scaffold-only versions
 remain recorded but do not get branches, migrations, or release refreshes until
 their policy changes.
 
