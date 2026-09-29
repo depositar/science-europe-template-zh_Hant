@@ -1,0 +1,24 @@
+name: Clean merged PR artifacts
+
+on:
+  pull_request:
+    types: [closed]
+    branches: ["sync/v1.29.1"]
+
+permissions:
+  contents: read
+  actions: write
+  pull-requests: read
+
+jobs:
+  cleanup:
+    if: >-
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    uses: ThreeMonth03/dsw-km-translation-tool/.github/workflows/cleanup_pr_artifacts.yml@6a6fe5c807d5d5f3f2484ce505e7b961b2f64526
+    with:
+      tooling_ref: 6a6fe5c807d5d5f3f2484ce505e7b961b2f64526
+      apply: true
+      artifact_patterns: |
+        document-template-package-*
+        document-template-preview-*
