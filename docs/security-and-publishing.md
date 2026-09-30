@@ -5,8 +5,11 @@ automatically import anything into DSW.
 
 ## Current Policy
 
-- GitHub Actions artifacts are run-scoped previews.
+- GitHub Actions artifacts are run-scoped PR previews retained for seven days;
+  failed-render diagnostics are retained for three days.
 - GitHub Release assets are versioned review/download buckets.
+- Successful release-publishing runs do not duplicate downloads as Actions
+  artifacts. If release publishing is disabled, Actions downloads remain available.
 - Public DSW import is manual.
 - `DOCUMENT_TEMPLATE_PUBLISH_TOKEN` is intentionally not required.
 
