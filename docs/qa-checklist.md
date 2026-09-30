@@ -12,11 +12,11 @@ For the target version:
   before review
 - CI is green on the branch or PR head
 - auto-repair commits, if any, are included
-- the generated package artifact exists
-- the demo preview artifact exists
+- the generated package ZIP and demo preview are available in PR artifacts or
+  the versioned GitHub Release
 - the translated-package regression reports `render_success`, passes, and has
   complete generated-fixture branch coverage
-- the latest operations `translation-consistency-report` has no unexplained
+- the latest operations job summary has no unexplained
   exact-source gap or wording drift for the target version
 
 ## Release Assets

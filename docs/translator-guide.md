@@ -70,20 +70,25 @@ When you push to a `sync/v*` branch or open a PR into one, CI will:
 - sync translations into a generated template
 - verify translated output did not break executable template structure
 - package the document template
-- render the shared demo project as a preview PDF artifact
+- render the shared demo project as a preview PDF
 
 If CI pushes an auto-repair commit, include it in the branch before continuing.
 Auto-repair only fixes structure; it does not decide wording.
 
 ## Review Artifacts
 
-Download the preview artifacts from the GitHub Actions run. The important files
-are:
+For PRs, download the package and compact preview artifacts from the GitHub
+Actions run within seven days. Failed renders retain diagnostic previews for
+three days. After merge, use the versioned GitHub Release assets; successful
+publishing runs do not upload a second Actions copy. The important files are:
 
 - translated document template zip
 - preview PDF
 - render JSON or failure status file
-- migration report, when the branch was created or refreshed by migration
+- render regression and coverage reports
+
+Migration and cross-version consistency reports appear in PR descriptions and
+Actions job summaries.
 
 Review the PDF for missing English fallback, broken placeholders, awkward word
 order, and glossary consistency. Use [Translation Terminology and

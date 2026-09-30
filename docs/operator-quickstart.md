@@ -116,9 +116,8 @@ This runs the operations workflow on the configured control branch. It
 validates `translation-config.yml`, downloads the latest clean scaffold
 artifacts from the configured tool repository, records newly available scaffold
 versions, refreshes policy-enabled `sync/v*` branches, and may open or
-update synchronization PRs. It also uploads a
-`translation-consistency-report` artifact comparing active and maintenance
-versions without changing their translation text.
+update synchronization PRs. Its job summary compares translation consistency
+across active and maintenance versions without changing their translation text.
 
 Those synchronization PRs contain only exact-source `translation.md` changes
 and an updated `outline.md` when progress changes. The detailed report appears
@@ -190,8 +189,10 @@ from the tool repo template.
 When a maintainer pushes to a `sync/v*` branch, or a translation PR runs
 against one, the branch workflow audits the translation tree, syncs the
 translated template, renders the demo preview, runs complete generated-fixture
-regression against the actual package ZIP, uploads Actions artifacts, and
-refreshes the versioned GitHub Release assets.
+regression against the actual package ZIP, and provides review downloads.
+PRs upload a package ZIP and compact preview for seven days. Successful branch
+runs publish versioned GitHub Release assets without duplicating those downloads
+as Actions artifacts. Failed renders retain diagnostic previews for three days.
 
 For normal translation-content pushes, a successful branch run also dispatches
 the operations workflow on the configured control branch. That operations run

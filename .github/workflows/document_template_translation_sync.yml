@@ -226,15 +226,6 @@ jobs:
             --markdown-report "$report_dir/report.md" \
             --summary "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload cross-version translation consistency report
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: translation-consistency-report
-          retention-days: 7
-          path: ${{ runner.temp }}/translation-consistency/
-          if-no-files-found: warn
-
       - name: Resolve synchronization source version
         id: source
         env:
